@@ -1,0 +1,1942 @@
+@use "utils" as *;
+@use "global" as *;
+
+.landing-page {
+  &.main {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(241 241 240);
+    overflow: hidden;
+  }
+
+  .mainContentSection {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contentBox {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1440px;
+    background-color: rgb(25 15 5);
+  }
+
+  .flexRow {
+    display: flex;
+    justify-content: space-between;
+    gap: 0 10px;
+    margin: 56px 3.96% 27px auto;
+    width: 870px;
+    max-width: 85%;
+
+    @include tn {
+      column-gap: 8px;
+      margin: 50px 3.96% 27px auto;
+    }
+  }
+
+  .welcomeImage {
+    margin: 8px 0 0;
+    width: 413px;
+    object-fit: contain;
+
+    @include md {
+      width: 330px;
+    }
+
+    @include sm {
+      width: 264px;
+    }
+
+    @include xs {
+      width: 211px;
+    }
+  }
+
+  .flexRowLogin {
+    display: flex;
+    gap: 0 4px;
+    margin: 0 0 34px;
+    width: 276px;
+    min-width: 0;
+
+    @include md {
+      display: none !important;
+    }
+  }
+
+  .loginBtn {
+    display: flex;
+    justify-content: center;
+    min-width: 136px;
+    font: 600 20px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+    text-align: center;
+    border-radius: 30px;
+    padding: 15px 40px;
+    outline: 4px solid rgb(254 254 252);
+    outline-offset: -4px;
+  }
+
+  .registerBtn {
+    display: flex;
+    justify-content: center;
+    min-width: 136px;
+    font: 600 20px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+    text-align: center;
+    border-radius: 30px;
+    padding: 15px 26px;
+    outline: 4px solid rgb(254 254 252);
+    outline-offset: -4px;
+  }
+
+  .imageLinksContent {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1440px;
+    background-color: rgb(25 15 5);
+  }
+
+  .flexRowImageLinks {
+    display: flex;
+    align-items: center;
+    gap: 0 30px;
+    margin: 14px auto 25px;
+    width: 89.44%;
+
+    @include xl {
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+
+  .imageLink {
+    width: 164px;
+    min-width: 0;
+    object-fit: cover;
+
+    @include xl {
+      width: 100%;
+      min-width: unset;
+      max-width: 164px;
+    }
+  }
+
+  .homeTitle {
+    font: 700 20px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(187 172 159);
+    text-decoration: underline;
+
+    @include xl {
+      width: 100%;
+    }
+
+    @include md {
+      align-items: flex-start;
+      font-size: 18px;
+    }
+
+    @include xxs {
+      font-size: 16px;
+    }
+  }
+
+  .productionEquipmentTitle {
+    font: 600 20px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(255 255 255);
+
+    @include xl {
+      width: 100%;
+    }
+
+    @include md {
+      align-items: flex-start;
+      font-size: 18px;
+    }
+
+    @include xxs {
+      font-size: 16px;
+    }
+  }
+
+  .servicesAndCoffeeTitle {
+    font: 600 20px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(255 255 255);
+
+    @include xl {
+      width: 100%;
+    }
+
+    @include md {
+      align-items: flex-start;
+      font-size: 18px;
+    }
+
+    @include xxs {
+      font-size: 16px;
+    }
+  }
+
+  .catalogTitle {
+    font: 600 20px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(255 255 255);
+
+    @include xl {
+      width: 100%;
+    }
+
+    @include md {
+      align-items: flex-start;
+      font-size: 18px;
+    }
+
+    @include xxs {
+      font-size: 16px;
+    }
+  }
+
+  .contactTitle {
+    font: 600 20px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(255 255 255);
+
+    @include xl {
+      width: 100%;
+    }
+
+    @include md {
+      align-items: flex-start;
+      font-size: 18px;
+    }
+
+    @include xxs {
+      font-size: 16px;
+    }
+  }
+
+  .findBtn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 10px;
+    min-width: 192px;
+    background-color: rgb(248 244 225);
+    border-radius: 15px;
+    padding: 3px 15px 3px 16px;
+
+    @include xl {
+      width: 100%;
+      min-width: unset;
+    }
+  }
+
+  .findButtonText {
+    min-width: 0;
+    font: 400 16px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(60 36 11 / 49.8%);
+  }
+
+  .findButtonIcon {
+    margin: 4px 0 3px;
+    width: 17px;
+    min-width: 0;
+  }
+
+  .additionalImage {
+    width: 25px;
+    object-fit: cover;
+
+    @include xl {
+      width: 100%;
+      max-width: 25px;
+    }
+  }
+
+  .qualityCoffeeShowcaseSection {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-image: radial-gradient(
+      327.46% 104.87% at 80.8% 17.52%,
+      #dbd1c2 0%,
+      #9b8369 30.13%,
+      #544334 89.43%,
+      #4b3b2d 100%
+    );
+  }
+
+  .coffeeImageFigure {
+    position: absolute;
+    top: 50%;
+    left: 570.995361328125px;
+    width: 868.99px;
+    transform: translate(0, -50%);
+  }
+
+  .flexibleColumnContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 26px 0;
+    margin: 159px 0 163px 9.03%;
+    width: 647.9976806640625px;
+    max-width: 85%;
+
+    @include md {
+      margin: 150px auto;
+    }
+
+    @include xs {
+      margin: 80px auto;
+    }
+
+    @include tn {
+      margin: 50px auto;
+    }
+  }
+
+  .heroTitle {
+    font: 800 42px/1.41 Montserrat, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 38px;
+    }
+
+    @include xxs {
+      font-size: 34px;
+    }
+  }
+
+  .mediumDescriptionTitle {
+    margin: 0 10px 0 0;
+    font: 600 24px/1.45 Raleway, Helvetica, Arial, serif;
+    color: rgb(252 250 241);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 22px;
+    }
+
+    @include xxs {
+      font-size: 20px;
+    }
+
+    @include tn {
+      margin: 0 8px 0 0;
+    }
+  }
+
+  .journeyToCoffeeSection {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flexColumnContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 125px auto 134px;
+    width: 995.995361328125px;
+    max-width: 85%;
+
+    @include xs {
+      margin: 80px auto;
+    }
+
+    @include tn {
+      margin: 50px auto;
+    }
+  }
+
+  .journeyHeroTitle {
+    display: flex;
+    justify-content: center;
+    font: 700 40px/1.22 Montserrat, Helvetica, Arial, serif;
+    color: rgb(35 21 7);
+    text-align: center;
+
+    @include md {
+      align-items: flex-start;
+      font-size: 36px;
+    }
+
+    @include xxs {
+      font-size: 32px;
+    }
+  }
+
+  .journeyMediumTitle {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0 0;
+    font: 500 24px/1.16 Raleway, Helvetica, Arial, serif;
+    color: rgb(60 36 11);
+    text-align: center;
+
+    @include md {
+      align-items: flex-start;
+      font-size: 22px;
+    }
+
+    @include xxs {
+      font-size: 20px;
+    }
+  }
+
+  .journeyImage {
+    margin: 22px 0 0;
+    width: 100%;
+    filter: drop-shadow(-4px 4px 5px rgb(143 143 143 / 25%));
+    object-fit: cover;
+  }
+
+  .learnAboutCoffeeSection {
+    display: flex;
+    flex-direction: column;
+    background: var(--src) center center / cover no-repeat;
+  }
+
+  .flexColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 87px 7.43% 87px auto;
+    width: 623.9930419921875px;
+    max-width: 85%;
+
+    @include xs {
+      margin: 80px 7.43% 80px auto;
+    }
+
+    @include tn {
+      margin: 50px 7.43% 50px auto;
+    }
+  }
+
+  .heroTitle1 {
+    display: flex;
+    justify-content: center;
+    font: 600 40px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+    text-align: center;
+
+    @include md {
+      align-items: flex-start;
+      font-size: 36px;
+    }
+
+    @include xxs {
+      font-size: 32px;
+    }
+  }
+
+  .mediumDescription {
+    display: flex;
+    justify-content: center;
+    margin: 14px 0 0;
+    width: 100%;
+    font: 400 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(252 250 241);
+    text-align: center;
+    letter-spacing: 1.44px;
+
+    @include md {
+      align-items: flex-start;
+      font-size: 22px;
+    }
+
+    @include xxs {
+      font-size: 20px;
+    }
+  }
+
+  .learnMoreBtn {
+    display: flex;
+    justify-content: center;
+    margin: 42px auto 0;
+    width: 216px;
+    max-width: 100%;
+    font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(255 255 255);
+    text-align: center;
+    background-color: rgb(84 47 16);
+    border-radius: 30px;
+    padding: 12px 18px;
+    outline: 1px solid rgb(254 254 252);
+    outline-offset: -1px;
+  }
+
+  .productsAndServicesSection {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flexColumn1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px 0;
+    margin: 134px auto 125px;
+    width: 1138.00927734375px;
+    max-width: 85%;
+
+    @include xs {
+      margin: 80px auto;
+    }
+
+    @include tn {
+      margin: 50px auto;
+    }
+  }
+
+  .productsAndServicesTitle {
+    font: 600 40px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(35 21 7);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 36px;
+    }
+
+    @include xxs {
+      font-size: 32px;
+    }
+  }
+
+  .flexRow1 {
+    display: flex;
+    justify-content: space-between;
+    gap: 0 10px;
+    width: 100%;
+
+    @include md {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px 10px;
+    }
+  }
+
+  .trainingContentBox {
+    display: flex;
+    flex-direction: column;
+    width: 251px;
+    min-width: 0;
+    background: var(--src) center center / cover no-repeat;
+
+    @include md {
+      width: 100%;
+      min-width: unset;
+    }
+  }
+
+  .trainingBtn {
+    display: flex;
+    justify-content: center;
+    margin: 277px 0 0;
+    font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+    text-align: center;
+    background-color: rgb(84 47 16);
+    border-radius: 10px;
+    padding: 12px 8px;
+    outline: 1px solid rgb(254 254 252);
+    outline-offset: -1px;
+  }
+
+  .toolsContentBox {
+    display: flex;
+    flex-direction: column;
+    width: 251px;
+    min-width: 0;
+    background: var(--src) center center / cover no-repeat;
+
+    @include md {
+      width: 100%;
+      min-width: unset;
+    }
+  }
+
+  .toolsBtn {
+    display: flex;
+    justify-content: center;
+    margin: 277px 0 0;
+    font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+    text-align: center;
+    background-color: rgb(84 47 16);
+    border-radius: 10px;
+    padding: 12px 8px;
+    outline: 1px solid rgb(254 254 252);
+    outline-offset: -1px;
+  }
+
+  .seedsContentBox {
+    display: flex;
+    flex-direction: column;
+    width: 251px;
+    min-width: 0;
+    background: var(--src) center center / cover no-repeat;
+
+    @include md {
+      width: 100%;
+      min-width: unset;
+    }
+  }
+
+  .seedsBtn {
+    display: flex;
+    justify-content: center;
+    margin: 277px 0 0;
+    font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+    text-align: center;
+    background-color: rgb(84 47 16);
+    border-radius: 10px;
+    padding: 12px 8px;
+    outline: 1px solid rgb(254 254 252);
+    outline-offset: -1px;
+  }
+
+  .readyToBrewContentBox {
+    display: flex;
+    flex-direction: column;
+    width: 252px;
+    min-width: 0;
+    background: var(--src) center center / cover no-repeat;
+
+    @include md {
+      width: 100%;
+      min-width: unset;
+    }
+  }
+
+  .readyToBrewBtn {
+    display: flex;
+    justify-content: center;
+    margin: 277px 0 0;
+    font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+    text-align: center;
+    background-color: rgb(84 47 16);
+    border-radius: 10px;
+    padding: 12px 26px;
+    outline: 1px solid rgb(254 254 252);
+    outline-offset: -1px;
+  }
+
+  .bestProductsSection {
+    display: flex;
+    flex-direction: column;
+    background-image: radial-gradient(
+      59.84% 28.18% at 17.95% 30.74%,
+      #af8f6f 23.67%,
+      #765c40 100%
+    );
+  }
+
+  .flexRow2 {
+    display: flex;
+    justify-content: space-between;
+    gap: 0 10px;
+    margin: 55px auto;
+    width: 1161.932861328125px;
+    max-width: 85%;
+
+    @include md {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px 10px;
+    }
+
+    @include tn {
+      margin: 50px auto;
+    }
+  }
+
+  .flexColumn2 {
+    display: flex;
+    flex-direction: column;
+    gap: 35px 0;
+    width: 543px;
+    min-width: 0;
+
+    @include md {
+      width: 100%;
+      min-width: unset;
+    }
+  }
+
+  .heroTitle2 {
+    font: 600 40px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 36px;
+    }
+
+    @include xxs {
+      font-size: 32px;
+    }
+  }
+
+  .contentBox1 {
+    display: flex;
+    flex-direction: column;
+    background: var(--src) center center / cover no-repeat;
+  }
+
+  .flexRowContent {
+    display: flex;
+    gap: 0 8px;
+    margin: 361px 25px 25px auto;
+    width: 257.9976806640625px;
+    max-width: 85%;
+
+    @include md {
+      margin: 150px 25px 25px auto;
+    }
+
+    @include xs {
+      margin: 80px 16px 25px auto;
+    }
+
+    @include tn {
+      margin: 50px 8px 25px auto;
+    }
+  }
+
+  .productImage1 {
+    width: 125px;
+    min-width: 0;
+    border-radius: 5px;
+    outline: 1px solid rgb(255 255 255);
+    outline-offset: -1px;
+    filter: drop-shadow(2px 4px 4px rgb(0 0 0 / 25%));
+    object-fit: cover;
+  }
+
+  .productImage2 {
+    width: 125px;
+    min-width: 0;
+    border-radius: 5px;
+    outline: 1px solid rgb(255 255 255);
+    outline-offset: -1px;
+    filter: drop-shadow(2px 4px 4px rgb(0 0 0 / 25%));
+    object-fit: cover;
+  }
+
+  .flexColumnDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 95px 0 20px;
+    width: 562px;
+    min-width: 0;
+
+    @include md {
+      margin: 0;
+      width: 100%;
+      min-width: unset;
+    }
+  }
+
+  .bigTitle {
+    width: 100%;
+    font: 600 36px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 32px;
+    }
+
+    @include xxs {
+      font-size: 30px;
+    }
+  }
+
+  .mediumTitle {
+    margin: 11px 0 0;
+    width: 100%;
+    font: 400 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(252 250 241);
+    text-align: justify;
+    letter-spacing: 1.44px;
+
+    @include md {
+      align-items: flex-start;
+      font-size: 22px;
+    }
+
+    @include xxs {
+      font-size: 20px;
+    }
+  }
+
+  .buyNowButton {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 209px;
+    max-width: 100%;
+    font: 600 23px/1.52 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+    text-align: center;
+    background-color: rgb(84 51 16);
+    border-radius: 15px;
+    padding: 12.5px 16px;
+    outline: 1px solid rgb(254 254 252);
+    outline-offset: -1px;
+    letter-spacing: 1.27px;
+  }
+
+  .customerTestimonialsSection {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flexColumnContainer1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px 0;
+    margin: 125px auto 227px;
+    width: 545px;
+    max-width: 85%;
+
+    @include md {
+      margin: 125px auto 150px;
+    }
+
+    @include xs {
+      margin: 80px auto;
+    }
+
+    @include tn {
+      margin: 50px auto;
+    }
+  }
+
+  .customerStoryTitle {
+    font: 600 40px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(70 16 16);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 36px;
+    }
+
+    @include xxs {
+      font-size: 32px;
+    }
+  }
+
+  .testimonialBox {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgb(104 102 95);
+    border-radius: 15px;
+    outline: 1px solid rgb(0 0 0);
+    outline-offset: -1px;
+  }
+
+  .testimonialContentBox {
+    position: absolute;
+    top: 80px;
+    left: -326.9907455444336px;
+    display: flex;
+    flex-direction: column;
+    width: 413px;
+    background-color: rgb(131 128 123);
+    border-radius: 15px;
+    box-shadow: -4px 4px 4px 0 rgb(0 0 0 / 25%);
+  }
+
+  .customerReviewSubtitle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 64px auto;
+    width: 327.9976806640625px;
+    max-width: 85%;
+    font: 500 20px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(252 250 241);
+    text-align: center;
+
+    @include md {
+      align-items: flex-start;
+      font-size: 18px;
+    }
+
+    @include xxs {
+      font-size: 16px;
+    }
+
+    @include tn {
+      margin: 50px auto;
+    }
+  }
+
+  .flexColumnItem {
+    position: absolute;
+    bottom: -86.0069580078125px;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 86px;
+    transform: translate(-50%, 0);
+  }
+
+  .customerImage {
+    width: 100%;
+    border-radius: 44px;
+    box-shadow: 3px 3px 4px 0 rgb(0 0 0 / 25%);
+    object-fit: cover;
+  }
+
+  .customerName {
+    font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(35 21 7);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 22px;
+    }
+
+    @include xxs {
+      font-size: 20px;
+    }
+  }
+
+  .secondTestimonialBox {
+    position: absolute;
+    top: 80px;
+    right: -327.9976806640625px;
+    display: flex;
+    flex-direction: column;
+    width: 413px;
+    background-color: rgb(131 128 123);
+    border-radius: 15px;
+  }
+
+  .secondCustomerReviewSubtitle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 48px auto;
+    width: 327.9976806640625px;
+    max-width: 85%;
+    font: 500 20px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(252 250 241);
+    text-align: center;
+
+    @include md {
+      align-items: flex-start;
+      font-size: 18px;
+    }
+
+    @include xxs {
+      font-size: 16px;
+    }
+  }
+
+  .flexColumnItemSecond {
+    position: absolute;
+    bottom: -85.99537658691406px;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 86px;
+    transform: translate(-50%, 0);
+  }
+
+  .secondCustomerImage {
+    width: 100%;
+    border-radius: 44px;
+    filter: drop-shadow(3px 3px 4px rgb(0 0 0 / 25%));
+    object-fit: cover;
+  }
+
+  .secondCustomerName {
+    font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(35 21 7);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 22px;
+    }
+
+    @include xxs {
+      font-size: 20px;
+    }
+  }
+
+  .additionalCustomerReview {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 46px auto 85px;
+    width: 412.9976806640625px;
+    max-width: 85%;
+    font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+    text-align: center;
+
+    @include md {
+      align-items: flex-start;
+      font-size: 22px;
+    }
+
+    @include xs {
+      margin: 46px auto 80px;
+    }
+
+    @include xxs {
+      font-size: 20px;
+    }
+
+    @include tn {
+      margin: 46px auto 50px;
+    }
+  }
+
+  .flexColumnItemThird {
+    position: absolute;
+    bottom: -99.99996948242188px;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 113.99px;
+    transform: translate(-50%, 0);
+  }
+
+  .thirdCustomerImage {
+    width: 100.01%;
+    border-radius: 57px;
+    filter: drop-shadow(3px 3px 4px rgb(0 0 0 / 25%));
+    object-fit: cover;
+  }
+
+  .thirdCustomerName {
+    font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(35 21 7);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 22px;
+    }
+
+    @include xxs {
+      font-size: 20px;
+    }
+  }
+
+  .kegiatanPelatihanSection {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(127 100 71);
+  }
+
+  .flexColumn3 {
+    display: flex;
+    flex-direction: column;
+    gap: 17px 0;
+    margin: 65px auto 64px;
+    width: 1201.967529296875px;
+    max-width: 85%;
+
+    @include tn {
+      margin: 50px auto;
+    }
+  }
+
+  .flexRow3 {
+    display: flex;
+    justify-content: space-between;
+    gap: 0 10px;
+    margin: 0 1px 0 0;
+
+    @include lg {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px 10px;
+    }
+  }
+
+  .flexCol1 {
+    display: flex;
+    flex-direction: column;
+    gap: 23px 0;
+    width: 493px;
+    min-width: 0;
+
+    @include lg {
+      width: 100%;
+      min-width: unset;
+    }
+  }
+
+  .heroTitle3 {
+    margin: 0 0 0 8px;
+    font: 600 40px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 36px;
+    }
+
+    @include xxs {
+      font-size: 32px;
+    }
+  }
+
+  .activityImage {
+    margin: 0 5px 0 0;
+    width: 98.99%;
+    object-fit: cover;
+  }
+
+  .flexCol2 {
+    display: flex;
+    flex-direction: column;
+    gap: 26px 0;
+    margin: 165px 0 23px;
+    width: 312px;
+    min-width: 0;
+
+    @include lg {
+      margin: 0;
+      width: 100%;
+      min-width: unset;
+    }
+  }
+
+  .flexCol3 {
+    display: flex;
+    flex-direction: column;
+    gap: 2px 0;
+    margin: 0 6px 0 0;
+  }
+
+  .trainingTitle1 {
+    font: 500 20px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 18px;
+    }
+
+    @include xxs {
+      font-size: 16px;
+    }
+  }
+
+  .trainingDescription1 {
+    font: 300 16px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(252 250 241);
+  }
+
+  .flexCol4 {
+    display: flex;
+    flex-direction: column;
+    gap: 5px 0;
+  }
+
+  .trainingTitle2 {
+    font: 500 20px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 18px;
+    }
+
+    @include xxs {
+      font-size: 16px;
+    }
+  }
+
+  .trainingDescription2 {
+    margin: 0 6px 0 0;
+    font: 300 16px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(252 250 241);
+  }
+
+  .flexCol5 {
+    display: flex;
+    flex-direction: column;
+    gap: 26px 0;
+    margin: 165px 0 24px;
+    width: 306px;
+    min-width: 0;
+
+    @include lg {
+      margin: 0;
+      width: 100%;
+      min-width: unset;
+    }
+  }
+
+  .flexCol6 {
+    display: flex;
+    flex-direction: column;
+    gap: 2px 0;
+  }
+
+  .trainingTitle3 {
+    margin: 0 32px 0 0;
+    font: 500 20px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 18px;
+    }
+
+    @include xs {
+      margin: 0 16px 0 0;
+    }
+
+    @include xxs {
+      font-size: 16px;
+    }
+
+    @include tn {
+      margin: 0 8px 0 0;
+    }
+  }
+
+  .trainingDescription3 {
+    font: 300 16px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(252 250 241);
+  }
+
+  .flexCol7 {
+    display: flex;
+    flex-direction: column;
+    gap: 4px 0;
+  }
+
+  .trainingTitle4 {
+    margin: 0 32px 0 0;
+    font: 500 20px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 18px;
+    }
+
+    @include xs {
+      margin: 0 16px 0 0;
+    }
+
+    @include xxs {
+      font-size: 16px;
+    }
+
+    @include tn {
+      margin: 0 8px 0 0;
+    }
+  }
+
+  .trainingDescription4 {
+    font: 300 16px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(252 250 241);
+  }
+
+  .seeMoreTitle {
+    display: flex;
+    justify-content: flex-end;
+    font: 600 20px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(35 21 7);
+    text-align: right;
+    text-decoration: underline;
+
+    @include md {
+      align-items: flex-start;
+      font-size: 18px;
+    }
+
+    @include xxs {
+      font-size: 16px;
+    }
+  }
+
+  .teamSection {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flexColumn4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 236px auto 132px;
+    width: 1023.9814453125px;
+    max-width: 85%;
+
+    @include md {
+      margin: 150px auto 132px;
+    }
+
+    @include xs {
+      margin: 80px auto;
+    }
+
+    @include tn {
+      margin: 50px auto;
+    }
+  }
+
+  .teamTitle {
+    display: flex;
+    justify-content: center;
+    font: 600 40px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(35 21 7);
+    text-align: center;
+
+    @include md {
+      align-items: flex-start;
+      font-size: 36px;
+    }
+
+    @include xxs {
+      font-size: 32px;
+    }
+  }
+
+  .teamSubtitle {
+    display: flex;
+    justify-content: center;
+    margin: 14px 0 0;
+    width: 100%;
+    font: 500 32px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(60 36 11);
+    text-align: center;
+
+    @include md {
+      align-items: flex-start;
+      font-size: 30px;
+    }
+
+    @include xxs {
+      font-size: 26px;
+    }
+  }
+
+  .groupContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 25px 0 0;
+    width: 266.9444274902344px;
+    max-width: 85%;
+  }
+
+  .teamMemberCard {
+    position: absolute;
+    top: 50%;
+    right: -218.99307250976562px;
+    display: flex;
+    flex-direction: column;
+    width: 238px;
+    transform: translate(0, -50%);
+  }
+
+  .memberImageRara {
+    position: relative;
+    width: 100%;
+    filter: drop-shadow(6px 0 2px rgb(25 14 5 / 25%));
+    object-fit: cover;
+  }
+
+  .memberInfoRara {
+    position: absolute;
+    bottom: -36.024269104003906px;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    width: 56.99px;
+    transform: translate(-50%, 0);
+  }
+
+  .memberNameRara {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(35 21 7);
+    text-align: center;
+
+    @include md {
+      align-items: flex-start;
+      font-size: 22px;
+    }
+
+    @include xxs {
+      font-size: 20px;
+    }
+  }
+
+  .memberRoleRara {
+    position: absolute;
+    bottom: -13.998868942260742px;
+    left: 1.49884033203125px;
+    width: 56px;
+    height: 24px;
+    font: 400 16px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(60 36 11);
+  }
+
+  .teamMemberCardJacob {
+    position: absolute;
+    top: 50%;
+    right: -219.00457763671875px;
+    display: flex;
+    flex-direction: column;
+    width: 238px;
+    transform: translate(0, -50%);
+  }
+
+  .memberImageJacob {
+    position: relative;
+    width: 100%;
+    filter: drop-shadow(6px 0 2px rgb(25 14 5 / 25%));
+    object-fit: cover;
+  }
+
+  .memberInfoJacob {
+    position: absolute;
+    bottom: -35.532386779785156px;
+    left: 67.002197265625px;
+    display: flex;
+    flex-direction: column;
+    width: 76px;
+  }
+
+  .memberNameJacob {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(35 21 7);
+    text-align: center;
+
+    @include md {
+      align-items: flex-start;
+      font-size: 22px;
+    }
+
+    @include xxs {
+      font-size: 20px;
+    }
+  }
+
+  .memberRoleJacob {
+    position: absolute;
+    bottom: -14.004667282104492px;
+    left: 50%;
+    width: 70px;
+    height: 24px;
+    font: 400 16px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(60 36 11);
+    transform: translate(-50%, 0);
+  }
+
+  .teamMemberCardRuddy {
+    position: absolute;
+    top: 50%;
+    left: -218.99307250976562px;
+    display: flex;
+    flex-direction: column;
+    width: 238px;
+    transform: translate(0, -50%);
+  }
+
+  .memberImageRuddy {
+    position: relative;
+    width: 100%;
+    filter: drop-shadow(-6px 0 2px rgb(25 15 5 / 25%));
+    object-fit: cover;
+  }
+
+  .memberInfoRuddy {
+    position: absolute;
+    bottom: -36.024269104003906px;
+    left: 93.99307250976562px;
+    display: flex;
+    flex-direction: column;
+    width: 78px;
+  }
+
+  .memberNameRuddy {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(35 21 7);
+    text-align: center;
+
+    @include md {
+      align-items: flex-start;
+      font-size: 22px;
+    }
+
+    @include xxs {
+      font-size: 20px;
+    }
+  }
+
+  .memberRoleRuddy {
+    position: absolute;
+    bottom: -13.998868942260742px;
+    left: 50%;
+    width: 120px;
+    height: 24px;
+    font: 400 16px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(60 36 11);
+    transform: translate(-50%, 0);
+  }
+
+  .teamMemberCardParno {
+    position: absolute;
+    top: 50%;
+    left: -218.9930419921875px;
+    display: flex;
+    flex-direction: column;
+    width: 238px;
+    transform: translate(0, -50%);
+  }
+
+  .memberImageParno {
+    position: relative;
+    width: 100%;
+    filter: drop-shadow(-6px 0 2px rgb(25 15 5 / 25%));
+    object-fit: cover;
+  }
+
+  .memberInfoParno {
+    position: absolute;
+    bottom: -36.03003692626953px;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    width: 71px;
+    transform: translate(-50%, 0);
+  }
+
+  .memberNameParno {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(35 21 7);
+    text-align: center;
+
+    @include md {
+      align-items: flex-start;
+      font-size: 22px;
+    }
+
+    @include xxs {
+      font-size: 20px;
+    }
+  }
+
+  .memberRoleParno {
+    position: absolute;
+    bottom: -14.004667282104492px;
+    left: 50%;
+    width: 85px;
+    height: 24px;
+    font: 400 16px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(60 36 11);
+    transform: translate(-50%, 0);
+  }
+
+  .communityImage {
+    position: relative;
+    width: 100%;
+    border-radius: 134px;
+    outline: 7px solid rgb(84 51 16);
+    outline-offset: -7px;
+    filter: drop-shadow(0 4px 4px rgb(0 0 0 / 25%));
+    object-fit: cover;
+  }
+
+  .memberInfoDamis {
+    position: absolute;
+    bottom: -35.99536895751953px;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    width: 78px;
+    transform: translate(-50%, 0);
+  }
+
+  .memberNameDamis {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(35 21 7);
+    text-align: center;
+
+    @include md {
+      align-items: flex-start;
+      font-size: 22px;
+    }
+
+    @include xxs {
+      font-size: 20px;
+    }
+  }
+
+  .memberRoleDamis {
+    position: absolute;
+    bottom: -14.004606246948242px;
+    left: 50%;
+    width: 121px;
+    height: 24px;
+    font: 400 16px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(60 36 11);
+    transform: translate(-50%, 0);
+  }
+
+  .platformDescription {
+    display: flex;
+    justify-content: center;
+    margin: 114px 0 0;
+    width: 91.89%;
+    font: 400 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(60 36 11);
+    text-align: center;
+
+    @include md {
+      align-items: flex-start;
+      font-size: 22px;
+    }
+
+    @include xs {
+      margin: 80px 0 0;
+    }
+
+    @include xxs {
+      font-size: 20px;
+    }
+
+    @include tn {
+      margin: 50px 0 0;
+    }
+  }
+
+  .viewOurCommunityButton {
+    display: flex;
+    justify-content: center;
+    margin: 19px auto 0;
+    width: 322px;
+    max-width: 100%;
+    font: 600 25px/1.52 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+    text-align: center;
+    background-color: rgb(84 51 16);
+    border-radius: 15px;
+    padding: 11px 20px;
+  }
+
+  .imageDisplaySection {
+    min-height: 487px;
+    background: var(--src) center center / 100% 100% no-repeat;
+  }
+
+  .businessHoursSection {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(25 15 5);
+  }
+
+  .flexRow4 {
+    display: flex;
+    justify-content: space-between;
+    gap: 0 10px;
+    margin: 148px 18px 149px auto;
+    width: 89.93%;
+    max-width: 1294.9884033203125px;
+
+    @include xl {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px 10px;
+    }
+
+    @include xs {
+      margin: 80px 16px 80px auto;
+    }
+
+    @include tn {
+      margin: 50px auto;
+    }
+  }
+
+  .businessImage {
+    margin: 0 0 86px;
+    width: 297px;
+    min-width: 0;
+    object-fit: cover;
+
+    @include xl {
+      margin: 0;
+      width: 100%;
+      min-width: unset;
+      max-width: 297px;
+    }
+  }
+
+  .flexCol {
+    display: flex;
+    flex-direction: column;
+    width: 262px;
+    min-width: 0;
+
+    @include xl {
+      width: 100%;
+      min-width: unset;
+    }
+  }
+
+  .businessHourTitle {
+    margin: 0 39px;
+    font: 600 36px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+
+    @include xl {
+      margin: 0 auto;
+    }
+
+    @include md {
+      align-items: flex-start;
+      font-size: 32px;
+    }
+
+    @include xxs {
+      font-size: 30px;
+    }
+  }
+
+  .weekDaysTitle {
+    margin: 0 0 0 39px;
+    font: 500 30px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(252 250 241 / 69.8%);
+
+    @include md {
+      align-items: flex-start;
+      margin: 0 0 0 32px;
+      font-size: 28px;
+    }
+
+    @include xs {
+      margin: 0 0 0 16px;
+    }
+
+    @include xxs {
+      font-size: 24px;
+    }
+
+    @include tn {
+      margin: 0 0 0 8px;
+    }
+  }
+
+  .flexRowContact {
+    display: flex;
+    align-items: center;
+    gap: 0 24px;
+    margin: 51px 0 0;
+
+    @include xs {
+      column-gap: 16px;
+    }
+
+    @include tn {
+      column-gap: 8px;
+      margin: 50px 0 0;
+    }
+  }
+
+  .image25 {
+    width: 28px;
+    object-fit: cover;
+  }
+
+  .addressSubtitle {
+    width: 184px;
+    font: 500 20px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 18px;
+    }
+
+    @include xxs {
+      font-size: 16px;
+    }
+  }
+
+  .flexColInfo {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 13px;
+    width: 205px;
+    min-width: 0;
+
+    @include xl {
+      margin: 0;
+      width: 100%;
+      min-width: unset;
+    }
+  }
+
+  .infoTitle {
+    margin: 0 2px 0 27px;
+    font: 600 36px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 32px;
+    }
+
+    @include xs {
+      margin: 0 2px 0 16px;
+    }
+
+    @include xxs {
+      font-size: 30px;
+    }
+
+    @include tn {
+      margin: 0 2px 0 8px;
+    }
+  }
+
+  .menuTitle {
+    margin: 0 0 0 27px;
+    width: 105px;
+    max-width: 85%;
+    font: 500 30px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(252 250 241 / 69.8%);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 28px;
+    }
+
+    @include xs {
+      margin: 0 0 0 16px;
+    }
+
+    @include xxs {
+      font-size: 24px;
+    }
+
+    @include tn {
+      margin: 0 0 0 8px;
+    }
+  }
+
+  .flexRowMenu {
+    display: flex;
+    gap: 0 13px;
+    margin: 64px 0 0;
+
+    @include tn {
+      column-gap: 8px;
+      margin: 50px 0 0;
+    }
+  }
+
+  .contactImage {
+    width: 40px;
+    object-fit: cover;
+  }
+
+  .phoneSubtitle {
+    margin: 2px 0;
+    font: 500 20px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 18px;
+    }
+
+    @include xxs {
+      font-size: 16px;
+    }
+  }
+
+  .flexColBestProducts {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 14px;
+    width: 360px;
+    min-width: 0;
+
+    @include xl {
+      margin: 0;
+      width: 100%;
+      min-width: unset;
+    }
+  }
+
+  .bestProductsTitle {
+    font: 600 36px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 32px;
+    }
+
+    @include xxs {
+      font-size: 30px;
+    }
+  }
+
+  .baristaTrainingTitle {
+    font: 500 30px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(252 250 241 / 69.8%);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 28px;
+    }
+
+    @include xxs {
+      font-size: 24px;
+    }
+  }
+
+  .trainingImage {
+    margin: 20px 0 0 1px;
+    width: 156.99073791503906px;
+    max-width: 85%;
+    object-fit: cover;
+  }
+}
