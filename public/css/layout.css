@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 body {
@@ -14,6 +15,9 @@ body {
 
 .content{
   background-color: #F1F1F0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 /* Header */
 header {
