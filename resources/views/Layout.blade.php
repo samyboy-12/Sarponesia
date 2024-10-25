@@ -20,33 +20,49 @@
                 <img src="{{ asset('assets/Logo.png') }}" alt="Sarponesia Coffee">
             </div>
             <div class="header-right">
-                <button class="login-btn">Login</button>
-                <button class="register-btn">Register</button>
+                <a class="login-btn" href="{{ url('/login') }}">Login</a>
+                <a class="register-btn" href="{{ url('/register') }}">Register</a>
             </div>
         </div>
         <nav>
             <ul class="nav-links">
                 <img src="{{ asset('assets/Logonav.png') }}" alt="Sarponesia Coffee Nav">
-                <li><a href="{{ url('/landingPage') }}">Home</a></li>
-                <li><a href="{{ url('/perlengkapanproduksi') }}">Perlengkapan Produksi</a></li>
-                <li><a href="{{ url('/jasa') }}">Jasa Kebun & Kopi</a></li>
-                <li><a href="{{ url('/katalog') }}">Katalog</a></li>
-                <li><a href="{{ url('/contact') }}">Hubungi</a></li>
-                <li><a href="{{ url('/program') }}">Program Kerjasama</a></li>
-                <li><a href="{{ url('/artikel') }}">Artikel</a></li>
-                <li><a href="{{ url('/community') }}">Komunitas</a></li>
+                <li class="{{ Request::is('home') ? 'active' : '' }}">
+                    <a href="{{ url('/home') }}">Home</a>
+                </li>
+                <li class="{{ Request::is('perlengkapanproduksi') ? 'active' : '' }}">
+                    <a href="{{ url('/perlengkapanproduksi') }}">Perlengkapan Produksi</a>
+                </li>
+                <li class="{{ Request::is('jasa') ? 'active' : '' }}">
+                    <a href="{{ url('/jasa') }}">Jasa Kebun & Kopi</a>
+                </li>
+                <li class="{{ Request::is('katalog') ? 'active' : '' }}">
+                    <a href="{{ url('/katalog') }}">Katalog</a>
+                </li>
+                <li class="{{ Request::is('contact') ? 'active' : '' }}">
+                    <a href="{{ url('/contact') }}">Hubungi</a>
+                </li>
+                <li class="{{ Request::is('program') ? 'active' : '' }}">
+                    <a href="{{ url('/program') }}">Program Kerjasama</a>
+                </li>
+                <li class="{{ Request::is('artikel') ? 'active' : '' }}">
+                    <a href="{{ url('/artikel') }}">Artikel</a>
+                </li>
+                <li class="{{ Request::is('community') ? 'active' : '' }}">
+                    <a href="{{ url('/community') }}">Komunitas</a>
+                </li>
             </ul>
-            <div class="search">
-                <input type="text" class="input" placeholder="Search...">
-                <button class="btn">
-                    <img src="{{ asset('assets/Search-vector.svg') }}">
-                </button>
-            </div>
+                <div class="search">
+                    <input type="text" class="input" placeholder="Search...">
+                    <button class="btn">
+                        <img src="{{ asset('assets/Search-vector.svg') }}">
+                    </button>
+                </div>
         </nav>
     </header>
 
-    <div class="content">
-        @yield('content')
+    <div class="main">
+        @yield('main')
     </div>
 
     <!-- Footer Section -->
