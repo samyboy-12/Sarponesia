@@ -26,7 +26,7 @@
         </div>
         <nav>
             <ul class="nav-links">
-                <img src="{{ asset('assets/Logonav.png') }}" alt="Sarponesia Coffee Nav">
+                <img src="{{ asset('assets/Logonav.png') }}" alt="Sarponesia Coffee Nav" class="LogoNav" onclick="scrollToTop()">
                 <li class="{{ Request::is('home') ? 'active' : '' }}">
                     <a href="{{ url('/home') }}">Home</a>
                 </li>

@@ -9,3 +9,11 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('LandingPage');
 });
+
+Route::get('/login', function () {
+    return view('auth.LoginPageUser');
+});
+
+Route::get('/perlengkapanproduksi', function () {
+    return view('PerlengkapanProduksi');
+});

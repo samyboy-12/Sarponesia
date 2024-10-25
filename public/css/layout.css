@@ -46,6 +46,9 @@ header {
 
 }
 /* Menu Navigasi */
+.LogoNav{
+cursor: pointer;
+}
 nav {
   display: flex;
   align-items: center;
