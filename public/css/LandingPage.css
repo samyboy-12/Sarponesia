@@ -457,6 +457,7 @@
   flex-direction: column;
 }
 
+
 .flexColumnContainer1 {
   display: flex;
   flex-direction: column;
@@ -512,6 +513,8 @@
   border-radius: 15px;
   outline: 1px solid black;
   outline-offset: -1px;
+  transition: transform 0.3s ease;
+  z-index: 100;
 }
 
 .testimonialContentBox {
@@ -524,8 +527,22 @@
   background-color: #83807b;
   border-radius: 15px;
   box-shadow: -4px 4px 4px 0 rgba(0, 0, 0, 0.25);
-}
-
+  transition: transform 0.3s ease;
+}  
+ 
+.testimonialContentBox:hover {
+  z-index: 10;
+  transform: scale(1.1); 
+  }
+ 
+  .secondTestimonialBox:hover{
+    z-index: 10;
+    transform: scale(1.1); 
+  } 
+  .additionalCustomerReview:hover{
+    z-index: 10;
+    transform: scale(1.1); 
+  }
 .customerReviewSubtitle {
   position: relative;
   display: flex;
@@ -566,6 +583,7 @@
   align-items: center;
   width: 86px;
   transform: translate(-50%, 0);
+  z-index: 10; /* z-index lebih rendah */
 }
 
 .customerImage {
@@ -603,6 +621,7 @@
   width: 413px;
   background-color: #83807b;
   border-radius: 15px;
+  transition: transform 0.3s ease;
 }
 
 .secondCustomerReviewSubtitle {
@@ -639,6 +658,7 @@
   align-items: center;
   width: 86px;
   transform: translate(-50%, 0);
+  z-index: 15; /* z-index lebih rendah */
 }
 
 .secondCustomerImage {
@@ -677,6 +697,7 @@
   font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
   color: #fefefc;
   text-align: center;
+  transition: transform 0.3s ease;
 }
 
 @media (max-width: 991px) {
@@ -713,8 +734,8 @@
   align-items: center;
   width: 113.99px;
   transform: translate(-50%, 0);
+  z-index: 20; /* Menambahkan z-index lebih tinggi */
 }
-
 .thirdCustomerImage {
   width: 100.01%;
   border-radius: 57px;

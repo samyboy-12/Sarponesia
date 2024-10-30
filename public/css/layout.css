@@ -17,14 +17,13 @@ body {
   background-color: #F1F1F0;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+
 }
 /* Header */
 header {
   background-color: #1a0e07;
   padding: 15px 0;
 }
-
 
 .header-container {
   display: flex;
@@ -33,169 +32,274 @@ header {
   padding: 15px 0;
 }
 
-.logo{
+.logo {
   margin: 0 auto;
+  margin-bottom: 26.91px;
+  margin-top: 50px;
 }
 
-/* Bagian Kanan Header */
 .header-right {
   display: flex;
   position: absolute;
-  gap: 15px;
+  gap: 5px;
+  margin-right: 56px;
   right: 0;
-
 }
-/* Menu Navigasi */
+
 .LogoNav{
-cursor: pointer;
-}
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  right: 0;
-  transition: all 0.3s ease-in-out;
-}
-
-nav.active {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  right: 0;
-  transition: all 0.3s ease-in-out;
-  position: fixed;
-  background-color: #1a0e07;
-  z-index: 9999;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px; /* Jarak antar menu */
-  padding: 0;
-  margin: 0;
-  width: auto;
-}
-
-.nav-links li {
-  display: flex;
-  justify-content: center; /* Mengatur posisi secara horizontal */
-  align-items: center; /* Mengatur posisi secara vertikal */
-}
-
-
-.nav-links li a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  font-size: 16px;
-  transition: color 0.3 ease-in-out;;
-
-}
-
-.nav-links li a:hover {
-  color: #d3b58f;
-}
-
-.nav-links li.active a {
-  color: #BBAC9F;
-  font-family: Poppins;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  text-decoration-line: underline;
-}
-
-.header-right input {
-  border: none;
-  padding: 8px 15px;
-  border-radius: 25px;
-  background-color: #f3e5d3;
-  color: #1a0e07;
-}
-
-.header-right input::placeholder {
-  color: #a39485;
-}
-
-/* Tombol Pencarian */
-.search {
-  position: relative;
-  height: 30px; /* Height of the search box */
-  margin: 10px;
-}
-
-.search .input {
-  background-color: #fff;
-  border: 0;
-  font-size: 16px; /* Font size slightly smaller */
-  padding: 5px 10px; /* Adjust padding */
-  height: 30px; /* Height of input matching the box height */
-  width: 30px; /* Default width */
-  transition: width 0.3s ease;
-  border-radius: 15px; /* Rounded corners */
-}
-
-.btn {
-  background-color: #fff;
-  border: 0;
   cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 30px; /* Button height matching the input */
-  width: 30px; /* Button width */
-  transition: transform 0.3s ease;
-  border-radius: 15px; /* Rounded corners */
-  display: flex; /* Flexbox for centering the icon */
-  align-items: center; /* Vertically center icon */
-  justify-content: center; /* Horizontally center icon */
-}
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-.btn img {
-  width: 16px; /* Adjust size of the magnifying glass */
-  height: 16px;
-}
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    gap: 0 30px;
+  }
+  
+  .navbar-wrapper{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1440px;
+    background-color: #190f05;
+  }
 
-.btn:focus,
-.input:focus {
-  outline: none;
-}
+  nav.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-.search.active .input {
-  width: 192px; /* Width of the input when active */
-}
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: all 0.3s ease-in-out;
+    position: fixed;
+    background-color: #1a0e07;
+    z-index: 9999;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Jarak antar menu */
+    padding: 0;
+    margin: 0;
+    width: auto;
+    width: max-content; /* Supaya ukuran mengikuti konten */
+    white-space: nowrap; /* Mencegah item turun ke bawah */
+  }
+  
+  .nav-links li {
+    display: flex;
+    justify-content: center; /* Mengatur posisi secara horizontal */
+    align-items: center; /* Mengatur posisi secara vertikal */
+    position: relative; /* Required to position the dropdown */
+  }
+  
+  .dropdown {
+    display: none; /* Hide dropdown by default */
+    position: absolute;
+    top: 100%; /* Position below the parent li */
+    left: 0;
+    background-color: #1a0e07;
+    list-style: none;
+    z-index: 9999;
+    min-width: 100%; /* Makes the dropdown as wide as the button */
+    
+  }
+  .dropdown.show {
+    display: block;
+  }
 
-.search.active .btn {
-  transform: translateX(160px); /* Move button when active */
-}
+  .dropdown li a {
+    color: #fff;
+    font-size: 18px;
+    padding: 5px 10px;
+  }
+  
+  .nav-links li:hover .dropdown {
+    display: block; /* Show dropdown on hover */
+  }
+  
+  .dropdown li a:hover {
+    color: #d3b58f;
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font: 600 20px / 1.5 Poppins, Helvetica, Arial, serif;
+    transition: color 0.3 ease-in-out;;
+  
+  }
+  
+  .nav-links li a:hover {
+    color: #d3b58f;
+  }
+  
+  .nav-links li.active a {
+    font: 700 20px / 1.5 Poppins, Helvetica, Arial, serif;
+    color: #bbac9f;
+    text-decoration: underline;
+    
+  }
 
+  .nav-links li:nth-child(n+7) {
+    display: none; /* Hanya menampilkan item 1-4 di desktop */
+  }
+  
+  .header-right input {
+    border: none;
+    padding: 8px 15px;
+    border-radius: 25px;
+    background-color: #f3e5d3;
+    color: #1a0e07;
+  }
+  
+  .header-right input::placeholder {
+    color: #a39485;
+  }
+  
+  /* Tombol Pencarian */
+  .search {
+    position: relative;
+    height: 30px; /* Height of the search box */
+    margin: 10px;
+  }
+  
+  .search .input {
+    background-color:  #F8F4E1;
+    border: 0;
+    font-size: 16px; /* Font size slightly smaller */
+    padding: 5px 10px; /* Adjust padding */
+    height: 30px; /* Height of input matching the box height */
+    width: 30px; /* Default width */
+    transition: width 0.3s ease;
+    border-radius: 15px; /* Rounded corners */
+  }
+  
+  .btn {
+    background-color:  #F8F4E1;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px; /* Button height matching the input */
+    width: 30px; /* Button width */
+    transition: transform 0.3s ease;
+    border-radius: 15px; /* Rounded corners */
+    display: flex; /* Flexbox for centering the icon */
+    align-items: center; /* Vertically center icon */
+    justify-content: center; /* Horizontally center icon */
+  }
+  
+  .btn img {
+    width: 16px; /* Adjust size of the magnifying glass */
+    height: 16px;
+    z-index: 1;
+  }
+  
+  .btn:focus,
+  .input:focus {
+    outline: none;
+  }
+  
+  .search.active .input {
+    width: 192px; /* Width of the input when active */
+  }
+  
+  .search.active .btn {
+    transform: translateX(160px); /* Move button when active */
+  }
 
-/* Tombol Login dan Register */
 .login-btn, .register-btn {
+  display: flex;
+  width: 136px;
+  height: 60px;
   padding: 6px 31px;
-  border: 4px solid #FEFEFC;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   border-radius: 30px;
+  border: 4px solid #FEFEFC;
   background-color: transparent;
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
-  gap: 10px ;
-  display: flex;
-  justify-content:flex-end ;
+  color: #FEFEFC;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
 .login-btn:hover, .register-btn:hover {
   background-color: #d3b58f;
   color: #1a0e07;
 }
+
+/* --- Responsif untuk Tablet --- */
+@media (max-width: 1024px) {
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .search {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+  }
+
+  .logo img {
+    width: 150px;
+  }
+
+  .header-right {
+    position: static;
+    gap: 10px;
+  }
+}
+
+/* --- Responsif untuk Ponsel --- */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Sembunyikan menu di mobile */
+  }
+
+  .header-right {
+    gap: 8px;
+    flex-direction: column;
+  }
+
+  .search .input {
+    width: 100%;
+  }
+
+  .btn {
+    transform: none;
+  }
+
+  .logo img {
+    width: 120px;
+  }
+}
+
 
 
 
@@ -205,7 +309,13 @@ footer {
   width: 100%;
   background-color: #1a0e07; /* Sesuaikan dengan warna latar belakang */
   color: white;
-  padding: 20px 0;
+  display: flex;
+  height: 552px;
+  padding: 148px 27px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  flex-shrink: 0;
 }
 .footer-container {
   display: flex;
@@ -244,12 +354,11 @@ footer {
 /* Mengatur area sosial media */
 .contact {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 80px;
-  padding: 20px 20px; /* Menambahkan padding agar tidak terlalu rapat dengan tepi */
-  margin-top: 20px; /* Menambahkan margin atas untuk memberi jarak dari footer-container */
-  justify-content: flex-end; /* Menggeser konten ke ujung kiri */
+  margin-top: 20px; 
 }
+
 
 .contact div {
   display: flex;
@@ -262,6 +371,14 @@ footer {
 
 .alamat, .nomorContact, .Socialmedia {
   margin-right: 20px; /* Adds space between the sections */
+}
+
+.alamat{
+  margin-top: 51px;
+}
+
+.nomorContact{
+  margin-top: 51px;
 }
 
 .Subtitle {
@@ -283,6 +400,10 @@ footer {
   transform: translateX(0);
 }
 
+.businessImage{
+  width: auto; 
+  height: 169px; 
+}
 
 /* Responsive Styling */
 @media (max-width: 768px) {

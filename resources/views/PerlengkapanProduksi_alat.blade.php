@@ -1,3 +1,10 @@
+@extends('layout')
+
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/PerlengkapanProduksi.css') }}" />
+@endsection
+
+@section('main')
     <main class="perlengkapan-produksi-peralatan main">
 
         <section class="productDisplaySection">
@@ -5,7 +12,7 @@
             <div class="flexColumnContainer1">
                 <div class="contentBox" style="--src:url(../assets/52ac4412589eed03b032824c5cf655ee.png)">
                     <div class="flexColumnLeft">
-                        <img class="productImage" src="./assets/58b613ff0ea429d541f70435b141baef.png" alt="alt text" />
+                        <img class="productImage" src="./assets/Logonav.png" alt="alt text" />
                         <h1 class="heroTitle">
                             <!-- Primary title describing the available tools. -->
                             Tersedia Alat Berteknologi dan Terstandar untuk Melengkapi Kebutuhan Produksi Anda
@@ -174,6 +181,6 @@
         </section>
     </main>
 
-</body>
 
-</html>
+
+@endsection

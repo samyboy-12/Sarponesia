@@ -7,12 +7,10 @@
 @section('main')
 <div class="content">
     <section class="qualityCoffeeShowcaseSection">
-        <!-- Section showcasing quality coffee choices for businesses. -->
-        <img class="coffeeImageFigure" src="{{ asset('assets/88339e075066c2268f2625ae986c9e3c.png') }}" alt="alt text" />
+        <img class="coffeeImageFigure" src="{{ asset('assets/Imagecoffe_home.png') }}" alt="alt text" />
         <div class="flexibleColumnContainer">
-            <!-- Flexible column layout for header content. -->
             <h1 class="heroTitle">TEMUKAN KOPI PILIHAN DAN BERKUALITAS UNTUK BISNISMU !!</h1>
-            <h2 class="mediumDescriptionTitle">&quot;Nikmati kopi dengan kualitas terbaik, yang diproses secara modern dan higienis, mulai dari pemetikan kopi pilihan hingga proses pemanggangan yang sempurna. Hasilkan cita rasa lezat yang cocok untuk semua kreasi minuman kopi favorit Anda.&quot;</h2>
+            <h2 class="mediumDescriptionTitle">"Nikmati kopi dengan kualitas terbaik, yang diproses secara modern dan higienis, mulai dari pemetikan kopi pilihan hingga proses pemanggangan yang sempurna. Hasilkan cita rasa lezat yang cocok untuk semua kreasi minuman kopi favorit Anda."</h2>
         </div>
     </section>
 </div>
@@ -22,18 +20,17 @@
         <div class="journeyToCoffeeSectionContainer">
             <h1 class="journeyHeroTitle">Perjalanan Menuju Kopi</h1>
             <h2 class="journeyMediumTitle">Menanam, merawat, memanen, menggiling, menyeduh</h2>
-            <img class="journeyImage" src="{{ asset('assets/567bafdcdd2feb966140404c6ba4deab.svg') }}" alt="alt text" />
+            <img class="journeyImage" src="{{ asset('assets/tahapan.svg') }}" alt="alt text" />
         </div>
     </section>
 </div>
 
 <div class="content">
-    <section class="learnAboutCoffeeSection" style="--src: url('{{ asset('assets/50c617c06a35de24617970a095d3f592.png') }}');">
+    <section class="learnAboutCoffeeSection" style="--src: url('{{ asset('assets/bg_pembelajaran.png') }}');">
         <div class="learnAboutCoffeeSectionColumn">
             <h1 class="heroTitle1">Belajar Tentang Kopi</h1>
             <h2 class="mediumDescription">
-                <!-- Main description text related to coffee -->
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.
                 <br />
             </h2>
             <button class="learnMoreBtn">Selengkapnya</button>
@@ -46,18 +43,11 @@
         <div class="flexColumn1">
             <h1 class="productsAndServicesTitle">Produk dan Jasa Kami</h1>
             <div class="flexRow1">
-                <div class="kontenpelatihan" style="background-image: url('{{ asset('assets/e81e366d55b6d5f48503740daa95fb7d.png') }}');">
-                    <button class="contentBtn">Pelatihan</button>
+                @foreach (['pelatihan', 'alat', 'benih', 'kopi_produk'] as $item)
+                <div class="kontenpelatihan" style="background-image: url('{{ asset("assets/$item.png") }}');">
+                    <button class="contentBtn">{{ ucfirst($item) }}</button>
                 </div>
-                <div class="kontenpelatihan" style="background-image: url('{{ asset('assets/dc7f587651a62c2a30887ed5c9e415c0.png') }}');">
-                    <button class="contentBtn">Alat</button>
-                </div>
-                <div class="kontenpelatihan" style="background-image: url('{{ asset('assets/f9daa66aa4b566f2cc75b48441757764.png') }}');">
-                    <button class="contentBtn">Benih</button>
-                </div>
-                <div class="kontenpelatihan" style="background-image: url('{{ asset('assets/3303e2669bc99b8f32ca4f39b5597142.png') }}');">
-                    <button class="contentBtn">Kopi Siap Seduh</button>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -70,8 +60,9 @@
                 <h1 class="heroTitle2">Produk Terbaik</h1>
                 <div class="produk" style="background-image: url('{{ asset('assets/91bb54a3c92e27aa69f455935af52957.png') }}');">
                     <div class="flexRowContent">
-                        <img class="productImage" src="{{ asset('assets/29ccc7730092c0cec5a0a6f30edb59a0.png') }}" alt="Gambar produk 1" />
-                        <img class="productImage" src="{{ asset('assets/fae27253020f1ffebb372f466fda02e8.png') }}" alt="Gambar produk 2" />
+                        @foreach (['29ccc7730092c0cec5a0a6f30edb59a0.png', 'fae27253020f1ffebb372f466fda02e8.png'] as $image)
+                            <img class="productImage" src="{{ asset("assets/$image") }}" alt="Gambar produk" />
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -83,7 +74,6 @@
         </div>
     </section>
 </div>
-
 <div class="content">
     <section class="customerTestimonialsSection">
         <div class="flexColumnContainer1">
@@ -144,4 +134,55 @@
         </div>
     </section>
 </div>
+<div class="content">
+<section class="teamSection">
+            <!-- This section showcases the team members associated with the coffee community. -->
+            <div class="flexColumn4">
+                <h1 class="teamTitle">Tim Kami</h1>
+                <h1 class="teamSubtitle">Andalan petani, roaster, pelaku bisnis, dan pecinta kopi di berbagai belahan dunia</h1>
+                <div class="groupContainer">
+                    <div class="teamMemberCard">
+                        <!-- Card for displaying individual team member&#x27;s information. -->
+                        <img class="memberImageRara" src="./assets/dfca554b07198c19b7519ddab876d874.png" alt="alt text" />
+                        <div class="memberInfoRara">
+                            <h2 class="memberNameRara">Rara</h2>
+                            <p class="memberRoleRara">Barista</p>
+                        </div>
+                        <div class="teamMemberCardJacob">
+                            <img class="memberImageJacob" src="./assets/48062dfe0a680c3205ea08be6134dc8b.png" alt="alt text" />
+                            <div class="memberInfoJacob">
+                                <h2 class="memberNameJacob">Jacob</h2>
+                                <p class="memberRoleJacob">Spesialis</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="teamMemberCardRuddy">
+                        <img class="memberImageRuddy" src="./assets/a8e2e0ae3d3fa3de68af1092b5aef7ef.png" alt="alt text" />
+                        <div class="memberInfoRuddy">
+                            <h2 class="memberNameRuddy">Ruddy</h2>
+                            <p class="memberRoleRuddy">Quality Control</p>
+                        </div>
+                        <div class="teamMemberCardParno">
+                            <img class="memberImageParno" src="./assets/2e7561e196126cdc6b8fb23f2227393d.png" alt="alt text" />
+                            <div class="memberInfoParno">
+                                <h2 class="memberNameParno">Parno</h2>
+                                <p class="memberRoleParno">Latte artist</p>
+                            </div>
+                        </div>
+                    </div>
+                    <img class="communityImage" src="./assets/14af3d87fc833ecf0348ea60373c6e98.png" alt="alt text" />
+                    <div class="memberInfoDamis">
+                        <h2 class="memberNameDamis">Damis</h2>
+                        <p class="memberRoleDamis">Perawat Kebun</p>
+                    </div>
+                </div>
+                <h2 class="platformDescription">Platform ini dibangun oleh para pecinta kopi, untuk para pecinta kopi, sebagai ruang untuk berbagi passion dan cinta mereka terhadap kopi dengan dunia.</h2>
+                <button class="viewOurCommunityButton">
+                    <!-- TODO -->
+                    Lihat Komunitas Kami
+                </button>
+            </div>
+        </section>
+</div>
+        <section class="imageDisplaySection" style="--src:url(../assets/b617ed89bee7b39471a5b4cfcfe35e97.png)"></section>
 @endsection
