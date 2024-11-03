@@ -26,6 +26,16 @@ Route::get('/katalog',function(){
     return view('Katalog');
 });
 
-Route::get('/katalog',function(){
-    return view('Katalog');
+Route::get('/contact',function(){
+    return view('Kontak');
+});
+
+
+Route::get('/benihpupuk',function(){
+    return view('Benih&Pupuk');
+});
+
+
+Route::get('/pelatihan',function(){
+    return view('Pelatihan');
 });

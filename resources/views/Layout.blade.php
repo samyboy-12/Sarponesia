@@ -119,7 +119,9 @@
             <p>Pelatihan Logo &<br> Branding</p>
             <div class="contact">
                 <div class="Socialmedia">
-                    <img class="contactImage" src="{{ asset('assets/Socialmedia.svg') }}" alt="Social Media" />
+                    <img class="socialIcon1" src="/assets/facebook.svg" alt="alt text" />
+                    <img class="socialIcon2" src="/assets/instagram.svg" alt="alt text" />
+                    <img class="socialIcon3" src="/assets/youtube.svg" alt="alt text" />
                 </div>
             </div>
         </div>

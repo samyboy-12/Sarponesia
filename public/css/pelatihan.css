@@ -1,0 +1,1343 @@
+@use "utils" as *;
+@use "global" as *;
+
+.pelatihan {
+  &.main {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(210 209 207);
+    overflow: hidden;
+  }
+
+  .headerSection {
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(25 15 5);
+  }
+
+  .headerContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 41px 0;
+    margin: 56px auto 25px;
+    width: 90.76%;
+    max-width: 1306.9375px;
+
+    @include tn {
+      margin: 50px auto 25px;
+    }
+  }
+
+  .authWrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 0 10px;
+    margin: 0 0 0 auto;
+    width: 870px;
+    max-width: 85%;
+
+    @include md {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px 10px;
+    }
+  }
+
+  .logoImg {
+    z-index: 1;
+    margin: 8px 0 0;
+    width: 413px;
+    min-width: 0;
+    object-fit: cover;
+
+    @include md {
+      margin: 0;
+      width: 100%;
+      min-width: unset;
+      max-width: 413px;
+    }
+  }
+
+  .authBtnGroup {
+    display: flex;
+    gap: 0 4px;
+    margin: 0 0 34px;
+    width: 276px;
+    min-width: 0;
+
+    @include md {
+      margin: 0;
+      width: 100%;
+      min-width: unset;
+    }
+
+    @include tn {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px 4px;
+    }
+  }
+
+  .loginBtn {
+    display: flex;
+    justify-content: center;
+    min-width: 136px;
+    font: 600 20px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+    text-align: center;
+    border-radius: 30px;
+    padding: 15px 40px;
+    outline: 4px solid rgb(254 254 252);
+    outline-offset: -4px;
+
+    @include tn {
+      width: 100%;
+      min-width: unset;
+    }
+  }
+
+  .registerBtn {
+    display: flex;
+    justify-content: center;
+    min-width: 136px;
+    font: 600 20px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+    text-align: center;
+    border-radius: 30px;
+    padding: 15px 26px;
+    outline: 4px solid rgb(254 254 252);
+    outline-offset: -4px;
+
+    @include tn {
+      width: 100%;
+      min-width: unset;
+    }
+  }
+
+  .navContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 10px;
+    width: 94.95%;
+
+    @include xl {
+      flex-direction: column;
+      gap: 30px 10px;
+    }
+  }
+
+  .brandLogo {
+    z-index: 2;
+    width: 164px;
+    min-width: 0;
+    object-fit: cover;
+
+    @include xl {
+      width: 100%;
+      min-width: unset;
+      max-width: 164px;
+    }
+  }
+
+  .mainNav {
+    display: flex;
+    gap: 0 24px;
+    width: 751px;
+    min-width: 0;
+
+    @include xl {
+      width: 100%;
+      min-width: unset;
+    }
+
+    @include md {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px 24px;
+    }
+  }
+
+  .navLink {
+    font: 600 20px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(255 255 255);
+
+    @include md {
+      align-items: flex-start;
+      width: 100%;
+      font-size: 18px;
+    }
+
+    @include xxs {
+      font-size: 16px;
+    }
+  }
+
+  .navLink1 {
+    font: 700 20px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(187 172 159);
+    text-decoration: underline;
+
+    @include md {
+      align-items: flex-start;
+      width: 100%;
+      font-size: 18px;
+    }
+
+    @include xxs {
+      font-size: 16px;
+    }
+  }
+
+  .searchWrapper {
+    display: flex;
+    gap: 0 22px;
+    width: 239px;
+    min-width: 0;
+
+    @include xl {
+      width: 100%;
+      min-width: unset;
+    }
+
+    @include xs {
+      column-gap: 16px;
+    }
+
+    @include tn {
+      column-gap: 8px;
+    }
+  }
+
+  .searchBtn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 10px;
+    min-width: 192px;
+    background-color: rgb(248 244 225);
+    border-radius: 15px;
+    padding: 3px 15px 3px 16px;
+  }
+
+  .searchText {
+    min-width: 0;
+    font: 400 16px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(60 36 11 / 49.8%);
+  }
+
+  .searchIcon {
+    margin: 4px 0 3px;
+    width: 17px;
+    min-width: 0;
+  }
+
+  .cartIcon {
+    margin: 4px 0;
+    width: 25px;
+    object-fit: cover;
+  }
+
+  .trainingHeroSection {
+    display: flex;
+    flex-direction: column;
+    background: var(--src) center center / cover no-repeat;
+  }
+
+  .heroWrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 146px 0 107px 7.99%;
+    width: 728px;
+    max-width: 85%;
+
+    @include md {
+      margin: 146px auto 107px;
+    }
+
+    @include xs {
+      margin: 80px auto;
+    }
+
+    @include tn {
+      margin: 50px auto;
+    }
+  }
+
+  .contentGroup {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0 4px 0 0;
+  }
+
+  .mainHeading {
+    position: relative;
+    font: 600 46px/1.43 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+    letter-spacing: 1.38px;
+
+    @include md {
+      align-items: flex-start;
+      font-size: 42px;
+    }
+
+    @include xxs {
+      font-size: 36px;
+    }
+  }
+
+  .trainingImg {
+    position: absolute;
+    top: -146px;
+    right: -601.0000381469727px;
+    width: 696px;
+  }
+
+  .subHeading {
+    margin: 0 0 0 4px;
+    font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(252 250 241);
+    letter-spacing: 0.72px;
+
+    @include md {
+      align-items: flex-start;
+      font-size: 22px;
+    }
+
+    @include xxs {
+      font-size: 20px;
+    }
+  }
+
+  .specializedTrainingSection {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .trainingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px 0;
+    margin: 125px auto;
+    width: 1199.947998046875px;
+    max-width: 85%;
+
+    @include xs {
+      margin: 80px auto;
+    }
+
+    @include tn {
+      margin: 50px auto;
+    }
+  }
+
+  .sectionTitle {
+    display: flex;
+    justify-content: center;
+    font: 600 40px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(0 0 0);
+    text-align: center;
+    letter-spacing: 1.2px;
+
+    @include md {
+      align-items: flex-start;
+      font-size: 36px;
+    }
+
+    @include xxs {
+      font-size: 32px;
+    }
+  }
+
+  .trainingGrid {
+    display: flex;
+    gap: 0 20px;
+    width: 100%;
+
+    @include lg {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px 20px;
+    }
+  }
+
+  .trainingCard {
+    display: flex;
+    flex-direction: column;
+    width: 285px;
+    min-width: 0;
+    background-color: rgb(104 102 95);
+    border-radius: 15px;
+
+    @include lg {
+      width: 100%;
+      min-width: unset;
+    }
+  }
+
+  .cardContent {
+    display: flex;
+    gap: 0 17px;
+    margin: 19px 35px 18px 36px;
+
+    @include md {
+      margin: 19px 32px 18px;
+    }
+
+    @include xs {
+      column-gap: 16px;
+      margin: 19px 16px 18px;
+    }
+
+    @include tn {
+      column-gap: 8px;
+      margin: 19px 8px 18px;
+    }
+  }
+
+  .cardImg {
+    width: 78px;
+    min-width: 0;
+    border-radius: 39px;
+    object-fit: cover;
+  }
+
+  .cardTitle {
+    margin: 3px 0;
+    width: 119px;
+    font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 22px;
+    }
+
+    @include xxs {
+      font-size: 20px;
+    }
+  }
+
+  .cardContent1 {
+    display: flex;
+    gap: 0 17px;
+    margin: 19px 23px 18px;
+
+    @include xs {
+      column-gap: 16px;
+      margin: 19px 16px 18px;
+    }
+
+    @include tn {
+      column-gap: 8px;
+      margin: 19px 8px 18px;
+    }
+  }
+
+  .cardTitle1 {
+    margin: 3px 0;
+    width: 144px;
+    font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 22px;
+    }
+
+    @include xxs {
+      font-size: 20px;
+    }
+  }
+
+  .cardContent2 {
+    display: flex;
+    gap: 0 17px;
+    margin: 19px 3px 18px 16px;
+
+    @include xs {
+      column-gap: 16px;
+    }
+
+    @include tn {
+      column-gap: 8px;
+      margin: 19px 3px 18px 8px;
+    }
+  }
+
+  .cardTitle2 {
+    margin: 3px 0;
+    width: 171px;
+    font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 22px;
+    }
+
+    @include xxs {
+      font-size: 20px;
+    }
+  }
+
+  .cardContent3 {
+    display: flex;
+    gap: 0 17px;
+    margin: 19px 3px 18px 39px;
+
+    @include md {
+      margin: 19px 3px 18px 32px;
+    }
+
+    @include xs {
+      column-gap: 16px;
+      margin: 19px 3px 18px 16px;
+    }
+
+    @include tn {
+      column-gap: 8px;
+      margin: 19px 3px 18px 8px;
+    }
+  }
+
+  .cardTitle3 {
+    margin: 3px 0;
+    width: 148px;
+    font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 22px;
+    }
+
+    @include xxs {
+      font-size: 20px;
+    }
+  }
+
+  .benefitsSection {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(46 29 16 / 80%);
+  }
+
+  .benefitsWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 10px;
+    margin: 75px auto 94px;
+    width: 1199.947998046875px;
+    max-width: 85%;
+    padding: 0 9px 0 0;
+
+    @include md {
+      flex-direction: column;
+      gap: 30px 10px;
+    }
+
+    @include xs {
+      margin: 75px auto 80px;
+    }
+
+    @include tn {
+      margin: 50px auto;
+      padding: 0 8px 0 0;
+    }
+  }
+
+  .accentBackground {
+    width: 429px;
+    height: 422px;
+    min-height: 422px;
+    border-radius: 15px;
+    outline: 6px solid rgb(248 244 225);
+    outline-offset: -6px;
+
+    @include md {
+      width: 100%;
+    }
+  }
+
+  .benefitsContent {
+    display: flex;
+    flex-direction: column;
+    gap: 19px 0;
+    width: 709px;
+    min-width: 0;
+
+    @include md {
+      width: 100%;
+      min-width: unset;
+    }
+  }
+
+  .mainHeading1 {
+    margin: 0 0 0 16px;
+    font: 600 40px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 36px;
+    }
+
+    @include xxs {
+      font-size: 32px;
+    }
+
+    @include tn {
+      margin: 0 0 0 8px;
+    }
+  }
+
+  .featuresList_box {
+    margin: 0 17px 0 0;
+
+    @include md {
+      align-items: flex-start;
+    }
+
+    @include xs {
+      margin: 0 16px 0 0;
+    }
+
+    @include tn {
+      margin: 0 8px 0 0;
+    }
+  }
+
+  .featuresList {
+    font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(252 250 241);
+    letter-spacing: 1.2px;
+
+    @include md {
+      font-size: 22px;
+    }
+
+    @include xxs {
+      font-size: 20px;
+    }
+  }
+
+  .featuresList_span0 {
+    font: 500 1em/1.5 Poppins, Helvetica, Arial, serif;
+  }
+
+  .featuresList_span1 {
+    font: 1em/1.5 Poppins, Helvetica, Arial, serif;
+  }
+
+  .featuresList_span2 {
+    font: 500 1em/1.5 Poppins, Helvetica, Arial, serif;
+  }
+
+  .featuresList_span3 {
+    font: 1em/1.5 Poppins, Helvetica, Arial, serif;
+  }
+
+  .featuresList_span4 {
+    font: 500 1em/1.5 Poppins, Helvetica, Arial, serif;
+  }
+
+  .featuresList_span5 {
+    font: 1em/1.5 Poppins, Helvetica, Arial, serif;
+  }
+
+  .coffeeTrainingSection {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mainContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 125px auto 225px;
+    width: 1202.96875px;
+    max-width: 85%;
+
+    @include md {
+      margin: 125px auto 150px;
+    }
+
+    @include xs {
+      margin: 80px auto;
+    }
+
+    @include tn {
+      margin: 50px auto;
+    }
+  }
+
+  .serviceCategories {
+    display: flex;
+    gap: 0 24px;
+
+    @include xl {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px 24px;
+    }
+  }
+
+  .brandingTitle {
+    z-index: 3;
+    margin: 18px 0 6px;
+    font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(60 36 11);
+
+    @include xl {
+      margin: 0;
+      width: 100%;
+    }
+
+    @include md {
+      align-items: flex-start;
+      font-size: 22px;
+    }
+
+    @include xxs {
+      font-size: 20px;
+    }
+  }
+
+  .mainHeading2 {
+    font: 600 40px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(35 21 7);
+    text-decoration: underline;
+
+    @include xl {
+      width: 100%;
+    }
+
+    @include md {
+      align-items: flex-start;
+      font-size: 36px;
+    }
+
+    @include xxs {
+      font-size: 32px;
+    }
+  }
+
+  .gardenCareTitle {
+    margin: 18px 0 6px;
+    font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(60 36 11);
+
+    @include xl {
+      margin: 0;
+      width: 100%;
+    }
+
+    @include md {
+      align-items: flex-start;
+      font-size: 22px;
+    }
+
+    @include xxs {
+      font-size: 20px;
+    }
+  }
+
+  .harvestTitle {
+    margin: 18px 0 6px;
+    font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(60 36 11);
+
+    @include xl {
+      margin: 0;
+      width: 100%;
+    }
+
+    @include md {
+      align-items: flex-start;
+      font-size: 22px;
+    }
+
+    @include xxs {
+      font-size: 20px;
+    }
+  }
+
+  .cardContainer {
+    display: flex;
+    gap: 0 20px;
+    margin: 39px 0 0 1px;
+
+    @include md {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px 20px;
+    }
+  }
+
+  .brewingCard {
+    display: flex;
+    flex-direction: column;
+    width: 387px;
+    min-width: 0;
+    background-color: rgb(238 235 231);
+    border-radius: 15px;
+    outline: 6px solid rgb(25 15 5);
+    outline-offset: -6px;
+
+    @include md {
+      width: 100%;
+      min-width: unset;
+    }
+  }
+
+  .brewingContent {
+    display: flex;
+    flex-direction: column;
+    gap: 18px 0;
+    margin: 0 0 23px;
+  }
+
+  .brewingImg {
+    width: 100%;
+    border-radius: 15px;
+    outline: 6px solid rgb(25 15 5);
+    outline-offset: -6px;
+    object-fit: cover;
+  }
+
+  .brewingDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 5px 0;
+    margin: 0 0 0 18px;
+
+    @include xs {
+      margin: 0 0 0 16px;
+    }
+
+    @include tn {
+      margin: 0 0 0 8px;
+    }
+  }
+
+  .brewingTitle {
+    font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(35 21 7);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 22px;
+    }
+
+    @include xxs {
+      font-size: 20px;
+    }
+  }
+
+  .brewingDesc {
+    margin: 0 24px 0 0;
+    font: 400 20px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(60 36 11);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 18px;
+    }
+
+    @include xs {
+      margin: 0 16px 0 0;
+    }
+
+    @include xxs {
+      font-size: 16px;
+    }
+
+    @include tn {
+      margin: 0 8px 0 0;
+    }
+  }
+
+  .espressoCard {
+    display: flex;
+    flex-direction: column;
+    width: 387px;
+    min-width: 0;
+    background-color: rgb(238 235 231);
+    border-radius: 15px;
+    outline: 6px solid rgb(25 15 5);
+    outline-offset: -6px;
+
+    @include md {
+      width: 100%;
+      min-width: unset;
+    }
+  }
+
+  .espressoContent {
+    display: flex;
+    flex-direction: column;
+    gap: 17px 0;
+    margin: 0 0 24px;
+  }
+
+  .espressoImg {
+    width: 100%;
+    border-radius: 15px;
+    outline: 6px solid rgb(25 15 5);
+    outline-offset: -6px;
+    object-fit: cover;
+  }
+
+  .espressoDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 5px 0;
+    margin: 0 0 0 18px;
+
+    @include xs {
+      margin: 0 0 0 16px;
+    }
+
+    @include tn {
+      margin: 0 0 0 8px;
+    }
+  }
+
+  .espressoTitle {
+    font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(35 21 7);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 22px;
+    }
+
+    @include xxs {
+      font-size: 20px;
+    }
+  }
+
+  .espressoDesc {
+    margin: 0 15px 0 0;
+    font: 400 20px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(60 36 11);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 18px;
+    }
+
+    @include xxs {
+      font-size: 16px;
+    }
+
+    @include tn {
+      margin: 0 8px 0 0;
+    }
+  }
+
+  .roastingCard {
+    display: flex;
+    flex-direction: column;
+    width: 388px;
+    min-width: 0;
+    background-color: rgb(238 235 231);
+    border-radius: 15px;
+    outline: 6px solid rgb(25 15 5);
+    outline-offset: -6px;
+
+    @include md {
+      width: 100%;
+      min-width: unset;
+    }
+  }
+
+  .roastingContent {
+    display: flex;
+    flex-direction: column;
+    gap: 18px 0;
+    margin: 0 0 53px;
+
+    @include tn {
+      margin: 0 0 50px;
+    }
+  }
+
+  .roastingImg {
+    margin: 0 1px 0 0;
+    width: 99.74%;
+    border-radius: 15px;
+    outline: 6px solid rgb(25 15 5);
+    outline-offset: -6px;
+    object-fit: cover;
+  }
+
+  .roastingDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 5px 0;
+    margin: 0 0 0 16px;
+
+    @include tn {
+      margin: 0 0 0 8px;
+    }
+  }
+
+  .roastingTitle {
+    font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(35 21 7);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 22px;
+    }
+
+    @include xxs {
+      font-size: 20px;
+    }
+  }
+
+  .roastingDesc {
+    margin: 0 15px 0 0;
+    font: 400 20px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(60 36 11);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 18px;
+    }
+
+    @include xxs {
+      font-size: 16px;
+    }
+
+    @include tn {
+      margin: 0 8px 0 0;
+    }
+  }
+
+  .enrollBtn {
+    display: flex;
+    justify-content: center;
+    margin: 44px auto 0;
+    width: 224px;
+    max-width: 100%;
+    font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+    text-align: center;
+    background-color: rgb(84 51 16);
+    border-radius: 15px;
+    padding: 12px 24px;
+  }
+
+  .contactInfoSection {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(25 15 5);
+  }
+
+  .infoContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 0 10px;
+    margin: 148px 18px 149px auto;
+    width: 89.93%;
+    max-width: 1294.9896240234375px;
+
+    @include xl {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px 10px;
+    }
+
+    @include xs {
+      margin: 80px 16px 80px auto;
+    }
+
+    @include tn {
+      margin: 50px auto;
+    }
+  }
+
+  .storeLogo {
+    margin: 0 0 86px;
+    width: 297px;
+    min-width: 0;
+    object-fit: cover;
+
+    @include xl {
+      margin: 0;
+      width: 100%;
+      min-width: unset;
+      max-width: 297px;
+    }
+  }
+
+  .businessHours {
+    display: flex;
+    flex-direction: column;
+    width: 262px;
+    min-width: 0;
+
+    @include xl {
+      width: 100%;
+      min-width: unset;
+    }
+  }
+
+  .operatingHoursTitle {
+    margin: 0 39px;
+    font: 600 36px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+
+    @include md {
+      align-items: flex-start;
+      margin: 0 32px;
+      font-size: 32px;
+    }
+
+    @include xs {
+      margin: 0 16px;
+    }
+
+    @include xxs {
+      font-size: 30px;
+    }
+
+    @include tn {
+      margin: 0 8px;
+    }
+  }
+
+  .scheduleInfo {
+    margin: 0 0 0 39px;
+    font: 500 30px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(252 250 241 / 69.8%);
+
+    @include md {
+      align-items: flex-start;
+      margin: 0 0 0 32px;
+      font-size: 28px;
+    }
+
+    @include xs {
+      margin: 0 0 0 16px;
+    }
+
+    @include xxs {
+      font-size: 24px;
+    }
+
+    @include tn {
+      margin: 0 0 0 8px;
+    }
+  }
+
+  .locationWrapper {
+    display: flex;
+    align-items: center;
+    gap: 0 24px;
+    margin: 51px 0 0;
+
+    @include xs {
+      column-gap: 16px;
+    }
+
+    @include tn {
+      column-gap: 8px;
+      margin: 50px 0 0;
+    }
+  }
+
+  .locationIcon {
+    width: 28px;
+    object-fit: cover;
+  }
+
+  .addressTxt {
+    width: 184px;
+    font: 500 20px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 18px;
+    }
+
+    @include xxs {
+      font-size: 16px;
+    }
+  }
+
+  .productInfo {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 13px;
+    width: 205px;
+    min-width: 0;
+
+    @include xl {
+      margin: 0;
+      width: 100%;
+      min-width: unset;
+    }
+  }
+
+  .infoTitle {
+    margin: 0 2px 0 27px;
+    font: 600 36px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 32px;
+    }
+
+    @include xs {
+      margin: 0 2px 0 16px;
+    }
+
+    @include xxs {
+      font-size: 30px;
+    }
+
+    @include tn {
+      margin: 0 2px 0 8px;
+    }
+  }
+
+  .menuDetails {
+    margin: 0 0 0 27px;
+    width: 105px;
+    max-width: 85%;
+    font: 500 30px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(252 250 241 / 69.8%);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 28px;
+    }
+
+    @include xs {
+      margin: 0 0 0 16px;
+    }
+
+    @include xxs {
+      font-size: 24px;
+    }
+
+    @include tn {
+      margin: 0 0 0 8px;
+    }
+  }
+
+  .contactWrapper {
+    display: flex;
+    gap: 0 13px;
+    margin: 64px 0 0;
+
+    @include tn {
+      column-gap: 8px;
+      margin: 50px 0 0;
+    }
+  }
+
+  .phoneIcon {
+    width: 40px;
+    object-fit: cover;
+  }
+
+  .phoneNumber {
+    margin: 2px 0;
+    font: 500 20px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 18px;
+    }
+
+    @include xxs {
+      font-size: 16px;
+    }
+  }
+
+  .featuredProducts {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 14px;
+    width: 360px;
+    min-width: 0;
+
+    @include xl {
+      margin: 0;
+      width: 100%;
+      min-width: unset;
+    }
+  }
+
+  .bestProductTitle {
+    z-index: 1;
+    font: 600 36px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(254 254 252);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 32px;
+    }
+
+    @include xxs {
+      font-size: 30px;
+    }
+  }
+
+  .trainingDetails {
+    z-index: 1;
+    font: 500 30px/1.5 Poppins, Helvetica, Arial, serif;
+    color: rgb(252 250 241 / 69.8%);
+
+    @include md {
+      align-items: flex-start;
+      font-size: 28px;
+    }
+
+    @include xxs {
+      font-size: 24px;
+    }
+  }
+
+  .socialMediaIcons {
+    display: flex;
+    align-items: center;
+    gap: 0 21px;
+    margin: 20px 1px 0;
+
+    @include xs {
+      column-gap: 16px;
+    }
+
+    @include tn {
+      column-gap: 8px;
+    }
+  }
+
+  .socialIcon1 {
+    width: 39px;
+    object-fit: cover;
+  }
+
+  .socialIcon2 {
+    width: 38px;
+    object-fit: cover;
+  }
+
+  .socialIcon3 {
+    width: 38px;
+    object-fit: cover;
+  }
+}
