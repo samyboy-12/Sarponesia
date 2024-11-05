@@ -39,3 +39,15 @@ Route::get('/benihpupuk',function(){
 Route::get('/pelatihan',function(){
     return view('Pelatihan');
 });
+
+Route::get('/artikel',function(){
+    return view('Artikel');
+});
+
+Route::get('/program',function(){
+    return view('Program');
+});
+
+Route::get('/komunitas',function(){
+    return view('Komunitas');
+});

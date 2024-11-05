@@ -24,7 +24,6 @@
                 <a class="register-btn" href="{{ url('/register') }}">Register</a>
             </div>
         </div>
-        <div class="navbar-wrapper">
                 <nav>
                 <ul class="nav-links">
                     <img src="{{ asset('assets/Logonav.png') }}" alt="Sarponesia Coffee Nav" class="LogoNav" onclick="scrollToTop()">
@@ -66,8 +65,8 @@
                     <li class="{{ Request::is('artikel') ? 'active' : '' }}">
                         <a href="{{ url('/artikel') }}">Artikel</a>
                     </li>
-                    <li class="{{ Request::is('community') ? 'active' : '' }}">
-                        <a href="{{ url('/community') }}">Komunitas</a>
+                    <li class="{{ Request::is('komunitas') ? 'active' : '' }}">
+                        <a href="{{ url('/komunitas') }}">Komunitas</a>
                     </li>
                 </ul>
                         <div class="search">
@@ -77,7 +76,7 @@
                             </button>
                         </div>
                 </nav>
-        </div>
+
     </header>
 
     <div class="main">
