@@ -27,8 +27,8 @@
             <!-- Grid layout for product cards display --> 
             <div class="tabs tab-round">
             <div class="tab">
-              <a href="#contents10">Tab1</a>
-              <a href="#contents11">Tab2</a>
+              <a href="#contents10">robusta</a>
+              <a href="#contents11">roastedbean</a>
 
             </div>
             <div class="contents" id="contents10">
@@ -180,7 +180,7 @@
                   </div>
                 </div>
             </div>
-            <div class="contents" id="contents11">Contents2</div>
+            <div class="contents" id="contents11">contoh Contents roastedbean</div>
           </div>
         </div>
       </section>

@@ -13,6 +13,12 @@
 .tab {
   position: relative;
   z-index: 1;
+  color: #231507;
+  font-family: Poppins;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 
   & > a {
     position: relative;
@@ -58,7 +64,6 @@
     text-align: center;
     border-radius: 15px;
     border: 6px solid #190F05;
-    background: #ffff;
     border-radius: 30px;
     height: 100px;
     margin-right: 1px;
