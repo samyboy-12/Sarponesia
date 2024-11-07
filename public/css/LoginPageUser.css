@@ -1,29 +1,38 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
-  }
-  
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: Poppins, Helvetica, Arial, sans-serif;
+}
+
 :root {
-    --fallback-font-stack: Helvetica, Arial, serif;
-  }
-  
-  .welcomeSection {
-    display: flex;
-    flex-direction: column;
-    background-image: linear-gradient(69deg, #d2d1cf 31.23%, #6c6b6a 112.57%);
-    overflow: hidden;
-  }
-   .flexRow {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0 10px;
-    margin: 131px auto;
-    width: 1199.9432373047px;
-    max-width: 85%;
-  }
+  --fallback-font-stack: Helvetica, Arial, sans-serif;
+}
+
+.welcomeSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(69deg, #d2d1cf 31.23%, #6c6b6a 112.57%);
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.flexRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0 10px;
+  margin: 131px auto;
+  width: 1199.943px;
+  max-width: 85%;
+}
   @media (max-width: 991px) {
      .flexRow {
       flex-direction: column;
@@ -91,59 +100,34 @@
       font-size: 20px;
     }
   }
-   .emailUsernameContainer {
-    display: flex;
-    flex-direction: column;
+
+  input[type="text"],
+  select {
     margin: 36px 0 0;
     width: 100%;
     border-radius: 40px;
     outline: 3px solid #190f05;
     outline-offset: -3px;
-  }
-   .emailUsernameLabel {
-    display: flex;
-    justify-content: center;
-    margin: 22px auto;
     font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
+    text-align: center;
+    padding: 22px 0;
+    background-color: transparent; /* Membuat latar belakang transparan */
+  }
+  
+  input[type="text"]::placeholder {
     color: rgba(60, 36, 11, 0.678);
+    font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
     text-align: center;
   }
+
   @media (max-width: 991px) {
-     .emailUsernameLabel {
+     .input[type="text"] {
       align-items: flex-start;
       font-size: 22px;
     }
   }
   @media (max-width: 479px) {
-     .emailUsernameLabel {
-      font-size: 20px;
-    }
-  }
-   .passwordContainer {
-    display: flex;
-    flex-direction: column;
-    margin: 4px 0 0;
-    width: 100%;
-    border-radius: 40px;
-    outline: 3px solid #190f05;
-    outline-offset: -3px;
-  }
-   .passwordLabel {
-    display: flex;
-    justify-content: center;
-    margin: 22px auto;
-    font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
-    color: rgba(60, 36, 11, 0.678);
-    text-align: center;
-  }
-  @media (max-width: 991px) {
-     .passwordLabel {
-      align-items: flex-start;
-      font-size: 22px;
-    }
-  }
-  @media (max-width: 479px) {
-     .passwordLabel {
+     .input[type="text"] {
       font-size: 20px;
     }
   }
@@ -156,18 +140,24 @@
     color: #190f05;
     text-align: right;
   }
-   .loginButton {
+  input[type=submit] {
     display: flex;
-    justify-content: center;
-    margin: 24px 0 0;
-    width: 590px;
-    max-width: 100%;
-    font: 600 36px/1.5 Poppins, Helvetica, Arial, serif;
-    color: #fefefc;
-    text-align: center;
-    background-color: #543310;
-    border-radius: 40px;
-    padding: 13px 8px;
+      justify-content: center;
+      margin: 24px 0 0;
+      width: 590px;
+      max-width: 100%;
+      font: 600 36px/1.5 Poppins, Helvetica, Arial, serif;
+      color: #fefefc;
+      text-align: center;
+      background-color: #543310;
+      border-radius: 40px;
+      padding: 13px 8px;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #d3b58f;
+    color: #1a0e07;
+    cursor: pointer;
   }
    .accountCreationPrompt_box {
     display: flex;

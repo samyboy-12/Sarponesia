@@ -60,6 +60,8 @@ header {
     transition: all 0.3s ease-in-out;
     display: flex;
     gap: 0 30px;
+
+    
   }
   nav.active {
     display: flex;
@@ -83,7 +85,7 @@ header {
     margin: 0;
     width: auto;
     width: max-content; 
-    white-space: nowrap; 
+    white-space: nowrap;
   }
   
   .nav-links li {
@@ -207,7 +209,7 @@ header {
     transform: translateX(160px); /* Move button when active */
   }
 
-.login-btn, .register-btn {
+.login-btn{
   display: flex;
   width: 136px;
   height: 60px;
@@ -229,7 +231,7 @@ header {
   line-height: normal;
 }
 
-.login-btn:hover, .register-btn:hover {
+.login-btn:hover  {
   background-color: #d3b58f;
   color: #1a0e07;
 }

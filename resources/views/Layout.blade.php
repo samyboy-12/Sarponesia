@@ -8,6 +8,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/layout.css') }}" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @yield('styles')
     <title>Sarponesia</title>
 </head>
@@ -21,7 +22,6 @@
             </div>
             <div class="header-right">
                 <a class="login-btn" href="{{ url('/login') }}">Login</a>
-                <a class="register-btn" href="{{ url('/register') }}">Register</a>
             </div>
         </div>
                 <nav>
@@ -58,16 +58,7 @@
                     </li>
                     <li class="{{ Request::is('contact') ? 'active' : '' }}">
                         <a href="{{ url('/contact') }}">Hubungi</a>
-                    </li>
-                    <li class="{{ Request::is('program') ? 'active' : '' }}">
-                        <a href="{{ url('/program') }}">Program Kerjasama</a>
-                    </li>
-                    <li class="{{ Request::is('artikel') ? 'active' : '' }}">
-                        <a href="{{ url('/artikel') }}">Artikel</a>
-                    </li>
-                    <li class="{{ Request::is('komunitas') ? 'active' : '' }}">
-                        <a href="{{ url('/komunitas') }}">Komunitas</a>
-                    </li>
+              
                 </ul>
                         <div class="search">
                             <input type="text" class="input" placeholder="Search...">

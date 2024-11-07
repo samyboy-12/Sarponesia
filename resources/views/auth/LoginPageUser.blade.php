@@ -9,17 +9,21 @@
         <div class="flexColumn">
           <h1 class="heroTitle">Selamat Datang Kembali !</h1>
           <h2 class="accountInfoInstruction">Isikan informasi akun anda dengan benar untuk dapat mengakses akun di Sarponesia</h2>
-          <div class="emailUsernameContainer"><h2 class="emailUsernameLabel">Email / Username</h2></div>
-          <div class="passwordContainer"><h2 class="passwordLabel">Kata Sandi</h2></div>
-          <p class="forgotPasswordText">Lupa Kata Sandi ?</p>
-          <button class="loginButton">
-            <!-- TODO --> 
-            Login
-          </button>
+          <div>
+            <form action="/action_page.php">
+              <input type="text" id="Email/Username" name="email/username" placeholder="Email/Username">
+              <input type="text" id="Password" name="password" placeholder="Kata Sandi">
+            </form>
+          </div>
+          <p class="forgotPasswordText">
+            <a href="{{ url('/reset') }}" style="text-decoration: none;">Lupa Kata Sandi?</a>
+          </p>
+
+          <input type="submit" id="login" name="login" value="Login">
           <h2 class="accountCreationPrompt_box">
             <span class="accountCreationPrompt">
               <span class="accountCreationPrompt_span0">Belum memiliki akun? </span>
-              <span class="accountCreationPrompt_span1">Buat akun</span>
+              <a href="#" class="accountCreationPrompt_span1">Buat akun</a>
             </span>
           </h2>
         </div>
@@ -28,4 +32,4 @@
     </section>
 
 
-  </body
+</body>
