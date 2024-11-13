@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('Layout.layout1')
 
 @section('styles')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/LandingPage.css') }}" />
@@ -45,13 +45,16 @@
             <div class="flexRow1">
                 @foreach (['pelatihan', 'alat', 'benih', 'kopi_produk'] as $item)
                 <div class="kontenpelatihan" style="background-image: url('{{ asset("assets/$item.png") }}');">
-                    <button class="contentBtn">{{ ucfirst($item) }}</button>
+                    <a href="{{ route($item) }}" class="contentBtn">
+                        {{ $item == 'kopi_produk' ? 'Kopi Produk' : ucfirst($item) }}
+                    </a>
                 </div>
                 @endforeach
             </div>
         </div>
     </section>
 </div>
+
 
 <div class="content">
     <section class="bestProductsSection">

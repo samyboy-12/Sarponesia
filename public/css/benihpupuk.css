@@ -328,18 +328,7 @@
       font-size: 16px;
     }
   }
-  
-  .buyBtn {
-    display: flex;
-    justify-content: center;
-    min-width: 89px;
-    font: 600 20px/1.5 Poppins, Helvetica, Arial, serif;
-    color: rgb(254 254 252);
-    text-align: center;
-    background-color: rgb(84 51 16);
-    border-radius: 15px;
-    padding: 0 22px;
-  }
+
   .flex_col {
     display: flex;
     flex-direction: column;
@@ -418,18 +407,7 @@
       font-size: 16px;
     }
   }
-  
-  .btns {
-    display: flex;
-    justify-content: center;
-    min-width: 89px;
-    font: 600 20px/1.5 Poppins, Helvetica, Arial, serif;
-    color: rgb(254 254 252);
-    text-align: center;
-    background-color: rgb(84 51 16);
-    border-radius: 15px;
-    padding: 0 22px;
-  }
+
   
   .flex_col2 {
     display: flex;
@@ -500,6 +478,20 @@
     background-color: rgb(84 51 16);
     border-radius: 15px;
     padding: 0 22px;
+  }
+  .btn1:hover{
+    background-color: #d3b58f;
+    color: #1a0e07;
+  }
+
+  .btn2:hover{
+    background-color: #d3b58f;
+    color: #1a0e07;
+  }
+
+  .purchaseBtn:hover{
+    background-color: #d3b58f;
+    color: #1a0e07;
   }
   
   .subtitle41 {
@@ -1030,4 +1022,7 @@
       max-width: 228px;
     }
   }
-      
+
+  .detailsLink:hover{
+    color: #d3b58f;
+  }

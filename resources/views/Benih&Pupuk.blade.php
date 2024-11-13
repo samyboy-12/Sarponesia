@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('Layout.layout1')
 
 @section('styles')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/benihpupuk.css') }}" />
@@ -38,7 +38,7 @@
                 <p class="itemTitle">Nama Produk</p>
                 <div class="priceContainer">
                   <p class="priceLabel">Price</p>
-                  <button class="buyBtn">
+                  <button class="btn1">
                     <!-- TODO --> 
                     Beli
                   </button>
@@ -51,7 +51,7 @@
                 <h3 class="medium_title3">Nama Produk</h3>
                 <div class="flex_row">
                   <h3 class="subtitle4">Price</h3>
-                  <button class="btns">
+                  <button class="btn1">
                     <!-- TODO --> 
                     Beli
                   </button>
@@ -77,7 +77,7 @@
                 <h3 class="medium_title3">Nama Produk</h3>
                 <div class="flex_row">
                   <h3 class="subtitle41">Price</h3>
-                  <button class="btns">
+                  <button class="btn1">
                     <!-- TODO --> 
                     Beli
                   </button>
@@ -90,7 +90,7 @@
                 <h3 class="medium_title3">Nama Produk</h3>
                 <div class="flex_row">
                   <h3 class="subtitle4">Price</h3>
-                  <button class="btns">
+                  <button class="btn1">
                     <!-- TODO --> 
                     Beli
                   </button>
@@ -153,7 +153,7 @@
                     <h2 class="big_title">Nama Produk</h2>
                     <h3 class="subtitle1">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h3>
                   </div>
-                  <h3 class="medium_title2">Selengkapnya</h3>
+                  <a class="detailsLink">Selengkapnya</a>
                 </div>
                 <img class="image1" src="/assets/922b26c88f215943b690a3e8548943b3.png" alt="alt text" />
               </div>
@@ -166,7 +166,7 @@
                     <h2 class="big_title">Nama Produk</h2>
                     <h3 class="subtitle1">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h3>
                   </div>
-                  <h3 class="medium_title2">Selengkapnya</h3>
+                  <a class="detailsLink">Selengkapnya</a>
                 </div>
                 <img class="image1" src="/assets/ce325319935e28bb65710d74354d2a19.png" alt="alt text" />
               </div>

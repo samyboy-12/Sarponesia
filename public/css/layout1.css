@@ -17,6 +17,7 @@ body {
   background-color: #F1F1F0;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 
 }
 /* Header */
@@ -44,6 +45,7 @@ header {
   gap: 5px;
   margin-right: 56px;
   right: 0;
+  font: 600 20px/1.5 Poppins, Helvetica, Arial, serif;
 }
 
 .Burger{
@@ -56,7 +58,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 60px; /* Mengganti 'auto' dengan '0' untuk padding vertikal */
+    padding:35px 60px;
     top: 0;
     left: 0;
     right: 0;
@@ -72,6 +74,7 @@ nav.active {
   top: 0;
   left: 0;
   right: 0;
+  padding: 0 60px; /* Mengganti 'auto' dengan '0' untuk padding vertikal */
   transition: all 0.3s ease-in-out;
   position: fixed;
   background-color: #1a0e07;
@@ -204,11 +207,11 @@ nav.active {
   }
   
   .search.active .input {
-    width: 192px; /* Width of the input when active */
+    width: 192px; 
   }
   
   .search.active .btn {
-    transform: translateX(160px); /* Move button when active */
+    transform: translateX(160px); 
   }
 
 .login-btn{
@@ -226,10 +229,7 @@ nav.active {
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
   color: #FEFEFC;
-  font-family: Poppins;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 600;
+  font: 600 20px/1.5 Poppins, Helvetica, Arial, serif;
   line-height: normal;
 }
 

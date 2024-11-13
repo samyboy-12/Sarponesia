@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('Layout.layout1')
 
 @section('styles')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/Katalog.css') }}" />

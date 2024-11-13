@@ -23,7 +23,7 @@
           <h2 class="accountCreationPrompt_box">
             <span class="accountCreationPrompt">
               <span class="accountCreationPrompt_span0">Belum memiliki akun? </span>
-              <a href="#" class="accountCreationPrompt_span1">Buat akun</a>
+              <a href="{{ url('/registrasi') }}" class="accountCreationPrompt_span1">Buat akun</a>
             </span>
           </h2>
         </div>

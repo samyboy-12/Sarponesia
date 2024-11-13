@@ -1,0 +1,138 @@
+.forgot-password.resetPasswordSection {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(210, 209, 207);
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.forgot-password .content_box1 {
+  display: flex;
+  flex-direction: column;
+  margin: 68px auto 67px;
+  width: 678.996px;
+  max-width: 85%;
+  background-color: rgb(127, 100, 71);
+  border-radius: 44px;
+}
+
+.forgot-password .flex_col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 263px auto;
+  width: 87.04%;
+}
+
+.forgot-password .flex_col1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 94.59%;
+}
+
+.forgot-password .resetPasswordTitle {
+  display: flex;
+  justify-content: center;
+  font: 600 40px/1.5 "Poppins", Helvetica, Arial, serif;
+  color: rgb(254, 254, 252);
+  text-align: center;
+}
+
+.forgot-password .resetPasswordInstruction {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font: 400 24px/1.5 "Poppins", Helvetica, Arial, serif;
+  color: rgb(252, 250, 241);
+  text-align: center;
+}
+
+
+.forgot-password input[type="text"] {
+  display: block;
+  width: 100%;
+  margin: 47px 0 0;
+  padding: 10px; /* Adds padding for a better appearance */
+  background-color: rgb(238, 235, 231);
+  border-radius: 40px;
+  outline: 3px solid rgb(30, 30, 30);
+  outline-offset: -3px;
+  font: 500 24px/1.5 "Poppins", Helvetica, Arial, serif;
+  color: rgba(82, 61, 39, 0.8);
+  box-sizing: border-box;
+}
+
+.forgot-password input[type="text"]::placeholder {
+  color: rgba(82, 61, 39, 0.8); /* Matches the label color */
+  font: 500 24px/1.5 "Poppins", Helvetica, Arial, serif;
+  text-align: center; /* Center-aligns placeholder text */
+}
+
+
+.forgot-password .resetPasswordButton {
+  display: flex;
+  justify-content: center;
+  margin: 24px 0 0;
+  width: 591px;
+  max-width: 100%;
+  font: 600 36px/1.5 "Poppins", Helvetica, Arial, serif;
+  color: rgb(254, 254, 252);
+  text-align: center;
+  background-color: rgb(84, 51, 16);
+  border-radius: 40px;
+  padding: 13px 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .forgot-password .content_box1 {
+    margin: 50px auto;
+  }
+
+  .forgot-password .flex_col {
+    margin: 150px auto;
+  }
+
+  .forgot-password .resetPasswordTitle {
+    align-items: flex-start;
+    font-size: 36px;
+  }
+
+  .forgot-password .resetPasswordInstruction {
+    align-items: flex-start;
+    font-size: 22px;
+  }
+
+  .forgot-password .emailLabel {
+    align-items: flex-start;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .forgot-password .flex_col {
+    margin: 80px auto;
+  }
+
+  .forgot-password .resetPasswordTitle {
+    font-size: 32px;
+  }
+
+  .forgot-password .resetPasswordInstruction {
+    font-size: 20px;
+  }
+
+  .forgot-password .emailLabel {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  .forgot-password .flex_col {
+    margin: 50px auto;
+  }
+}

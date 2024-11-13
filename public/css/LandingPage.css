@@ -1,3 +1,4 @@
+
 .coffeeImageFigure {
   position: absolute;
   right: 0;
@@ -221,6 +222,12 @@
   outline-offset: -1px;
 }
 
+.learnMoreBtn:hover  {
+  background-color: #d3b58f;
+  color: #1a0e07;
+}
+
+
 .productsAndServicesSection {
   display: flex;
   flex-direction: column;
@@ -307,6 +314,12 @@
   outline: 1px solid #fefefc;
   outline-offset: -1px;
 }
+
+.contentBtn:hover  {
+  background-color: #d3b58f;
+  color: #1a0e07;
+}
+
 .bestProductsSection { 
   display: flex;
   flex-direction: column;
@@ -451,6 +464,12 @@
   outline: 1px solid #fefefc;
   letter-spacing: 1.27px;
 }
+
+.buyNowButton:hover  {
+  background-color: #d3b58f;
+  color: #1a0e07;
+}
+
 
 .customerTestimonialsSection {
   display: flex;
@@ -1372,4 +1391,8 @@
   background-color: #543310;
   border-radius: 15px;
   padding: 11px 20px;
+}
+.viewOurCommunityButton:hover  {
+  background-color: #d3b58f;
+  color: #1a0e07;
 }

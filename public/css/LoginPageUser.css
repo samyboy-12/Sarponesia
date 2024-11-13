@@ -30,7 +30,6 @@ html, body {
   align-items: center;
   gap: 0 10px;
   margin: 131px auto;
-  width: 1199.943px;
   max-width: 85%;
 }
   @media (max-width: 991px) {

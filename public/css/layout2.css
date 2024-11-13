@@ -53,6 +53,7 @@ header {
   flex-shrink: 0;
   }
   nav {
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -64,6 +65,7 @@ header {
     background-color: transparent;
     gap: 30px; /* Menggunakan satu nilai untuk gap horizontal */
     z-index: 100;
+    margin-top: 250px;
 }
 nav.active {
   display: flex;
@@ -76,6 +78,7 @@ nav.active {
   position: fixed;
   background-color: #1a0e07;
   z-index: 9999;
+  margin-top: 0;
 }
 
   
@@ -140,7 +143,7 @@ nav.active {
   
   .nav-links li.active a {
     font: 700 20px / 1.5 Poppins, Helvetica, Arial, serif;
-    color: #BBAC9F;
+    color: #bbac9f;
     text-decoration: underline;
     
   }
@@ -166,7 +169,7 @@ nav.active {
   }
   
   .search .input {
-    background-color:  #F8F4E1;
+    background-color:  transparent;
     border: 0;
     font-size: 16px; /* Font size slightly smaller */
     padding: 5px 10px; /* Adjust padding */
@@ -177,7 +180,7 @@ nav.active {
   }
   
   .btn {
-    background-color:  #F8F4E1;
+    background-color:  transparent;
     border: 0;
     cursor: pointer;
     position: absolute;
@@ -205,6 +208,7 @@ nav.active {
   
   .search.active .input {
     width: 192px; /* Width of the input when active */
+    background-color:  #F8F4E1;
   }
   
   .search.active .btn {
