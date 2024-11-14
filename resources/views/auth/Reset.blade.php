@@ -10,8 +10,6 @@
             <h2 class="resetPasswordInstruction">Masukkan kredensial di bawah untuk mengatur ulang kata sandi Anda</h2>
           </div>
           <input type="text" id="Email" name="email" placeholder="Email">
-          <input type="text" id="previous" name="previous" placeholder="Password sebelumnya">
-          <input type="text" id="Now" name="now" placeholder="Password Sekarang">
           <input type="submit" id="reset" name="reset" value="Reset Password" class="resetPasswordButton">
         </div>
       </div>

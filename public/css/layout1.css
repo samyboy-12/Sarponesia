@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
+
 }
 
 body {
@@ -13,13 +13,14 @@ body {
   position: relative;
 }
 
-.main{
+.main {
   background-color: #F1F1F0;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
 
 }
+
 /* Header */
 header {
   background-color: #1a0e07;
@@ -32,6 +33,7 @@ header {
   align-items: center;
   padding: 15px 0;
 }
+
 
 .logo {
   margin: 0 auto;
@@ -48,25 +50,29 @@ header {
   font: 600 20px/1.5 Poppins, Helvetica, Arial, serif;
 }
 
-.Burger{
+.Burger {
   cursor: pointer;
   width: 25px;
   height: 22px;
   flex-shrink: 0;
-  }
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding:35px 60px;
-    top: 0;
-    left: 0;
-    right: 0;
-    transition: all 0.3s ease-in-out;
-    background-color: transparent;
-    gap: 30px; /* Menggunakan satu nilai untuk gap horizontal */
-    z-index: 100;
 }
+
+body nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 100px;
+  /* Mengganti 'auto' dengan '0' untuk padding vertikal */
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: all 0.3s ease-in-out;
+  background-color: transparent;
+  gap: 60px;
+  /* Menggunakan satu nilai untuk gap horizontal */
+  z-index: 100;
+}
+
 nav.active {
   display: flex;
   align-items: center;
@@ -74,147 +80,187 @@ nav.active {
   top: 0;
   left: 0;
   right: 0;
-  padding: 0 60px; /* Mengganti 'auto' dengan '0' untuk padding vertikal */
   transition: all 0.3s ease-in-out;
   position: fixed;
   background-color: #1a0e07;
   z-index: 9999;
 }
 
-  
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px; 
-    padding: 0;
-    margin: 0;
-    width: auto;
-    width: max-content; 
-    white-space: nowrap;
-  }
-  
-  .nav-links li {
-    display: flex;
-    justify-content: center; /* Mengatur posisi secara horizontal */
-    align-items: center; /* Mengatur posisi secara vertikal */
-    position: relative; /* Required to position the dropdown */
-  }
-  
-  .dropdown {
-    display: none; /* Hide dropdown by default */
-    position: absolute;
-    top: 100%; /* Position below the parent li */
-    left: 0;
-    background-color: #1a0e07;
-    list-style: none;
-    z-index: 9999;
-    min-width: 100%; /* Makes the dropdown as wide as the button */
-    
-  }
-  .dropdown.show {
-    display: block;
-  }
 
-  .dropdown li a {
-    color: #fff;
-    font-size: 18px;
-    padding: 5px 10px;
-  }
-  
-  .nav-links li:hover .dropdown {
-    display: block; /* Show dropdown on hover */
-  }
-  
-  .dropdown li a:hover {
-    color: #d3b58f;
-  }
-  
-  .nav-links li a {
-    text-decoration: none;
-    color: #fff;
-    font: 600 20px / 1.5 Poppins, Helvetica, Arial, serif;
-    transition: color 0.3 ease-in-out;;
-  
-  }
-  
-  .nav-links li a:hover {
-    color: #d3b58f;
-  }
-  
-  .nav-links li.active a {
-    font: 700 20px / 1.5 Poppins, Helvetica, Arial, serif;
-    color: #BBAC9F;
-    text-decoration: underline;
-    
-  }
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  width: max-content;
+  white-space: nowrap;
+}
 
-  
-  .header-right input {
-    border: none;
-    padding: 8px 15px;
-    border-radius: 25px;
-    background-color: #f3e5d3;
-    color: #1a0e07;
-  }
-  
-  .header-right input::placeholder {
-    color: #a39485;
-  }
-  
-  /* Tombol Pencarian */
-  .search {
-    position: relative;
-    height: 30px; /* Height of the search box */
-    margin: 10px;
-  }
-  
-  .search .input {
-    background-color:  #F8F4E1;
-    border: 0;
-    font-size: 16px; /* Font size slightly smaller */
-    padding: 5px 10px; /* Adjust padding */
-    height: 30px; /* Height of input matching the box height */
-    width: 30px; /* Default width */
-    transition: width 0.3s ease;
-    border-radius: 15px; /* Rounded corners */
-  }
-  
-  .btn {
-    background-color:  #F8F4E1;
-    border: 0;
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 30px; /* Button height matching the input */
-    width: 30px; /* Button width */
-    transition: transform 0.3s ease;
-    border-radius: 15px; /* Rounded corners */
-    display: flex; /* Flexbox for centering the icon */
-    align-items: center; /* Vertically center icon */
-    justify-content: center; /* Horizontally center icon */
-  }
-  
-  .btn img {
-    width: 16px; /* Adjust size of the magnifying glass */
-    height: 16px;
-    z-index: 1;
-  }
-  
-  .btn:focus,
-  .input:focus {
-    outline: none;
-  }
-  
-  .search.active .input {
-    width: 192px; 
-  }
-  
-  .search.active .btn {
-    transform: translateX(160px); 
-  }
+.nav-links li {
+  display: flex;
+  justify-content: flex-start;
+  /* Mengatur posisi secara horizontal */
+  align-items: flex-start;
+  /* Mengatur posisi secara vertikal */
+  position: relative;
+  /* Required to position the dropdown */
+  flex-direction: column;
+  border-radius: 8px;
+  background: #190F05;
+}
 
-.login-btn{
+.dropdown {
+  display: none;
+  /* Hide dropdown by default */
+  position: absolute;
+  top: 100%;
+  /* Position below the parent li */
+  left: 0;
+  background-color: #1a0e07;
+  list-style: none;
+  z-index: 9999;
+  min-width: 100%;
+  /* Makes the dropdown as wide as the button */
+  align-self: start;
+  border-radius: 8px;
+  background: #190F05;
+
+}
+
+.dropdown.show {
+  display: block;
+
+}
+
+.dropdown li a {
+  color: #fff;
+  font-size: 18px;
+  padding: 12px;
+}
+
+.nav-links li:hover .dropdown {
+  display: block;
+  /* Show dropdown on hover */
+}
+
+.dropdown li a:hover {
+  color: #d3b58f;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  font: 600 20px / 1.5 Poppins, Helvetica, Arial, serif;
+  transition: color 0.3 ease-in-out;
+  ;
+
+}
+
+.nav-links li a:hover {
+  color: #d3b58f;
+}
+
+.nav-links li.active a {
+  font: 700 20px / 1.5 Poppins, Helvetica, Arial, serif;
+  color: #BBAC9F;
+  text-decoration: underline;
+
+}
+
+a img {
+  transition: transform 0.3s ease;
+  /* Tambahkan transisi untuk animasi smooth */
+  transform: rotate(-90deg);
+  /* Gambar mengarah ke posisi normal (ke atas) secara default */
+}
+
+/* Hover pada link */
+a:hover img {
+  transform: rotate(0deg);
+  /* Gambar akan berputar 90 derajat saat di-hover */
+}
+
+.header-right input {
+  border: none;
+  padding: 8px 15px;
+  border-radius: 25px;
+  background-color: #f3e5d3;
+  color: #1a0e07;
+}
+
+.header-right input::placeholder {
+  color: #a39485;
+}
+
+/* Tombol Pencarian */
+.search {
+  position: relative;
+  height: 30px;
+  /* Height of the search box */
+  margin: 10px;
+}
+
+.search .input {
+  background-color: #F8F4E1;
+  border: 0;
+  font-size: 16px;
+  /* Font size slightly smaller */
+  padding: 5px 10px;
+  /* Adjust padding */
+  height: 30px;
+  /* Height of input matching the box height */
+  width: 30px;
+  /* Default width */
+  transition: width 0.3s ease;
+  border-radius: 15px;
+  /* Rounded corners */
+}
+
+.btn {
+  background-color: #F8F4E1;
+  border: 0;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  /* Button height matching the input */
+  width: 30px;
+  /* Button width */
+  transition: transform 0.3s ease;
+  border-radius: 15px;
+  /* Rounded corners */
+  display: flex;
+  /* Flexbox for centering the icon */
+  align-items: center;
+  /* Vertically center icon */
+  justify-content: center;
+  /* Horizontally center icon */
+}
+
+.btn img {
+  width: 16px;
+  /* Adjust size of the magnifying glass */
+  height: 16px;
+  z-index: 1;
+}
+
+.btn:focus,
+.input:focus {
+  outline: none;
+}
+
+.search.active .input {
+  width: 192px;
+}
+
+.search.active .btn {
+  transform: translateX(160px);
+}
+
+.login-btn {
   display: flex;
   width: 136px;
   height: 60px;
@@ -233,7 +279,7 @@ nav.active {
   line-height: normal;
 }
 
-.login-btn:hover  {
+.login-btn:hover {
   background-color: #d3b58f;
   color: #1a0e07;
 }
@@ -270,7 +316,8 @@ nav.active {
 /* --- Responsif untuk Ponsel --- */
 @media (max-width: 768px) {
   .nav-links {
-    display: none; /* Sembunyikan menu di mobile */
+    display: none;
+    /* Sembunyikan menu di mobile */
   }
 
   .header-right {
@@ -298,7 +345,8 @@ nav.active {
 
 footer {
   width: 100%;
-  background-color: #1a0e07; /* Sesuaikan dengan warna latar belakang */
+  background-color: #1a0e07;
+  /* Sesuaikan dengan warna latar belakang */
   color: white;
   display: flex;
   height: 552px;
@@ -308,14 +356,19 @@ footer {
   gap: 10px;
   flex-shrink: 0;
 }
+
 .footer-container {
   display: flex;
   justify-content: space-between;
   gap: 0 10px;
-  margin: 0 auto; /* Menghapus margin agar konten di tengah */
-  padding: 0 20px; /* Padding kiri dan kanan untuk memberi sedikit jarak dari tepi layar */
-  width: 100%; /* Memastikan container menutupi lebar penuh */
-  max-width: 1294px; /* Batas maksimal lebar kontainer, sesuaikan sesuai kebutuhan */
+  margin: 0 auto;
+  /* Menghapus margin agar konten di tengah */
+  padding: 0 20px;
+  /* Padding kiri dan kanan untuk memberi sedikit jarak dari tepi layar */
+  width: 100%;
+  /* Memastikan container menutupi lebar penuh */
+  max-width: 1294px;
+  /* Batas maksimal lebar kontainer, sesuaikan sesuai kebutuhan */
 }
 
 /* Mengatur setiap section di dalam footer */
@@ -323,13 +376,14 @@ footer {
   display: flex;
   flex-direction: column;
   margin-bottom: 13px;
-  width: auto; 
+  width: auto;
   min-width: 0;
 }
 
 /* Gaya untuk judul section */
-.footer-section h3 {  
-  margin-bottom: 10px; /* Margin bawah untuk memberi jarak antara heading dan paragraf */
+.footer-section h3 {
+  margin-bottom: 10px;
+  /* Margin bawah untuk memberi jarak antara heading dan paragraf */
   font: 600 36px/1.5 Poppins, Helvetica, Arial, serif;
   color: #fefefc;
 }
@@ -347,33 +401,39 @@ footer {
   display: flex;
   align-items: flex-end;
   gap: 80px;
-  margin-top: 20px; 
+  margin-top: 20px;
 }
 
 
 .contact div {
   display: flex;
-  align-items: center; /* Centers the content inside each individual div */
+  align-items: center;
+  /* Centers the content inside each individual div */
 }
 
 .contact img {
-  margin-right: 10px; /* Adds space between the image and the text */
+  margin-right: 10px;
+  /* Adds space between the image and the text */
 }
 
-.alamat, .nomorContact, .Socialmedia {
-  margin-right: 20px; /* Adds space between the sections */
+.alamat,
+.nomorContact,
+.Socialmedia {
+  margin-right: 20px;
+  /* Adds space between the sections */
 }
 
-.alamat{
+.alamat {
   margin-top: 51px;
 }
 
-.nomorContact{
+.nomorContact {
   margin-top: 51px;
 }
 
 .Subtitle {
-  margin: 0; /* Removes the default margin from the h4 elements */
+  margin: 0;
+  /* Removes the default margin from the h4 elements */
 }
 
 /* Animasi kontent*/
@@ -391,42 +451,45 @@ footer {
   transform: translateX(0);
 }
 
-.businessImage{
-  width: auto; 
-  height: 169px; 
+.businessImage {
+  width: auto;
+  height: 169px;
 }
 
 /* Responsive Styling */
 @media (max-width: 768px) {
   .container {
-      flex-direction: column;
-      align-items: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
+
   .nav-links {
-      flex-direction: column;
-      gap: 10px;
+    flex-direction: column;
+    gap: 10px;
   }
-  
+
   .header-right {
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 15px;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
   }
-  
+
 }
+
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
     align-items: center;
   }
 
-  .footer-section, .footer-social {
+  .footer-section,
+  .footer-social {
     width: 100%;
     text-align: center;
   }
 
-  .footer-section h3, .footer-section p {
+  .footer-section h3,
+  .footer-section p {
     margin-left: 0;
   }
 }

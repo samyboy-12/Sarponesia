@@ -18,7 +18,7 @@
             </form>
           </div>
 
-          <input type="submit" id="login" name="login" value="Login">
+          <input type="submit" id="login" name="login" value="Sign In">
 
         </div>
         <img class="welcomeImage" src="/assets/c1ae8a2aea691a6114fc609fb781c377.png" alt="alt text" />
