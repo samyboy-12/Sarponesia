@@ -45,6 +45,28 @@ function scrollToTop() {
     });
 }
 
+
+function toggleNav() {
+    var sidebar = document.getElementById("mySidebar");
+    var main = document.getElementById("main");
+    var toggleButton = document.getElementById("toggleNav");
+
+    // Cek apakah sidebar sedang terbuka
+    if (sidebar.style.width === "25%") {
+        // Jika terbuka, tutup sidebar
+        sidebar.style.width = "0";
+        sidebar.style.display = "none";
+        main.style.marginLeft = "0";
+        toggleButton.style.display = 'inline-block';  // Menampilkan tombol
+    } else {
+        // Jika tertutup, buka sidebar
+        sidebar.style.width = "25%";
+        sidebar.style.display = "block";
+        main.style.marginLeft = "25%";
+        toggleButton.style.display = 'none';  // Menyembunyikan tombol
+    }
+}
+
 $(function() {
     $('.tab').each(function() {
         var $active, $content, $links = $(this).find('a');

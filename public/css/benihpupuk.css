@@ -473,7 +473,6 @@
 
 .btn1 {
   display: flex;
-  justify-content: center;
   min-width: 97px;
   font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
   color: rgb(254 254 252);
@@ -481,7 +480,14 @@
   background-color: rgb(84 51 16);
   border-radius: 15px;
   padding: 0 22px;
+  height: 36px;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
 }
+
 
 .btn1:hover {
   background-color: #d3b58f;

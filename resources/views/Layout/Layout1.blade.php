@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+
 <html lang="en">
 
 <head>
@@ -10,14 +12,28 @@
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/layout1.css') }}" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="4/w3.css">
     @yield('styles')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @yield('scripts')
     <title>Sarponesia</title>
 </head>
 
-<body>
+<div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-left" style="display:none" id="mySidebar">
+    <div class="sidebar">
+    <li class="{{ Request::is('artikel') ? 'active' : '' }}">
+        <a href="{{ url('/artikel') }}">Artikel</a>
+    </li>
+    <li class="{{ Request::is('program') ? 'active' : '' }}">
+        <a href="{{ url('/program') }}">Program</a>
+    </li>
+    <li class="{{ Request::is('komunitas') ? 'active' : '' }}">
+        <a href="{{ url('/komunitas') }}">Komunitas</a>
+    </li>
+    </div>
+</div>
 
+<body zclass="w3-main" id="main">
     <!-- Header Section -->
     <header>
         <div class="container header-container">
@@ -33,9 +49,10 @@
                 @endauth
             </div>
         </div>
+
         <nav>
             <ul class="nav-links">
-                <img src="{{ asset('assets/6b6feb3a1b323bb2081cde3cc92ebaa3.svg') }}" alt="Sarponesia Coffee Nav" class="Burger" onclick="scrollToTop()">
+                <img src="{{ asset('assets/6b6feb3a1b323bb2081cde3cc92ebaa3.svg') }}" alt="Sarponesia Coffee Nav" class="Burger" onclick="toggleNav()">
                 <li class="{{ Request::is('home') ? 'active' : '' }}">
                     <a href="{{ url('/home') }}">Home</a>
                 </li>
@@ -69,7 +86,6 @@
                 <li class="{{ Request::is('contact') ? 'active' : '' }}">
                     <a href="{{ url('/contact') }}">Hubungi</a>
                 </li>
-
             </ul>
             <div class="search">
                 <input type="text" class="input" placeholder="Search...">
