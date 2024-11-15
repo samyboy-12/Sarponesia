@@ -459,3 +459,9 @@
   border-radius: 15px;
   padding: 9.5px 28px;
 }
+
+.sendMessageBtn:hover {
+  background-color: #d3b58f;
+  color: #1a0e07;
+  cursor: pointer;
+}

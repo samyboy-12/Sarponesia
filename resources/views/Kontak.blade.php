@@ -57,9 +57,9 @@
                         <img class="messageFormImage" src="/assets/374080a366e80cc5ed26e9f7ed32abc0.png" alt="alt text" />
                         <div class="messageFormContent">
                             <div class="formInputContainer">
-                                <div class="formInput1"></div>
-                                <div class="formInput2"></div>
-                                <div class="formInput3"></div>
+                                <textarea class="formInput1"></textarea>
+                                <textarea class="formInput2"></textarea>
+                                <textarea class="formInput3"></textarea>
                                 <textarea class="formTextarea"></textarea>
                             </div>
                             <button class="sendMessageBtn">

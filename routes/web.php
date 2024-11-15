@@ -79,3 +79,7 @@ Route::get('/reset',function(){
 Route::get('/confirmreset',function(){
     return view('auth.ConfirmReset');
 });
+
+Route::get('/card',function(){
+    return view('card');
+});

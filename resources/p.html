@@ -1,0 +1,183 @@
+<style>
+    .productList {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .item {
+        width: 200px;
+    }
+
+    .card {
+        background-color: #f3f0e6;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    .cardImage {
+        position: relative;
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .cardImage img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .buyButton {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 10px 20px;
+        background-color: #4a2c17;
+        color: white;
+        border-radius: 5px;
+        display: none;
+        font-weight: bold;
+    }
+
+    .card:hover .buyButton {
+        display: block;
+    }
+
+    .productDetails {
+        padding: 10px;
+    }
+
+    .productName {
+        font-size: 16px;
+        font-weight: bold;
+        color: #4a2c17;
+        margin: 10px 0;
+    }
+
+    .ratingWrapper {
+        display: flex;
+        justify-content: center;
+        gap: 2px;
+        margin-bottom: 10px;
+    }
+
+    .starIcon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .priceTag {
+        font-size: 18px;
+        color: #4a2c17;
+        font-weight: bold;
+    }
+</style>
+<div class="productList">
+    <div class="item">
+        <div class="card">
+            <div class="cardImage">
+                <img src="/assets/1136581dfbcb6d65638b43946419b945.png" alt="Nama Produk">
+                <div class="buyButton">Beli</div>
+            </div>
+            <div class="productDetails">
+                <p class="productName">Nama Produk</p>
+                <div class="ratingWrapper">
+                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
+                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
+                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
+                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
+                    <img class="starIcon" src="/assets/5c6886f8f2599e896d4777377710adb0.svg" alt="Half Star">
+                </div>
+                <p class="priceTag">Rp 20,0</p>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="card">
+            <div class="cardImage">
+                <img src="/assets/1136581dfbcb6d65638b43946419b945.png" alt="Nama Produk">
+                <div class="buyButton">Beli</div>
+            </div>
+            <div class="productDetails">
+                <p class="productName">Nama Produk</p>
+                <div class="ratingWrapper">
+                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
+                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
+                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
+                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
+                    <img class="starIcon" src="/assets/5c6886f8f2599e896d4777377710adb0.svg" alt="Half Star">
+                </div>
+                <p class="priceTag">Rp 20,0</p>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="card">
+            <div class="cardImage">
+                <img src="/assets/1136581dfbcb6d65638b43946419b945.png" alt="Nama Produk">
+                <div class="buyButton">Beli</div>
+            </div>
+            <div class="productDetails">
+                <p class="productName">Nama Produk</p>
+                <div class="ratingWrapper">
+                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
+                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
+                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
+                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
+                    <img class="starIcon" src="/assets/5c6886f8f2599e896d4777377710adb0.svg" alt="Half Star">
+                </div>
+                <p class="priceTag">Rp 20,0</p>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="card">
+            <div class="cardImage">
+                <img src="/assets/1136581dfbcb6d65638b43946419b945.png" alt="Nama Produk">
+                <div class="buyButton">Beli</div>
+            </div>
+            <div class="productDetails">
+                <p class="productName">Nama Produk</p>
+                <div class="ratingWrapper">
+                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
+                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
+                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
+                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
+                    <img class="starIcon" src="/assets/5c6886f8f2599e896d4777377710adb0.svg" alt="Half Star">
+                </div>
+                <p class="priceTag">Rp 20,0</p>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="card">
+            <div class="cardImage">
+                <img src="/assets/1136581dfbcb6d65638b43946419b945.png" alt="Nama Produk">
+                <div class="buyButton">Beli</div>
+            </div>
+            <div class="productDetails">
+                <p class="productName">Nama Produk</p>
+                <div class="ratingWrapper">
+                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
+                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
+                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
+                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
+                    <img class="starIcon" src="/assets/5c6886f8f2599e896d4777377710adb0.svg" alt="Half Star">
+                </div>
+                <p class="priceTag">Rp 20,0</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Repeat similar structure for each product item -->
+</div>

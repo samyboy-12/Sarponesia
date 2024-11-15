@@ -64,7 +64,7 @@
         <!-- Produk ketiga -->
         <div class="flex_col">
           <img class="image9" src="/assets/4fe9891ac93f78fb7867c2dee3e91844.png" alt="alt text" />
-          <div class="flex_col3">
+          <div class="flex_col1">
             <h3 class="medium_title3">Nama Produk</h3>
             <div class="flex_row1">
               <h3 class="subtitle4">Price</h3>
@@ -137,7 +137,7 @@
                 <p class="productName">Nama Produk</p>
                 <p class="productDesc1">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
               </div>
-              <a class="detailsLink">Selengkapnya</a>
+              <a class="detailsLink" href="{{ url('/card') }}" >Selengkapnya</a>
             </div>
             <img class="productImg1" src="/assets/d10aa136bc1a7d5770349d932e8e96bf.png" alt="alt text" />
           </div>

@@ -15,29 +15,55 @@
     <link rel="stylesheet" href="4/w3.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/common.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts.css') }}" />
-\
     @yield('styles')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @yield('scripts')
     <title>Sarponesia</title>
 </head>
 
+<!-- Sidebar -->
 <div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-left" style="display:none" id="mySidebar">
     <div class="sidebar">
-    <li class="{{ Request::is('artikel') ? 'active' : '' }}">
-        <a href="{{ url('/artikel') }}">Artikel</a>
-    </li>
-    <li class="{{ Request::is('program') ? 'active' : '' }}">
-        <a href="{{ url('/program') }}">Program</a>
-    </li>
-    <li class="{{ Request::is('komunitas') ? 'active' : '' }}">
-        <a href="{{ url('/komunitas') }}">Komunitas</a>
-    </li>
+        <div class="Nav-small ">
+        <img src="{{ asset('assets/6b6feb3a1b323bb2081cde3cc92ebaa3.svg') }}" alt="Sarponesia Coffee Nav" class="Burger" id="toggleNav" onclick="toggleNav()">
+        <li class="{{ Request::is('home') ? 'active' : '' }}">
+            <a href="{{ url('/home') }}">Home</a>
+        </li>
+        <li class="{{ Request::is('benihpupuk') ? 'active' : '' }}">
+            <a href="{{ url('/benihpupuk') }}">Benih & Pupuk</a>
+        </li>
+        <li class="{{ Request::is('peralatan') ? 'active' : '' }}">
+            <a href="{{ url('/peralatan') }}">Peralatan</a>
+        </li>
+        <li class="{{ Request::is('perawatan') ? 'active' : '' }}">
+            <a href="{{ url('/perawatan') }}">Perawatan Kebun</a>
+        </li>
+        <li class="{{ Request::is('pelatihan') ? 'active' : '' }}">
+            <a href="{{ url('/pelatihan') }}">Pelatihan</a>
+        </li>
+        <li class="{{ Request::is('katalog') ? 'active' : '' }}">
+            <a href="{{ url('/katalog') }}">Katalog</a>
+        </li>
+        <li class="{{ Request::is('contact') ? 'active' : '' }}">
+            <a href="{{ url('/contact') }}">Hubungi</a>
+        </li>
+        </div>
+        <li class="{{ Request::is('artikel') ? 'active' : '' }}">
+            <a href="{{ url('/artikel') }}">Artikel</a>
+        </li>
+        <li class="{{ Request::is('program') ? 'active' : '' }}">
+            <a href="{{ url('/program') }}">Program Kerjasama</a>
+        </li>
+        <li class="{{ Request::is('komunitas') ? 'active' : '' }}">
+            <a href="{{ url('/komunitas') }}">Komunitas</a>
+        </li>
+        
     </div>
 </div>
 
-<body zclass="w3-main" id="main">
-    <!-- Header Section -->
+<!-- Main content -->
+
+<body class="w3-main" id="main">
     <header>
         <div class="container header-container">
             <div class="logo">
@@ -55,7 +81,7 @@
 
         <nav>
             <ul class="nav-links">
-                <img src="{{ asset('assets/6b6feb3a1b323bb2081cde3cc92ebaa3.svg') }}" alt="Sarponesia Coffee Nav" class="Burger"  id="toggleNav"  onclick="toggleNav()">
+                <img src="{{ asset('assets/6b6feb3a1b323bb2081cde3cc92ebaa3.svg') }}" alt="Sarponesia Coffee Nav" class="Burger" id="toggleNav" onclick="toggleNav()">
                 <li class="{{ Request::is('home') ? 'active' : '' }}">
                     <a href="{{ url('/home') }}">Home</a>
                 </li>
@@ -97,59 +123,60 @@
                 </button>
             </div>
         </nav>
-
     </header>
+</body>
 
-    <div class="main">
-        @yield('main')
-    </div>
 
-    <!-- Footer Section -->
-    <footer>
-        <div class="container footer-container">
-            <img class="businessImage" src="{{ asset('assets/Logo_footer.png') }}" alt="Logo footer" />
+<div class="main">
+    @yield('main')
+</div>
 
-            <div class="footer-section">
-                <h3>Jam Buka</h3>
-                <p>Senin - Sabtu</p>
-                <p>08:00 - 23:00</p>
-                <div class="contact">
-                    <div class="alamat">
-                        <img class="location" src="{{ asset('assets/loc.svg') }}" alt="Location" />
-                        <h4 class="Subtitle">Jl. Mt Haryono No <br>15 Pacitan</h4>
-                    </div>
-                </div>
-            </div>
+<!-- Footer Section -->
+<footer>
+    <div class="container footer-container">
+        <img class="businessImage" src="{{ asset('assets/Logo_footer.png') }}" alt="Logo footer" />
 
-            <div class="footer-section">
-                <h3>Informasi</h3>
-                <p>Menu</p>
-                <p>Produk</p>
-                <div class="contact">
-                    <div class="nomorContact">
-                        <img class="contactImage" src="{{ asset('assets/Telp.svg') }}" alt="Contact" />
-                        <h4 class="Subtitle">0838-9095-8930</h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-section">
-                <h3>Best Produk</h3>
-                <p>Pelatihan Barista</p>
-                <p>Pelatihan Logo &<br> Branding</p>
-                <div class="contact">
-                    <div class="Socialmedia">
-                        <img class="socialIcon1" src="/assets/facebook.svg" alt="alt text" />
-                        <img class="socialIcon2" src="/assets/instagram.svg" alt="alt text" />
-                        <img class="socialIcon3" src="/assets/youtube.svg" alt="alt text" />
-                    </div>
+        <div class="footer-section">
+            <h3>Jam Buka</h3>
+            <p>Senin - Sabtu</p>
+            <p>08:00 - 23:00</p>
+            <div class="contact">
+                <div class="alamat">
+                    <img class="location" src="{{ asset('assets/loc.svg') }}" alt="Location" />
+                    <h4 class="Subtitle">Jl. Mt Haryono No <br>15 Pacitan</h4>
                 </div>
             </div>
         </div>
-    </footer>
+
+        <div class="footer-section">
+            <h3>Informasi</h3>
+            <p>Menu</p>
+            <p>Produk</p>
+            <div class="contact">
+                <div class="nomorContact">
+                    <img class="contactImage" src="{{ asset('assets/Telp.svg') }}" alt="Contact" />
+                    <h4 class="Subtitle">0838-9095-8930</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h3>Best Produk</h3>
+            <p>Pelatihan Barista</p>
+            <p>Pelatihan Logo &<br> Branding</p>
+            <div class="contact">
+                <div class="Socialmedia">
+                    <img class="socialIcon1" src="/assets/facebook.svg" alt="alt text" />
+                    <img class="socialIcon2" src="/assets/instagram.svg" alt="alt text" />
+                    <img class="socialIcon3" src="/assets/youtube.svg" alt="alt text" />
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
 
-    <script src="{{ asset('js/layout.js') }}"></script>
+<script src="{{ asset('js/layout.js') }}"></script>
 </body>
 
 </html>

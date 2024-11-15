@@ -19,7 +19,7 @@ html, body {
   justify-content: center;
   align-items: center;
   background-image: linear-gradient(69deg, #d2d1cf 31.23%, #6c6b6a 112.57%);
-  overflow: hidden;
+  overflow: auto;
   height: 100%;
   width: 100%;
 }

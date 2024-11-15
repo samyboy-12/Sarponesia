@@ -311,6 +311,11 @@
     padding: 12px 20px;
 }
 
+.joinBtn:hover {
+    background-color: #d3b58f;
+    color: #1a0e07;
+    cursor: pointer;
+  }
 
 .ideaExchangeLeft {
     display: flex;

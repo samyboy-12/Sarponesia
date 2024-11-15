@@ -35,12 +35,15 @@
 
             </div>
             <div class="contents" id="contents10">
-
               <div class="productList">
-                <article class="productCard">
+                <div class="item">
                   <div class="cardContent">
+
+                    <div class="overlay"></div>
                     <div class="productDetails">
                       <img class="productImg" src="/assets/1136581dfbcb6d65638b43946419b945.png" alt="alt text" />
+                      <div class="buyButton">Beli</div>
+                      <div class="buyButton">Beli</div>
                       <p class="productName">Nama Produk</p>
                       <div class="ratingWrapper">
                         <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="alt text" />
@@ -52,11 +55,15 @@
                     </div>
                     <p class="priceTag">Rp 20,0</p>
                   </div>
-                </article>
+                </div>
                 <div class="item">
                   <div class="flex_col">
+
+                    <div class="overlay"></div>
                     <div class="flex_col1">
                       <img class="image6" src="/assets/d9d95a1b127f03cb95b97471080f2670.png" alt="alt text" />
+                      <div class="buyButton">Beli</div>
+                      <div class="buyButton">Beli</div>
                       <div class="info8">Nama Produk</div>
                       <div class="flex_row">
                         <img class="image7" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="alt text" />
@@ -71,8 +78,12 @@
                 </div>
                 <div class="item">
                   <div class="flex_col">
+
+                    <div class="overlay"></div>
                     <div class="flex_col1">
                       <img class="image6" src="/assets/7c4e2166b684797457dcdac3e2cc567f.png" alt="alt text" />
+                      <div class="buyButton">Beli</div>
+                      <div class="buyButton">Beli</div>
                       <div class="info8">Nama Produk</div>
                       <div class="flex_row">
                         <img class="image7" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="alt text" />
@@ -87,8 +98,12 @@
                 </div>
                 <div class="item">
                   <div class="flex_col2">
+
+                    <div class="overlay"></div>
                     <div class="flex_col1">
                       <img class="image6" src="/assets/401dc5e830e6919a4ff5cdd3e43742e4.png" alt="alt text" />
+                      <div class="buyButton">Beli</div>
+                      <div class="buyButton">Beli</div>
                       <div class="info8">Nama Produk</div>
                       <div class="flex_row">
                         <img class="image7" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="alt text" />
@@ -103,8 +118,12 @@
                 </div>
                 <div class="item">
                   <div class="flex_col2">
+
+                    <div class="overlay"></div>
                     <div class="flex_col1">
                       <img class="image6" src="/assets/7d07220bb1ac52419817673fdf3b7221.png" alt="alt text" />
+                      <div class="buyButton">Beli</div>
+                      <div class="buyButton">Beli</div>
                       <div class="info8">Nama Produk</div>
                       <div class="flex_row">
                         <img class="image7" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="alt text" />
@@ -119,8 +138,12 @@
                 </div>
                 <div class="item">
                   <div class="flex_col2">
+
+                    <div class="overlay"></div>
                     <div class="flex_col1">
                       <img class="image6" src="/assets/1136581dfbcb6d65638b43946419b945.png" alt="alt text" />
+                      <div class="buyButton">Beli</div>
+                      <div class="buyButton">Beli</div>
                       <div class="info8">Nama Produk</div>
                       <div class="flex_row">
                         <img class="image7" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="alt text" />
@@ -135,8 +158,12 @@
                 </div>
                 <div class="item">
                   <div class="flex_col3">
+
+                    <div class="overlay"></div>
                     <div class="flex_col1">
                       <img class="image6" src="/assets/7d07220bb1ac52419817673fdf3b7221.png" alt="alt text" />
+                      <div class="buyButton">Beli</div>
+                      <div class="buyButton">Beli</div>
                       <div class="info8">Nama Produk</div>
                       <div class="flex_row">
                         <img class="image7" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="alt text" />
@@ -151,8 +178,12 @@
                 </div>
                 <div class="item">
                   <div class="flex_col3">
+
+                    <div class="overlay"></div>
                     <div class="flex_col1">
                       <img class="image6" src="/assets/d9d95a1b127f03cb95b97471080f2670.png" alt="alt text" />
+                      <div class="buyButton">Beli</div>
+                      <div class="buyButton">Beli</div>
                       <div class="info8">Nama Produk</div>
                       <div class="flex_row">
                         <img class="image7" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="alt text" />
@@ -167,8 +198,12 @@
                 </div>
                 <div class="item">
                   <div class="flex_col3">
+
+                    <div class="overlay"></div>
                     <div class="flex_col1">
                       <img class="image6" src="/assets/401dc5e830e6919a4ff5cdd3e43742e4.png" alt="alt text" />
+                      <div class="buyButton">Beli</div>
+                      <div class="buyButton">Beli</div>
                       <div class="info8">Nama Produk</div>
                       <div class="flex_row">
                         <img class="image7" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="alt text" />

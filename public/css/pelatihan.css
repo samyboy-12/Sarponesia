@@ -1,631 +1,741 @@
-@use "utils" as *;
-@use "global" as *;
 
-.pelatihan {
-  &.main {
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(210 209 207);
-    overflow: hidden;
+.pelatihan.main {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(210 209 207);
+  overflow: hidden;
+}
+
+.pelatihan .headerSection {
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(25 15 5);
+}
+
+.pelatihan .headerContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 41px 0;
+  margin: 56px auto 25px;
+  width: 90.76%;
+  max-width: 1306.9375px;
+}
+
+@media (max-width: 768px) {
+  .pelatihan .headerContainer {
+    margin: 50px auto 25px;
   }
+}
 
-  .headerSection {
-    z-index: 5;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(25 15 5);
-  }
+.pelatihan .authWrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 10px;
+  margin: 0 0 0 auto;
+  width: 870px;
+  max-width: 85%;
+}
 
-  .headerContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 41px 0;
-    margin: 56px auto 25px;
-    width: 90.76%;
-    max-width: 1306.9375px;
-
-    @include tn {
-      margin: 50px auto 25px;
-    }
-  }
-
-  .authWrapper {
-    display: flex;
-    justify-content: space-between;
-    gap: 0 10px;
-    margin: 0 0 0 auto;
-    width: 870px;
-    max-width: 85%;
-
-    @include md {
-      flex-direction: column;
-      align-items: center;
-      gap: 30px 10px;
-    }
-  }
-
-  .logoImg {
-    z-index: 1;
-    margin: 8px 0 0;
-    width: 413px;
-    min-width: 0;
-    object-fit: cover;
-
-    @include md {
-      margin: 0;
-      width: 100%;
-      min-width: unset;
-      max-width: 413px;
-    }
-  }
-
-  .authBtnGroup {
-    display: flex;
-    gap: 0 4px;
-    margin: 0 0 34px;
-    width: 276px;
-    min-width: 0;
-
-    @include md {
-      margin: 0;
-      width: 100%;
-      min-width: unset;
-    }
-
-    @include tn {
-      flex-direction: column;
-      align-items: center;
-      gap: 30px 4px;
-    }
-  }
-
-  .loginBtn {
-    display: flex;
-    justify-content: center;
-    min-width: 136px;
-    font: 600 20px/1.5 Poppins, Helvetica, Arial, serif;
-    color: rgb(254 254 252);
-    text-align: center;
-    border-radius: 30px;
-    padding: 15px 40px;
-    outline: 4px solid rgb(254 254 252);
-    outline-offset: -4px;
-
-    @include tn {
-      width: 100%;
-      min-width: unset;
-    }
-  }
-
-  .registerBtn {
-    display: flex;
-    justify-content: center;
-    min-width: 136px;
-    font: 600 20px/1.5 Poppins, Helvetica, Arial, serif;
-    color: rgb(254 254 252);
-    text-align: center;
-    border-radius: 30px;
-    padding: 15px 26px;
-    outline: 4px solid rgb(254 254 252);
-    outline-offset: -4px;
-
-    @include tn {
-      width: 100%;
-      min-width: unset;
-    }
-  }
-
-  .navContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0 10px;
-    width: 94.95%;
-
-    @include xl {
-      flex-direction: column;
-      gap: 30px 10px;
-    }
-  }
-
-  .brandLogo {
-    z-index: 2;
-    width: 164px;
-    min-width: 0;
-    object-fit: cover;
-
-    @include xl {
-      width: 100%;
-      min-width: unset;
-      max-width: 164px;
-    }
-  }
-
-  .mainNav {
-    display: flex;
-    gap: 0 24px;
-    width: 751px;
-    min-width: 0;
-
-    @include xl {
-      width: 100%;
-      min-width: unset;
-    }
-
-    @include md {
-      flex-direction: column;
-      align-items: center;
-      gap: 30px 24px;
-    }
-  }
-
-  .navLink {
-    font: 600 20px/1.5 Poppins, Helvetica, Arial, serif;
-    color: rgb(255 255 255);
-
-    @include md {
-      align-items: flex-start;
-      width: 100%;
-      font-size: 18px;
-    }
-
-    @include xxs {
-      font-size: 16px;
-    }
-  }
-
-  .navLink1 {
-    font: 700 20px/1.5 Poppins, Helvetica, Arial, serif;
-    color: rgb(187 172 159);
-    text-decoration: underline;
-
-    @include md {
-      align-items: flex-start;
-      width: 100%;
-      font-size: 18px;
-    }
-
-    @include xxs {
-      font-size: 16px;
-    }
-  }
-
-  .searchWrapper {
-    display: flex;
-    gap: 0 22px;
-    width: 239px;
-    min-width: 0;
-
-    @include xl {
-      width: 100%;
-      min-width: unset;
-    }
-
-    @include xs {
-      column-gap: 16px;
-    }
-
-    @include tn {
-      column-gap: 8px;
-    }
-  }
-
-  .searchBtn {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0 10px;
-    min-width: 192px;
-    background-color: rgb(248 244 225);
-    border-radius: 15px;
-    padding: 3px 15px 3px 16px;
-  }
-
-  .searchText {
-    min-width: 0;
-    font: 400 16px/1.5 Poppins, Helvetica, Arial, serif;
-    color: rgb(60 36 11 / 49.8%);
-  }
-
-  .searchIcon {
-    margin: 4px 0 3px;
-    width: 17px;
-    min-width: 0;
-  }
-
-  .cartIcon {
-    margin: 4px 0;
-    width: 25px;
-    object-fit: cover;
-  }
-
-  .trainingHeroSection {
-    display: flex;
-    flex-direction: column;
-    background: var(--src) center center / cover no-repeat;
-  }
-
-  .heroWrapper {
-    display: flex;
-    flex-direction: column;
-    margin: 146px 0 107px 7.99%;
-    width: 728px;
-    max-width: 85%;
-
-    @include md {
-      margin: 146px auto 107px;
-    }
-
-    @include xs {
-      margin: 80px auto;
-    }
-
-    @include tn {
-      margin: 50px auto;
-    }
-  }
-
-  .contentGroup {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    margin: 0 4px 0 0;
-  }
-
-  .mainHeading {
-    position: relative;
-    font: 600 46px/1.43 Poppins, Helvetica, Arial, serif;
-    color: rgb(254 254 252);
-    letter-spacing: 1.38px;
-
-    @include md {
-      align-items: flex-start;
-      font-size: 42px;
-    }
-
-    @include xxs {
-      font-size: 36px;
-    }
-  }
-
-  .trainingImg {
-    position: absolute;
-    top: -146px;
-    right: -601.0000381469727px;
-    width: 696px;
-  }
-
-  .subHeading {
-    margin: 0 0 0 4px;
-    font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
-    color: rgb(252 250 241);
-    letter-spacing: 0.72px;
-
-    @include md {
-      align-items: flex-start;
-      font-size: 22px;
-    }
-
-    @include xxs {
-      font-size: 20px;
-    }
-  }
-
-  .specializedTrainingSection {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .trainingContainer {
-    display: flex;
+@media (max-width: 1024px) {
+  .pelatihan .authWrapper {
     flex-direction: column;
     align-items: center;
-    gap: 35px 0;
-    margin: 125px auto;
-    width: 1199.947998046875px;
-    max-width: 85%;
-
-    @include xs {
-      margin: 80px auto;
-    }
-
-    @include tn {
-      margin: 50px auto;
-    }
+    gap: 30px 10px;
   }
+}
 
-  .sectionTitle {
-    display: flex;
-    justify-content: center;
-    font: 600 40px/1.5 Poppins, Helvetica, Arial, serif;
-    color: rgb(0 0 0);
-    text-align: center;
-    letter-spacing: 1.2px;
+.pelatihan .logoImg {
+  z-index: 1;
+  margin: 8px 0 0;
+  width: 413px;
+  min-width: 0;
+  object-fit: cover;
+}
 
-    @include md {
-      align-items: flex-start;
-      font-size: 36px;
-    }
-
-    @include xxs {
-      font-size: 32px;
-    }
-  }
-
-  .trainingGrid {
-    display: flex;
-    gap: 0 20px;
+@media (max-width: 1024px) {
+  .pelatihan .logoImg {
+    margin: 0;
     width: 100%;
-
-    @include lg {
-      flex-direction: column;
-      align-items: center;
-      gap: 30px 20px;
-    }
+    min-width: unset;
+    max-width: 413px;
   }
+}
 
-  .trainingCard {
-    display: flex;
+.pelatihan .authBtnGroup {
+  display: flex;
+  gap: 0 4px;
+  margin: 0 0 34px;
+  width: 276px;
+  min-width: 0;
+}
+
+@media (max-width: 1024px) {
+  .pelatihan .authBtnGroup {
+    margin: 0;
+    width: 100%;
+    min-width: unset;
+  }
+}
+
+@media (max-width: 768px) {
+  .pelatihan .authBtnGroup {
     flex-direction: column;
-    width: 285px;
-    min-width: 0;
-    background-color: rgb(104 102 95);
-    border-radius: 15px;
-
-    @include lg {
-      width: 100%;
-      min-width: unset;
-    }
-  }
-
-  .cardContent {
-    display: flex;
-    gap: 0 17px;
-    margin: 19px 35px 18px 36px;
-
-    @include md {
-      margin: 19px 32px 18px;
-    }
-
-    @include xs {
-      column-gap: 16px;
-      margin: 19px 16px 18px;
-    }
-
-    @include tn {
-      column-gap: 8px;
-      margin: 19px 8px 18px;
-    }
-  }
-
-  .cardImg {
-    width: 78px;
-    min-width: 0;
-    border-radius: 39px;
-    object-fit: cover;
-  }
-
-  .cardTitle {
-    margin: 3px 0;
-    width: 119px;
-    font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
-    color: rgb(254 254 252);
-
-    @include md {
-      align-items: flex-start;
-      font-size: 22px;
-    }
-
-    @include xxs {
-      font-size: 20px;
-    }
-  }
-
-  .cardContent1 {
-    display: flex;
-    gap: 0 17px;
-    margin: 19px 23px 18px;
-
-    @include xs {
-      column-gap: 16px;
-      margin: 19px 16px 18px;
-    }
-
-    @include tn {
-      column-gap: 8px;
-      margin: 19px 8px 18px;
-    }
-  }
-
-  .cardTitle1 {
-    margin: 3px 0;
-    width: 144px;
-    font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
-    color: rgb(254 254 252);
-
-    @include md {
-      align-items: flex-start;
-      font-size: 22px;
-    }
-
-    @include xxs {
-      font-size: 20px;
-    }
-  }
-
-  .cardContent2 {
-    display: flex;
-    gap: 0 17px;
-    margin: 19px 3px 18px 16px;
-
-    @include xs {
-      column-gap: 16px;
-    }
-
-    @include tn {
-      column-gap: 8px;
-      margin: 19px 3px 18px 8px;
-    }
-  }
-
-  .cardTitle2 {
-    margin: 3px 0;
-    width: 171px;
-    font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
-    color: rgb(254 254 252);
-
-    @include md {
-      align-items: flex-start;
-      font-size: 22px;
-    }
-
-    @include xxs {
-      font-size: 20px;
-    }
-  }
-
-  .cardContent3 {
-    display: flex;
-    gap: 0 17px;
-    margin: 19px 3px 18px 39px;
-
-    @include md {
-      margin: 19px 3px 18px 32px;
-    }
-
-    @include xs {
-      column-gap: 16px;
-      margin: 19px 3px 18px 16px;
-    }
-
-    @include tn {
-      column-gap: 8px;
-      margin: 19px 3px 18px 8px;
-    }
-  }
-
-  .cardTitle3 {
-    margin: 3px 0;
-    width: 148px;
-    font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
-    color: rgb(254 254 252);
-
-    @include md {
-      align-items: flex-start;
-      font-size: 22px;
-    }
-
-    @include xxs {
-      font-size: 20px;
-    }
-  }
-
-  .benefitsSection {
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(46 29 16 / 80%);
-  }
-
-  .benefitsWrapper {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 0 10px;
-    margin: 75px auto 94px;
-    width: 1199.947998046875px;
-    max-width: 85%;
-    padding: 0 9px 0 0;
-
-    @include md {
-      flex-direction: column;
-      gap: 30px 10px;
-    }
-
-    @include xs {
-      margin: 75px auto 80px;
-    }
-
-    @include tn {
-      margin: 50px auto;
-      padding: 0 8px 0 0;
-    }
+    gap: 30px 4px;
   }
+}
 
-  .accentBackground {
-    width: 429px;
-    height: 422px;
-    min-height: 422px;
-    border-radius: 15px;
-    outline: 6px solid rgb(248 244 225);
-    outline-offset: -6px;
+.pelatihan .loginBtn {
+  display: flex;
+  justify-content: center;
+  min-width: 136px;
+  font: 600 20px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(254 254 252);
+  text-align: center;
+  border-radius: 30px;
+  padding: 15px 40px;
+  outline: 4px solid rgb(254 254 252);
+  outline-offset: -4px;
+}
 
-    @include md {
-      width: 100%;
-    }
+@media (max-width: 768px) {
+  .pelatihan .loginBtn {
+    width: 100%;
+    min-width: unset;
   }
+}
 
-  .benefitsContent {
-    display: flex;
+.pelatihan .registerBtn {
+  display: flex;
+  justify-content: center;
+  min-width: 136px;
+  font: 600 20px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(254 254 252);
+  text-align: center;
+  border-radius: 30px;
+  padding: 15px 26px;
+  outline: 4px solid rgb(254 254 252);
+  outline-offset: -4px;
+}
+
+@media (max-width: 768px) {
+  .pelatihan .registerBtn {
+    width: 100%;
+    min-width: unset;
+  }
+}
+
+.pelatihan .navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0 10px;
+  width: 94.95%;
+}
+
+@media (max-width: 1200px) {
+  .pelatihan .navContainer {
     flex-direction: column;
-    gap: 19px 0;
-    width: 709px;
-    min-width: 0;
-
-    @include md {
-      width: 100%;
-      min-width: unset;
-    }
+    gap: 30px 10px;
   }
+}
 
+.pelatihan .brandLogo {
+  z-index: 2;
+  width: 164px;
+  min-width: 0;
+  object-fit: cover;
+}
+
+@media (max-width: 1200px) {
+  .pelatihan .brandLogo {
+    width: 100%;
+    min-width: unset;
+    max-width: 164px;
+  }
+}
+
+.mainNav {
+  display: flex;
+  gap: 0 24px;
+  width: 751px;
+  min-width: 0;
+}
+
+@media (max-width: 1200px) {
+  .mainNav {
+    width: 100%;
+    min-width: unset;
+  }
+}
+
+@media (max-width: 1024px) {
+  .mainNav {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px 24px;
+  }
+}
+
+.navLink {
+  font: 600 20px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(255 255 255);
+}
+
+@media (max-width: 1024px) {
+  .navLink {
+    align-items: flex-start;
+    width: 100%;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navLink {
+    font-size: 16px;
+  }
+}
+
+.navLink1 {
+  font: 700 20px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(187 172 159);
+  text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+  .navLink1 {
+    align-items: flex-start;
+    width: 100%;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navLink1 {
+    font-size: 16px;
+  }
+}
+
+.searchWrapper {
+  display: flex;
+  gap: 0 22px;
+  width: 239px;
+  min-width: 0;
+}
+
+@media (max-width: 1200px) {
+  .searchWrapper {
+    width: 100%;
+    min-width: unset;
+  }
+}
+
+@media (max-width: 768px) {
+  .searchWrapper {
+    column-gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .searchWrapper {
+    column-gap: 8px;
+  }
+}
+
+.searchBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0 10px;
+  min-width: 192px;
+  background-color: rgb(248 244 225);
+  border-radius: 15px;
+  padding: 3px 15px 3px 16px;
+}
+
+.searchText {
+  min-width: 0;
+  font: 400 16px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(60 36 11 / 49.8%);
+}
+
+.searchIcon {
+  margin: 4px 0 3px;
+  width: 17px;
+  min-width: 0;
+}
+
+.cartIcon {
+  margin: 4px 0;
+  width: 25px;
+  object-fit: cover;
+}
+
+.trainingHeroSection {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 691px;
+  min-height: 691px;
+  background: var(--src) center center / cover no-repeat;
+}
+
+.heroWrapper {
+  position: absolute;
+  top: 146px;
+  left: 115px;
+  display: flex;
+  flex-direction: column;
+  width: 728px;
+  height: 438px;
+}
+
+.contentGroup {
+  display: flex;
+  flex-direction: column;
+  margin: 0 4px 0 0;
+}
+
+.mainHeading {
+  font: 600 46px/1.43 Poppins, Helvetica, Arial, serif;
+  color: rgb(254 254 252);
+  letter-spacing: 1.38px;
+  z-index: 10;
+}
+
+@media (max-width: 1024px) {
+  .mainHeading {
+    align-items: flex-start;
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainHeading {
+    font-size: 36px;
+  }
+}
+
+.subHeading {
+  margin: 0 0 0 4px;
+  font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(252 250 241);
+  letter-spacing: 0.72px;
+  z-index: 10;
+}
+
+@media (max-width: 1024px) {
+  .subHeading {
+    align-items: flex-start;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .subHeading {
+    font-size: 20px;
+  }
+}
+
+.trainingImg {
+  position: relative;
+  margin: 0 0 0 auto;
+  width: 696px;
+}
+
+.specializedTrainingSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.trainingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px 0;
+  margin: 125px auto;
+  width: 1199.947998046875px;
+  max-width: 85%;
+}
+
+@media (max-width: 768px) {
+  .trainingContainer {
+    margin: 80px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .trainingContainer {
+    margin: 50px auto;
+  }
+}
+
+.sectionTitle {
+  display: flex;
+  justify-content: center;
+  font: 600 40px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(0 0 0);
+  text-align: center;
+  letter-spacing: 1.2px;
+}
+
+@media (max-width: 1024px) {
+  .sectionTitle {
+    align-items: flex-start;
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 32px;
+  }
+}
+
+
+.trainingGrid {
+  display: flex;
+  gap: 0 20px;
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .trainingGrid {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px 20px;
+  }
+}
+
+.trainingCard {
+  display: flex;
+  flex-direction: column;
+  width: 285px;
+  min-width: 0;
+  background-color: rgb(104 102 95);
+  border-radius: 15px;
+}
+
+@media (max-width: 1200px) {
+  .trainingCard {
+    width: 100%;
+    min-width: unset;
+  }
+}
+
+.cardContent {
+  display: flex;
+  gap: 0 17px;
+  margin: 19px 35px 18px 36px;
+}
+
+@media (max-width: 1024px) {
+  .cardContent {
+    margin: 19px 32px 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardContent {
+    column-gap: 16px;
+    margin: 19px 16px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardContent {
+    column-gap: 8px;
+    margin: 19px 8px 18px;
+  }
+}
+
+.cardImg {
+  width: 78px;
+  min-width: 0;
+  border-radius: 39px;
+  object-fit: cover;
+}
+
+.cardTitle {
+  margin: 3px 0;
+  width: 119px;
+  font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(254 254 252);
+}
+
+@media (max-width: 1024px) {
+  .cardTitle {
+    align-items: flex-start;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardTitle {
+    font-size: 20px;
+  }
+}
+
+.cardContent1 {
+  display: flex;
+  gap: 0 17px;
+  margin: 19px 23px 18px;
+}
+
+@media (max-width: 768px) {
+  .cardContent1 {
+    column-gap: 16px;
+    margin: 19px 16px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardContent1 {
+    column-gap: 8px;
+    margin: 19px 8px 18px;
+  }
+}
+
+
+.cardTitle1 {
+  margin: 3px 0;
+  width: 144px;
+  font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(254 254 252);
+}
+
+@media (max-width: 1024px) {
+  .cardTitle1 {
+    align-items: flex-start;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardTitle1 {
+    font-size: 20px;
+  }
+}
+
+.cardContent2 {
+  display: flex;
+  gap: 0 17px;
+  margin: 19px 3px 18px 16px;
+}
+
+@media (max-width: 768px) {
+  .cardContent2 {
+    column-gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardContent2 {
+    column-gap: 8px;
+    margin: 19px 3px 18px 8px;
+  }
+}
+
+.cardTitle2 {
+  margin: 3px 0;
+  width: 171px;
+  font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(254 254 252);
+}
+
+@media (max-width: 1024px) {
+  .cardTitle2 {
+    align-items: flex-start;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardTitle2 {
+    font-size: 20px;
+  }
+}
+
+.cardContent3 {
+  display: flex;
+  gap: 0 17px;
+  margin: 19px 3px 18px 39px;
+}
+
+@media (max-width: 1024px) {
+  .cardContent3 {
+    margin: 19px 3px 18px 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardContent3 {
+    column-gap: 16px;
+    margin: 19px 3px 18px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardContent3 {
+    column-gap: 8px;
+    margin: 19px 3px 18px 8px;
+  }
+}
+
+.cardTitle3 {
+  margin: 3px 0;
+  width: 148px;
+  font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(254 254 252);
+}
+
+@media (max-width: 1024px) {
+  .cardTitle3 {
+    align-items: flex-start;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardTitle3 {
+    font-size: 20px;
+  }
+}
+
+
+.benefitsSection {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(46 29 16 / 80%);
+}
+
+.benefitsWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0 10px;
+  margin: 75px auto 94px;
+  width: 1199.947998046875px;
+  max-width: 85%;
+  padding: 0 9px 0 0;
+}
+
+@media (max-width: 1024px) {
+  .benefitsWrapper {
+    flex-direction: column;
+    gap: 30px 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .benefitsWrapper {
+    margin: 75px auto 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .benefitsWrapper {
+    margin: 50px auto;
+    padding: 0 8px 0 0;
+  }
+}
+
+.accentBackground {
+  width: 429px;
+  height: 422px;
+  min-height: 422px;
+  border-radius: 15px;
+  outline: 6px solid rgb(248 244 225);
+  outline-offset: -6px;
+}
+
+@media (max-width: 1024px) {
+  .accentBackground {
+    width: 100%;
+  }
+}
+
+.benefitsContent {
+  display: flex;
+  flex-direction: column;
+  gap: 19px 0;
+  width: 709px;
+  min-width: 0;
+}
+
+@media (max-width: 1024px) {
+  .benefitsContent {
+    width: 100%;
+    min-width: unset;
+  }
+}
+
+.mainHeading1 {
+  margin: 0 0 0 16px;
+  font: 600 40px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(254 254 252);
+}
+
+@media (max-width: 1024px) {
   .mainHeading1 {
-    margin: 0 0 0 16px;
-    font: 600 40px/1.5 Poppins, Helvetica, Arial, serif;
-    color: rgb(254 254 252);
-
-    @include md {
-      align-items: flex-start;
-      font-size: 36px;
-    }
-
-    @include xxs {
-      font-size: 32px;
-    }
-
-    @include tn {
-      margin: 0 0 0 8px;
-    }
+    align-items: flex-start;
+    font-size: 36px;
   }
+}
 
+@media (max-width: 480px) {
+  .mainHeading1 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainHeading1 {
+    margin: 0 0 0 8px;
+  }
+}
+
+.featuresList_box {
+  margin: 0 17px 0 0;
+}
+
+@media (max-width: 1024px) {
   .featuresList_box {
-    margin: 0 17px 0 0;
-
-    @include md {
-      align-items: flex-start;
-    }
-
-    @include xs {
-      margin: 0 16px 0 0;
-    }
-
-    @include tn {
-      margin: 0 8px 0 0;
-    }
+    align-items: flex-start;
   }
+}
 
+@media (max-width: 768px) {
+  .featuresList_box {
+    margin: 0 16px 0 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .featuresList_box {
+    margin: 0 8px 0 0;
+  }
+}
+
+.featuresList {
+  font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(252 250 241);
+  letter-spacing: 1.2px;
+}
+
+@media (max-width: 1024px) {
   .featuresList {
-    font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
-    color: rgb(252 250 241);
-    letter-spacing: 1.2px;
-
-    @include md {
-      font-size: 22px;
-    }
-
-    @include xxs {
-      font-size: 20px;
-    }
+    font-size: 22px;
   }
+}
+
+@media (max-width: 480px) {
+  .featuresList {
+    font-size: 20px;
+  }
+}
 
   .featuresList_span0 {
     font: 500 1em/1.5 Poppins, Helvetica, Arial, serif;

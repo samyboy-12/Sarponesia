@@ -51,6 +51,11 @@
     color: white;
     text-align: center;
   }
+
+  .buyButton1:hover {
+    background-color: #d3b58f;
+    color: #1a0e07;
+  }
   @media (max-width: 991px) {
     .heroTitle {
       align-items: flex-start;

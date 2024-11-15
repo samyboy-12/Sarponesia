@@ -87,7 +87,7 @@
                                 </div>
                                 <h1 class="productPrice2">Rp 000,00</h1>
                             </div>
-                            <button class="buyButton2">
+                            <button class="buyButton1">
                                 <!-- TODO -->
                                 Beli
                             </button>
@@ -106,7 +106,7 @@
                                 </div>
                                 <h1 class="productPrice3">Rp 000,00</h1>
                             </div>
-                            <button class="buyButton3">
+                            <button class="buyButton1">
                                 <!-- TODO -->
                                 Beli
                             </button>
@@ -128,7 +128,7 @@
                                 </div>
                                 <h1 class="productPrice4">Rp 000,00</h1>
                             </div>
-                            <button class="buyButton4">
+                            <button class="buyButton1">
                                 <!-- TODO -->
                                 Beli
                             </button>
@@ -147,7 +147,7 @@
                                 </div>
                                 <h1 class="productPrice5">Rp 000,00</h1>
                             </div>
-                            <button class="buyButton5">
+                            <button class="buyButton1">
                                 <!-- TODO -->
                                 Beli
                             </button>
@@ -166,7 +166,7 @@
                                 </div>
                                 <h1 class="productPrice6">Rp 000,00</h1>
                             </div>
-                            <button class="buyButton6">
+                            <button class="buyButton1">
                                 Beli
                             </button>
                         </div>

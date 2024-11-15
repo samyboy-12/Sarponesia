@@ -236,6 +236,25 @@
   letter-spacing: 0.72px;
 }
 
+.contactButton:hover {
+  background-color: #d3b58f;
+  color: #1a0e07;
+}
+
+.contactButtonCare:hover {
+  background-color: #d3b58f;
+  color: #1a0e07;
+}
+.contactButtonStek:hover {
+  background-color: #d3b58f;
+  color: #1a0e07;
+}
+
+.submitButton:hover {
+  background-color: #d3b58f;
+  color: #1a0e07;
+}
+
 .flexRowContent {
   display: flex;
   gap: 0 21px;
@@ -646,7 +665,14 @@
   background-color: rgb(238, 235, 231);
   border-radius: 5px;
 }
-
+input[type="text"],
+select {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: rgb(238, 235, 231);
+  border-radius: 5px;
+}
 
 .nameFieldLabel {
   margin: 10px 0 10px 25px;

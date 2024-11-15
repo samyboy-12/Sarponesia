@@ -1,7 +1,7 @@
 @extends('Layout.layout1')
 
 @section('styles')
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/pelatihan.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('css/pelatihan.css') }}" />
 @endsection
 
 @section('main')
@@ -9,13 +9,14 @@
 
     <div class="content">
         <section class="trainingHeroSection" style="--src:url(/assets/b97cf4b8fac27e24fd81a4a8fd267e5b.png)">
+            <!-- Hero section showcasing coffee training services -->
             <div class="heroWrapper">
                 <div class="contentGroup">
                     <article class="mainHeading">Dukung perkembangan industri kopi Anda melalui berbagai layanan pelatihan yang telah dirancang khusus</article>
-                    <img class="trainingImg" src="/assets/6c6991fdb8951e7480dc65c0cb10eb60.png" alt="alt text" />
                 </div>
                 <article class="subHeading">Sarponesia Kopi telah merancang berbagai materi pelatihan untuk memperluas pengetahuan dan menunjang perkembangan industri kopi di Indonesia</article>
             </div>
+            <img class="trainingImg" src="/assets/6c6991fdb8951e7480dc65c0cb10eb60.png" alt="alt text" />
         </section>
     </div>
 

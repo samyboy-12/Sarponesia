@@ -849,3 +849,9 @@
     border-radius: 15px;
     padding: 12px 8px;
 }
+
+.submitBtn:hover {
+    background-color: #d3b58f;
+    color: #1a0e07;
+    cursor: pointer;
+  }

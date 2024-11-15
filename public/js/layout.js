@@ -58,7 +58,7 @@ function toggleNav() {
     }
 
     // Cek apakah sidebar sedang terbuka
-    if (sidebar.style.width === "15%") {
+    if (sidebar.style.width === "25%") {
         // Jika terbuka, tutup sidebar
         sidebar.style.width = "0";
         sidebar.style.display = "none";
@@ -66,9 +66,9 @@ function toggleNav() {
         toggleButton.classList.remove("open"); // Mengembalikan ke ikon burger
     } else {
         // Jika tertutup, buka sidebar
-        sidebar.style.width = "15%";
+        sidebar.style.width = "25%";
         sidebar.style.display = "block";
-        main.style.marginLeft = "15%";
+        main.style.marginLeft = "25%";
         toggleButton.classList.add("open"); // Mengubah ikon menjadi X
     }
 }
