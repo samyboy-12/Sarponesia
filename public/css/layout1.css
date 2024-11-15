@@ -69,8 +69,58 @@ header {
   width: 25px;
   height: 22px;
   flex-shrink: 0;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
+/* Tiga garis di burger */
+.Burger::before,
+.Burger::after,
+.Burger div {
+   content: '';
+   position: absolute;
+   width: 100%;
+   height: 4px;
+   background-color: black;
+   transition: all 0.3s ease;
+}
+
+.Burger::before {
+   top: 0;
+}
+
+.Burger::after {
+   bottom: 0;
+}
+
+.Burger div {
+   top: 50%;
+   transform: translateY(-50%);
+}
+
+/* State ketika icon burger berubah menjadi X */
+.Burger.open::before {
+   transform: rotate(45deg);
+   top: 50%;
+}
+
+.Burger.open::after {
+   transform: rotate(-45deg);
+   bottom: 50%;
+}
+
+.Burger.open div {
+   opacity: 0;
+}
+
+/* Untuk elemen gambar di sidebar */
+.closebtn {
+   position: absolute;
+   top: 0;
+   right: 25px;
+   font-size: 36px;
+   margin-left: 50px;
+}
 body nav {
   display: flex;
   align-items: center;
@@ -189,6 +239,7 @@ nav.active {
 /* Optional: Spacing around the sidebar items */
 .w3-sidebar .sidebar {
   padding-left: 20px;
+  margin-top: 40px;
 }
 
 .nav-links li a {

@@ -51,21 +51,29 @@ function toggleNav() {
     var main = document.getElementById("main");
     var toggleButton = document.getElementById("toggleNav");
 
+    // Pastikan elemen toggleButton dan sidebar ada sebelum mengaksesnya
+    if (!toggleButton || !sidebar || !main) {
+        console.error("Element not found. Please check the ID of 'toggleNav', 'mySidebar', or 'main'.");
+        return;
+    }
+
     // Cek apakah sidebar sedang terbuka
-    if (sidebar.style.width === "25%") {
+    if (sidebar.style.width === "15%") {
         // Jika terbuka, tutup sidebar
         sidebar.style.width = "0";
         sidebar.style.display = "none";
         main.style.marginLeft = "0";
-        toggleButton.style.display = 'inline-block';  // Menampilkan tombol
+        toggleButton.classList.remove("open"); // Mengembalikan ke ikon burger
     } else {
         // Jika tertutup, buka sidebar
-        sidebar.style.width = "25%";
+        sidebar.style.width = "15%";
         sidebar.style.display = "block";
-        main.style.marginLeft = "25%";
-        toggleButton.style.display = 'none';  // Menyembunyikan tombol
+        main.style.marginLeft = "15%";
+        toggleButton.classList.add("open"); // Mengubah ikon menjadi X
     }
 }
+
+
 
 $(function() {
     $('.tab').each(function() {

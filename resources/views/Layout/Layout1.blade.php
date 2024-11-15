@@ -13,6 +13,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/layout1.css') }}" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="4/w3.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/common.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts.css') }}" />
+\
     @yield('styles')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @yield('scripts')
@@ -52,7 +55,7 @@
 
         <nav>
             <ul class="nav-links">
-                <img src="{{ asset('assets/6b6feb3a1b323bb2081cde3cc92ebaa3.svg') }}" alt="Sarponesia Coffee Nav" class="Burger" onclick="toggleNav()">
+                <img src="{{ asset('assets/6b6feb3a1b323bb2081cde3cc92ebaa3.svg') }}" alt="Sarponesia Coffee Nav" class="Burger"  id="toggleNav"  onclick="toggleNav()">
                 <li class="{{ Request::is('home') ? 'active' : '' }}">
                     <a href="{{ url('/home') }}">Home</a>
                 </li>

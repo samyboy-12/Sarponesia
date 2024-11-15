@@ -75,3 +75,7 @@ Route::get('/registrasi',function(){
 Route::get('/reset',function(){
     return view('auth.Reset');
 });
+
+Route::get('/confirmreset',function(){
+    return view('auth.ConfirmReset');
+});

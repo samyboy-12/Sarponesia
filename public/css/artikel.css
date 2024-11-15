@@ -189,10 +189,17 @@
 
 .newsCardItem {
   display: flex;
-  flex-direction: column;
   width: 285px;
   min-width: 0;
   background: center center / cover no-repeat;
+  display: flex;
+  height: 352px;
+  padding: 140px 62px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
@@ -239,10 +246,16 @@
 
 .techCardItem {
   display: flex;
-  flex-direction: column;
-  width: 307px;
+  width: 285px;
   min-width: 0;
   background: center center / cover no-repeat;
+  height: 352px;
+  padding: 140px 62px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
@@ -286,10 +299,16 @@
 
 .tipsCardItem {
   display: flex;
-  flex-direction: column;
-  width: 282px;
+  width: 285px;
   min-width: 0;
   background: center center / cover no-repeat;
+  height: 352px;
+  padding: 140px 62px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {

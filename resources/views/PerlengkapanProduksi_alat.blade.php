@@ -6,59 +6,54 @@
 
 @section('main')
     <main class="perlengkapan-produksi-peralatan main">
-
-        <section class="productDisplaySection">
-            <!-- Main section presenting available technology and standard tools for production needs. -->
-            <div class="flexColumnContainer1">
-                <div class="contentBox" style="--src:url(../assets/52ac4412589eed03b032824c5cf655ee.png)">
-                    <div class="flexColumnLeft">
-                        <img class="productImage" src="./assets/Logonav.png" alt="alt text" />
-                        <h1 class="heroTitle">
-                            <!-- Primary title describing the available tools. -->
-                            Tersedia Alat Berteknologi dan Terstandar untuk Melengkapi Kebutuhan Produksi Anda
-                        </h1>
-                        <div class="flexRowColors">
-                            <div class="colorBox1"></div>
-                            <div class="colorBox2"></div>
-                            <div class="colorBox3"></div>
-                            <div class="colorBox4"></div>
-                            <div class="colorBox5"></div>
+        
+        <div class="content">
+            <section class="productDisplaySection">
+                <!-- Main section presenting available technology and standard tools for production needs. -->
+                <div class="flexColumnContainer1">
+                    <div class="contentBox" style="--src:url(../assets/52ac4412589eed03b032824c5cf655ee.png)">
+                        <div class="flexColumnLeft">
+                            <img class="productImage" src="./assets/Logonav.png" alt="alt text" />
+                            <h1 class="heroTitle">
+                                Tersedia Alat Berteknologi dan Terstandar untuk Melengkapi Kebutuhan Produksi Anda
+                            </h1>
+                            <div class="flexRowColors">
+                                <div class="colorBox1"></div>
+                                <div class="colorBox2"></div>
+                                <div class="colorBox3"></div>
+                                <div class="colorBox4"></div>
+                                <div class="colorBox5"></div>
+                            </div>
                         </div>
                     </div>
+                    <div class="flexRowCollection">
+                        <h1 class="collectionTitle">
+                            Koleksi <br /> Peralatan
+                        </h1>
+                        <img class="collectionImage1" src="./assets/8e9fea1b8a7fdf8624fb52e2029b0e9b.png" alt="alt text" />
+                        <img class="collectionImage2" src="./assets/72bea5dde9f30a594561a50179b622de.png" alt="alt text" />
+                        <img class="collectionImage3" src="./assets/cca51b517e85462a1c8723f979f724bc.png" alt="alt text" />
+                        <img class="collectionImage4" src="./assets/5604653d3c0c08d66641946c81d2770a.svg" alt="alt text" />
+                    </div>
                 </div>
-                <div class="flexRowCollection">
-                    <!-- Row displaying the collection image and products. -->
-                    <h1 class="collectionTitle">
-                        <!-- Title indicating the collection of tools. -->
-                        Koleksi
-                        <br />
-              Peralatan
-                    </h1>
-                    <img class="collectionImage1" src="./assets/8e9fea1b8a7fdf8624fb52e2029b0e9b.png" alt="alt text" />
-                    <img class="collectionImage2" src="./assets/72bea5dde9f30a594561a50179b622de.png" alt="alt text" />
-                    <img class="collectionImage3" src="./assets/cca51b517e85462a1c8723f979f724bc.png" alt="alt text" />
-                    <img class="collectionImage4" src="./assets/5604653d3c0c08d66641946c81d2770a.svg" alt="alt text" />
-                </div>
-            </div>
-        </section>
-
-        <section class="productShowcaseSection">
-            <!-- This section displays various products available for purchase. -->
-            <div class="flexColumn">
-                <div class="imageGalleryBox" style="--src:url(../assets/ef3cc9fc9238eea224153fd0ec0cd7df.png)">
-                    <!-- This box contains images and a hero title. -->
-                    <img class="productImage1" src="./assets/5f3b809bb2409b7c0185f133527664d9.svg" alt="alt text" />
-                    <img class="productImage2" src="./assets/98e3c0649dede088ca34495d37ceac3a.svg" alt="alt text" />
-                    <h1 class="heroTitle1">Temukan Produk Incaran Anda dengan Harga Incaran</h1>
-                </div>
-                <div class="categoryTitlesRow">
-                    <!-- This row displays the titles for different product categories. -->
-                    <h2 class="postHarvestEquipmentTitle">peralatan pasca panen </h2>
-                    <h2 class="productionEquipmentTitle">peralatan produksi</h2>
-                    <h2 class="processingEquipmentTitle">peralatan pengolahan </h2>
-                    <h2 class="cafeEquipmentTitle">peralatan cafe</h2>
-                </div>
-                <div class="productGridRow1">
+            </section>
+        </div>
+            
+            <div class="content">
+            <section class="productShowcaseSection">
+                <div class="flexColumn">
+                    <div class="imageGalleryBox" style="--src:url(../assets/ef3cc9fc9238eea224153fd0ec0cd7df.png)">
+                        <img class="productImage1" src="./assets/5f3b809bb2409b7c0185f133527664d9.svg" alt="alt text" />
+                        <img class="productImage2" src="./assets/98e3c0649dede088ca34495d37ceac3a.svg" alt="alt text" />
+                        <h1 class="heroTitle1">Temukan Produk Incaran Anda dengan Harga Incaran</h1>
+                    </div>
+                    <div class="categoryTitlesRow">
+                        <h2 class="postHarvestEquipmentTitle">peralatan pasca panen</h2>
+                        <h2 class="productionEquipmentTitle">peralatan produksi</h2>
+                        <h2 class="processingEquipmentTitle">peralatan pengolahan</h2>
+                        <h2 class="cafeEquipmentTitle">peralatan cafe</h2>
+                    </div>
+                    <div class="productGridRow1">
                     <!-- This row contains the first set of products presented in a grid layout. -->
                     <div class="productCardContainer1" style="--src:url(../assets/aa349cdb01a81cbacf19ad5f8725dc82.png)">
                         <div class="productCardColumn1">
@@ -177,10 +172,9 @@
                         </div>
                     </div>
                 </div>
+            </section>
             </div>
-        </section>
+        </div>
+        
     </main>
-
-
-
 @endsection

@@ -75,6 +75,7 @@
 
 .resetPasswordButton {
   display: flex;
+  text-decoration: none;
   justify-content: center;
   margin: 24px 0 0;
   width: 591px;

@@ -9,10 +9,9 @@
             <h1 class="resetPasswordTitle">Atur Ulang Kata Sandi</h1>
             <h2 class="resetPasswordInstruction">Masukkan kredensial di bawah untuk mengatur ulang kata sandi Anda</h2>
           </div>
-          <input type="text" id="Email" name="email" placeholder="Email">
-          <a href="{{ url('/confirmreset') }}" class="resetPasswordButton">
-            Reset Password
-          </a>
+          <input type="text" id="Kata Sandi Baru" name="Kata Sandi Baru" placeholder="Kata Sandi Baru">
+          <input type="text" id="Konfirmasi Kata Sandi" name="Konfirmasi Kata Sandi" placeholder="Konfirmasi Kata Sandi">
+          <input type="submit" id="reset" name="reset" value="Reset Password" class="resetPasswordButton" >
         </div>
       </div>
     </section>
