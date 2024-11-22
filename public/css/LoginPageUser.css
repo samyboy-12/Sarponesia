@@ -102,7 +102,7 @@ html, body {
 
   input[type="text"],
   select {
-    margin: 36px 0 0;
+    margin: 12px 0 0;
     width: 100%;
     border-radius: 40px;
     outline: 3px solid #190f05;

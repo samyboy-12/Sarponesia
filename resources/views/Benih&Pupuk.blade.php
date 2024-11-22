@@ -2,6 +2,7 @@
 
 @section('styles')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/benihpupuk.css') }}" />
+<link rel="stylesheet" type="text/css" href="/css/Deskripsi.css" />
 @endsection
 @section('scripts')
 <script src="{{ asset('js/benihpupuk.js') }}"></script>
@@ -137,7 +138,7 @@
                 <p class="productName">Nama Produk</p>
                 <p class="productDesc1">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
               </div>
-              <a class="detailsLink" href="{{ url('/card') }}" >Selengkapnya</a>
+              <a class="detailsLink" href="#divOne">Selengkapnya</a>
             </div>
             <img class="productImg1" src="/assets/d10aa136bc1a7d5770349d932e8e96bf.png" alt="alt text" />
           </div>
@@ -184,5 +185,55 @@
       </div>
     </div>
   </section>
+</div>
+
+<div class="overlay" id="divOne">
+  <section class="deskripsi productDetailSection">
+    <!-- Product details and information section -->
+    <div class="mainContainer">
+      <div class="titleWrapper">
+        <p class="productTitle">Nama Produk</p>
+        <img class="titleIcon" src="/assets/48e6c1abda86b029ac649bca39ac20c5.svg" alt="alt text" />
+      </div>
+      <article class="contentWrapper">
+        <div class="descriptionContainer">
+          <div class="productInfos">
+            <p class="descriptionTitle">Deskripsi Produk</p>
+            <div class="descriptionContent">
+              <!-- Product description and usage instructions -->
+              <p class="mainDescription">
+                    Pupuk Kopi Premium dirancang khusus untuk memberikan nutrisi lengkap bagi tanaman kopi Anda. Diformulasikan dengan keseimbangan nutrisi yang optimal, pupuk ini mendukung pertumbuhan yang sehat dari akar hingga buah, sehingga menghasilkan biji kopi dengan kualitas terbaik dan rasa yang lebih kaya.
+                <br />
+              </p>
+              <article class="featuresList_box">
+                <span class="featuresList">
+                  <span class="featuresList_span0">
+                    Keunggulan Pupuk Kopi Premium:
+                    <br />
+                  </span>
+                  <span class="featuresList_span1">
+                    Kaya Nutrisi
+                    <br />
+                    Pelepasan Nutrisi Bertahap
+                    <br />
+                    Ramah Lingkungan
+                    <br />
+                    Aplikasi Praktis
+                    <br />
+                    <br />
+                  </span>
+                  <span class="featuresList_span2">Cara Pakai:</span>
+                  <span class="featuresList_span3"> Taburkan 20 gram per pohon setiap 2-3 bulan, baik langsung ke tanah atau dicampur air untuk penyiraman merata.</span>
+                </span>
+              </article>
+            </div>
+          </div>
+          <button class="purchaseBtns">Beli</button>
+        </div>
+        <img class="productImgs" src="/assets/e86c4e27a78ffc54088666489701b2d4.png" alt="alt text" />
+      </article>
+    </div>
+  </section>
+
 </div>
 @endsection

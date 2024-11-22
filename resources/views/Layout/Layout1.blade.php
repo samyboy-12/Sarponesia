@@ -16,50 +16,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/common.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts.css') }}" />
     @yield('styles')
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    @yield('scripts')
     <title>Sarponesia</title>
 </head>
-
-<!-- Sidebar -->
-<div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-left" style="display:none" id="mySidebar">
-    <div class="sidebar">
-        <div class="Nav-small ">
-        <img src="{{ asset('assets/6b6feb3a1b323bb2081cde3cc92ebaa3.svg') }}" alt="Sarponesia Coffee Nav" class="Burger" id="toggleNav" onclick="toggleNav()">
-        <li class="{{ Request::is('home') ? 'active' : '' }}">
-            <a href="{{ url('/home') }}">Home</a>
-        </li>
-        <li class="{{ Request::is('benihpupuk') ? 'active' : '' }}">
-            <a href="{{ url('/benihpupuk') }}">Benih & Pupuk</a>
-        </li>
-        <li class="{{ Request::is('peralatan') ? 'active' : '' }}">
-            <a href="{{ url('/peralatan') }}">Peralatan</a>
-        </li>
-        <li class="{{ Request::is('perawatan') ? 'active' : '' }}">
-            <a href="{{ url('/perawatan') }}">Perawatan Kebun</a>
-        </li>
-        <li class="{{ Request::is('pelatihan') ? 'active' : '' }}">
-            <a href="{{ url('/pelatihan') }}">Pelatihan</a>
-        </li>
-        <li class="{{ Request::is('katalog') ? 'active' : '' }}">
-            <a href="{{ url('/katalog') }}">Katalog</a>
-        </li>
-        <li class="{{ Request::is('contact') ? 'active' : '' }}">
-            <a href="{{ url('/contact') }}">Hubungi</a>
-        </li>
-        </div>
-        <li class="{{ Request::is('artikel') ? 'active' : '' }}">
-            <a href="{{ url('/artikel') }}">Artikel</a>
-        </li>
-        <li class="{{ Request::is('program') ? 'active' : '' }}">
-            <a href="{{ url('/program') }}">Program Kerjasama</a>
-        </li>
-        <li class="{{ Request::is('komunitas') ? 'active' : '' }}">
-            <a href="{{ url('/komunitas') }}">Komunitas</a>
-        </li>
-        
-    </div>
-</div>
 
 <!-- Main content -->
 
@@ -81,40 +39,100 @@
 
         <nav>
             <ul class="nav-links">
-                <img src="{{ asset('assets/6b6feb3a1b323bb2081cde3cc92ebaa3.svg') }}" alt="Sarponesia Coffee Nav" class="Burger" id="toggleNav" onclick="toggleNav()">
-                <li class="{{ Request::is('home') ? 'active' : '' }}">
-                    <a href="{{ url('/home') }}">Home</a>
-                </li>
-                <li class="{{ Request::is([ 'benihpupuk', 'peralatan']) ? 'active' : '' }}">
-                    <a href="#">Perlengkapan Produksi <img src="{{ asset('assets/1e8a7acc77c651d012c195dd61fd6298.svg') }}" alt="Icon"></a>
-                    <ul class="dropdown">
-                        <li class="{{ Request::is('benihpupuk') ? 'active' : '' }}">
-                            <a href="{{ url('/benihpupuk') }}">Benih & Pupuk</a>
+                <li>
+                    <div id="menu-icon" onclick="toggleMenu()" class="hamburger">
+                        <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="line top" d="M5 10H35" stroke="#F8F4E1" stroke-width="6" stroke-linecap="round" />
+                            <path class="line middle" d="M5 20H35" stroke="#F8F4E1" stroke-width="6" stroke-linecap="round" />
+                            <path class="line bottom" d="M5 30H35" stroke="#F8F4E1" stroke-width="6" stroke-linecap="round" />
+                        </svg>
+                    </div>
+
+                    <ul class="dropdown" style="display: none;">
+                        <div class="sidebar-smallphone">
+                            <li class="{{ Request::is('home') ? 'active' : '' }}">
+                                <a href="{{ url('/home') }}">Home</a>
+                            </li>
+                            <li class="{{ Request::is('benihpupuk') ? 'active' : '' }}">
+                                <a href="{{ url('/benihpupuk') }}">Benih & Pupuk</a>
+                            </li>
+                            <li class="{{ Request::is('peralatan') ? 'active' : '' }}">
+                                <a href="{{ url('/peralatan') }}">Peralatan</a>
+                            </li>
+                        </div>
+                        <div class="sidebar-phone">
+                            <li class="{{ Request::is('perawatan') ? 'active' : '' }}">
+                                <a href="{{ url('/perawatan') }}">Perawatan Kebun</a>
+                            </li>
+                            <li class="{{ Request::is('pelatihan') ? 'active' : '' }}">
+                                <a href="{{ url('/pelatihan') }}">Pelatihan</a>
+                            </li>
+                        </div>
+                        <div class="sidebar-tablet">
+                            <li class="{{ Request::is('katalog') ? 'active' : '' }}">
+                                <a href="{{ url('/katalog') }}">Katalog</a>
+                            </li>
+                            <li class="{{ Request::is('contact') ? 'active' : '' }}">
+                                <a href="{{ url('/contact') }}">Hubungi</a>
+                            </li>
+                        </div>
+                        </div>
+                        <li class="{{ Request::is('artikel') ? 'active' : '' }}">
+                            <a href="{{ url('/artikel') }}">Artikel</a>
                         </li>
-                        <li class="{{ Request::is('peralatan') ? 'active' : '' }}">
-                            <a href="{{ url('/peralatan') }}">Peralatan</a>
+                        <li class="{{ Request::is('program') ? 'active' : '' }}">
+                            <a href="{{ url('/program') }}">Program Kerjasama</a>
+                        </li>
+                        <li class="{{ Request::is('komunitas') ? 'active' : '' }}">
+                            <a href="{{ url('/komunitas') }}">Komunitas</a>
                         </li>
                     </ul>
                 </li>
 
-                <li class="{{ Request::is(['perawatan*','pelatihan*']) ? 'active' : '' }}">
-                    <a href="#">Jasa Kebun & Kopi <img src="{{ asset('assets/1e8a7acc77c651d012c195dd61fd6298.svg') }}" alt="Icon"></a>
-                    <ul class="dropdown">
-                        <li class="{{ Request::is('perawatan') ? 'active' : '' }}">
-                            <a href="{{ url('/perawatan') }}">Perawatan Kebun</a>
-                        </li>
-                        <li class="{{ Request::is('pelatihan') ? 'active' : '' }}">
-                            <a href="{{ url('/pelatihan') }}">Pelatihan</a>
-                        </li>
-                    </ul>
-                </li>
 
-                <li class="{{ Request::is('katalog') ? 'active' : '' }}">
-                    <a href="{{ url('/katalog') }}">Katalog</a>
-                </li>
-                <li class="{{ Request::is('contact') ? 'active' : '' }}">
-                    <a href="{{ url('/contact') }}">Hubungi</a>
-                </li>
+                <div class="smallphone">
+                    <li class="{{ Request::is('home') ? 'active' : '' }}">
+                        <a href="{{ url('/home') }}">Home</a>
+                    </li>
+                </div>
+                <div class="phone">
+                    <li class="{{ Request::is([ 'benihpupuk', 'peralatan']) ? 'active' : '' }}">
+                        <a href="#">Perlengkapan Produksi <img src="{{ asset('assets/1e8a7acc77c651d012c195dd61fd6298.svg') }}" alt="Icon"></a>
+                        <ul class="dropdown">
+                            <li class="{{ Request::is('benihpupuk') ? 'active' : '' }}">
+                                <a href="{{ url('/benihpupuk') }}">Benih & Pupuk</a>
+                            </li>
+                            <li class="{{ Request::is('peralatan') ? 'active' : '' }}">
+                                <a href="{{ url('/peralatan') }}">Peralatan</a>
+                            </li>
+                        </ul>
+                    </li>
+                </div>
+
+                <div class="tablet">
+                    <li class="{{ Request::is(['perawatan*','pelatihan*']) ? 'active' : '' }}">
+                        <a href="#">Jasa Kebun & Kopi <img src="{{ asset('assets/1e8a7acc77c651d012c195dd61fd6298.svg') }}" alt="Icon"></a>
+                        <ul class="dropdown">
+                            <li class="{{ Request::is('perawatan') ? 'active' : '' }}">
+                                <a href="{{ url('/perawatan') }}">Perawatan Kebun</a>
+                            </li>
+                            <li class="{{ Request::is('pelatihan') ? 'active' : '' }}">
+                                <a href="{{ url('/pelatihan') }}">Pelatihan</a>
+                            </li>
+                        </ul>
+                    </li>
+                </div>
+                <div class="tablet">
+                    <li class="{{ Request::is('katalog') ? 'active' : '' }}">
+                        <a href="{{ url('/katalog') }}">Katalog</a>
+                    </li>
+                </div>
+                <div class="tablet">
+                    <li class="{{ Request::is('contact') ? 'active' : '' }}">
+                        <a href="{{ url('/contact') }}">Hubungi</a>
+                    </li>
+                </div>
+
             </ul>
             <div class="search">
                 <input type="text" class="input" placeholder="Search...">
@@ -176,7 +194,8 @@
 </footer>
 
 
-<script src="{{ asset('js/layout.js') }}"></script>
 </body>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ asset('js/layout.js') }}"></script>
+@yield('scripts')
 </html>

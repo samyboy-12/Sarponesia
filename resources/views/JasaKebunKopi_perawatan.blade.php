@@ -77,13 +77,10 @@
           </div>
           <div class="contentBoxSection">
             <!-- This section holds the different content boxes for the form fields. -->
-            <div class="nameFieldBox">
-              <div class="contentBox1">
-                <h2 class="nameFieldLabel">Nama</h2>
-              </div>
-              <div class="emailFieldBox">
-                <h2 class="emailFieldLabel">Alamat Email</h2>
-              </div>
+            <div class="contentBox1">
+           
+              <input type="text" id="Name" name="name" placeholder="Nama">
+              <input type="text" id="email" name="email" placeholder="Alamat Email">
               <div class="messageFieldBox">
                 <h2 class="messageFieldLabel">Pesan</h2>
               </div>

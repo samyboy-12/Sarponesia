@@ -644,7 +644,7 @@
   }
 }
 
-.nameFieldBox {
+.contentBox1  {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -653,12 +653,12 @@
 }
 
 @media (max-width: 768px) {
-  .nameFieldBox {
+  .contentBox1  {
     margin: 50px auto;
   }
 }
 
-.contentBox1 {
+.nameFieldBox{
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -667,13 +667,32 @@
 }
 input[type="text"],
 select {
-  display: flex;
-  flex-direction: column;
+  padding: 10px 0 10px 25px ; /* Tambahkan padding kiri untuk memberi jarak */
+  display: block; /* Ubah ke block, karena flex jarang digunakan untuk input */
   width: 100%;
   background-color: rgb(238, 235, 231);
+  border: 1px solid #ccc; /* Tambahkan border untuk definisi yang lebih jelas */
   border-radius: 5px;
+  font-size: 16px; /* Tambahkan ukuran font untuk konsistensi */
+  box-sizing: border-box; /* Pastikan padding tidak melebihi width */
+  margin-bottom: 10px; /* Beri margin bawah untuk ruang antar elemen */
 }
 
+input[type="text"]:focus,
+select:focus {
+  border-color: #1a0e07; /* Warna border saat fokus */
+  outline: none; /* Hilangkan outline default */
+  box-shadow: 0 0 5px rgba(60, 36, 11, 0.698); /* Tambahkan efek fokus */
+}
+
+input[type="text"]::placeholder {
+  font-family: 'Poppins', Helvetica, Arial, serif; /* Atur font family */
+  font-weight: 500; /* Berat font */
+  font-size: 24px; /* Ukuran font */
+  line-height: 1.5; /* Tinggi baris */
+  color: rgba(60, 36, 11, 0.698); /* Warna teks placeholder */
+  opacity: 1; /* Pastikan placeholder terlihat di semua browser */
+}
 .nameFieldLabel {
   margin: 10px 0 10px 25px;
   width: 75px;
