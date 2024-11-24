@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+
+    <!-- Please DO NOT remove this line, all link and script tags will be merged to here -->
+
+    <link rel="stylesheet" type="text/css" href="/css/common.css" />
+
+    <link rel="stylesheet" type="text/css" href="/css/fonts.css" />
+
+    <link rel="stylesheet" type="text/css" href="/css/LoginPageAdmin.css" />
+
+  </head>
+
+  <body class="flex-column">
+
+    <section class="login-page-admin welcomeSection">
+      <div class="flexRow">
+        <div class="flexColumn">
+          <h1 class="welcomeMessage">Selamat Datang Kembali !</h1>
+          <h2 class="accountInfoPrompt">Isikan informasi akun anda dengan benar untuk dapat mengakses akun di Sarponesia</h2>
+          <div class="emailUsernameBox"><h2 class="emailUsernameLabel">Email / Username</h2></div>
+          <div class="passwordBox"><h2 class="passwordLabel">Kata Sandi</h2></div>
+          <p class="forgotPasswordPrompt">Lupa Kata Sandi ?</p>
+          <button class="loginButton">
+            <!-- TODO --> 
+            Login
+          </button>
+        </div>
+        <img class="welcomeImage" src="/assets/c1ae8a2aea691a6114fc609fb781c377.png" alt="alt text" />
+      </div>
+    </section>
+
+
+  </body>
+
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="/css/Bab.css" />
+    <style>
+      .customerTestimonialsSection {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .flexColumnContainer1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .bab {
+        position: relative;
+        width: 1200px;
+        height: 414px;
+        min-height: 414px;
+      }
+
+      .content_box1,
+      .content_box,
+      .content_box2 {
+        display: flex;
+        flex-direction: column;
+        border-radius: 15px;
+        background-color: rgb(131, 128, 123);
+        transition: transform 0.3s ease, z-index 0.3s ease;
+      }
+
+      .content_box1:hover,
+      .content_box:hover,
+      .content_box2:hover {
+        z-index: 10;
+        transform: scale(1.05);
+      }
+
+      .content_box1, .content_box {
+        position: absolute;
+        width: 413px;
+        height: 246px;
+      }
+
+      .content_box1 {
+        inset: 80px 0 88px 787px;
+      }
+
+      .content_box {
+        inset: 80px 787px 86px 0;
+        box-shadow: -4px 4px 4px rgb(0 0 0 / 25%);
+      }
+
+      .content_box2 {
+        position: absolute;
+        inset: 0 328px 102px 327px;
+        width: 545px;
+        height: 312px;
+        background-color: rgb(104, 102, 95);
+        outline: 1px solid rgb(0 0 0);
+      }
+
+      .desc, .desc1, .desc11 {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        font: 500 20px/1.5 Poppins, Helvetica, Arial, serif;
+        color: rgb(252, 250, 241);
+        text-align: center;
+      }
+
+      .desc1 {
+        margin: 64px auto;
+      }
+
+      .desc11 {
+        font-size: 24px;
+        margin: 46px auto 86px;
+      }
+
+      .flex_col, .flex_col1 {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .flex_col {
+        bottom: -86px;
+        left: 164px;
+        width: 86px;
+      }
+
+      .flex_col1 {
+        bottom: -100px;
+        left: 216px;
+        width: 114px;
+      }
+
+      .image {
+        width: 86px;
+        border-radius: 44px;
+        filter: drop-shadow(3px 3px 4px rgb(0 0 0 / 25%));
+      }
+
+      .image1 {
+        width: 114px;
+        border-radius: 57px;
+      }
+
+      .info {
+        font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
+        color: rgb(35, 21, 7);
+      }
+    </style>
+  </head>
+  <body class="flex-column">
+    <section class="customerTestimonialsSection">
+      <div class="flexColumnContainer1">
+        <h1 class="customerStoryTitle">Cerita Pelanggan</h1>
+        <div class="bab root">
+          <div class="content_box1">
+            <p class="desc">Saat kemasan dibuka, aroma khas robusta yang kuat langsung tercium, dengan sentuhan cokelat hitam dan aroma rempah yang menarik.</p>
+            <div class="flex_col">
+              <img class="image" src="{{ asset('assets/bfde494a72e6809235efb4707021e7de.png') }}" alt="alt text" />
+              <div class="info">Ferdi</div>
+            </div>
+          </div>
+          <div class="content_box">
+            <p class="desc1">Puas borong kopi di Sarponesia Coffee, rasa dan kenikmatan kopi Robusta Pacitan memang tiada duanya...terima kasih</p>
+            <div class="flex_col">
+              <img class="image" src="{{ asset('assets/4c1ccfd18632f299d182f41144a8be79.png') }}" alt="alt text" />
+              <div class="info">Farid</div>
+            </div>
+          </div>
+          <div class="content_box2">
+            <p class="desc11">Puas bener sama kopi pacitan, udah 3x order disini dan gapernah kecewa sama kopi + service penjualnya. Sukses terus sarponesia</p>
+            <div class="flex_col1">
+              <img class="image1" src="{{ asset('assets/c8d3a6c2ae1adbe3166a7068ed8e4808.png') }}" alt="alt text" />
+              <div class="info">Candra</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+
+
