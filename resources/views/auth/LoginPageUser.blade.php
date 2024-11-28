@@ -1,6 +1,4 @@
-
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/LoginPageUser.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('css/LoginPageUser.css') }}" />
 
 <body class="flex-column">
 
