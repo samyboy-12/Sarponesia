@@ -24,7 +24,7 @@ Route::get('/perawatan', function () {
 
 Route::get('/katalog',function(){
     return view('Katalog');
-});
+})->name('katalog');
 
 Route::get('/contact',function(){
     return view('Kontak');
