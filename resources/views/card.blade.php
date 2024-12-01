@@ -2,27 +2,27 @@
 
 <html>
 
-  <head>
+<head>
 
-    <meta charset="utf-8" />
+  <meta charset="utf-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
 
-    <!-- Please DO NOT remove this line, all link and script tags will be merged to here -->
+  <!-- Please DO NOT remove this line, all link and script tags will be merged to here -->
 
-    <link rel="stylesheet" type="text/css" href="/css/common.css" />
+  <link rel="stylesheet" type="text/css" href="/css/common.css" />
 
-    <link rel="stylesheet" type="text/css" href="/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/css/fonts.css" />
 
-    <link rel="stylesheet" type="text/css" href="/css/Deskripsi.css" />
+  <link rel="stylesheet" type="text/css" href="/css/Deskripsi.css" />
 
-  </head>
+</head>
 
-  <body class="flex-column">
+<body class="flex-column">
 
-    <section class="deskripsi productDetailSection">
+<section class="deskripsi productDetailSection">
       <!-- Product details and information section --> 
       <div class="mainContainer">
         <div class="titleWrapper">
@@ -70,6 +70,6 @@
     </section>
 
 
-  </body>
+</body>
 
 </html>

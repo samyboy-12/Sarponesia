@@ -2,6 +2,7 @@
 
 @section('styles')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/benihpupuk.css') }}" />
+<link rel="stylesheet" type="text/css" href="/css/Deskripsi.css" />
 @endsection
 @section('scripts')
 <script src="{{ asset('js/benihpupuk.js') }}"></script>
@@ -37,19 +38,66 @@
         </div>
       </article>
       <div class="itemGrid">
-  @foreach($benihProducts as $product)
-      <div class="flex_col">
-          <img class="image8" src="{{ asset($product->Image_path) }}" alt="{{ $product->name }}" />
+        <!-- Produk pertama -->
+        <div class="flex_col">
+          <img class="image8" src="/assets/abdb0b9959fb3988ee3a6b66dae3a0e2.png" alt="alt text" />
           <div class="flex_col1">
-              <h3 class="medium_title3">{{ $product->Name }}</h3>
-              <div class="flex_row1">
-                  <h3 class="subtitle4">Rp {{ number_format($product->Price, 0, ',', '.') }}</h3>
-                  <button class="btn1">Beli</button>
-              </div>
+            <h3 class="medium_title3">Nama Produk </h3>
+            <div class="flex_row1">
+              <h3 class="subtitle4">Price</h3>
+              <button class="btn1">Beli</button>
+            </div>
           </div>
+        </div>
+
+        <!-- Produk kedua -->
+        <div class="flex_col">
+          <img class="image8" src="/assets/5c7d3c96190ce58916ff77ef5dc5fd9e.png" alt="alt text" />
+          <div class="flex_col1">
+            <h3 class="medium_title3">Nama Produk</h3>
+            <div class="flex_row1">
+              <h3 class="subtitle4">Price</h3>
+              <button class="btn1">Beli</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produk ketiga -->
+        <div class="flex_col">
+          <img class="image9" src="/assets/4fe9891ac93f78fb7867c2dee3e91844.png" alt="alt text" />
+          <div class="flex_col1">
+            <h3 class="medium_title3">Nama Produk</h3>
+            <div class="flex_row1">
+              <h3 class="subtitle4">Price</h3>
+              <button class="btn1">Beli</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produk keempat -->
+        <div class="flex_col">
+          <img class="image8" src="/assets/e8c87c7de21496113d1fbb54fe837f8f.png" alt="alt text" />
+          <div class="flex_col1">
+            <h3 class="medium_title3">Nama Produk</h3>
+            <div class="flex_row1">
+              <h3 class="subtitle4">Price</h3>
+              <button class="btn1">Beli</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produk kelima -->
+        <div class="flex_col">
+          <img class="image10" src="/assets/b5ce8375c8f8a77e9e4888756da9684f.png" alt="alt text" />
+          <div class="flex_col1">
+            <h3 class="medium_title3">Nama Produk</h3>
+            <div class="flex_row1">
+              <h3 class="subtitle4">Price</h3>
+              <button class="btn1">Beli</button>
+            </div>
+          </div>
+        </div>
       </div>
-  @endforeach
-</div>
 
       <div style="text-align:center">
         <span class="dot" onclick="currentSlide(1)"></span>
@@ -90,9 +138,9 @@
                 <p class="productName">Nama Produk</p>
                 <p class="productDesc1">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
               </div>
-              <a class="detailsLink" href="{{ url('/card') }}" >Selengkapnya</a>
+              <a class="detailsLink" href="#divOne">Selengkapnya</a>
             </div>
-            <img class="productImg1" src="/assets/Pupuk 1.png" alt="alt text" />
+            <img class="productImg1" src="/assets/d10aa136bc1a7d5770349d932e8e96bf.png" alt="alt text" />
           </div>
         </article>
         <article class="productCard">
@@ -105,7 +153,7 @@
               </div>
               <a class="detailsLink">Selengkapnya</a>
             </div>
-            <img class="productImg1" src="/assets/Pupuk 2.png" alt="alt text" />
+            <img class="productImg1" src="/assets/bd7f005eebc8b145bdaf685a9102025e.png" alt="alt text" />
           </div>
         </article>
         <div class="item">
@@ -118,7 +166,7 @@
               </div>
               <a class="detailsLink">Selengkapnya</a>
             </div>
-            <img class="image1" src="/assets/Pupuk 3.png" alt="alt text" />
+            <img class="image1" src="/assets/922b26c88f215943b690a3e8548943b3.png" alt="alt text" />
           </div>
         </div>
         <div class="item">
@@ -131,11 +179,61 @@
               </div>
               <a class="detailsLink">Selengkapnya</a>
             </div>
-            <img class="image1" src="/assets/Pupuk 4.png" alt="alt text" />
+            <img class="image1" src="/assets/ce325319935e28bb65710d74354d2a19.png" alt="alt text" />
           </div>
         </div>
       </div>
     </div>
   </section>
+</div>
+
+<div class="overlay" id="divOne">
+  <section class="deskripsi productDetailSection">
+    <!-- Product details and information section -->
+    <div class="mainContainer">
+      <div class="titleWrapper">
+        <p class="productTitle">Nama Produk</p>
+        <img class="titleIcon" src="/assets/48e6c1abda86b029ac649bca39ac20c5.svg" alt="alt text" />
+      </div>
+      <article class="contentWrapper">
+        <div class="descriptionContainer">
+          <div class="productInfos">
+            <p class="descriptionTitle">Deskripsi Produk</p>
+            <div class="descriptionContent">
+              <!-- Product description and usage instructions -->
+              <p class="mainDescription">
+                    Pupuk Kopi Premium dirancang khusus untuk memberikan nutrisi lengkap bagi tanaman kopi Anda. Diformulasikan dengan keseimbangan nutrisi yang optimal, pupuk ini mendukung pertumbuhan yang sehat dari akar hingga buah, sehingga menghasilkan biji kopi dengan kualitas terbaik dan rasa yang lebih kaya.
+                <br />
+              </p>
+              <article class="featuresList_box">
+                <span class="featuresList">
+                  <span class="featuresList_span0">
+                    Keunggulan Pupuk Kopi Premium:
+                    <br />
+                  </span>
+                  <span class="featuresList_span1">
+                    Kaya Nutrisi
+                    <br />
+                    Pelepasan Nutrisi Bertahap
+                    <br />
+                    Ramah Lingkungan
+                    <br />
+                    Aplikasi Praktis
+                    <br />
+                    <br />
+                  </span>
+                  <span class="featuresList_span2">Cara Pakai:</span>
+                  <span class="featuresList_span3"> Taburkan 20 gram per pohon setiap 2-3 bulan, baik langsung ke tanah atau dicampur air untuk penyiraman merata.</span>
+                </span>
+              </article>
+            </div>
+          </div>
+          <button class="purchaseBtns">Beli</button>
+        </div>
+        <img class="productImgs" src="/assets/e86c4e27a78ffc54088666489701b2d4.png" alt="alt text" />
+      </article>
+    </div>
+  </section>
+
 </div>
 @endsection

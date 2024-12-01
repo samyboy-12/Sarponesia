@@ -21,7 +21,7 @@
                 <img src="{{ asset('assets/Logo.png') }}" alt="Sarponesia Coffee">
             </div>
             <div class="header-right">
-                <a class="login-btn" href="{{ route('login') }}">Login</a>
+                <a class="login-btn" href="{{ url('/login') }}">Login</a>
             </div>
         </div>
                 <nav>
@@ -57,7 +57,7 @@
                         <a href="{{ route('katalog') }}">Katalog</a>
                     </li>
                     <li class="{{ Request::is('contact') ? 'active' : '' }}">
-                        <a href="{{ url('/contact') }}">Hubungi</a>
+                        <a href="{{ route('contact') }}">Hubungi</a>
                     </li>
                    
                 </ul>

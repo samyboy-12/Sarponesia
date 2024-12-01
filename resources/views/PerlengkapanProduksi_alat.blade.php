@@ -4,6 +4,10 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/PerlengkapanProduksi.css') }}" />
 @endsection
 
+@section('scripts')
+    <script src="{{ asset('js/alat.js') }}"></script>
+@endsection
+
 @section('main')
     <main class="perlengkapan-produksi-peralatan main">
         
@@ -48,10 +52,10 @@
                         <h1 class="heroTitle1">Temukan Produk Incaran Anda dengan Harga Incaran</h1>
                     </div>
                     <div class="categoryTitlesRow">
-                        <h2 class="postHarvestEquipmentTitle">peralatan pasca panen</h2>
-                        <h2 class="productionEquipmentTitle">peralatan produksi</h2>
-                        <h2 class="processingEquipmentTitle">peralatan pengolahan</h2>
-                        <h2 class="cafeEquipmentTitle">peralatan cafe</h2>
+                        <h2 class="EquipmentTitle">peralatan pasca panen</h2>
+                        <h2 class="EquipmentTitle">peralatan produksi</h2>
+                        <h2 class="EquipmentTitle">peralatan pengolahan</h2>
+                        <h2 class="EquipmentTitle">peralatan cafe</h2>
                     </div>
                     <div class="productGridRow1">
                     <!-- This row contains the first set of products presented in a grid layout. -->

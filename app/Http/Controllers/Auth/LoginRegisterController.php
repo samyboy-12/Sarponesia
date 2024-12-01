@@ -16,7 +16,7 @@ class LoginRegisterController extends Controller
 {
     public function showRegisterForm()
     {
-        return view('auth.Register');
+        return view('auth.Registrasi');
     }
     // Proses registrasi
     public function register(Request $request)
@@ -45,7 +45,7 @@ class LoginRegisterController extends Controller
             'password' => ['required']
         ]);
         if(Auth::attempt($fields)) {
-            return redirect()->intended('LandingPage');
+            return redirect()->intended('home');
             //inteded agar kembali ke halaman sebelum klik login
         }
         return back()->withErrors(['error' => 'Login gagal. Silahkan Coba Lagi.']);
@@ -58,13 +58,13 @@ class LoginRegisterController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/LandingPage');
+        return redirect('/home');
 
     }
 
     public function showForgotPasswordForm()
     {
-        return view('auth.forgotPassword');
+        return view('auth.Reset');
     }
     // Proses permintaan reset password
     public function passwordEmail(Request $request)
@@ -81,7 +81,7 @@ class LoginRegisterController extends Controller
     }
 
     public function passwordReset(string $token) {
-        return view('auth.resetPassword', ['token' => $token]);
+        return view('auth.ConfirmReset', ['token' => $token]);
     }
 
     public function passwordUpdate(Request $request) {

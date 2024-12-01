@@ -8,7 +8,7 @@ btn.addEventListener('click', () => {
 })
 
 const nav = document.querySelector('nav');
-window.addEventListener('scroll', fixNav);    
+window.addEventListener('scroll', fixNav);
 
 function fixNav() {
     if (window.scrollY > nav.offsetHeight + 100) {
@@ -30,7 +30,7 @@ function checkContents() {
     contents.forEach(content => {
         const contentTop = content.getBoundingClientRect().top
 
-        if(contentTop < triggerBottom) {
+        if (contentTop < triggerBottom) {
             content.classList.add('show')
         } else {
             content.classList.remove('show')
@@ -46,37 +46,10 @@ function scrollToTop() {
 }
 
 
-function toggleNav() {
-    var sidebar = document.getElementById("mySidebar");
-    var main = document.getElementById("main");
-    var toggleButton = document.getElementById("toggleNav");
-
-    // Pastikan elemen toggleButton dan sidebar ada sebelum mengaksesnya
-    if (!toggleButton || !sidebar || !main) {
-        console.error("Element not found. Please check the ID of 'toggleNav', 'mySidebar', or 'main'.");
-        return;
-    }
-
-    // Cek apakah sidebar sedang terbuka
-    if (sidebar.style.width === "25%") {
-        // Jika terbuka, tutup sidebar
-        sidebar.style.width = "0";
-        sidebar.style.display = "none";
-        main.style.marginLeft = "0";
-        toggleButton.classList.remove("open"); // Mengembalikan ke ikon burger
-    } else {
-        // Jika tertutup, buka sidebar
-        sidebar.style.width = "25%";
-        sidebar.style.display = "block";
-        main.style.marginLeft = "25%";
-        toggleButton.classList.add("open"); // Mengubah ikon menjadi X
-    }
-}
 
 
-
-$(function() {
-    $('.tab').each(function() {
+$(function () {
+    $('.tab').each(function () {
         var $active, $content, $links = $(this).find('a');
 
         $active = $($links.filter('[href="' + location.hash + '"]')[0] || $links[0]);
@@ -84,11 +57,11 @@ $(function() {
 
         $content = $($active[0].hash);
 
-        $links.not($active).each(function() {
+        $links.not($active).each(function () {
             $(this.hash).hide();
         });
 
-        $(this).on('click', 'a', function(e) {
+        $(this).on('click', 'a', function (e) {
             $active.removeClass('active');
             $content.hide();
 
@@ -102,3 +75,19 @@ $(function() {
         });
     });
 });
+
+
+function toggleMenu() {
+    const menuIcon = document.getElementById('menu-icon');
+    const dropdown = document.querySelector('.dropdown');
+
+    // Toggle the 'menu-open' class for the hamburger icon
+    menuIcon.classList.toggle('menu-open');
+
+    // Toggle the 'active' class for the dropdown
+    if (dropdown.style.display === 'none' || dropdown.style.display === '') {
+        dropdown.style.display = 'block'; // Tampilkan elemen
+    } else {
+        dropdown.style.display = 'none'; // Sembunyikan elemen
+    }
+}

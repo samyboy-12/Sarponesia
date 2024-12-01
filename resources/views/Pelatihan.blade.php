@@ -3,6 +3,9 @@
 @section('styles')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/pelatihan.css') }}" />
 @endsection
+@section('scripts')
+<script src="{{ asset('js/pelatihan.js') }}"></script>
+@endsection
 
 @section('main')
 <main class="pelatihan main">
@@ -79,11 +82,12 @@
         <section class="coffeeTrainingSection">
             <div class="mainContainer">
                 <div class="serviceCategories">
-                    <p class="brandingTitle">Logo dan Branding</p>
-                    <p class="mainHeading2">Barista &amp; Roastery</p>
-                    <p class="gardenCareTitle">Perawatan Kebun</p>
-                    <p class="harvestTitle">Pengolahan Pasca Panen</p>
-                </div>
+                    <p class="Title" data-target="logo-branding">Logo dan Branding</p>
+                    <p class="Title" data-target="barista-roastery">Barista &amp; Roastery</p>
+                    <p class="Title" data-target="garden-care">Perawatan Kebun</p>
+                    <p class="Title" data-target="post-harvest">Pengolahan Pasca Panen</p>
+                </div> 
+
                 <div class="cardContainer">
                     <article class="brewingCard">
                         <div class="brewingContent">

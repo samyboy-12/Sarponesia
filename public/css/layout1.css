@@ -55,6 +55,11 @@ header {
   margin-top: 50px;
 }
 
+.logo img{
+  max-width: 100%; /* Ensures image doesn't overflow its container */
+  height: auto; /* Maintain aspect ratio */
+}
+
 .header-right {
   display: flex;
   position: absolute;
@@ -125,7 +130,7 @@ body nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 100px;
+  padding: 0 80px;
   /* Mengganti 'auto' dengan '0' untuk padding vertikal */
   top: 0;
   left: 0;
@@ -154,7 +159,7 @@ nav.active {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 30px;
   padding: 0;
   margin: 0;
   width: auto;
@@ -195,8 +200,7 @@ nav.active {
 
 
 .dropdown.show {
-  display: block;
-
+ display: block;
 }
 
 .dropdown li a {
@@ -204,42 +208,44 @@ nav.active {
   font-size: 18px;
   padding: 12px;
 }
+#menu-icon {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.line {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger .top {
+  transform-origin: center;
+}
+
+.hamburger .bottom {
+  transform-origin: center;
+}
+
+.menu-open .top {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-open .middle {
+  opacity: 0;
+}
+
+.menu-open .bottom {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
 
 .nav-links li:hover .dropdown {
   display: block;
+  max-height: 500px;
   /* Show dropdown on hover */
 }
 
 .dropdown li a:hover {
   color: #d3b58f;
-}
-
-/* Style for sidebar links */
-.w3-sidebar .sidebar li a {
-  text-decoration: none;
-  font: 600 20px/1.5 'Poppins', Helvetica, Arial, serif;
-  color: rgb(255, 255, 255);
-  transition: color 0.3s ease-in-out;
-}
-
-.w3-sidebar .sidebar li a:hover {
-  color: #d3b58f;
-}
-
-/* Additional style to make list-style none */
-.w3-sidebar .sidebar li {
-  list-style: none;
-  padding: 10px 0;
-}
-
-.w3-sidebar .sidebar li:hover {
-  background-color: #a39485;
-}
-
-/* Optional: Spacing around the sidebar items */
-.w3-sidebar .sidebar {
-  padding-left: 20px;
-  margin-top: 40px;
 }
 
 .nav-links li a {
@@ -266,6 +272,7 @@ a img {
   /* Tambahkan transisi untuk animasi smooth */
   transform: rotate(-90deg);
   /* Gambar mengarah ke posisi normal (ke atas) secara default */
+  margin: 10px;
 }
 
 /* Hover pada link */
@@ -336,7 +343,6 @@ a:hover img {
   width: 16px;
   /* Adjust size of the magnifying glass */
   height: 16px;
-  z-index: 1;
 }
 
 .btn:focus,
@@ -375,61 +381,6 @@ a:hover img {
   background-color: #d3b58f;
   color: #1a0e07;
 }
-
-/* --- Responsif untuk Tablet --- */
-@media (max-width: 1024px) {
-  .header-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .search {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    margin: 15px 0;
-  }
-
-  .logo img {
-    width: 150px;
-  }
-
-  .header-right {
-    position: static;
-    gap: 10px;
-  }
-}
-
-/* --- Responsif untuk Ponsel --- */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    /* Sembunyikan menu di mobile */
-  }
-
-  .header-right {
-    gap: 8px;
-    flex-direction: column;
-  }
-
-  .search .input {
-    width: 50%;
-  }
-
-  .btn {
-    transform: none;
-  }
-
-  .logo img {
-    width: 120px;
-  }
-}
-
 
 
 
@@ -552,96 +503,210 @@ footer {
   height: 169px;
 }
 
-/* Responsive Styling */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .nav-links {
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-
-  .header-right {
- justify-self: right;
-    gap: 10px;
-    margin-top: 15px;
-  }
-
+.sidebar-tablet,
+.sidebar-phone,
+.sidebar-smallphone{
+  display: none;
 }
 
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
+
+
+/* For tablets (screen width between 768px and 1024px) */
+@media screen and (max-width: 1024px) {
+
+  .logo img {
+    max-width: 80%; /* Adjust size for tablets */
+}
+  .tablet{
+    display: none;
   }
 
-  .footer-section,
-  .footer-social {
+  .sidebar-tablet{
+    display: block;
+  }
+
+  nav.active{
+    justify-content: space-between;
+  }
+
+  body nav {
+    padding: 0;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+
+  .nav-links li {
     width: 100%;
+  }
+
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  .header-right {
+    margin-right: 0;
+    margin-top: 10px;
+    justify-content: center;
+  }
+
+  .logo {
+    margin-top: 20px;
+    width: auto;
+    height: auto;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-section {
+    align-items: center;
     text-align: center;
   }
 
-  .footer-section h3,
-  .footer-section p {
-    margin-left: 0;
+  .contact {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
   }
 }
 
-/* For screens smaller than 768px */
-@media screen and (max-width: 1100px) {
-
-  footer{
-    flex-direction: column;
-    align-items: center;
+/* For phones (screen width less than 768px) */
+@media screen and (max-width: 768px) {
+  .businessImage {
+  height: auto;
   }
 
-  .footer-section{
-    flex-direction: column;
-    align-items: center;
-    font-size: 16px;
-  }
-  body .nav-links li a {
-      display: none; /* Hide the navbar when the screen is small */
-      font-size: 10px;
-  }
+  .logo img {
+    max-width: 60%; /* Adjust size for tablets */
+}
 
-  nav.active {
-
-    position: relative;
-
-  }
-
-  .btn{
-    display: none;
-  }
-
-  .Nav-small{
+  .sidebar-phone{
     display: block;
   }
-  .login-btn{
-    size-adjust: 50%;
+  .phone{
+    display: none;
+  }
+  body {
+    font-size: 16px;
   }
 
-  .input{
+  .header-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header-right {
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+  }
+
+  .Burger {
+    margin-top: 10px;
+  }
+
+  .nav-links {
+    gap: 15px;
+    margin-left: 0; 
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .main {
+    padding: 10px;
+  }
+
+  footer {
+    padding: 50px 20px;
+  }
+
+  .footer-section h3 {
+    font-size: 24px;
+  }
+
+  .footer-section p {
+    font-size: 16px;
+  }
+
+  .contact {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .alamat,
+  .nomorContact,
+  .Socialmedia {
+    margin-top: 10px;
+  }
+
+  .Burger {
+    width: 30px;
+    height: 25px;
+  }
+
+  .Burger div {
+    height: 3px;
+  }
+
+  .content {
+    transform: translateX(0);
+  }
+
+  .login-btn {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+/* For small phones (screen width less than 480px) */
+@media screen and (max-width: 480px) {
+  .smallphone{
     display: none;
   }
 
-  
-  .Burger {
-      display: block;
-      cursor: pointer;
+  .sidebar-smallphone{
+    display: block;
+  }
+  .nav-links {
+    gap: 10px;
   }
 
-  .w3-sidebar {
-      display: block;
-      left: -250px;
+  .logo img {
+    max-width: 40%; /* Adjust size for tablets */
+}
+
+  .nav-links li a {
+    font-size: 16px;
   }
 
-  .w3-sidebar.open {
-      left: 0; /* Slide the sidebar in when open */
+  .footer-section h3 {
+    font-size: 18px;
+  }
+
+  .footer-section p {
+    font-size: 14px;
+  }
+
+  .header-right input {
+    padding: 5px;
+    font-size: 14px;
+  }
+
+  .btn img {
+    width: 12px;
+    height: 12px;
+  }
+
+  footer {
+    padding: 20px 10px;
   }
 }

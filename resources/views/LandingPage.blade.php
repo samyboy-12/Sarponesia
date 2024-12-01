@@ -44,12 +44,8 @@
             <h1 class="productsAndServicesTitle">Produk dan Jasa Kami</h1>
             <div class="flexRow1">
                 @foreach (['pelatihan', 'alat', 'benih', 'kopi_produk'] as $item)
-                <div class="kontenpelatihan" style="background-image: url('{{ asset('assets/' . $item . '.png') }}');">
-                    <a href="{{ route(
-                        $item == 'benih' ? 'benihpupuk' : 
-                        ($item == 'alat' ? 'peralatan' : 
-                        ($item == 'kopi_produk' ? 'katalog' : $item))
-                    ) }}" class="contentBtn">
+                <div class="kontenpelatihan" style="background-image: url('{{ asset("assets/$item.png") }}');">
+                    <a href="{{ route($item) }}" class="contentBtn">
                         {{ $item == 'kopi_produk' ? 'Kopi Produk' : ucfirst($item) }}
                     </a>
                 </div>
