@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginRegisterController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\PertanyaanController;
 
 Route::get('/home',function(){
     return view('LandingPage'); })
@@ -45,6 +46,9 @@ Route::controller(ServiceController::class)->group(function () {
 
 // Route untuk Artikel
 Route::get('/artikel', [ArticleController::class, 'index'])->name('artikel');
+
+// Route untuk Pertanyaan Kebun
+Route::post('/kirim-pertanyaan', [PertanyaanController::class, 'store'])->name('kirim.pertanyaan');
 
 // Routes untuk Halaman Statis
 Route::view('/contact', 'Kontak')->name('contact');

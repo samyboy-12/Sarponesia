@@ -75,21 +75,20 @@
             <h1 class="contactInquiryHeader">Memiliki pertanyaan mengenai perawatan kebun lainnya ?</h1>
             <img class="logocontact" src="/assets/66bfb7ebe28b6e0d2ddb5cfe2b325aa0.svg" alt="alt text" />
           </div>
-          <div class="contentBoxSection">
-            <!-- This section holds the different content boxes for the form fields. -->
-            <div class="contentBox1">
-           
-              <input type="text" id="Name" name="name" placeholder="Nama">
-              <input type="text" id="email" name="email" placeholder="Alamat Email">
-              <div class="messageFieldBox">
-                <h2 class="messageFieldLabel">Pesan</h2>
-              </div>
-              <button class="submitButton">
-                <!-- TODO -->
-                Kirim
-              </button>
+          <form action="{{ route('kirim.pertanyaan') }}" method="POST">
+            @csrf
+            <div class="contentBoxSection">
+                <!-- This section holds the different content boxes for the form fields. -->
+                <div class="contentBox1">
+                    <input type="text" id="Name" name="nama" placeholder="Nama" required>
+                    <input type="text" id="email" name="email" placeholder="Alamat Email" required>
+                    <div class="messageFieldBox">
+                      <input type="text" class="messageFieldLabel" id="message" name="pesan" placeholder="Tulis pesan Anda..." required>
+                    </div>
+                    <button type="submit" class="submitButton">Kirim</button>
+                </div>
             </div>
-          </div>
+        </form>
         </div>
       </div>
     </section>
