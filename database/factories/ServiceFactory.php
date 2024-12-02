@@ -22,6 +22,8 @@ class ServiceFactory extends Factory
             'Description' => $this->faker->sentence(),
             'Price' => $this->faker->randomFloat(2, 10000, 500000),
             'Category_ID' => Category::where('category_type', 'perawatan kebun & pelatihan')->inRandomOrder()->first()->Category_ID,
+            'Image_path' => $this->faker->imageUrl(),
+            'Link_wa' => 'https://wa.me/6283890958930',
         ];
     }
 }

@@ -18,6 +18,7 @@ class Product extends Model
         'Stock',
         'Category_ID',
         'Image_path',
+        'Link_tokped',
     ];
 
     public function category()
