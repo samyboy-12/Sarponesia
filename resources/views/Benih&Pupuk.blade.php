@@ -38,67 +38,19 @@
         </div>
       </article>
       <div class="itemGrid">
-        <!-- Produk pertama -->
+        @foreach($benihProducts as $product)
         <div class="flex_col">
-          <img class="image8" src="/assets/abdb0b9959fb3988ee3a6b66dae3a0e2.png" alt="alt text" />
-          <div class="flex_col1">
-            <h3 class="medium_title3">Nama Produk </h3>
-            <div class="flex_row1">
-              <h3 class="subtitle4">Price</h3>
-              <button class="btn1">Beli</button>
+            <img class="image8" src="{{ asset($product->Image_path) }}" alt="{{ $product->name }}" />
+            <div class="flex_col1">
+                <h3 class="medium_title3">{{ $product->Name }}</h3>
+                <div class="flex_row1">
+                    <h3 class="subtitle4">Rp {{ number_format($product->Price, 0, ',', '.') }}</h3>
+                    <button class="btn1">Beli</button>
+                </div>
             </div>
-          </div>
         </div>
-
-        <!-- Produk kedua -->
-        <div class="flex_col">
-          <img class="image8" src="/assets/5c7d3c96190ce58916ff77ef5dc5fd9e.png" alt="alt text" />
-          <div class="flex_col1">
-            <h3 class="medium_title3">Nama Produk</h3>
-            <div class="flex_row1">
-              <h3 class="subtitle4">Price</h3>
-              <button class="btn1">Beli</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Produk ketiga -->
-        <div class="flex_col">
-          <img class="image9" src="/assets/4fe9891ac93f78fb7867c2dee3e91844.png" alt="alt text" />
-          <div class="flex_col1">
-            <h3 class="medium_title3">Nama Produk</h3>
-            <div class="flex_row1">
-              <h3 class="subtitle4">Price</h3>
-              <button class="btn1">Beli</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Produk keempat -->
-        <div class="flex_col">
-          <img class="image8" src="/assets/e8c87c7de21496113d1fbb54fe837f8f.png" alt="alt text" />
-          <div class="flex_col1">
-            <h3 class="medium_title3">Nama Produk</h3>
-            <div class="flex_row1">
-              <h3 class="subtitle4">Price</h3>
-              <button class="btn1">Beli</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Produk kelima -->
-        <div class="flex_col">
-          <img class="image10" src="/assets/b5ce8375c8f8a77e9e4888756da9684f.png" alt="alt text" />
-          <div class="flex_col1">
-            <h3 class="medium_title3">Nama Produk</h3>
-            <div class="flex_row1">
-              <h3 class="subtitle4">Price</h3>
-              <button class="btn1">Beli</button>
-            </div>
-          </div>
-        </div>
+      @endforeach
       </div>
-
       <div style="text-align:center">
         <span class="dot" onclick="currentSlide(1)"></span>
         <span class="dot" onclick="currentSlide(2)"></span>
@@ -130,58 +82,21 @@
       <p class="sectionTitle">Pilihan Pupuk Kopi</p>
       <div class="productList">
         <!-- Grid layout for product cards -->
+        @foreach($pupukProducts as $product)
         <article class="productCard">
           <div class="cardContent1">
             <div class="productInfo">
               <div class="productDetails1">
-                <p class="priceText">Rp. Harga</p>
-                <p class="productName">Nama Produk</p>
-                <p class="productDesc1">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <p class="priceText">Rp. {{ number_format($product->Price, 0, ',', '.') }}</p>
+                <p class="productName">{{ $product->Name }}</p>
+                <p class="productDesc1">{{ $product->Description }}</p>
               </div>
               <a class="detailsLink" href="#divOne">Selengkapnya</a>
             </div>
-            <img class="productImg1" src="/assets/d10aa136bc1a7d5770349d932e8e96bf.png" alt="alt text" />
+            <img class="productImg1" src="{{ asset($product->Image_path) }}" alt="{{ $product->Name }}" />
           </div>
         </article>
-        <article class="productCard">
-          <div class="cardContent1">
-            <div class="productInfo">
-              <div class="productDetails1">
-                <p class="priceText">Rp. Harga</p>
-                <p class="productName">Nama Produk</p>
-                <p class="productDesc1">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-              </div>
-              <a class="detailsLink">Selengkapnya</a>
-            </div>
-            <img class="productImg1" src="/assets/bd7f005eebc8b145bdaf685a9102025e.png" alt="alt text" />
-          </div>
-        </article>
-        <div class="item">
-          <div class="flex_row2">
-            <div class="flex_col5">
-              <div class="flex_col6">
-                <h2 class="title">Rp. Harga</h2>
-                <h2 class="big_title">Nama Produk</h2>
-                <h3 class="subtitle1">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h3>
-              </div>
-              <a class="detailsLink">Selengkapnya</a>
-            </div>
-            <img class="image1" src="/assets/922b26c88f215943b690a3e8548943b3.png" alt="alt text" />
-          </div>
-        </div>
-        <div class="item">
-          <div class="flex_row2">
-            <div class="flex_col5">
-              <div class="flex_col6">
-                <h2 class="title">Rp. Harga</h2>
-                <h2 class="big_title">Nama Produk</h2>
-                <h3 class="subtitle1">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h3>
-              </div>
-              <a class="detailsLink">Selengkapnya</a>
-            </div>
-            <img class="image1" src="/assets/ce325319935e28bb65710d74354d2a19.png" alt="alt text" />
-          </div>
-        </div>
+        @endforeach
       </div>
     </div>
   </section>
