@@ -14,9 +14,24 @@
             <input type="text" id="Email" name="email" placeholder="Email">
             <input type="submit" id="reset" name="reset" value="Reset Password" class="resetPasswordButton">
           </form>
+          @if (session('status'))
+            <div class="alert alert-success" id="flashMessage">
+              {{ session('status') }}
+            </div>
+          @endif
+          @if ($errors->any())
+            <div class="alert alert-danger" id="flashMessage">
+              {{ $errors->first('email') }}
+            </div>
+          @endif
         </div>
       </div>
     </section>
-
-
+    @if (session('status'))
+      <script>
+          document.addEventListener("DOMContentLoaded", function () {
+          alert("{{ session('status') }}");
+          });
+      </script>
+    @endif
   </body>

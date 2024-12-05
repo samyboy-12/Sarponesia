@@ -8,9 +8,9 @@
           <h1 class="heroTitle">Selamat Datang Kembali !</h1>
           <h2 class="accountInfoInstruction">Isikan informasi akun anda dengan benar untuk dapat mengakses akun di Sarponesia</h2>
           <div>
-            <form action="{{ route('login') }}" method="post">
-              @csrf
-              <input type="text" id="Email" name="email" placeholder="Email/Username">
+            <form action="{{ route('login') }}" method="POST">
+            @csrf
+              <input type="text" id="Email/Username" name="email/username" placeholder="Email/Username">
               <input type="text" id="Password" name="password" placeholder="Kata Sandi">
               <input type="submit" id="login" name="login" value="Login">
             </form>
@@ -18,7 +18,6 @@
           <p class="forgotPasswordText">
             <a href="{{ route('password.request') }}" style="text-decoration: none;">Lupa Kata Sandi?</a>
           </p>
-
           <h2 class="accountCreationPrompt_box">
             <span class="accountCreationPrompt">
               <span class="accountCreationPrompt_span0">Belum memiliki akun? </span>
@@ -29,6 +28,6 @@
         <img class="welcomeImage" src="/assets/c1ae8a2aea691a6114fc609fb781c377.png" alt="alt text" />
       </div>
     </section>
-
-
 </body>
+
+

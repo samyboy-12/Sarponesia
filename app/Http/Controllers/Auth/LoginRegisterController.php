@@ -24,7 +24,7 @@ class LoginRegisterController extends Controller
         // Validate
         $fields = $request->validate([
             'name' => ['required', 'max:255'],
-            'email' => ['required', 'max:255', 'email'],
+            'email' => ['required', 'max:255', 'email', 'unique:users'],
             'password' => ['required', 'min:8', 'confirmed']
         ]);
 
@@ -48,7 +48,7 @@ class LoginRegisterController extends Controller
             return redirect()->intended('home');
             //inteded agar kembali ke halaman sebelum klik login
         }
-        return back()->withErrors(['error' => 'Login gagal. Silahkan Coba Lagi.']);
+        return back()->withErrors(['error' => 'Login gagal. Silahkan Coba Lagi.'])->with('loginError', true);;
     }
 
     public function logout(Request $request)
