@@ -88,13 +88,13 @@
                         <p class="contactSubtitle">Hubungi kami lebih lanjut untuk mengetahui lebih detail</p>
                         <img class="contactprogram" src="/assets/028c074d585ecf43ce83114d5c0d8590.svg" alt="alt text" />
                     </div>
-                    <form class="contactForm">
+                    <form class="contactForm" action="{{ route('kirim.pertanyaan') }}" method="POST">
+                        @csrf
                         <div class="formGroup">
-                            <div class="inputGroup"><label class="inputLabel">Nama</label></div>
-                            <div class="emailField"><label class="emailLabel">Alamat Email</label></div>
-                            <div class="messageField"><label class="messageLabel">Pesan</label></div>
-                            <button class="submitBtn">
-                                <!-- TODO --> 
+                            <input type="text" id="name" name="name" class="inputGroup" placeholder="Nama" required>
+                            <input type="email" id="email" name="email" class="emailField" placeholder="Alamat Email" required>
+                            <textarea id="message" name="message" class="messageField" placeholder="Pesan" rows="5" required></textarea>
+                            <button type="submit" class="submitBtn">
                                 Kirim
                             </button>
                         </div>

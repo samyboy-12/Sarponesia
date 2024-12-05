@@ -82,45 +82,30 @@
         <section class="coffeeTrainingSection">
             <div class="mainContainer">
                 <div class="serviceCategories">
-                    <p class="Title" data-target="logo-branding">Logo dan Branding</p>
-                    <p class="Title" data-target="barista-roastery">Barista &amp; Roastery</p>
-                    <p class="Title" data-target="garden-care">Perawatan Kebun</p>
-                    <p class="Title" data-target="post-harvest">Pengolahan Pasca Panen</p>
-                </div> 
+                    <a href="{{ route('pelatihan', ['category' => 'Logo dan Branding']) }}" class="Title {{ $selectedCategory == 'Logo dan Branding' ? 'active' : '' }}">Logo dan Branding</a>
+                    <a href="{{ route('pelatihan', ['category' => 'Barista dan Roastery']) }}" class="Title {{ $selectedCategory == 'Barista dan Roastery' ? 'active' : '' }}">Barista &amp; Roastery</a>
+                    <a href="{{ route('pelatihan', ['category' => 'Pelatihan Perawatan Kebun']) }}" class="Title {{ $selectedCategory == 'Pelatihan Perawatan Kebun' ? 'active' : '' }}">Perawatan Kebun</a>
+                    <a href="{{ route('pelatihan', ['category' => 'Pengolahan Pasca Panen']) }}" class="Title {{ $selectedCategory == 'Pengolahan Pasca Panen' ? 'active' : '' }}">Pengolahan Pasca Panen</a>
+                </div>
 
                 <div class="cardContainer">
-                    <article class="brewingCard">
-                        <div class="brewingContent">
-                            <img class="brewingImg" src="/assets/b96bf57bc8a48515c61db977c6cdb19f.png" alt="alt text" />
-                            <div class="brewingDetails">
-                                <p class="brewingTitle">Teknik Penyeduhan yang Presisi</p>
-                                <p class="brewingDesc">Kuasai metode penyeduhan terbaik seperti pour-over, espresso, french press, dan lainnya</p>
+                    @forelse ($services as $service)
+                        <article class="brewingCard">
+                            <div class="brewingContent">
+                                <img class="brewingImg" src="{{ asset($service->Image_path) }}" alt="{{ $service->Name }}" />
+                                <div class="brewingDetails">
+                                    <p class="brewingTitle">{{ $service->Name }}</p>
+                                    <p class="brewingDesc">{{ $service->Description }}</p>
+                                </div>
                             </div>
-                        </div>
-                    </article>
-                    <article class="espressoCard">
-                        <div class="espressoContent">
-                            <img class="espressoImg" src="/assets/1d9bf308618687e867a00670cd518ea0.png" alt="alt text" />
-                            <div class="espressoDetails">
-                                <p class="espressoTitle">Latihan Mesin Espresso Profesional</p>
-                                <p class="espressoDesc">Pelajari penggunaan mesin espresso dengan benar, teknik steaming untuk tekstur yang halus, serta seni latte art yang memukau.</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="roastingCard">
-                        <div class="roastingContent">
-                            <img class="roastingImg" src="/assets/b424c22c97bdb022a348f09bcbc25217.png" alt="alt text" />
-                            <div class="roastingDetails">
-                                <p class="roastingTitle">Proses Pemanggangan (Roasting) yang Mendetail</p>
-                                <p class="roastingDesc">Pelajari pemanggangan biji kopi dari light hingga dark roast untuk membuat karakter unik setiap biji.</p>
-                            </div>
-                        </div>
-                    </article>
+                        </article>
+                        @empty
+                        <p style="color: black">Tidak ada produk yang tersedia dalam kategori ini.</p>
+                    @endforelse
                 </div>
-                <button class="enrollBtn">Ikuti Pelatihan</button>
+                <button class="enrollBtn" onclick="window.location.href= 'https://wa.me/6283890958930'">Ikuti Pelatihan</button>
             </div>
         </section>
     </div>
-
 </main>
 @endsection

@@ -36,7 +36,7 @@
                         <div class="phoneContent">
                             <img class="phoneIcon" src="/assets/579fce016b0bb53f89e625000776c8ec.svg" alt="alt text" />
                             <h3 class="phoneTitle">Telephone</h3>
-                            <p class="phoneNumber">083890958930</p>
+                            <a class="phoneNumber" href="https://wa.me/6283890958930">083890958930</a>
                         </div>
                     </article>
                     <article class="hoursCard">

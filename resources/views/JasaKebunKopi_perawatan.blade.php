@@ -26,7 +26,7 @@
             <div class="flexColText">
               <h1 class="roasteryTitle">{{ $perawatanKebun[1] -> Name }}</h1>
               <h2 class="roasteryDescription">{{ $perawatanKebun[1] -> Description}}</h2>
-              <button class="contactButton" onclick="window.location.href='https://wa.me/6283890958930';">
+              <button class="contactButton" onclick="window.location.href= 'https://wa.me/6283890958930'">
                 <!-- TODO -->
                 Hubungi
               </button>
@@ -41,7 +41,7 @@
                 <img class="careImage" src="{{ $perawatanKebun[0] -> Image_path }}" alt="alt text" />
                 <h2 class="careDescription">{{ $perawatanKebun[0] -> Description}}</h2>
               </div>
-              <button class="contactButtonCare" onclick="window.location.href='https://wa.me/6283890958930';">
+              <button class="contactButtonCare" onclick="window.location.href='https://wa.me/6283890958930'">
                 <!-- TODO -->
                 Hubungi
               </button>
@@ -54,7 +54,7 @@
                 <h2 class="stekDescription">{{ $perawatanKebun[2] -> Description}}</h2>
                 <img class="stekImage" src="{{ $perawatanKebun[2] -> Image_path }}" alt="alt text" />
               </div>
-              <button class="contactButtonStek">
+              <button class="contactButtonStek" onclick="window.location.href='https://wa.me/6283890958930'">
                 <!-- TODO -->
                 Hubungi
               </button>
@@ -82,9 +82,7 @@
                 <div class="contentBox1">
                     <input type="text" id="Name" name="nama" placeholder="Nama" required>
                     <input type="text" id="email" name="email" placeholder="Alamat Email" required>
-                    <div class="messageFieldBox">
-                      <input type="text" class="messageFieldLabel" id="message" name="pesan" placeholder="Tulis pesan Anda..." required>
-                    </div>
+                    <input type="text" class="messageField" id="message" name="pesan" placeholder="Tulis pesan Anda..." required>
                     <button type="submit" class="submitButton">Kirim</button>
                 </div>
             </div>

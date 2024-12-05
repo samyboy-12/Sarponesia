@@ -20,49 +20,31 @@ class ProductController extends Controller
         $pupukProducts = Product::whereHas('category', function ($query) {
             $query->where('Name', 'Pupuk Kopi');
         })->get();
-
-        //test controller
-        // dd($benihProducts, $pupukProducts);
     
         // Tampilkan data pada view 'Benih&Pupuk', kirim data $benihProducts dan $pupukProducts
         return view('Benih&Pupuk', compact('benihProducts', 'pupukProducts'));
     }
 
     // Fungsi untuk menampilkan produk perlengkapan produksi
-    public function showPeralatan()
+    public function showPeralatan(Request $request)
     {
-        //untuk menampilkan peralatan pada koleksi peralatan
-        $koleksiPeralatan = Product::whereHas('category', function ($query) {
-            $query->where('Category_type', 'peralatan');
-        })->limit(3)->get();
-        // Ambil produk yang memiliki kategori 'Peralatan Pasca Panen'
-        $peralatanPascaPanen = Product::whereHas('category', function ($query) {
-            $query->where('Name', 'Peralatan Pasca Panen');
-        })->get();
-
-        // Ambil produk yang memiliki 'Peralatan Produksi'
-        $peralatanProduksi = Product::whereHas('category', function ($query) {
-            $query->where('Name', 'Peralatan Produksi');
-        })->get();
-
-        // Ambil produk yang memiliki kategori 'Peralatan Pengolahan'
-        $peralatanPengolahan = Product::whereHas('category', function ($query) {
-            $query->where('Name', 'Peralatan Pengolahan');
-        })->get();
-
-        // Ambil produk yang memiliki kategori 'Peralatan Cafe'
-        $peralatanCafe = Product::whereHas('category', function ($query) {
-            $query->where('Name', 'Peralatan Cafe');
-        })->get();
-
-        //test controller
-        // dd($peralatanPascaPanen, $peralatanProduksi, $peralatanPengolahan, $peralatanCafe);
-
-        // Tampilkan data pada view 'PerlengkapanProduksi_alat', kirim semua data yang diambil
-        return view('PerlengkapanProduksi_alat', compact('peralatanPascaPanen', 'peralatanProduksi', 'peralatanPengolahan', 'peralatanCafe', 'koleksiPeralatan'));
+        //Fungsi untuk mengambil category yang dipilih
+        $selectedCategory = $request->query('category');
+    
+        //Jika category dipilih, maka ambil produk yang memiliki kategori yang dipilih
+        if ($selectedCategory) {
+            $products = Product::whereHas('category', function ($query) use ($selectedCategory) {
+                $query->where('Name', $selectedCategory);
+            })->get();
+        } else {
+            $products = Product::whereHas('category', function ($query) {
+                $query->where('Name', 'Peralatan Cafe');
+            })->get();
+        }
+    
+        return view('PerlengkapanProduksi_alat', compact('products', 'selectedCategory'));
     }
-
-
+    
     // Fungsi untuk menampilkan katalog produk
     public function showCatalog()
     {
@@ -76,10 +58,9 @@ class ProductController extends Controller
             $query->where('Name', 'Roastedbean');
         })->get();
 
-        //test controller
-        // dd($robusta, $roastedBean);
-
         // Tampilkan data pada view 'Katalog', kirim data $robusta dan $roastedBean
         return view('Katalog', compact('robusta', 'roastedBean'));
     }
 }
+
+

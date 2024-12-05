@@ -21,9 +21,21 @@
                 <p class="categoryHeading">Kategori Artikel</p>
                 <div class="categoryCardGrid">
                     <!-- Grid layout for category cards -->
-                    <article class="newsCardItem" style="background-image: url('{{ asset('assets/d044a548fdf8d18044a724305ff309ee.png') }}');"><p class="cardHeading">NEWS</p></article>
-                    <article class="techCardItem" style="background-image: url('{{ asset('assets/a810d9a0eeeda60714ee7d27fc516537.png') }}');"><p class="cardHeading1">COFFEE TECHNO<br>LOGY</p></article>
-                    <article class="tipsCardItem" style="background-image: url('{{ asset('assets/2a1813239c478ea2ca7b00c95264dd97.png') }}');"><p class="cardHeading2">TIPS AND TRICK</p></article>
+                    <a href="{{ route('artikel', ['category' => 'News']) }}" 
+                       class="newsCardItem {{ $selectedCategory == 'News' ? 'active' : '' }}" 
+                       style="background-image: url('{{ asset('assets/d044a548fdf8d18044a724305ff309ee.png') }}');">
+                        <p class="cardHeading">NEWS</p>
+                    </a>
+                    <a href="{{ route('artikel', ['category' => 'Coffee Technology']) }}" 
+                       class="techCardItem {{ $selectedCategory == 'Coffee Technology' ? 'active' : '' }}" 
+                       style="background-image: url('{{ asset('assets/a810d9a0eeeda60714ee7d27fc516537.png') }}');">
+                        <p class="cardHeading1">COFFEE TECHNO<br>LOGY</p>
+                    </a>
+                    <a href="{{ route('artikel', ['category' => 'Tips and Trick']) }}" 
+                       class="tipsCardItem {{ $selectedCategory == 'Tips and Trick' ? 'active' : '' }}" 
+                       style="background-image: url('{{ asset('assets/2a1813239c478ea2ca7b00c95264dd97.png') }}');">
+                        <p class="cardHeading2">TIPS AND TRICK</p>
+                    </a>
                 </div>
             </div>
             <div class="featuredArticle">

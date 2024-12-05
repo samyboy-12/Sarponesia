@@ -11,28 +11,18 @@ class ArticleController extends Controller
 {
     public function index(Request $request)
     {
-        // Ambil semua kategori bertipe 'article'
-        $categories = DB::table('categories')->where('Category_type', 'article')->get();
-
-        // Query semua artikel
-        $articlesQuery = DB::table('articles')
-            ->join('categories', 'articles.Category_ID', '=', 'categories.Category_ID')
-            ->select('articles.*', 'categories.Name as CategoryName');
-
-        if ($request->has('category')) {
-            $articlesQuery->where('categories.Name', $request->input('category'));
+        // Fungsi untuk mengambil category yang dipilih
+        $selectedCategory = $request->query('category');
+    
+        // Jika category dipilih, maka ambil artikel yang memiliki kategori yang dipilih
+        if ($selectedCategory) {
+            $articles = Article::whereHas('category', function ($query) use ($selectedCategory) {
+                $query->where('Name', $selectedCategory);
+            })->get();
+        } else {
+            $articles = Article::all();
         }
 
-        // Eksekusi query
-        $articles = $articlesQuery->get();
-
-
-        // test controller
-        // dd($categories, $articles);
-
-        return view('Artikel', [
-            'categories' => $categories,
-            'articles' => $articles,
-        ]);
+        return view('Artikel', compact('articles', 'selectedCategory'));
     }
 }

@@ -52,133 +52,35 @@
                         <h1 class="heroTitle1">Temukan Produk Incaran Anda dengan Harga Incaran</h1>
                     </div>
                     <div class="categoryTitlesRow">
-                        <h2 class="EquipmentTitle">peralatan pasca panen</h2>
-                        <h2 class="EquipmentTitle">peralatan produksi</h2>
-                        <h2 class="EquipmentTitle">peralatan pengolahan</h2>
-                        <h2 class="EquipmentTitle">peralatan cafe</h2>
+                        <a href="{{ route('peralatan', ['category' => 'Peralatan Pasca Panen']) }}" class="EquipmentTitle {{ $selectedCategory == 'Peralatan Pasca Panen' ? 'active' : '' }}">Peralatan Pasca Panen</a>
+                        <a href="{{ route('peralatan', ['category' => 'Peralatan Produksi']) }}" class="EquipmentTitle {{ $selectedCategory == 'Peralatan Produksi' ? 'active' : '' }}">Peralatan Produksi</a>
+                        <a href="{{ route('peralatan', ['category' => 'Peralatan Pengolahan']) }}" class="EquipmentTitle {{ $selectedCategory == 'Peralatan Pengolahan' ? 'active' : '' }}">Peralatan Pengolahan</a>
+                        <a href="{{ route('peralatan', ['category' => 'Peralatan Cafe']) }}" class="EquipmentTitle {{ $selectedCategory == 'Peralatan Cafe' ? 'active' : '' }}">Peralatan Cafe</a>
                     </div>
-                    <div class="productGridRow1">
-                    <!-- This row contains the first set of products presented in a grid layout. -->
-                    <div class="productCardContainer1" style="--src:url(../assets/aa349cdb01a81cbacf19ad5f8725dc82.png)">
-                        <div class="productCardColumn1">
-                            <div class="productDetailsColumn1">
-                                <h1 class="productName1">Nama Produk</h1>
-                                <div class="productImagesRow1">
-                                    <img class="productImage3" src="./assets/53c09f2a9aef6c14293a6e89b8653c38.svg" alt="alt text" />
-                                    <img class="productImage4" src="./assets/0a09b3d46571c2c9d90253c110322ad9.svg" alt="alt text" />
-                                    <img class="productImage5" src="./assets/df958eb8c05397b0fbee75e1219854c2.svg" alt="alt text" />
-                                    <img class="productImage6" src="./assets/1d24987103bdeefeffeda0205961857b.svg" alt="alt text" />
-                                    <img class="productImage7" src="./assets/c3cfee882e6f1d0a0accb9cdc00e89d9.svg" alt="alt text" />
+                    
+                    <div id="productGrid" class="productGridRow1">
+                        @forelse ($products as $product)
+                            <div class="productCardContainer1" style="--src: url('{{ asset($product->Image_path) }}');">                                
+                                <div class="productCardColumn1">
+                                    <div class="productDetailsColumn1">
+                                        <h1 class="productName1">{{ $product->Name }}</h1>
+                                        <div class="productImagesRow1">
+                                            <img class="productImage3" src="./assets/53c09f2a9aef6c14293a6e89b8653c38.svg" alt="alt text" />
+                                            <img class="productImage4" src="./assets/0a09b3d46571c2c9d90253c110322ad9.svg" alt="alt text" />
+                                            <img class="productImage5" src="./assets/df958eb8c05397b0fbee75e1219854c2.svg" alt="alt text" />
+                                            <img class="productImage6" src="./assets/1d24987103bdeefeffeda0205961857b.svg" alt="alt text" />
+                                            <img class="productImage7" src="./assets/c3cfee882e6f1d0a0accb9cdc00e89d9.svg" alt="alt text" />
+                                        </div>
+                                        <h1 class="productPrice1">Rp {{ number_format($product->Price, 2, ',', '.') }}</h1>
+                                    </div>
+                                    <button class="buyButton1" onclick="window.location.href='{{ $product->Link_tokped }}'">Beli</button>
                                 </div>
-                                <h1 class="productPrice1">Rp 000,00</h1>
                             </div>
-                            <button class="buyButton1">
-                                <!-- TODO -->
-                                Beli
-                            </button>
-                        </div>
+                        @empty
+                            <p style="color: black">Tidak ada produk yang tersedia dalam kategori ini.</p>
+                        @endforelse
                     </div>
-                    <div class="productCardContainer2" style="--src:url(../assets/fff1606fb9922d6676a46ca193d7bbaa.png)">
-                        <div class="productCardColumn2">
-                            <div class="productDetailsColumn2">
-                                <h1 class="productName2">Nama Produk</h1>
-                                <div class="productImagesRow2">
-                                    <img class="productImage8" src="./assets/53c09f2a9aef6c14293a6e89b8653c38.svg" alt="alt text" />
-                                    <img class="productImage9" src="./assets/0a09b3d46571c2c9d90253c110322ad9.svg" alt="alt text" />
-                                    <img class="productImage10" src="./assets/df958eb8c05397b0fbee75e1219854c2.svg" alt="alt text" />
-                                    <img class="productImage11" src="./assets/1d24987103bdeefeffeda0205961857b.svg" alt="alt text" />
-                                    <img class="productImage12" src="./assets/c3cfee882e6f1d0a0accb9cdc00e89d9.svg" alt="alt text" />
-                                </div>
-                                <h1 class="productPrice2">Rp 000,00</h1>
-                            </div>
-                            <button class="buyButton1">
-                                <!-- TODO -->
-                                Beli
-                            </button>
-                        </div>
-                    </div>
-                    <div class="productCardContainer3" style="--src:url(../assets/8933ff8b11332de008c66360c69c3991.png)">
-                        <div class="productCardColumn3">
-                            <div class="productDetailsColumn3">
-                                <h1 class="productName3">Nama Produk</h1>
-                                <div class="productImagesRow3">
-                                    <img class="productImage13" src="./assets/53c09f2a9aef6c14293a6e89b8653c38.svg" alt="alt text" />
-                                    <img class="productImage14" src="./assets/0a09b3d46571c2c9d90253c110322ad9.svg" alt="alt text" />
-                                    <img class="productImage15" src="./assets/df958eb8c05397b0fbee75e1219854c2.svg" alt="alt text" />
-                                    <img class="productImage16" src="./assets/1d24987103bdeefeffeda0205961857b.svg" alt="alt text" />
-                                    <img class="productImage17" src="./assets/c3cfee882e6f1d0a0accb9cdc00e89d9.svg" alt="alt text" />
-                                </div>
-                                <h1 class="productPrice3">Rp 000,00</h1>
-                            </div>
-                            <button class="buyButton1">
-                                <!-- TODO -->
-                                Beli
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="productGridRow2">
-                    <!-- This row contains the second set of products presented in a grid layout. -->
-                    <div class="productCardContainer4" style="--src:url(../assets/4ec6f1669330071c91423b2ad86a7ced.png)">
-                        <div class="productCardColumn4">
-                            <div class="productDetailsColumn4">
-                                <h1 class="productName4">Nama Produk</h1>
-                                <div class="productImagesRow4">
-                                    <img class="productImage18" src="./assets/53c09f2a9aef6c14293a6e89b8653c38.svg" alt="alt text" />
-                                    <img class="productImage19" src="./assets/0a09b3d46571c2c9d90253c110322ad9.svg" alt="alt text" />
-                                    <img class="productImage20" src="./assets/df958eb8c05397b0fbee75e1219854c2.svg" alt="alt text" />
-                                    <img class="productImage21" src="./assets/1d24987103bdeefeffeda0205961857b.svg" alt="alt text" />
-                                    <img class="productImage22" src="./assets/c3cfee882e6f1d0a0accb9cdc00e89d9.svg" alt="alt text" />
-                                </div>
-                                <h1 class="productPrice4">Rp 000,00</h1>
-                            </div>
-                            <button class="buyButton1">
-                                <!-- TODO -->
-                                Beli
-                            </button>
-                        </div>
-                    </div>
-                    <div class="productCardContainer5" style="--src:url(../assets/16a93c2366a2aa653703055f2fa7ea95.png)">
-                        <div class="productCardColumn5">
-                            <div class="productDetailsColumn5">
-                                <h1 class="productName5">Nama Produk</h1>
-                                <div class="productImagesRow5">
-                                    <img class="productImage23" src="./assets/53c09f2a9aef6c14293a6e89b8653c38.svg" alt="alt text" />
-                                    <img class="productImage24" src="./assets/0a09b3d46571c2c9d90253c110322ad9.svg" alt="alt text" />
-                                    <img class="productImage25" src="./assets/df958eb8c05397b0fbee75e1219854c2.svg" alt="alt text" />
-                                    <img class="productImage26" src="./assets/1d24987103bdeefeffeda0205961857b.svg" alt="alt text" />
-                                    <img class="productImage27" src="./assets/c3cfee882e6f1d0a0accb9cdc00e89d9.svg" alt="alt text" />
-                                </div>
-                                <h1 class="productPrice5">Rp 000,00</h1>
-                            </div>
-                            <button class="buyButton1">
-                                <!-- TODO -->
-                                Beli
-                            </button>
-                        </div>
-                    </div>
-                    <div class="productCardContainer6" style="--src:url(../assets/3e86c698f01606caea300a11b332de7f.png)">
-                        <div class="productCardColumn6">
-                            <div class="productDetailsColumn6">
-                                <h1 class="productName6">Nama Produk</h1>
-                                <div class="productImagesRow6">
-                                    <img class="productImage28" src="./assets/53c09f2a9aef6c14293a6e89b8653c38.svg" alt="alt text" />
-                                    <img class="productImage29" src="./assets/0a09b3d46571c2c9d90253c110322ad9.svg" alt="alt text" />
-                                    <img class="productImage30" src="./assets/df958eb8c05397b0fbee75e1219854c2.svg" alt="alt text" />
-                                    <img class="productImage31" src="./assets/1d24987103bdeefeffeda0205961857b.svg" alt="alt text" />
-                                    <img class="productImage32" src="./assets/c3cfee882e6f1d0a0accb9cdc00e89d9.svg" alt="alt text" />
-                                </div>
-                                <h1 class="productPrice6">Rp 000,00</h1>
-                            </div>
-                            <button class="buyButton1">
-                                Beli
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
             </div>
         </div>
-        
     </main>
 @endsection
