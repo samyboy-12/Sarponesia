@@ -26,7 +26,7 @@
             <div class="flexColText">
               <h1 class="roasteryTitle">Roastery</h1>
               <h2 class="roasteryDescription">Roastery adalah tempat di mana biji kopi mentah diolah dengan presisi untuk menghasilkan aroma dan cita rasa terbaik. Setiap proses emanggangan menciptakan karakter unik, dari pahit yang dalam hingga manis yang lembut, menjadikannya rahasia di balik setiap tegukan kopi yang luar biasa.</h2>
-              <button class="contactButton">
+              <button class="contactButton" onclick="window.location.href='https://wa.me/6283890958930';">
                 <!-- TODO -->
                 Hubungi
               </button>
@@ -41,7 +41,7 @@
                 <img class="careImage" src="/assets/f6937434f9b516c767e3854bfadec180.png" alt="alt text" />
                 <h2 class="careDescription">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#x27;s standard dummy text ever since</h2>
               </div>
-              <button class="contactButtonCare">
+              <button class="contactButtonCare" onclick="window.location.href='https://wa.me/6283890958930';">
                 <!-- TODO -->
                 Hubungi
               </button>

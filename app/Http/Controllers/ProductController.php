@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -30,12 +31,16 @@ class ProductController extends Controller
     // Fungsi untuk menampilkan produk perlengkapan produksi
     public function showPeralatan()
     {
+        //untuk menampilkan peralatan pada koleksi peralatan
+        $koleksiPeralatan = Product::whereHas('category', function ($query) {
+            $query->where('Category_type', 'peralatan');
+        })->limit(3)->get();
         // Ambil produk yang memiliki kategori 'Peralatan Pasca Panen'
         $peralatanPascaPanen = Product::whereHas('category', function ($query) {
             $query->where('Name', 'Peralatan Pasca Panen');
         })->get();
 
-        // Ambil produk yang memiliki kategori 'Peralatan Produksi'
+        // Ambil produk yang memiliki 'Peralatan Produksi'
         $peralatanProduksi = Product::whereHas('category', function ($query) {
             $query->where('Name', 'Peralatan Produksi');
         })->get();
@@ -50,13 +55,13 @@ class ProductController extends Controller
             $query->where('Name', 'Peralatan Cafe');
         })->get();
 
-
         //test controller
         // dd($peralatanPascaPanen, $peralatanProduksi, $peralatanPengolahan, $peralatanCafe);
 
         // Tampilkan data pada view 'PerlengkapanProduksi_alat', kirim semua data yang diambil
-        return view('PerlengkapanProduksi_alat', compact('peralatanPascaPanen', 'peralatanProduksi', 'peralatanPengolahan', 'peralatanCafe'));
+        return view('PerlengkapanProduksi_alat', compact('peralatanPascaPanen', 'peralatanProduksi', 'peralatanPengolahan', 'peralatanCafe', 'koleksiPeralatan'));
     }
+
 
     // Fungsi untuk menampilkan katalog produk
     public function showCatalog()
