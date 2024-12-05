@@ -22,10 +22,10 @@
       <div class="flexColContainer">
         <div class="contentBox">
           <div class="flexRowContainer">
-            <img class="roasteryImage" src="/assets/09b2bef861683b9c2198377db39bd262.png" alt="alt text" />
+            <img class="roasteryImage" src="{{ $perawatanKebun[1] -> Image_path }}" alt="alt text" />
             <div class="flexColText">
-              <h1 class="roasteryTitle">Roastery</h1>
-              <h2 class="roasteryDescription">Roastery adalah tempat di mana biji kopi mentah diolah dengan presisi untuk menghasilkan aroma dan cita rasa terbaik. Setiap proses emanggangan menciptakan karakter unik, dari pahit yang dalam hingga manis yang lembut, menjadikannya rahasia di balik setiap tegukan kopi yang luar biasa.</h2>
+              <h1 class="roasteryTitle">{{ $perawatanKebun[1] -> Name }}</h1>
+              <h2 class="roasteryDescription">{{ $perawatanKebun[1] -> Description}}</h2>
               <button class="contactButton" onclick="window.location.href='https://wa.me/6283890958930';">
                 <!-- TODO -->
                 Hubungi
@@ -36,10 +36,10 @@
         <div class="flexRowContent">
           <div class="contentBoxCare">
             <div class="flexColCare">
-              <h1 class="coffeeCareTitle">perawatan kopi</h1>
+              <h1 class="coffeeCareTitle">{{ $perawatanKebun[0] -> Name }}</h1>
               <div class="flexRowImage">
-                <img class="careImage" src="/assets/f6937434f9b516c767e3854bfadec180.png" alt="alt text" />
-                <h2 class="careDescription">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#x27;s standard dummy text ever since</h2>
+                <img class="careImage" src="{{ $perawatanKebun[0] -> Image_path }}" alt="alt text" />
+                <h2 class="careDescription">{{ $perawatanKebun[0] -> Description}}</h2>
               </div>
               <button class="contactButtonCare" onclick="window.location.href='https://wa.me/6283890958930';">
                 <!-- TODO -->
@@ -49,10 +49,10 @@
           </div>
           <div class="contentBoxStek">
             <div class="flexColStek">
-              <h1 class="stekKopiTitle">Stek Kopi</h1>
+              <h1 class="stekKopiTitle">{{ $perawatanKebun[0] -> Name }}</h1>
               <div class="flexRowStek">
-                <h2 class="stekDescription">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#x27;s standard dummy text ever since</h2>
-                <img class="stekImage" src="/assets/d535663416bb4b7d92d82d75d282d949.png" alt="alt text" />
+                <h2 class="stekDescription">{{ $perawatanKebun[2] -> Description}}</h2>
+                <img class="stekImage" src="{{ $perawatanKebun[2] -> Image_path }}" alt="alt text" />
               </div>
               <button class="contactButtonStek">
                 <!-- TODO -->
