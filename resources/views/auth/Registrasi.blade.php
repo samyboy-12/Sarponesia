@@ -32,12 +32,12 @@
                 <div class="error-message">{{ $message }}</div>
               @enderror
 
-              <input type="text" id="Password" name="password" placeholder="Kata Sandi">
+              <input type="password" id="Password" name="password" placeholder="Kata Sandi">
               @error('password')
                 <div class="error-message">{{ $message }}</div>
               @enderror
 
-              <input type="text" id="Confirm" name="password_confirmation" placeholder="Konfirmasi Kata Sandi">
+              <input type="password" id="Confirm" name="password_confirmation" placeholder="Konfirmasi Kata Sandi">
               @error('password_confirmation')
                 <div class="error-message">{{ $message }}</div>
               @enderror

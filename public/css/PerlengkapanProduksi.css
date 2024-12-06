@@ -430,10 +430,26 @@
   flex-direction: column;
   width: 375px;
   min-width: 0;
+  position: relative; /* Untuk memungkinkan penempatan elemen pseudo */
   background: var(--src) center center/cover no-repeat;
   border-radius: 15px;
   outline: 6px solid #190f05;
+  overflow: hidden;
 }
+
+.productCardContainer1::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 58%; /* Menutupi setengah bagian bawah */
+  background-color: #EEEBE7; /* Warna coklat */
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+
 
 @media (max-width: 991px) {
   .productCardContainer1 {
@@ -447,13 +463,10 @@
   flex-direction: column;
   gap: 32px 0;
   margin: 288px 23px 20px;
+  z-index: 1;
 }
 
-@media (max-width: 1399px) {
-  .productCardColumn1 {
-    margin: 288px auto 20px;
-  }
-}
+
 
 @media (max-width: 991px) {
   .productCardColumn1 {
@@ -508,6 +521,7 @@
   -o-object-fit: cover;
   object-fit: cover;
 }
+
 
 .productImage4 {
   width: 21px;

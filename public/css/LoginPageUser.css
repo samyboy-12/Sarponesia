@@ -119,6 +119,25 @@ html, body {
     text-align: center;
   }
 
+  input[type="password"],
+  select {
+    margin: 12px 0 0;
+    width: 100%;
+    border-radius: 40px;
+    outline: 3px solid #190f05;
+    outline-offset: -3px;
+    font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
+    text-align: center;
+    padding: 22px 0;
+    background-color: transparent; /* Membuat latar belakang transparan */
+  }
+  
+  input[type="password"]::placeholder {
+    color: rgba(60, 36, 11, 0.678);
+    font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
+    text-align: center;
+  }
+
   @media (max-width: 991px) {
      .input[type="text"] {
       align-items: flex-start;
