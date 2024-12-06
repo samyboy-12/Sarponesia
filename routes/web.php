@@ -46,6 +46,10 @@ Route::controller(ServiceController::class)->group(function () {
 
 // Route untuk Artikel
 Route::get('/artikel', [ArticleController::class, 'index'])->name('artikel');
+Route::get('/subartikel',function(){
+    return view('subArtikel'); })
+    ->name('SubArtikel');
+
 
 // Route untuk Pertanyaan Kebun
 Route::post('/kirim-pertanyaan', [PertanyaanController::class, 'store'])->name('kirim.pertanyaan');

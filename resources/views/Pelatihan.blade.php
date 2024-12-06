@@ -60,7 +60,12 @@
     <div class="content">
         <section class="benefitsSection">
             <div class="benefitsWrapper">
-                <div class="accentBackground"></div>
+
+                <video class="activityVideo" controls>
+                    <source src="https://drive.google.com/uc?id=1qC5zlXZCnJOyW0F0vGUVtRePZup1ATqO" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
                 <article class="benefitsContent">
                     <p class="mainHeading1">Mengapa Memilih Sarponesia Kopi?</p>
                     <article class="featuresList_box">
@@ -90,17 +95,17 @@
 
                 <div class="cardContainer">
                     @forelse ($services as $service)
-                        <article class="brewingCard">
-                            <div class="brewingContent">
-                                <img class="brewingImg" src="{{ asset($service->Image_path) }}" alt="{{ $service->Name }}" />
-                                <div class="brewingDetails">
-                                    <p class="brewingTitle">{{ $service->Name }}</p>
-                                    <p class="brewingDesc">{{ $service->Description }}</p>
-                                </div>
+                    <article class="brewingCard">
+                        <div class="brewingContent">
+                            <img class="brewingImg" src="{{ asset($service->Image_path) }}" alt="{{ $service->Name }}" />
+                            <div class="brewingDetails">
+                                <p class="brewingTitle">{{ $service->Name }}</p>
+                                <p class="brewingDesc">{{ $service->Description }}</p>
                             </div>
-                        </article>
-                        @empty
-                        <p style="color: black">Tidak ada produk yang tersedia dalam kategori ini.</p>
+                        </div>
+                    </article>
+                    @empty
+                    <p style="color: black">Tidak ada produk yang tersedia dalam kategori ini.</p>
                     @endforelse
                 </div>
                 <button class="enrollBtn" onclick="window.location.href= 'https://wa.me/6283890958930'">Ikuti Pelatihan</button>

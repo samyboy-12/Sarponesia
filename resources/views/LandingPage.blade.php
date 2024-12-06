@@ -33,7 +33,7 @@
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.
                 <br />
             </h2>
-            <button class="learnMoreBtn">Selengkapnya</button>
+            <a href="{{ route('pelatihan') }}" class="learnMoreBtn">Selengkapnya</a>
         </div>
     </section>
 </div>
@@ -72,7 +72,8 @@
             <div class="flexColumnDetails">
                 <h1 class="bigTitle">Fine Robusta Pacitan</h1>
                 <h2 class="mediumTitle">Kopi bubuk robusta 500gr dari Kebun Kopi Tejo, Pacitan, Jawa Timur, dipanggang dengan roast level medium city roasted. Berasal dari ketinggian 600-750 mdpl, menggunakan proses natural dan honey. Grind size very fine, cocok untuk espresso atau manual brew. Rasakan keseimbangan rasa robusta yang kaya dan aroma yang mendalam.</h2>
-                <button class="buyNowButton">Beli Sekarang</button>
+                <button class="buyNowButton" onclick="location.href='{{ route('kopi_produk') }}'">Beli Sekarang</button>
+
             </div>
         </div>
     </section>
@@ -189,9 +190,8 @@
                 </div>
             </div>
             <h2 class="platformDescription">Platform ini dibangun oleh para pecinta kopi, untuk para pecinta kopi, sebagai ruang untuk berbagi passion dan cinta mereka terhadap kopi dengan dunia.</h2>
-            <button class="viewOurCommunityButton">
-                <!-- TODO -->
-                Lihat Komunitas Kami
+            <button class="viewOurCommunityButton" onclick="window.location.href='{{ route('komunitas') }}'">
+                View Our Community
             </button>
         </div>
     </section>

@@ -40,16 +40,16 @@
       <div class="itemGrid">
         @foreach($benihProducts as $product)
         <div class="flex_col">
-            <img class="image8" src="{{ asset($product->Image_path) }}" alt="{{ $product->name }}" />
-            <div class="flex_col1">
-                <h3 class="medium_title3">{{ $product->Name }}</h3>
-                <div class="flex_row1">
-                    <h3 class="subtitle4">Rp {{ number_format($product->Price, 0, ',', '.') }}</h3>
-                    <button class="btn1">Beli</button>
-                </div>
+          <img class="image8" src="{{ asset($product->Image_path) }}" alt="{{ $product->name }}" />
+          <div class="flex_col1">
+            <h3 class="medium_title3">{{ $product->Name }}</h3>
+            <div class="flex_row1">
+              <h3 class="subtitle4">Rp {{ number_format($product->Price, 0, ',', '.') }}</h3>
+              <button class="btn1">Beli</button>
             </div>
+          </div>
         </div>
-      @endforeach
+        @endforeach
       </div>
       <div style="text-align:center">
         <span class="dot" onclick="currentSlide(1)"></span>
@@ -108,7 +108,10 @@
     <div class="mainContainer">
       <div class="titleWrapper">
         <p class="productTitle">Nama Produk</p>
-        <img class="titleIcon" src="/assets/48e6c1abda86b029ac649bca39ac20c5.svg" alt="alt text" />
+        <a href="#" class="titleIconLink">
+          <img class="titleIcon" src="/assets/48e6c1abda86b029ac649bca39ac20c5.svg" alt="alt text" />
+        </a>
+
       </div>
       <article class="contentWrapper">
         <div class="descriptionContainer">

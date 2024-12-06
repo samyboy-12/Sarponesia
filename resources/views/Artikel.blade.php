@@ -48,7 +48,8 @@
                             <p class="contentDesc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                         </div>
                         <p class="contentSummary">Lorem Ipsum has been the industry's standard dummy text ever since Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        <a class="readMoreBtn">Baca Selengkapnya</a>
+                        <a class="readMoreBtn" href="{{ route('SubArtikel') }}">Baca Selengkapnya</a>
+
                     </div>
                     <figure class="imageGrid">
                         <!-- Image gallery grid -->
@@ -65,7 +66,7 @@
                         <p class="widgetDesc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                     </div>
                     <div class="widgetFooter">
-                        <a class="readMoreBtn1">Baca Selengkapnya</a>
+                        <a class="readMoreBtn1" href="{{ route('SubArtikel') }}" >Baca Selengkapnya</a>
                         <img class="arrowIcon" src="{{ asset('assets/6fc39590f1d8a43789b7269fced4abe8.svg') }}" alt="alt text" />
                     </div>
                 </aside>

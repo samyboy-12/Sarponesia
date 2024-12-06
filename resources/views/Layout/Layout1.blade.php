@@ -34,8 +34,8 @@
                 @auth
                 <form action="{{ route('logout') }}" method="post">
                     @csrf
-                    <button class="login-btn" type="submit">Logout</button>                
-                @endauth
+                    <button class="login-btn" type="submit">Logout</button>
+                    @endauth
             </div>
         </div>
 
@@ -182,14 +182,21 @@
 
         <div class="footer-section">
             <h3>Best Produk</h3>
-            <p>Pelatihan Barista</p>
+            <p >Pelatihan Barista</p>
             <p>Pelatihan Logo &<br> Branding</p>
             <div class="contact">
                 <div class="Socialmedia">
-                    <img class="socialIcon1" src="/assets/facebook.svg" alt="alt text" />
-                    <img class="socialIcon2" src="/assets/instagram.svg" alt="alt text" />
-                    <img class="socialIcon3" src="/assets/youtube.svg" alt="alt text" />
+                    <a href="https://www.facebook.com/sarponesiacoffee/" target="_blank" rel="noopener noreferrer">
+                        <img class="socialIcon1" src="/assets/facebook.svg" alt="Facebook" />
+                    </a>
+                    <a href="https://www.instagram.com/sarponesia_coffee/" target="_blank" rel="noopener noreferrer">
+                        <img class="socialIcon2" src="/assets/instagram.svg" alt="Instagram" />
+                    </a>
+                    <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+                        <img class="socialIcon3" src="/assets/youtube.svg" alt="YouTube" />
+                    </a>
                 </div>
+
             </div>
         </div>
     </div>
@@ -200,4 +207,5 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{{ asset('js/layout.js') }}"></script>
 @yield('scripts')
+
 </html>

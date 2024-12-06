@@ -1,7 +1,7 @@
 @extends('Layout.layout1')
 
 @section('styles')
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/komunitas.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('css/komunitas.css') }}" />
 @endsection
 
 @section('main')
@@ -14,10 +14,10 @@
 
     <div class="content">
         <section class="communitySection">
-            <!-- Community engagement and event information section --> 
+            <!-- Community engagement and event information section -->
             <div class="mainContainer">
                 <div class="featureGrid">
-                    <!-- Feature highlights grid with icons and titles --> 
+                    <!-- Feature highlights grid with icons and titles -->
                     <div class="eventInfo">
                         <img class="eventIcon" src="/assets/ab3ffe861c0828028d9af5ab6a99878e.png" alt="alt text" />
                         <p class="eventTitle">Informasi Event</p>
@@ -34,10 +34,11 @@
                 <div class="joinWrapper" style="--src:url(/assets/47eee4225984a44350d36f7cdd44affa.png)">
                     <div class="ctaContainer">
                         <p class="joinTitle">Bergabung Komunitas Kami</p>
-                        <button class="joinBtn">
-                            <!-- TODO --> 
-                            Bergabung
-                        </button>
+                        <a style="text-decoration: none;" class="button" href="#divOne">
+                            <button class="joinBtn">
+                                Bergabung
+                            </button>
+                        </a>
                     </div>
                 </div>
                 <article class="ideaExchangeLeft">

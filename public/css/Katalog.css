@@ -402,6 +402,7 @@
   border: 2px solid #EEEBE7;
   background: #3C240B;
   z-index: 3;
+  cursor: pointer;
 }
 
 .item:hover .buyButton {
