@@ -8,13 +8,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\PertanyaanController;
 
-Route::get('/', function () {
-    return redirect()->route('home');
-});
 
-Route::get('/home',function(){
-    return view('LandingPage'); })
-    ->name('home');
 
 // Routes untuk Login dan Register
 Route::controller(LoginRegisterController::class)->group(function () {
@@ -32,8 +26,16 @@ Route::controller(LoginRegisterController::class)->group(function () {
     Route::post('/logout', 'logout')->name('logout');
 });
 
+Route::get('/', function () {
+    return redirect()->route('home');
+});
+
+Route::get('/home',function(){
+    return view('LandingPage'); })
+    ->name('home');
 // Routes untuk Produk
-Route::controller(ProductController::class)->group(function () {
+// Routes untuk Produk
+Route::middleware(['auth'])->controller(ProductController::class)->group(function () {
     Route::get('/benih-dan-pupuk', 'showBenihDanPupuk')->name('benihpupuk');
     Route::get('/benih', 'showBenihDanPupuk')->name('benih');
     Route::get('/peralatan', 'showPeralatan')->name('peralatan');
@@ -43,26 +45,30 @@ Route::controller(ProductController::class)->group(function () {
 });
 
 // Routes untuk Jasa
-Route::controller(ServiceController::class)->group(function () {
+Route::middleware(['auth'])->controller(ServiceController::class)->group(function () {
     Route::get('/pelatihan', 'showPelatihan')->name('pelatihan');
     Route::get('/perawatan', 'showPerawatanKebun')->name('perawatan');
 });
 
 // Route untuk Artikel
-Route::get('/artikel', [ArticleController::class, 'index'])->name('artikel');
-Route::get('/subartikel',function(){
-    return view('subArtikel'); })
-    ->name('SubArtikel');
-
+Route::middleware(['auth'])->group(function () {
+    Route::get('/artikel', [ArticleController::class, 'index'])->name('artikel');
+    Route::get('/subartikel', function () {
+        return view('subArtikel');
+    })->name('SubArtikel');
+});
 
 // Route untuk Pertanyaan Kebun
-Route::post('/kirim-pertanyaan', [PertanyaanController::class, 'store'])->name('kirim.pertanyaan');
+Route::middleware(['auth'])->post('/kirim-pertanyaan', [PertanyaanController::class, 'store'])->name('kirim.pertanyaan');
 
 // Routes untuk Halaman Statis
-Route::view('/contact', 'Kontak')->name('contact');
-Route::view('/program', 'Program')->name('program');
-Route::view('/komunitas', 'Komunitas')->name('komunitas');
-Route::view('/card', 'card')->name('card');
+Route::middleware(['auth'])->group(function () {
+    Route::view('/contact', 'Kontak')->name('contact');
+    Route::view('/program', 'Program')->name('program');
+    Route::view('/komunitas', 'Komunitas')->name('komunitas');
+    Route::view('/card', 'card')->name('card');
+});
+
 
 
 
