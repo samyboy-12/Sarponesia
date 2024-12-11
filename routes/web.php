@@ -8,6 +8,10 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\PertanyaanController;
 
+Route::get('/', function () {
+    return redirect()->route('home');
+});
+
 Route::get('/home',function(){
     return view('LandingPage'); })
     ->name('home');

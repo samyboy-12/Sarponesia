@@ -59,4 +59,16 @@
         </section>
     </div>
 </main>
+
+<div class="overlay" id="divOne">
+    <div class="inkl whatsappSection">
+        <article class="whatsappContainer">
+            <!-- Whatsapp group invitation section -->
+            <p class="whatsappMsg">Bergabung diarahkan ke link whatsapp group</p>
+            <a href="#">
+                <img class="whatsappIcon" src="/assets/f0ecdd64ad3f1bbaa015a3af35aec16b.svg" alt="alt text" />
+            </a>
+        </article>
+    </div>
+</div>
 @endsection

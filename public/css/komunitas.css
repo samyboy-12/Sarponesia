@@ -139,6 +139,7 @@
         margin: 50px 0 10px;
     }
 }
+
 .workshopInfo {
     z-index: 1;
     display: flex;
@@ -315,7 +316,7 @@
     background-color: #d3b58f;
     color: #1a0e07;
     cursor: pointer;
-  }
+}
 
 .ideaExchangeLeft {
     display: flex;
@@ -510,3 +511,69 @@
     }
 }
 
+.overlay {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+    display: flex; /* Tambahkan flexbox */
+    justify-content: center; /* Memusatkan secara horizontal */
+    align-items: center; /* Memusatkan secara vertikal */
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.inkl.whatsappSection {
+    display: flex;
+    width: 465px;
+    height: 265px;
+    flex-shrink: 0;
+    background-color: rgb(25, 15, 5);
+    border-radius: 45px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Opsional untuk efek */
+}
+
+
+.inkl .whatsappContainer {
+    position: relative;
+
+    margin: 45px auto 58px;
+    width: 465px;
+    /* Updated width */
+    height: 265px;
+    /* Added height */
+    max-width: 85%;
+}
+
+@media (max-width: 768px) {
+    .inkl .whatsappContainer {
+        margin: 45px auto 50px;
+    }
+}
+
+.inkl .whatsappMsg {
+    position: relative;
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150.015%; /* 54.005px */
+}
+
+.inkl .whatsappIcon {
+    position: absolute;
+    top: -15.989583969116211px;
+    left: -6.9921875px;
+    width: 31.99px;
+}
