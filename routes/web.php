@@ -34,8 +34,7 @@ Route::get('/home',function(){
     return view('LandingPage'); })
     ->name('home');
 // Routes untuk Produk
-// Routes untuk Produk
-Route::middleware(['auth'])->controller(ProductController::class)->group(function () {
+Route::controller(ProductController::class)->group(function () {
     Route::get('/benih-dan-pupuk', 'showBenihDanPupuk')->name('benihpupuk');
     Route::get('/benih', 'showBenihDanPupuk')->name('benih');
     Route::get('/peralatan', 'showPeralatan')->name('peralatan');
@@ -45,29 +44,26 @@ Route::middleware(['auth'])->controller(ProductController::class)->group(functio
 });
 
 // Routes untuk Jasa
-Route::middleware(['auth'])->controller(ServiceController::class)->group(function () {
+Route::controller(ServiceController::class)->group(function () {
     Route::get('/pelatihan', 'showPelatihan')->name('pelatihan');
     Route::get('/perawatan', 'showPerawatanKebun')->name('perawatan');
 });
 
 // Route untuk Artikel
-Route::middleware(['auth'])->group(function () {
-    Route::get('/artikel', [ArticleController::class, 'index'])->name('artikel');
-    Route::get('/subartikel', function () {
-        return view('subArtikel');
-    })->name('SubArtikel');
-});
+Route::get('/artikel', [ArticleController::class, 'index'])->name('artikel');
+Route::get('/subartikel',function(){
+    return view('subArtikel'); })
+    ->name('SubArtikel');
+
 
 // Route untuk Pertanyaan Kebun
-Route::middleware(['auth'])->post('/kirim-pertanyaan', [PertanyaanController::class, 'store'])->name('kirim.pertanyaan');
+Route::post('/kirim-pertanyaan', [PertanyaanController::class, 'store'])->name('kirim.pertanyaan');
 
 // Routes untuk Halaman Statis
-Route::middleware(['auth'])->group(function () {
-    Route::view('/contact', 'Kontak')->name('contact');
-    Route::view('/program', 'Program')->name('program');
-    Route::view('/komunitas', 'Komunitas')->name('komunitas');
-    Route::view('/card', 'card')->name('card');
-});
+Route::view('/contact', 'Kontak')->name('contact');
+Route::view('/program', 'Program')->name('program');
+Route::view('/komunitas', 'Komunitas')->name('komunitas');
+Route::view('/card', 'card')->name('card');
 
 
 
