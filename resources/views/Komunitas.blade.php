@@ -34,7 +34,7 @@
                 <div class="joinWrapper" style="--src:url(/assets/47eee4225984a44350d36f7cdd44affa.png)">
                     <div class="ctaContainer">
                         <p class="joinTitle">Bergabung Komunitas Kami</p>
-                        <a style="text-decoration: none;" class="button" href="#divOne">
+                        <a style="text-decoration: none;" class="button" href="#divOne" onclick="window.location.href= 'https://wa.me/6283890958930'">
                             <button class="joinBtn">
                                 Bergabung
                             </button>

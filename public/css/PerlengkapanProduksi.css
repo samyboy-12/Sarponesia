@@ -353,6 +353,9 @@
   }
 }
 
+.EquipmentTitle:hover{
+  color: #d3b58f;
+}
 .EquipmentTitle.active {
   display: flex;
   justify-content: center;
