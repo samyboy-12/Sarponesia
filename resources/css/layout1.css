@@ -1,0 +1,717 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1a0e07;
+  color: #fff;
+  margin: 0;
+  position: relative;
+}
+
+#mySidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 1000;
+  background-color: #1a0e07;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+/* Tambahkan untuk efek transparan saat sidebar muncul */
+.w3-main {
+  transition: margin-left 0.5s;
+}
+.main {
+  background-color: #F1F1F0;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+  background-color: #1a0e07;
+  padding: 15px 0;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+
+.logo {
+  margin: 0 auto;
+  margin-bottom: 26.91px;
+  margin-top: 50px;
+}
+
+.logo img{
+  max-width: 100%; /* Ensures image doesn't overflow its container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.header-right {
+  display: flex;
+  position: absolute;
+  gap: 5px;
+  margin-right: 56px;
+  right: 0;
+  font: 600 20px/1.5 Poppins, Helvetica, Arial, serif;
+}
+
+.Burger {
+  cursor: pointer;
+  width: 25px;
+  height: 22px;
+  flex-shrink: 0;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Tiga garis di burger */
+.Burger::before,
+.Burger::after,
+.Burger div {
+   content: '';
+   position: absolute;
+   width: 100%;
+   height: 4px;
+   background-color: black;
+   transition: all 0.3s ease;
+}
+
+.Burger::before {
+   top: 0;
+}
+
+.Burger::after {
+   bottom: 0;
+}
+
+.Burger div {
+   top: 50%;
+   transform: translateY(-50%);
+}
+
+/* State ketika icon burger berubah menjadi X */
+.Burger.open::before {
+   transform: rotate(45deg);
+   top: 50%;
+}
+
+.Burger.open::after {
+   transform: rotate(-45deg);
+   bottom: 50%;
+}
+
+.Burger.open div {
+   opacity: 0;
+}
+
+/* Untuk elemen gambar di sidebar */
+.closebtn {
+   position: absolute;
+   top: 0;
+   right: 25px;
+   font-size: 36px;
+   margin-left: 50px;
+}
+body nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 80px;
+  /* Mengganti 'auto' dengan '0' untuk padding vertikal */
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: all 0.3s ease-in-out;
+  background-color: transparent;
+  gap: 60px;
+  /* Menggunakan satu nilai untuk gap horizontal */
+  z-index: 100;
+}
+
+nav.active {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: all 0.3s ease-in-out;
+  position: fixed;
+  background-color: #1a0e07;
+  z-index: 9999;
+}
+
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  width: max-content;
+  white-space: nowrap;
+}
+
+.nav-links li {
+  display: flex;
+  justify-content: flex-start;
+  /* Mengatur posisi secara horizontal */
+  align-items: flex-start;
+  /* Mengatur posisi secara vertikal */
+  position: relative;
+  /* Required to position the dropdown */
+  flex-direction: column;
+  border-radius: 8px;
+  background: #190F05;
+}
+
+.dropdown {
+  display: none;
+  /* Hide dropdown by default */
+  position: absolute;
+  top: 100%;
+  /* Position below the parent li */
+  left: 0;
+  background-color: #1a0e07;
+  list-style: none;
+  z-index: 9999;
+  min-width: 100%;
+  /* Makes the dropdown as wide as the button */
+  align-self: start;
+  border-radius: 8px;
+  background: #190F05;
+
+}
+
+
+.dropdown.show {
+ display: block;
+}
+
+.dropdown li a {
+  color: #fff;
+  font-size: 18px;
+  padding: 12px;
+}
+#menu-icon {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.line {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger .top {
+  transform-origin: center;
+}
+
+.hamburger .bottom {
+  transform-origin: center;
+}
+
+.menu-open .top {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-open .middle {
+  opacity: 0;
+}
+
+.menu-open .bottom {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+.nav-links li:hover .dropdown {
+  display: block;
+  max-height: 500px;
+  /* Show dropdown on hover */
+}
+
+.dropdown li a:hover {
+  color: #d3b58f;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  font: 600 20px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(255 255 255);
+  transition: color 0.3 ease-in-out;
+
+}
+
+.nav-links li a:hover {
+  color: #d3b58f;
+}
+
+.nav-links li.active a {
+  font: 700 20px / 1.5 Poppins, Helvetica, Arial, serif;
+  color: #BBAC9F;
+  text-decoration: underline;
+
+}
+
+a img {
+  transition: transform 0.3s ease;
+  /* Tambahkan transisi untuk animasi smooth */
+  transform: rotate(-90deg);
+  /* Gambar mengarah ke posisi normal (ke atas) secara default */
+  margin: 10px;
+}
+
+/* Hover pada link */
+a:hover img {
+  transform: rotate(0deg);
+  /* Gambar akan berputar 90 derajat saat di-hover */
+}
+
+.header-right input {
+  border: none;
+  padding: 8px 15px;
+  border-radius: 25px;
+  background-color: #f3e5d3;
+  color: #1a0e07;
+}
+
+.header-right input::placeholder {
+  color: #a39485;
+}
+
+/* Tombol Pencarian */
+.search {
+  position: relative;
+  height: 30px;
+  /* Height of the search box */
+  margin: 10px;
+}
+
+.search .input {
+  background-color: #F8F4E1;
+  border: 0;
+  font-size: 16px;
+  /* Font size slightly smaller */
+  padding: 5px 10px;
+  /* Adjust padding */
+  height: 30px;
+  /* Height of input matching the box height */
+  width: 30px;
+  /* Default width */
+  transition: width 0.3s ease;
+  border-radius: 15px;
+  /* Rounded corners */
+}
+
+.btn {
+  background-color: #F8F4E1;
+  border: 0;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  /* Button height matching the input */
+  width: 30px;
+  /* Button width */
+  transition: transform 0.3s ease;
+  border-radius: 15px;
+  /* Rounded corners */
+  display: flex;
+  /* Flexbox for centering the icon */
+  align-items: center;
+  /* Vertically center icon */
+  justify-content: center;
+  /* Horizontally center icon */
+}
+
+.btn img {
+  width: 16px;
+  /* Adjust size of the magnifying glass */
+  height: 16px;
+}
+
+.btn:focus,
+.input:focus {
+  outline: none;
+}
+
+.search.active .input {
+  width: 192px;
+}
+
+.search.active .btn {
+  transform: translateX(160px);
+}
+
+.login-btn {
+  display: flex;
+  width: 136px;
+  height: 60px;
+  padding: 6px 31px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  border: 4px solid #FEFEFC;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  color: #FEFEFC;
+  font: 600 20px/1.5 Poppins, Helvetica, Arial, serif;
+  line-height: normal;
+}
+
+.login-btn:hover {
+  background-color: #d3b58f;
+  color: #1a0e07;
+}
+
+
+
+/* Mengatur container footer */
+
+footer {
+  width: 100%;
+  background-color: #1a0e07;
+  /* Sesuaikan dengan warna latar belakang */
+  color: white;
+  display: flex;
+  height: 552px;
+  padding: 148px 27px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 10px;
+  margin: 0 auto;
+  /* Menghapus margin agar konten di tengah */
+  padding: 0 20px;
+  /* Padding kiri dan kanan untuk memberi sedikit jarak dari tepi layar */
+  width: 100%;
+  /* Memastikan container menutupi lebar penuh */
+  max-width: 1294px;
+  /* Batas maksimal lebar kontainer, sesuaikan sesuai kebutuhan */
+}
+
+/* Mengatur setiap section di dalam footer */
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 13px;
+  width: auto;
+  min-width: 0;
+}
+
+/* Gaya untuk judul section */
+.footer-section h3 {
+  margin-bottom: 10px;
+  /* Margin bawah untuk memberi jarak antara heading dan paragraf */
+  font: 600 36px/1.5 Poppins, Helvetica, Arial, serif;
+  color: #fefefc;
+}
+
+/* Gaya untuk teks di dalam section */
+.footer-section p {
+  margin: 0;
+  font: 500 30px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgba(252, 250, 241, 0.698);
+
+}
+
+.Nav-small{
+  display: none;
+}
+
+/* Mengatur area sosial media */
+.contact {
+  display: flex;
+  align-items: flex-end;
+  gap: 80px;
+  margin-top: 20px;
+}
+
+
+.contact div {
+  display: flex;
+  align-items: center;
+  /* Centers the content inside each individual div */
+}
+
+.contact img {
+  margin-right: 10px;
+  /* Adds space between the image and the text */
+}
+
+.alamat,
+.nomorContact,
+.Socialmedia {
+  margin-right: 20px;
+  /* Adds space between the sections */
+}
+
+.Socialmedia a img {
+  display: inline-block;
+  transform: rotate(0deg);
+}
+
+.alamat {
+  margin-top: 51px;
+}
+
+.nomorContact {
+  margin-top: 51px;
+}
+
+.Subtitle {
+  margin: 0;
+  /* Removes the default margin from the h4 elements */
+}
+
+/* Animasi kontent*/
+
+.content {
+  transform: translateX(400%);
+  transition: transform 0.4s ease;
+}
+
+.content:nth-of-type(even) {
+  transform: translateX(-400%);
+}
+
+.content.show {
+  transform: translateX(0);
+}
+
+.businessImage {
+  width: auto;
+  height: 169px;
+}
+
+.sidebar-tablet,
+.sidebar-phone,
+.sidebar-smallphone{
+  display: none;
+}
+
+
+
+/* For tablets (screen width between 768px and 1024px) */
+@media screen and (max-width: 1024px) {
+
+  .logo img {
+    max-width: 80%; /* Adjust size for tablets */
+}
+  .tablet{
+    display: none;
+  }
+
+  .sidebar-tablet{
+    display: block;
+  }
+
+  nav.active{
+    justify-content: space-between;
+  }
+
+  body nav {
+    padding: 0;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  .header-right {
+    margin-right: 0;
+    margin-top: 10px;
+    justify-content: center;
+  }
+
+  .logo {
+    margin-top: 20px;
+    width: auto;
+    height: auto;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-section {
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+}
+
+/* For phones (screen width less than 768px) */
+@media screen and (max-width: 768px) {
+  .businessImage {
+  height: auto;
+  }
+
+  .logo img {
+    max-width: 60%; /* Adjust size for tablets */
+}
+
+  .sidebar-phone{
+    display: block;
+  }
+  .phone{
+    display: none;
+  }
+  body {
+    font-size: 16px;
+  }
+
+  .header-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header-right {
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+  }
+
+  .Burger {
+    margin-top: 10px;
+  }
+
+  .nav-links {
+    gap: 15px;
+    margin-left: 0; 
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .main {
+    padding: 10px;
+  }
+
+  footer {
+    padding: 50px 20px;
+  }
+
+  .footer-section h3 {
+    font-size: 24px;
+  }
+
+  .footer-section p {
+    font-size: 16px;
+  }
+
+  .contact {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .alamat,
+  .nomorContact,
+  .Socialmedia {
+    margin-top: 10px;
+  }
+
+  .Burger {
+    width: 30px;
+    height: 25px;
+  }
+
+  .Burger div {
+    height: 3px;
+  }
+
+  .content {
+    transform: translateX(0);
+  }
+
+  .login-btn {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+/* For small phones (screen width less than 480px) */
+@media screen and (max-width: 480px) {
+  .smallphone{
+    display: none;
+  }
+
+  .sidebar-smallphone{
+    display: block;
+  }
+  .nav-links {
+    gap: 10px;
+  }
+
+  .logo img {
+    max-width: 40%; /* Adjust size for tablets */
+}
+
+  .nav-links li a {
+    font-size: 16px;
+  }
+
+  .footer-section h3 {
+    font-size: 18px;
+  }
+
+  .footer-section p {
+    font-size: 14px;
+  }
+
+  .header-right input {
+    padding: 5px;
+    font-size: 14px;
+  }
+
+  .btn img {
+    width: 12px;
+    height: 12px;
+  }
+
+  footer {
+    padding: 20px 10px;
+  }
+}

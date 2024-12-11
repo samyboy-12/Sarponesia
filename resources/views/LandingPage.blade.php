@@ -143,7 +143,7 @@
                     </div>
                 </div>
             </div>
-            <a href="{{ route('pelatihan') }}" class="seeMoreTitle">Selengkapnya   -&gt;</a>
+            <a href="{{ route('pelatihan') }}" class="seeMoreTitle">Selengkapnya   -&gt;</h3>
         </div>
     </section>
 </div>
