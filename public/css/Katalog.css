@@ -1,131 +1,213 @@
-.tabs {
-  margin-bottom: 30px;
+.uniqueProductsSection {
+  display: flex;
+  flex-direction: column;
+  background: var(--src) center center / cover no-repeat;
 }
 
-.tab,
-.contents {
-  min-width: 600px;
+.columnContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 61px;
+  margin: 129px 7.22% 75px auto;
+  width: 1067.03125px;
+  max-width: 85%;
 }
 
+.productDetailsColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0;
+  width: 900.9895629882812px;
+  max-width: 85%;
+}
 
-.tab {
+.productHighlight {
+  display: flex;
+  justify-content: center;
+  width: 93.01%;
+  font: 600 48px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(255 255 255);
+  text-align: center;
+}
+
+.productDescription {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font: 500 30px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(255 255 255);
+  text-align: center;
+}
+
+.reviewsContainer {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 32px;
+  margin: 0 0 0 auto;
+  width: 300.98956298828125px;
+  max-width: 85%;
+}
+
+.customerReviewColumn,
+.newestReviewColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0;
+  width: 121px;
+  min-width: 0;
+}
+
+.totalReviewsCount,
+.recentReviewCount {
+  display: flex;
+  justify-content: center;
+  width: 83.984375px;
+  max-width: 85%;
+  font: 800 40px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(255 255 255);
+  text-align: center;
+}
+
+.recentReviewCount {
+  width: 85.12%;
+}
+
+.totalReviewsLabel,
+.recentReviewLabel {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font: 32px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(255 255 255);
+  text-align: center;
+}
+
+/* Media Query: md */
+@media (max-width: 1024px) {
+  .productHighlight {
+    align-items: flex-start;
+    font-size: 44px;
+  }
+
+  .productDescription {
+    align-items: flex-start;
+    font-size: 28px;
+  }
+
+  .totalReviewsCount,
+  .recentReviewCount {
+    align-items: flex-start;
+    font-size: 36px;
+  }
+
+  .totalReviewsLabel,
+  .recentReviewLabel {
+    align-items: flex-start;
+    font-size: 30px;
+  }
+}
+
+/* Media Query: xs */
+@media (max-width: 768px) {
+  .columnContainer {
+    position: relative;
+    margin: 80px 7.22% 75px auto;
+  }
+
+  .reviewsContainer {
+    column-gap: 16px;
+  }
+}
+
+/* Media Query: xxs */
+@media (max-width: 480px) {
+  .productHighlight {
+    font-size: 36px;
+  }
+
+  .productDescription {
+    font-size: 24px;
+  }
+
+  .totalReviewsCount,
+  .recentReviewCount {
+    font-size: 32px;
+  }
+
+  .totalReviewsLabel,
+  .recentReviewLabel {
+    font-size: 26px;
+  }
+}
+
+/* Media Query: tn */
+@media (max-width: 360px) {
+  .columnContainer {
+    row-gap: 50px;
+    margin: 50px 7.22% 50px auto;
+  }
+
+  .reviewsContainer {
+    column-gap: 8px;
+  }
+}
+
+/* Container Tabs */
+.tabs.tab-round .tab {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 32px;
+  flex-wrap: wrap;
+  width: 87.36%;
+  margin: 0 auto;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .tabs.tab-round .tab {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+}
+
+/* Tab Link Styles */
+.tabs.tab-round .tab a {
   position: relative;
-  z-index: 1;
-  color: #231507;
-  font-family: Poppins;
-  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Poppins, Helvetica, Arial, sans-serif;
+  font-size: 40px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   line-height: normal;
-
-  &>a {
-    position: relative;
-    width: 10em;
-    display: inline-block;
-    color: #000;
-    text-decoration: none;
-    margin: 0 -.3em;
-  }
-
-  &>a::before {
-    border: .2em solid #fff;
-  }
-
-  a::before {
-    contents: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-    border-bottom: none;
-    border-radius: .4em .4em 0 0;
-    background: #7eb4e2;
-    transform: scale(1.2, 1.3) perspective(.5em) rotateX(5deg);
-  }
-}
-
-.tab a.active {
-  z-index: 20000;
-
-  &::before {
-    background-color: #32557f;
-    margin-bottom: -.08em;
-  }
+  letter-spacing: 1.2px;
+  color: #190F05;
+  text-decoration: none;
 }
 
 
-
-.tab-round {
-
-  .tab {
-    padding-left: .3em;
-  }
-
-  .tab a {
-    padding-top: 13px;
-    text-align: center;
-    border-radius: 15px;
-    border: 6px solid #190F05;
-    border-radius: 30px;
-    height: 120px;
-    margin-right: 1px;
-  }
-
-  .tab a::before {
-    background-color: none;
-    margin-bottom: 0;
-  }
-
-  .tab a.active {
-    border-radius: 25px 25px var(--auto, 0px) var(--auto, 0px);
-    border: 6px solid #190F05;
-    background: #CAC0B5;
-  }
-
-  .contents {
-    position: relative;
-    width: auto;
-    height: auto;
-    margin-top: -50px;
-    margin-bottom: 50px;
-    background: #CAC0B5;
-    border: 6px solid #190F05;
-    color: #000;
-    border-radius: 30px;
-    z-index: 100;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, .4);
-    padding: 30px;
-  }
-
-
-
-  a::before {
-    contents: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-    border-bottom: none;
-    border-radius: none;
-    background: none;
-    transform: none;
-  }
-
-  .tab>a::before {
-    border: none;
-  }
-
-  .tab a.active {
-    &::before {
-      background-color: #CAC0B5;
-      margin-bottom: 0;
-      border-radius: 30px;
-    }
-  }
+/* Active Link State */
+.tabs.tab-round .tab a.active {
+  text-decoration-line: underline;
+  text-underline-offset: 6px;
+}
+.separator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Poppins, Helvetica, Arial, sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.2px;
+  color: #190F05;
 }
 
 .main {
@@ -549,4 +631,82 @@
   .cardContainer {
     margin: 25px 8px 24px;
   }
+}
+
+.affiliateMarketingSection {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(127, 100, 71);
+}
+
+.flex_row {
+  display: flex;
+  column-gap: 12px;
+  margin: 106px auto;
+  width: 85.35%;
+}
+
+.flex_col {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0;
+  margin: 0 0 6px;
+  width: 818px;
+}
+
+.desc4 {
+  font: 600 44px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(255, 255, 255);
+}
+
+.desc3 {
+  margin: 24px 0 0 9px;
+  width: 86.92%;
+  font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(255, 255, 255);
+  letter-spacing: 0.72px;
+  opacity: 0.85;
+}
+
+.content_box1 {
+  display: flex;
+  flex-direction: column;
+  margin: 82px 0 0;
+  width: 84.6%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 18px;
+}
+
+.flex_row1 {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 32px;
+  margin: 14px 24px 13px;
+}
+
+.info12 {
+  margin: 4px 0;
+  width: 184px;
+  font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(0, 0, 0);
+  letter-spacing: 0.31999px;
+  opacity: 0.69;
+}
+
+.btn1 {
+  display: flex;
+  justify-content: center;
+  min-width: 157px;
+  font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  background-color: rgb(84, 51, 16);
+  padding: 4px 8px;
+  border-radius: 9px;
+  letter-spacing: 0.72px;
+}
+
+.image1 {
+  width: 399px;
+  border-radius: 5px;
 }

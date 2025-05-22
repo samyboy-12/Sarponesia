@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Iluminate\Http\RedirectResponse;
-use App\Http\Controllers\Controller;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,43 +10,54 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 
-class LoginRegisterController extends Controller
+class LoginRegisterController
 {
     public function showRegisterForm()
     {
         return view('auth.Registrasi');
     }
-    // Proses registrasi
+
     public function register(Request $request)
     {
-        // Validate
         $fields = $request->validate([
             'name' => ['required', 'max:255'],
             'email' => ['required', 'max:255', 'email', 'unique:users'],
             'password' => ['required', 'min:8', 'confirmed']
         ]);
 
-        // Register
+        $fields['password'] = Hash::make($fields['password']);
+
         User::create($fields);
-        return redirect()->route('login')->with('success', 'Akun berhasil dibuat. Silakan login.');
+
+        return response()->json([
+            'message' => 'Account successfully created. Please login.',
+            'route' => route('login')
+        ], 201);
     }
 
     public function showLoginForm()
     {
         return view('auth.LoginPageUser');
     }
-    // Proses login
+
     public function login(Request $request)
     {
         $fields = $request->validate([
             'email' => ['required', 'max:255', 'email'],
             'password' => ['required']
         ]);
-        if(Auth::attempt($fields)) {
-            return redirect()->intended('home');
-            //inteded agar kembali ke halaman sebelum klik login
+
+        if (Auth::attempt($fields)) {
+            return response()->json([
+                'message' => 'Login successful',
+                'redirect' => route('home')
+            ], 200);
         }
-        return back()->withErrors(['error' => 'Login gagal. Silahkan Coba Lagi.'])->with('loginError', true);;
+
+        return response()->json([
+            'error' => 'Login failed. Please try again.',
+            'loginError' => true
+        ], 401);
     }
 
     public function logout(Request $request)
@@ -58,37 +67,38 @@ class LoginRegisterController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/home');
-
+        return redirect()->route('login');
     }
 
     public function showForgotPasswordForm()
     {
         return view('auth.Reset');
     }
-    // Proses permintaan reset password
+
     public function passwordEmail(Request $request)
     {
         $request->validate(['email' => ['required', 'email']]);
 
-        $status = Password::sendResetLink(
-            $request->only('email')
-        );
+        $status = Password::sendResetLink($request->only('email'));
 
-        return $status === Password::RESET_LINK_SENT
-            ? back()->with(['status' => 'Link reset password telah dikirim ke email anda'])
-            : back()->withErrors(['email' => __($status)]);
+        if ($status === Password::RESET_LINK_SENT) {
+            return back()->with('status', __($status));
+        }
+
+        return back()->withErrors(['email' => __($status)]);
     }
 
-    public function passwordReset(string $token) {
+    public function passwordReset(string $token)
+    {
         return view('auth.ConfirmReset', ['token' => $token]);
     }
 
-    public function passwordUpdate(Request $request) {
+    public function passwordUpdate(Request $request)
+    {
         $credentials = $request->validate([
             'token' => 'required',
-            'email' => ['required','email'],
-            'password' => ['required','confirmed'],
+            'email' => ['required', 'email'],
+            'password' => ['required', 'confirmed'],
         ]);
 
         $status = Password::reset(
@@ -104,8 +114,10 @@ class LoginRegisterController extends Controller
             }
         );
 
-        return $status === Password::PASSWORD_RESET
-            ? redirect()->route('login')->with('status', __($status))
-            : back()->withErrors(['email' => [__($status)]]);
+        if ($status === Password::PASSWORD_RESET) {
+            return redirect()->route('login')->with('status', __($status));
+        }
+
+        return back()->withErrors(['email' => [__($status)]]);
     }
 }

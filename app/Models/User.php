@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -10,16 +9,18 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable implements CanResetPassword
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
+     * Primary key yang digunakan.
      */
+    protected $primaryKey = 'User_ID';
+    public $incrementing = true; // Pastikan auto-increment jika perlu
+    protected $keyType = 'int'; // Pastikan tipe datanya
 
-     protected $primaryKey = 'User_ID';
+    /**
+     * Atribut yang dapat diisi secara massal.
+     */
     protected $fillable = [
         'name',
         'email',
@@ -27,15 +28,16 @@ class User extends Authenticatable implements CanResetPassword
         'role'
     ];
 
-    public function review()
+    /**
+     * Relasi ke tabel `reviews` (asumsi Anda punya tabel `reviews`).
+     */
+    public function reviews()
     {
-        return $this->hasMany(Review::class, 'User_ID', 'Users_ID');
+        return $this->hasMany(Review::class, 'User_ID', 'User_ID');
     }
 
     /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
+     * Atribut yang disembunyikan saat serialisasi.
      */
     protected $hidden = [
         'password',
@@ -43,22 +45,15 @@ class User extends Authenticatable implements CanResetPassword
     ];
 
     /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
+     * Atribut yang harus dikonversi ke tipe data tertentu.
      */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
-    }
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+    ];
 
     /**
-     * Get the user's role.
-     *
-     * @return string
+     * Mengambil peran pengguna.
      */
     public function getRole()
     {
@@ -66,9 +61,7 @@ class User extends Authenticatable implements CanResetPassword
     }
 
     /**
-     * Check if the user is an admin.
-     *
-     * @return bool
+     * Mengecek apakah pengguna adalah admin.
      */
     public function isAdmin()
     {

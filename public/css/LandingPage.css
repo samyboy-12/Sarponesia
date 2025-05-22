@@ -981,9 +981,6 @@
   color: #fcfaf1;
 }
 
-.seeMoreTitle:hover{
-  color: #d3b58f;
-}
 .seeMoreTitle {
   display: flex;
   justify-content: flex-end;

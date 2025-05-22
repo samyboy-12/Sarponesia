@@ -8,11 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/layout1.css') }}" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="4/w3.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/common.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts.css') }}" />
     @yield('styles')
@@ -32,109 +29,43 @@
                 <a class="login-btn" href="{{ url('/login') }}">Login</a>
                 @endguest
                 @auth
+                @if (Auth::user()->role === 'admin')
+                <a class="login-btn" href="{{ route('manajemen-produk') }}">Manage</a>
+                @else
                 <form action="{{ route('logout') }}" method="post">
                     @csrf
                     <button class="login-btn" type="submit">Logout</button>
-                    @endauth
+                </form>
+                @endif
+                @endauth
             </div>
         </div>
 
         <nav>
             <ul class="nav-links">
-                <li>
-                    <div id="menu-icon" onclick="toggleMenu()" class="hamburger">
-                        <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path class="line top" d="M5 10H35" stroke="#F8F4E1" stroke-width="6" stroke-linecap="round" />
-                            <path class="line middle" d="M5 20H35" stroke="#F8F4E1" stroke-width="6" stroke-linecap="round" />
-                            <path class="line bottom" d="M5 30H35" stroke="#F8F4E1" stroke-width="6" stroke-linecap="round" />
-                        </svg>
-                    </div>
-
-                    <ul class="dropdown" style="display: none;">
-                        <div class="sidebar-smallphone">
-                            <li class="{{ Request::is('home') ? 'active' : '' }}">
-                                <a href="{{ route('home') }}">Home</a>
-                            </li>
-                            <li class="{{ Request::is('benihpupuk') ? 'active' : '' }}">
-                                <a href="{{ route('benihpupuk') }}">Benih & Pupuk</a>
-                            </li>
-                            <li class="{{ Request::is('peralatan') ? 'active' : '' }}">
-                                <a href="{{ route('peralatan') }}">Peralatan</a>
-                            </li>
-                        </div>
-                        <div class="sidebar-phone">
-                            <li class="{{ Request::is('perawatan') ? 'active' : '' }}">
-                                <a href="{{ route('perawatan') }}">Perawatan Kebun</a>
-                            </li>
-                            <li class="{{ Request::is('pelatihan') ? 'active' : '' }}">
-                                <a href="{{ route('pelatihan') }}">Pelatihan</a>
-                            </li>
-                        </div>
-                        <div class="sidebar-tablet">
-                            <li class="{{ Request::is('katalog') ? 'active' : '' }}">
-                                <a href="{{ route('katalog') }}">Katalog</a>
-                            </li>
-                            <li class="{{ Request::is('contact') ? 'active' : '' }}">
-                                <a href="{{ route('contact') }}">Hubungi</a>
-                            </li>
-                        </div>
-                        </div>
-                        <li class="{{ Request::is('artikel') ? 'active' : '' }}">
-                            <a href="{{ route('artikel') }}">Artikel</a>
-                        </li>
-                        <li class="{{ Request::is('program') ? 'active' : '' }}">
-                            <a href="{{ route('program') }}">Program Kerjasama</a>
-                        </li>
-                        <li class="{{ Request::is('komunitas') ? 'active' : '' }}">
-                            <a href="{{ route('komunitas') }}">Komunitas</a>
-                        </li>
-                    </ul>
+                <li class="{{ Request::is('home') ? 'active' : '' }}">
+                    <a href="{{ route('home') }}">Home</a>
                 </li>
 
+                <li class="{{ Request::is(['benihpupuk', 'peralatan']) ? 'active' : '' }}">
+                    <a href="{{ route('layanankebunkopi') }}">Layanan & Produk Kopi</a>
+                </li>
 
-                <div class="smallphone">
-                    <li class="{{ Request::is('home') ? 'active' : '' }}">
-                        <a href="{{ route('home') }}">Home</a>
-                    </li>
-                </div>
-                <div class="phone">
-                    <li class="{{ Request::is([ 'benihpupuk', 'peralatan']) ? 'active' : '' }}">
-                        <a href="#">Perlengkapan Produksi <img src="{{ asset('assets/1e8a7acc77c651d012c195dd61fd6298.svg') }}" alt="Icon"></a>
-                        <ul class="dropdown">
-                            <li class="{{ Request::is('benihpupuk') ? 'active' : '' }}">
-                                <a href="{{ route('benihpupuk') }}">Benih & Pupuk</a>
-                            </li>
-                            <li class="{{ Request::is('peralatan') ? 'active' : '' }}">
-                                <a href="{{ route('peralatan') }}">Peralatan</a>
-                            </li>
-                        </ul>
-                    </li>
-                </div>
+                <li class="{{ Request::is('katalog') ? 'active' : '' }}">
+                    <a href="{{ route('katalog') }}">Katalog</a>
+                </li>
 
-                <div class="tablet">
-                    <li class="{{ Request::is(['perawatan*','pelatihan*']) ? 'active' : '' }}">
-                        <a href="#">Jasa Kebun & Kopi <img src="{{ asset('assets/1e8a7acc77c651d012c195dd61fd6298.svg') }}" alt="Icon"></a>
-                        <ul class="dropdown">
-                            <li class="{{ Request::is('perawatan') ? 'active' : '' }}">
-                                <a href="{{ route('perawatan') }}">Perawatan Kebun</a>
-                            </li>
-                            <li class="{{ Request::is('pelatihan') ? 'active' : '' }}">
-                                <a href="{{ route('pelatihan') }}">Pelatihan</a>
-                            </li>
-                        </ul>
-                    </li>
-                </div>
-                <div class="tablet">
-                    <li class="{{ Request::is('katalog') ? 'active' : '' }}">
-                        <a href="{{ route('katalog') }}">Katalog</a>
-                    </li>
-                </div>
-                <div class="tablet">
-                    <li class="{{ Request::is('contact') ? 'active' : '' }}">
-                        <a href="{{ route('contact') }}">Hubungi</a>
-                    </li>
-                </div>
+                <li class="{{ Request::is('artikel') ? 'active' : '' }}">
+                    <a href="{{ route('artikel') }}">Artikel</a>
+                </li>
 
+                <li class="{{ Request::is('contact') ? 'active' : '' }}">
+                    <a href="{{ route('contact') }}">Kontak Kerjasama</a>
+                </li>
+
+                <li class="{{ Request::is('komunitas') ? 'active' : '' }}">
+                    <a href="{{ route('komunitas') }}">Komunitas</a>
+                </li>
             </ul>
             <div class="search">
                 <input type="text" class="input" placeholder="Search...">
@@ -182,7 +113,7 @@
 
         <div class="footer-section">
             <h3>Best Produk</h3>
-            <p >Pelatihan Barista</p>
+            <p>Pelatihan Barista</p>
             <p>Pelatihan Logo &<br> Branding</p>
             <div class="contact">
                 <div class="Socialmedia">

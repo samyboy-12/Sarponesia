@@ -33,7 +33,7 @@
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.
                 <br />
             </h2>
-            <a href="{{ route('pelatihan') }}" class="learnMoreBtn">Selengkapnya</a>
+            <a href="#" class="learnMoreBtn">Selengkapnya</a>
         </div>
     </section>
 </div>
@@ -45,7 +45,7 @@
             <div class="flexRow1">
                 @foreach (['pelatihan', 'alat', 'benih', 'kopi_produk'] as $item)
                 <div class="kontenpelatihan" style="background-image: url('{{ asset("assets/$item.png") }}');">
-                    <a href="{{ route($item) }}" class="contentBtn">
+                    <a href="#" class="contentBtn">
                         {{ $item == 'kopi_produk' ? 'Kopi Produk' : ucfirst($item) }}
                     </a>
                 </div>
@@ -72,7 +72,7 @@
             <div class="flexColumnDetails">
                 <h1 class="bigTitle">Fine Robusta Pacitan</h1>
                 <h2 class="mediumTitle">Kopi bubuk robusta 500gr dari Kebun Kopi Tejo, Pacitan, Jawa Timur, dipanggang dengan roast level medium city roasted. Berasal dari ketinggian 600-750 mdpl, menggunakan proses natural dan honey. Grind size very fine, cocok untuk espresso atau manual brew. Rasakan keseimbangan rasa robusta yang kaya dan aroma yang mendalam.</h2>
-                <button class="buyNowButton" onclick="location.href='{{ route('kopi_produk') }}'">Beli Sekarang</button>
+                <button class="buyNowButton" onclick="location.href='#'">Beli Sekarang</button>
 
             </div>
         </div>
@@ -143,7 +143,7 @@
                     </div>
                 </div>
             </div>
-            <a href="{{ route('pelatihan') }}" class="seeMoreTitle">Selengkapnya   -&gt;</h3>
+            <a href="{{ route('pelatihan') }}" class="seeMoreTitle">Selengkapnya   -&gt;</h3></a>
         </div>
     </section>
 </div>

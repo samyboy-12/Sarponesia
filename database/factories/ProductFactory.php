@@ -18,7 +18,7 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
-        $category = Category::whereIn('category_type', ['kopi', 'peralatan'])->inRandomOrder()->first();
+        $category = Category::whereIn('category_type', ['kopi', 'benih',' pupuk', 'peralatan'])->inRandomOrder()->first();
 
         return [
             'Name' => $this->faker->word(),

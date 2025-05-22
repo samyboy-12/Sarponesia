@@ -267,7 +267,7 @@ nav.active {
 
 }
 
-a img {
+.panah {
   transition: transform 0.3s ease;
   /* Tambahkan transisi untuk animasi smooth */
   transform: rotate(-90deg);
@@ -276,7 +276,7 @@ a img {
 }
 
 /* Hover pada link */
-a:hover img {
+a:hover .panah {
   transform: rotate(0deg);
   /* Gambar akan berputar 90 derajat saat di-hover */
 }
@@ -375,6 +375,7 @@ a:hover img {
   color: #FEFEFC;
   font: 600 20px/1.5 Poppins, Helvetica, Arial, serif;
   line-height: normal;
+  text-decoration: none;
 }
 
 .login-btn:hover {
