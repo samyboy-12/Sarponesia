@@ -10,51 +10,86 @@
                         Masukkan email dan kata sandi baru Anda di bawah ini
                     </h2>
                 </div>
-
-                <form action="{{ route('password.update') }}" method="POST">
+                <!-- Flash message container -->
+                <div id="flashMessage" class="alert" style="display: none;"></div>
+                <form id="resetPasswordForm">
                     @csrf
-                    {{-- Token reset dari URL --}}
                     <input type="hidden" name="token" value="{{ $token }}">
-
-                    <input type="email" id="Email" name="email" placeholder="Email" value="{{ old('email') }}">
-                    @error('email')
-                        <div class="error-message">{{ $message }}</div>
-                    @enderror
-
-                    <input type="password" id="Password" name="password" placeholder="Kata Sandi Baru">
-                    @error('password')
-                        <div class="error-message">{{ $message }}</div>
-                    @enderror
-
-                    <input type="password" id="ConfirmPassword" name="password_confirmation" placeholder="Konfirmasi Kata Sandi">
-                    @error('password_confirmation')
-                        <div class="error-message">{{ $message }}</div>
-                    @enderror
-
+                    <input type="email" id="email" name="email" placeholder="Email" value="{{ old('email', request()->email) }}" required>
+                    <div class="error-message" id="emailError"></div>
+                    <input type="password" id="password" name="password" placeholder="Kata Sandi Baru" required>
+                    <div class="error-message" id="passwordError"></div>
+                    <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Konfirmasi Kata Sandi" required>
+                    <div class="error-message" id="passwordConfirmationError"></div>
                     <input type="submit" id="reset" name="reset" value="Ubah Kata Sandi" class="resetPasswordButton">
                 </form>
-
-                {{-- Flash message success/error --}}
-                @if (session('status'))
-                    <div class="alert alert-success" id="flashMessage">
-                        {{ session('status') }}
-                    </div>
-                @endif
-                @if (session('error'))
-                    <div class="alert alert-danger" id="flashMessage">
-                        {{ session('error') }}
-                    </div>
-                @endif
             </div>
         </div>
     </section>
 
-    {{-- Optional popup alert --}}
-    @if (session('status'))
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                alert("{{ session('status') }}");
-            });
-        </script>
-    @endif
+    <script>
+        document.getElementById('resetPasswordForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            // Clear previous error messages
+            document.querySelectorAll('.error-message').forEach(el => el.innerText = '');
+
+            const formData = {
+                token: document.querySelector('input[name="token"]').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                password_confirmation: document.getElementById('password_confirmation').value,
+                _token: document.querySelector('input[name="_token"]').value
+            };
+
+            try {
+                const response = await fetch('/api/password/update', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': formData._token
+                    },
+                    body: JSON.stringify({
+                        token: formData.token,
+                        email: formData.email,
+                        password: formData.password,
+                        password_confirmation: formData.password_confirmation
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    showFlash(data.message, 'alert-success');
+                    setTimeout(() => {
+                        window.location.href = data.redirect || '/login';
+                    }, 1000);
+                } else {
+                    if (data.errors) {
+                        for (const key in data.errors) {
+                            const errorDiv = document.getElementById(`${key}Error`);
+                            if (errorDiv) {
+                                errorDiv.innerText = data.errors[key][0];
+                            }
+                        }
+                    } else {
+                        showFlash(data.error || 'Gagal mengatur ulang kata sandi. Silakan coba lagi.', 'alert-danger');
+                    }
+                }
+            } catch (error) {
+                showFlash('Terjadi kesalahan. Silakan coba lagi.', 'alert-danger');
+            }
+        });
+
+        function showFlash(message, type = 'alert-success') {
+            const flash = document.getElementById('flashMessage');
+            flash.innerText = message;
+            flash.className = `alert ${type}`;
+            flash.style.display = 'block';
+            setTimeout(() => {
+                flash.style.display = 'none';
+            }, 5000);
+        }
+    </script>
 </body>

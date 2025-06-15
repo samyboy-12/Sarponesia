@@ -33,7 +33,7 @@
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.
                 <br />
             </h2>
-            <a href="#" class="learnMoreBtn">Selengkapnya</a>
+            <a href="/artikel" class="learnMoreBtn">Selengkapnya</a>
         </div>
     </section>
 </div>
@@ -45,8 +45,8 @@
             <div class="flexRow1">
                 @foreach (['pelatihan', 'alat', 'benih', 'kopi_produk'] as $item)
                 <div class="kontenpelatihan" style="background-image: url('{{ asset("assets/$item.png") }}');">
-                    <a href="#" class="contentBtn">
-                        {{ $item == 'kopi_produk' ? 'Kopi Produk' : ucfirst($item) }}
+                    <a href="/layanankebunkopi" class="contentBtn">
+                         {{ $item == 'kopi_produk' ? 'Kopi Produk' : ucfirst($item) }}
                     </a>
                 </div>
                 @endforeach
@@ -54,6 +54,7 @@
         </div>
     </section>
 </div>
+
 
 
 <div class="content">
@@ -143,7 +144,7 @@
                     </div>
                 </div>
             </div>
-            <a href="{{ route('pelatihan') }}" class="seeMoreTitle">Selengkapnya   -&gt;</h3></a>
+            <a href="{{ route('layanankebunkopi') }}" class="seeMoreTitle">Selengkapnya   -&gt;</h3></a>
         </div>
     </section>
 </div>

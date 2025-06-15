@@ -18,13 +18,13 @@
             <div class="topContainer">
                 <p class="categoryHeading">Kategori Artikel</p>
                 <div class="categoryCardGrid">
-                    <a href="{{ route('artikel', ['category' => 'News']) }}" class="newsCardItem {{ request('category') == 'News' ? 'active' : '' }}" style="background-image: url('{{ asset('assets/d044a548fdf8d18044a724305ff309ee.png') }}');">
+                    <a href="{{ route('artikel', ['category_id' => 7]) }}" class="newsCardItem {{ request('category_id') == 7 ? 'active' : '' }}" style="background-image: url('{{ asset('assets/d044a548fdf8d18044a724305ff309ee.png') }}');">
                         <p class="cardHeading">NEWS</p>
                     </a>
-                    <a href="{{ route('artikel', ['category' => 'Coffee Technology']) }}" class="techCardItem {{ request('category') == 'Coffee Technology' ? 'active' : '' }}" style="background-image: url('{{ asset('assets/a810d9a0eeeda60714ee7d27fc516537.png') }}');">
+                    <a href="{{ route('artikel', ['category_id' => 8]) }}" class="techCardItem {{ request('category_id') == 8 ? 'active' : '' }}" style="background-image: url('{{ asset('assets/a810d9a0eeeda60714ee7d27fc516537.png') }}');">
                         <p class="cardHeading1">COFFEE TECHNO<br>LOGY</p>
                     </a>
-                    <a href="{{ route('artikel', ['category' => 'Tips and Trick']) }}" class="tipsCardItem {{ request('category') == 'Tips and Trick' ? 'active' : '' }}" style="background-image: url('{{ asset('assets/2a1813239c478ea2ca7b00c95264dd97.png') }}');">
+                    <a href="{{ route('artikel', ['category_id' => 9]) }}" class="tipsCardItem {{ request('category_id') == 9 ? 'active' : '' }}" style="background-image: url('{{ asset('assets/2a1813239c478ea2ca7b00c95264dd97.png') }}');">
                         <p class="cardHeading2">TIPS AND TRICK</p>
                     </a>
                 </div>
@@ -42,49 +42,73 @@
 @section('scripts')
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const container = document.getElementById('article-container');
-        container.innerHTML = '';
+document.addEventListener('DOMContentLoaded', function () {
+    const container = document.getElementById('article-container');
+    container.innerHTML = '<p>Memuat artikel...</p>';
 
-        axios.get('/api/articles')
-            .then(function (response) {
-                const articles = response.data.data;
+    // Get the category_id from the URL query parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryId = urlParams.get('category_id') || '';
 
-                if (articles.length === 0) {
-                    container.innerHTML = '<p>Tidak ada artikel ditemukan.</p>';
-                    return;
-                }
+    // Function to escape HTML to prevent XSS
+    function escapeHTML(str) {
+        return str.replace(/[&<>"']/g, function (match) {
+            return {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            }[match];
+        });
+    }
 
-                articles.forEach(article => {
-                    const articleHTML = `
-                        <div class="featuredArticle">
-                            <article class="mainArticle" style="background-image: url('{{ asset('assets/ab721821ee586d886b82ec3cc2f48f30.png') }}');">
-                                <p class="mainTitle">${article.Title}</p>
-                            </article>
-                            <article class="articlePreviewBox">
-                                <div class="previewContent">
-                                    <div class="articleMeta">
-                                        <p class="contentTitle">${article.Title}</p>
-                                        <p class="contentDesc">${article.Author ?? 'Unknown Author'}</p>
-                                    </div>
-                                    <p class="contentSummary">${article.Content.substring(0, 150)}...</p>
-                                    <a class="readMoreBtn" href="/sub-artikel/${article.id}">Baca Selengkapnya</a>
+    // Fetch articles from API
+    axios.get('/api/articles', { params: { category_id: categoryId } })
+        .then(function (response) {
+            const articles = response.data.data;
+
+            if (!Array.isArray(articles) || articles.length === 0) {
+                container.innerHTML = '<p>Tidak ada artikel ditemukan.</p>';
+                return;
+            }
+
+            container.innerHTML = ''; // Clear loading message
+
+            articles.forEach(article => {
+                // Use Image_path from API or fallback to a default image
+                const imagePath = article.Image_path ? `/storage/${article.Image_path}` : '/assets/ab721821ee586d886b82ec3cc2f48f30.png';
+                const articleHTML = `
+                    <div class="featuredArticle">
+                        <article class="mainArticle" style="background-image: url('${imagePath}');">
+                            <p class="mainTitle">${escapeHTML(article.Title)}</p>
+                        </article>
+                        <article class="articlePreviewBox">
+                            <div class="previewContent">
+                                <div class="articleMeta">
+                                    <p class="contentTitle">${escapeHTML(article.Title)}</p>
                                 </div>
-                                <figure class="imageGrid">
-                                    <img class="galleryImage" src="{{ asset('assets/76e99e04c253893a1f9f89aade6fd43a.png') }}" alt="alt text" />
-                                    <img class="galleryImage" src="{{ asset('assets/715ffbe22a4a63bb5d28d740f8c76d89.png') }}" alt="alt text" />
-                                    <img class="galleryImage" src="{{ asset('assets/4d22747286e98f2942899e02eb52b63a.png') }}" alt="alt text" />
-                                </figure>
-                            </article>
-                        </div>
-                    `;
-                    container.innerHTML += articleHTML;
-                });
-            })
-            .catch(function (error) {
-                console.error(error);
-                container.innerHTML = '<p>Gagal memuat artikel. Silakan coba lagi nanti.</p>';
+                                <p class="contentSummary">${escapeHTML(article.Content.substring(0, 150))}...</p>
+                                <a class="readMoreBtn" href="/sub-artikel/${article.Article_ID}">Baca Selengkapnya</a>
+                            </div>
+                        </article>
+                    </div>
+                `;
+                container.innerHTML += articleHTML;
             });
-    });
+        })
+        .catch(function (error) {
+            console.error('Error fetching articles:', error);
+            let errorMessage = 'Gagal memuat artikel. Silakan coba lagi nanti.';
+            if (error.response) {
+                errorMessage = error.response.status === 404
+                    ? 'Artikel tidak ditemukan.'
+                    : `Kesalahan server: ${error.response.status}`;
+            } else if (error.request) {
+                errorMessage = 'Tidak dapat terhubung ke server. Periksa koneksi internet Anda.';
+            }
+            container.innerHTML = `<p>${errorMessage}</p>`;
+        });
+});
 </script>
 @endsection

@@ -6,8 +6,9 @@ use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable implements CanResetPassword
+class User extends Authenticatable implements CanResetPassword, JWTSubject
 {
     use HasFactory, Notifiable;
 
@@ -15,8 +16,8 @@ class User extends Authenticatable implements CanResetPassword
      * Primary key yang digunakan.
      */
     protected $primaryKey = 'User_ID';
-    public $incrementing = true; // Pastikan auto-increment jika perlu
-    protected $keyType = 'int'; // Pastikan tipe datanya
+    public $incrementing = true;
+    protected $keyType = 'int';
 
     /**
      * Atribut yang dapat diisi secara massal.
@@ -29,11 +30,11 @@ class User extends Authenticatable implements CanResetPassword
     ];
 
     /**
-     * Relasi ke tabel `reviews` (asumsi Anda punya tabel `reviews`).
+     * Relasi ke tabel `reviews`.
      */
     public function reviews()
     {
-        return $this->hasMany(Review::class, 'User_ID', 'User_ID');
+        return $this->hasMany(Review::class, 'user_id', 'User_ID');
     }
 
     /**
@@ -66,5 +67,23 @@ class User extends Authenticatable implements CanResetPassword
     public function isAdmin()
     {
         return $this->role === 'admin';
+    }
+
+    /**
+     * Get the identifier that will be stored in the JWT subject claim.
+     */
+    public function getJWTIdentifier()
+    {
+        return $this->getKey(); // Returns User_ID
+    }
+
+    /**
+     * Return a key-value array, containing any custom claims to be added to the JWT.
+     */
+    public function getJWTCustomClaims()
+    {
+        return [
+            'role' => $this->role, // Optionally include role in the JWT payload
+        ];
     }
 }

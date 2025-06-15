@@ -46,9 +46,19 @@ class CategorySeeder extends Seeder
                 'Category_type' => 'jasa',
             ],
             [
-                'Name' => 'Artikel',
-                'Description' => 'Artikel tentang dunia pertanian dan kopi.',
-                'Category_type' => 'article',
+                'Name' => 'News',
+                'Description' => 'Berita terbaru tentang dunia pertanian dan kopi.',
+                'Category_type' => 'News',
+            ],
+            [
+                'Name' => 'Coffee Technology',
+                'Description' => 'Artikel mengenai teknologi terbaru dalam dunia kopi.',
+                'Category_type' => 'Coffee Technology',
+            ],
+            [
+                'Name' => 'Tips and Trick',
+                'Description' => 'Tips dan trik seputar pertanian dan kopi.',
+                'Category_type' => 'Tips and Trick',
             ],
         ]);
     }

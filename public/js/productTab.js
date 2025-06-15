@@ -36,3 +36,53 @@ tabs.forEach(tab => {
     tab.classList.add('active', 'activeTab'); // tambahkan active di tab yang diklik
   });
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  fetch("/api/services")
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.status === "success") {
+        const services = res.data;
+
+        const gardenContainer = document.getElementById("gardenServicesContainer");
+        const trainingContainer = document.getElementById("trainingServicesContainer");
+
+        services.forEach(service => {
+          const { Name, Description, Image_path, Category_ID } = service;
+
+          if (Category_ID === 5) {
+            // Garden Services
+            const item = document.createElement("div");
+            item.className = "serviceBlock";
+            item.innerHTML = `
+            <div class="serviceItem">
+              <img class="colorIndicator" src="/${Image_path}" alt="${Name}" />
+              <p class="serviceName">${Name}</p>
+            </div>
+          `;
+            gardenContainer.appendChild(item);
+          }
+          else if (Category_ID === 6) {
+            // Training Services
+            const card = document.createElement("div");
+            card.className = "trainingCard";
+            card.innerHTML = `
+              <img class="trainingImage" src="/${Image_path}" alt="${Name}" />
+              <div class="trainingDetails">
+                <p class="trainingTitle">${Name}</p>
+                <article class="trainingDesc">${Description}</article>
+              </div>
+            `;
+            trainingContainer.appendChild(card);
+          }
+        });
+      } else {
+        console.error("Gagal memuat data layanan.");
+      }
+    })
+    .catch((error) => {
+      console.error("Terjadi kesalahan:", error);
+    });
+});
+

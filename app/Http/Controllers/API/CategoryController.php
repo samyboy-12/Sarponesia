@@ -27,7 +27,7 @@ class CategoryController
         $validated = $request->validate([
             'Name' => 'required|string|max:255',
             'Description' => 'nullable|string',
-            'Category_type' => 'required|string|in:kopi,benih,pupuk,peralatan,layanan,jasa,article',
+            'Category_type' => 'required|string|in:kopi,benih,pupuk,peralatan,layanan,jasa,News,Coffee Technology,Tips and Trick',
         ]);
 
         $category = Category::create($validated);
@@ -45,7 +45,7 @@ class CategoryController
         $validated = $request->validate([
             'Name' => 'required|string|max:255',
             'Description' => 'nullable|string',
-            'Category_type' => 'required|string|in:kopi,benih,pupuk,peralatan,layanan,jasa,article',
+            'Category_type' => 'required|string|in:kopi,benih,pupuk,peralatan,layanan,jasa,News,Coffee Technology,Tips and Trick',
         ]);
 
         $category->update($validated);

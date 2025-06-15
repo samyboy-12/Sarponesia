@@ -100,6 +100,7 @@ html, body {
     }
   }
 
+  input[type="email"],
   input[type="text"],
   select {
     margin: 12px 0 0;
@@ -113,7 +114,7 @@ html, body {
     background-color: transparent; /* Membuat latar belakang transparan */
   }
   
-  input[type="text"]::placeholder {
+  input[type="email"],input[type="text"],::placeholder {
     color: rgba(60, 36, 11, 0.678);
     font: 500 24px/1.5 Poppins, Helvetica, Arial, serif;
     text-align: center;

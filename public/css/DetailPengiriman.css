@@ -1,0 +1,563 @@
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0;
+  background-image: linear-gradient(180deg, #d2d1cf 35.99%, #f1f1f0 45.07%);
+  overflow: hidden;
+}
+
+.personalInfoSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.personalInfoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0;
+  margin: 90px auto 88px;
+  width: 1199.9478759766px;
+  max-width: 85%;
+}
+@media (max-width: 575px) {
+  .personalInfoContainer {
+    position: relative;
+    margin: 80px auto;
+  }
+}
+@media (max-width: 383px) {
+  .personalInfoContainer {
+    margin: 50px auto;
+  }
+}
+
+.nameContainer {
+  display: flex;
+  column-gap: 20px;
+  width: 100%;
+}
+@media (max-width: 991px) {
+  .nameContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px 20px;
+  }
+}
+
+.firstNameContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0;
+  width: 590px;
+  min-width: 0;
+}
+@media (max-width: 991px) {
+  .firstNameContainer {
+    position: relative;
+    width: 100%;
+    min-width: unset;
+  }
+}
+
+@media (max-width: 991px) {
+  .firstNameInfoBox_box {
+    align-items: flex-start;
+  }
+}
+
+.firstNameInfoBox {
+  font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(0, 0, 0);
+  text-transform: none;
+  letter-spacing: 0.72px;
+}
+@media (max-width: 991px) {
+  .firstNameInfoBox {
+    font-size: 22px;
+  }
+}
+@media (max-width: 479px) {
+  .firstNameInfoBox {
+    font-size: 20px;
+  }
+}
+
+.firstNameInfoBox_span0 {
+  font: 1em/1.5 Poppins, Helvetica, Arial, serif;
+}
+
+.firstNameInfoBox_span1 {
+  font: 1em/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(244, 14, 14);
+}
+
+.color {
+  min-height: 72px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.25);
+}
+
+.lastNameContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0;
+  width: 590px;
+  min-width: 0;
+}
+@media (max-width: 991px) {
+  .lastNameContainer {
+    position: relative;
+    width: 100%;
+    min-width: unset;
+  }
+}
+
+@media (max-width: 991px) {
+  .lastNameInfoBox_box {
+    align-items: flex-start;
+  }
+}
+
+.lastNameInfoBox {
+  font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(0, 0, 0);
+  text-transform: none;
+  letter-spacing: 0.72px;
+}
+@media (max-width: 991px) {
+  .lastNameInfoBox {
+    font-size: 22px;
+  }
+}
+@media (max-width: 479px) {
+  .lastNameInfoBox {
+    font-size: 20px;
+  }
+}
+
+.lastNameInfoBox_span0 {
+  font: 1em/1.5 Poppins, Helvetica, Arial, serif;
+}
+
+.lastNameInfoBox_span1 {
+  font: 1em/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(244, 14, 14);
+}
+
+.lastNameBlock {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.25);
+}
+
+.wrapper {
+  margin: 24px 0 18px 22px;
+  width: 160px;
+  max-width: 85%;
+  min-height: 30px;
+  opacity: 0.5;
+}
+@media (max-width: 575px) {
+  .wrapper {
+    position: relative;
+    margin: 24px 0 18px 16px;
+  }
+}
+@media (max-width: 383px) {
+  .wrapper {
+    margin: 24px 0 18px 8px;
+  }
+}
+
+.phoneNumberContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0;
+  margin: 29px 0 0;
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+  .phoneNumberInfoBox_box {
+    align-items: flex-start;
+  }
+}
+
+.phoneNumberInfoBox {
+  font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(0, 0, 0);
+  text-transform: none;
+  letter-spacing: 0.72px;
+}
+@media (max-width: 991px) {
+  .phoneNumberInfoBox {
+    font-size: 22px;
+  }
+}
+@media (max-width: 479px) {
+  .phoneNumberInfoBox {
+    font-size: 20px;
+  }
+}
+
+.phoneNumberInfoBox_span0 {
+  font: 1em/1.5 Poppins, Helvetica, Arial, serif;
+}
+
+.phoneNumberInfoBox_span1 {
+  font: 1em/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(244, 14, 14);
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.25);
+}
+
+.wrapper1 {
+  display: flex;
+  flex-direction: column;
+  margin: 24px 0 18px 24px;
+  width: 160px;
+  max-width: 85%;
+  opacity: 0.5;
+}
+@media (max-width: 575px) {
+  .wrapper1 {
+    position: relative;
+    margin: 24px 0 18px 16px;
+  }
+}
+@media (max-width: 383px) {
+  .wrapper1 {
+    margin: 24px 0 18px 8px;
+  }
+}
+
+.info1 {
+  margin: 0 24px 6px 0;
+  width: 135.9895782471px;
+  max-width: 85%;
+  height: 24px;
+  font: 500 16px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(0, 0, 0);
+}
+@media (max-width: 575px) {
+  .info1 {
+    position: relative;
+    margin: 0 16px 6px 0;
+  }
+}
+@media (max-width: 383px) {
+  .info1 {
+    margin: 0 8px 6px 0;
+  }
+}
+
+.organizationNameContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0;
+  margin: 23px 0 0;
+  width: 100%;
+}
+
+.organizationNameInfo {
+  font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(0, 0, 0);
+  letter-spacing: 0.72px;
+}
+@media (max-width: 991px) {
+  .organizationNameInfo {
+    align-items: flex-start;
+    font-size: 22px;
+  }
+}
+@media (max-width: 479px) {
+  .organizationNameInfo {
+    font-size: 20px;
+  }
+}
+
+.wrapper2 {
+  margin: 24px 0 18px 24px;
+  width: 160px;
+  max-width: 85%;
+  min-height: 30px;
+  opacity: 0.5;
+}
+@media (max-width: 575px) {
+  .wrapper2 {
+    position: relative;
+    margin: 24px 0 18px 16px;
+  }
+}
+@media (max-width: 383px) {
+  .wrapper2 {
+    margin: 24px 0 18px 8px;
+  }
+}
+
+.addressContainer {
+  display: flex;
+  column-gap: 20px;
+  margin: 35px 0 0;
+  width: 100%;
+}
+@media (max-width: 991px) {
+  .addressContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px 20px;
+  }
+}
+
+.addressInfoBox {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0;
+  width: 692px;
+  min-width: 0;
+}
+@media (max-width: 991px) {
+  .addressInfoBox {
+    position: relative;
+    width: 100%;
+    min-width: unset;
+  }
+}
+
+@media (max-width: 991px) {
+  .deliveryLocationInfoBox_box {
+    align-items: flex-start;
+  }
+}
+
+.deliveryLocationInfoBox {
+  font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(0, 0, 0);
+  text-transform: none;
+  letter-spacing: 0.72px;
+}
+@media (max-width: 991px) {
+  .deliveryLocationInfoBox {
+    font-size: 22px;
+  }
+}
+@media (max-width: 479px) {
+  .deliveryLocationInfoBox {
+    font-size: 20px;
+  }
+}
+
+.deliveryLocationInfoBox_span0 {
+  font: 1em/1.5 Poppins, Helvetica, Arial, serif;
+}
+
+.deliveryLocationInfoBox_span1 {
+  font: 1em/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(244, 14, 14);
+}
+
+.deliveryLocationBlock {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.25);
+}
+
+.wrapper3 {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 32px;
+  margin: 19px 24px;
+}
+@media (max-width: 1199px) {
+  .wrapper3 {
+    position: relative;
+    margin: 19px auto;
+  }
+}
+@media (max-width: 575px) {
+  .wrapper3 {
+    column-gap: 16px;
+  }
+}
+@media (max-width: 383px) {
+  .wrapper3 {
+    column-gap: 8px;
+  }
+}
+
+.wrapper4 {
+  display: flex;
+  flex-direction: column;
+  margin: 2px 0;
+  width: 423px;
+  min-width: 0;
+  opacity: 0.5;
+}
+
+.info11 {
+  margin: 0 52px 6px 0;
+  width: 87.71%;
+  height: 24px;
+  font: 500 16px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(0, 0, 0);
+}
+@media (max-width: 991px) {
+  .info11 {
+    position: relative;
+    margin: 0 32px 6px 0;
+  }
+}
+@media (max-width: 575px) {
+  .info11 {
+    margin: 0 16px 6px 0;
+  }
+}
+@media (max-width: 383px) {
+  .info11 {
+    margin: 0 8px 6px 0;
+  }
+}
+
+.image {
+  width: 30px;
+  object-fit: cover;
+}
+
+.postalCodeContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0;
+  width: 488px;
+  min-width: 0;
+}
+@media (max-width: 991px) {
+  .postalCodeContainer {
+    position: relative;
+    width: 100%;
+    min-width: unset;
+  }
+}
+
+@media (max-width: 991px) {
+  .postalCodeInfoBox_box {
+    align-items: flex-start;
+  }
+}
+
+.postalCodeInfoBox {
+  font: 600 24px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(0, 0, 0);
+  text-transform: none;
+  letter-spacing: 0.72px;
+}
+@media (max-width: 991px) {
+  .postalCodeInfoBox {
+    font-size: 22px;
+  }
+}
+@media (max-width: 479px) {
+  .postalCodeInfoBox {
+    font-size: 20px;
+  }
+}
+
+.postalCodeInfoBox_span0 {
+  font: 1em/1.5 Poppins, Helvetica, Arial, serif;
+}
+
+.postalCodeInfoBox_span1 {
+  font: 1em/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(244, 14, 14);
+}
+
+.wrapper5 {
+  margin: 24px 0 18px 19px;
+  width: 160px;
+  max-width: 85%;
+  min-height: 30px;
+  opacity: 0.5;
+}
+@media (max-width: 575px) {
+  .wrapper5 {
+    position: relative;
+    margin: 24px 0 18px 16px;
+  }
+}
+@media (max-width: 383px) {
+  .wrapper5 {
+    margin: 24px 0 18px 8px;
+  }
+}
+
+.actionContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  margin: 65px 0 0;
+  width: 763.9973754883px;
+  max-width: 85%;
+}
+@media (max-width: 383px) {
+  .actionContainer {
+    position: relative;
+    margin: 50px 0 0;
+  }
+}
+
+.nextStepDescription {
+  display: flex;
+  justify-content: center;
+  font: 500 20px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  background-color: rgb(84, 51, 16);
+  padding: 15.5px 8px;
+  border-radius: 10px;
+}
+@media (max-width: 991px) {
+  .nextStepDescription {
+    align-items: flex-start;
+    font-size: 18px;
+  }
+}
+@media (max-width: 479px) {
+  .nextStepDescription {
+    font-size: 16px;
+  }
+}
+
+.cancelOrderDescription {
+  display: flex;
+  justify-content: center;
+  font: 500 20px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  background-color: rgb(212, 0, 0);
+  padding: 15.5px 8px;
+  border-radius: 10px;
+}
+@media (max-width: 991px) {
+  .cancelOrderDescription {
+    align-items: flex-start;
+    font-size: 18px;
+  }
+}
+@media (max-width: 479px) {
+  .cancelOrderDescription {
+    font-size: 16px;
+  }
+}
+
+/*# sourceMappingURL=1.css.map */

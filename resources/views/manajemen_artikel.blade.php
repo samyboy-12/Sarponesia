@@ -1,108 +1,3 @@
-<?php
-session_start();
-
-// Initialize user session
-if (!isset($_SESSION['user'])) {
-    $_SESSION['user'] = [
-        'name' => 'Jacob',
-        'role' => 'Admin 2'
-    ];
-}
-
-// Initialize articles data if it doesn't exist
-if (!isset($_SESSION['articles'])) {
-    $_SESSION['articles'] = [
-        'berita' => [
-            [
-                'id' => 1,
-                'title' => 'Dibalik Layar Nikmatnya Secangkir Kopi',
-                'date' => '07-12-2023',
-                'status' => 'public',
-                'category' => 'berita'
-            ],
-            [
-                'id' => 2,
-                'title' => 'Sejarah Kopi Indonesia',
-                'date' => '05-12-2023',
-                'status' => 'draft',
-                'category' => 'berita'
-            ]
-        ],
-        'teknologi' => [
-            [
-                'id' => 3,
-                'title' => 'Teknik Roasting Terbaru 2023',
-                'date' => '01-12-2023',
-                'status' => 'public',
-                'category' => 'teknologi'
-            ]
-        ],
-        'tips' => [
-            [
-                'id' => 4,
-                'title' => 'Cara Menyimpan Kopi Agar Tetap Segar',
-                'date' => '30-11-2023',
-                'status' => 'public',
-                'category' => 'tips'
-            ],
-            [
-                'id' => 5,
-                'title' => '5 Alat Kopi Wajib untuk Pemula',
-                'date' => '28-11-2023',
-                'status' => 'draft',
-                'category' => 'tips'
-            ]
-        ]
-    ];
-}
-
-// Get current category from URL or default to 'berita'
-$current_category = $_GET['category'] ?? 'berita';
-$categories = ['berita' => 'Berita', 'teknologi' => 'Teknologi Kopi', 'tips' => 'Tips and Trik'];
-
-// Handle form submissions
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['add_article'])) {
-        // Add new article
-        $new_article = [
-            'id' => count($_SESSION['articles'][$current_category]) + 1,
-            'title' => $_POST['title'] ?? 'Artikel Baru',
-            'date' => date('d-m-Y'),
-            'status' => $_POST['status'] ?? 'draft',
-            'category' => $current_category
-        ];
-        $_SESSION['articles'][$current_category][] = $new_article;
-        $success_message = "Artikel berhasil ditambahkan!";
-    }
-    
-    if (isset($_POST['delete_article'])) {
-        // Delete article
-        $article_id = $_POST['article_id'];
-        foreach ($_SESSION['articles'][$current_category] as $key => $article) {
-            if ($article['id'] == $article_id) {
-                unset($_SESSION['articles'][$current_category][$key]);
-                $success_message = "Artikel berhasil dihapus!";
-                break;
-            }
-        }
-    }
-    
-    if (isset($_POST['search'])) {
-        // Search functionality
-        $search_term = strtolower($_POST['search_term'] ?? '');
-        $filtered_articles = [];
-        foreach ($_SESSION['articles'][$current_category] as $article) {
-            if (strpos(strtolower($article['title']), $search_term) !== false) {
-                $filtered_articles[] = $article;
-            }
-        }
-        $display_articles = $filtered_articles;
-    }
-}
-
-// Get articles for current category
-$display_articles = $_SESSION['articles'][$current_category] ?? [];
-?>
 <!DOCTYPE html>
 <html lang="id">
 
@@ -205,7 +100,8 @@ $display_articles = $_SESSION['articles'][$current_category] ?? [];
       font-size: 0.95rem;
     }
 
-    table th, table td {
+    table th,
+    table td {
       text-align: left;
       padding: 0.75rem;
       border-bottom: 1px solid #eee;
@@ -266,7 +162,9 @@ $display_articles = $_SESSION['articles'][$current_category] ?? [];
       font-weight: 600;
     }
 
-    .form-group input, .form-group select, .form-group textarea {
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
       width: 100%;
       padding: 0.5rem;
       border: 1px solid #ddd;
@@ -311,13 +209,13 @@ $display_articles = $_SESSION['articles'][$current_category] ?? [];
     <h2>SARPONESIA<br><small style="font-weight: 400; font-size: 0.8rem;">INDONESIAN COFFEE</small></h2>
     <nav>
       <ul>
-  <li><a href="{{ route('manajemen-produk') }}">Manajemen Produk</a></li>
-  <li><a href="{{ route('manajemen-layanan') }}">Manajemen Layanan & Jasa</a></li>
-  <li><a href="{{ route('order') }}">Order</a></li>
-  <li><a href="{{ route('manajemen-artikel') }}">Manajemen Artikel</a></li>
-  <li><a href="{{ route('manajemen-kerjasama') }}">Manajemen Kerjasama</a></li>
-  <li><a href="{{ route('home') }}">Keluar</a></li>
-</ul>
+        <li><a href="{{ route('manajemen-produk') }}">Manajemen Produk</a></li>
+        <li><a href="{{ route('manajemen-layanan') }}">Manajemen Layanan & Jasa</a></li>
+        <li><a href="{{ route('order') }}">Order</a></li>
+        <li><a href="{{ route('manajemen-artikel') }}">Manajemen Artikel</a></li>
+        <li><a href="{{ route('manajemen-kerjasama') }}">Manajemen Kerjasama</a></li>
+        <li><a href="{{ route('home') }}">Keluar</a></li>
+      </ul>
 
     </nav>
   </aside>
@@ -326,133 +224,235 @@ $display_articles = $_SESSION['articles'][$current_category] ?? [];
     <div class="top-bar">
       <h1>Manajemen Artikel</h1>
       <div class="user-info">
-        <strong><?php echo htmlspecialchars($_SESSION['user']['name']); ?></strong><br>
-        <small><?php echo htmlspecialchars($_SESSION['user']['role']); ?></small>
+        <strong><?= htmlspecialchars($_SESSION['user']['name'] ?? 'Admin') ?></strong><br>
+        <small><?= htmlspecialchars($_SESSION['user']['role'] ?? 'editor') ?></small>
       </div>
     </div>
 
-    <div class="tabs">
-      <?php foreach ($categories as $key => $label): ?>
-        <a href="?category=<?php echo $key; ?>">
-          <button class="<?php echo $current_category === $key ? 'active' : ''; ?>">
-            <?php echo $label; ?>
-          </button>
-        </a>
-      <?php endforeach; ?>
+    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+      <input type="text" id="searchInput" placeholder="Cari Judul..." style="padding: 0.5rem; width: 60%; border: 1px solid #ccc; border-radius: 8px;">
+      <button onclick="openModal('addArticleModal')" style="padding: 0.5rem 1rem; background: #b89568; color: white; border: none; border-radius: 8px;">+ Tambah</button>
     </div>
 
-    <div class="content">
-      <?php if (!empty($success_message)): ?>
-        <div class="success-message">
-          <?php echo htmlspecialchars($success_message); ?>
-        </div>
-      <?php endif; ?>
+    <table>
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Judul</th>
+          <th>Tanggal</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="articleTableBody">
+        <tr>
+          <td colspan="4" style="text-align: center;">Memuat data...</td>
+        </tr>
+      </tbody>
+    </table>
 
-      <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
-        <form method="POST" style="width: 60%;">
-          <input type="text" name="search_term" placeholder="Cari Judul" style="padding: 0.5rem; width: 100%; border: 1px solid #ccc; border-radius: 8px;">
-          <input type="hidden" name="search" value="1">
-        </form>
-        <button onclick="openModal('addArticleModal')" style="padding: 0.5rem 1rem; background: #b89568; color: white; border: none; border-radius: 8px; cursor: pointer;">
-          + Tambah
-        </button>
-      </div>
-
-      <table>
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>Judul</th>
-            <th>Tanggal</th>
-            <th>Status</th>
-            <th>Aksi</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php foreach ($display_articles as $index => $article): ?>
-            <tr>
-              <td><?php echo $index + 1; ?></td>
-              <td><?php echo htmlspecialchars($article['title']); ?></td>
-              <td><?php echo htmlspecialchars($article['date']); ?></td>
-              <td>
-                <span class="status-<?php echo $article['status']; ?>">
-                  <?php echo $article['status'] === 'public' ? 'Publik' : 'Draft'; ?>
-                </span>
-              </td>
-              <td class="icon-cell">
-                <span onclick="editArticle(<?php echo $article['id']; ?>)">✎</span>
-                <form method="POST" style="display: inline;">
-                  <input type="hidden" name="article_id" value="<?php echo $article['id']; ?>">
-                  <span onclick="if(confirm('Apakah Anda yakin ingin menghapus artikel ini?')) this.parentNode.submit();">🗑</span>
-                  <input type="hidden" name="delete_article" value="1">
-                </form>
-              </td>
-            </tr>
-          <?php endforeach; ?>
-          <?php if (empty($display_articles)): ?>
-            <tr>
-              <td colspan="5" style="text-align: center;">Tidak ada artikel ditemukan</td>
-            </tr>
-          <?php endif; ?>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Add Article Modal -->
+    <!-- Modal Tambah -->
     <div id="addArticleModal" class="modal">
       <div class="modal-content">
         <h4>Tambah Artikel Baru</h4>
-        <form method="POST" action="">
+        <form id="addArticleForm">
           <div class="form-group">
             <label for="title">Judul Artikel</label>
             <input type="text" id="title" name="title" required>
           </div>
           <div class="form-group">
-            <label for="status">Status</label>
-            <select id="status" name="status" required>
-              <option value="draft">Draft</option>
-              <option value="public">Publik</option>
-            </select>
+            <label for="content">Isi Artikel</label>
+            <textarea id="content" name="content" rows="5" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="category_id">ID Kategori</label>
+            <input type="number" id="category_id" name="category_id" required>
           </div>
           <div class="form-actions">
             <button type="button" class="cancel" onclick="closeModal('addArticleModal')">Batal</button>
-            <button type="submit" class="submit" name="add_article">Simpan</button>
+            <button type="submit" class="submit">Simpan</button>
           </div>
         </form>
       </div>
     </div>
 
-    <script>
-      function openModal(modalId) {
-        document.getElementById(modalId).style.display = 'flex';
-      }
-
-      function closeModal(modalId) {
-        document.getElementById(modalId).style.display = 'none';
-      }
-
-      function editArticle(id) {
-        alert('Edit artikel dengan ID: ' + id + '\n\n(Fitur edit akan diimplementasikan)');
-      }
-
-      // Close modal when clicking outside of it
-      window.onclick = function(event) {
-        if (event.target.className === 'modal') {
-          event.target.style.display = 'none';
-        }
-      }
-
-      // Submit search form when typing
-      document.querySelector('input[name="search_term"]').addEventListener('input', function(e) {
-        if (this.value.length > 0) {
-          this.form.submit();
-        } else if (this.value.length === 0 && <?php echo isset($_POST['search']) ? 'true' : 'false'; ?>) {
-          // Reload page without search if clearing search field
-          window.location.href = '?category=<?php echo $current_category; ?>';
-        }
-      });
-    </script>
+    <!-- Modal Edit -->
+    <div id="editArticleModal" class="modal">
+      <div class="modal-content">
+        <h4>Edit Artikel</h4>
+        <form id="editArticleForm">
+          <input type="hidden" id="edit_article_id">
+          <div class="form-group">
+            <label for="edit_title">Judul Artikel</label>
+            <input type="text" id="edit_title" name="edit_title" required>
+          </div>
+          <div class="form-group">
+            <label for="edit_content">Isi Artikel</label>
+            <textarea id="edit_content" name="edit_content" rows="5" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="edit_category_id">ID Kategori</label>
+            <input type="number" id="edit_category_id" name="edit_category_id" required>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="cancel" onclick="closeModal('editArticleModal')">Batal</button>
+            <button type="submit" class="submit">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </main>
+
+  <script>
+    const apiBase = 'http://localhost:8000/api/api/articles';
+
+    function openModal(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+      document.getElementById('addArticleForm').reset();
+      document.getElementById('editArticleForm').reset();
+    }
+
+    function formatDate(isoString) {
+      const d = new Date(isoString);
+      return d.toLocaleDateString('id-ID', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    }
+
+    async function loadArticles() {
+      const tbody = document.getElementById('articleTableBody');
+      tbody.innerHTML = '<tr><td colspan="4" style="text-align: center;">Memuat data...</td></tr>';
+
+      try {
+        const res = await fetch(apiBase);
+        const json = await res.json();
+
+        if (!json.data || json.data.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="4" style="text-align: center;">Tidak ada artikel ditemukan</td></tr>';
+          return;
+        }
+
+        tbody.innerHTML = '';
+        json.data.forEach((article, index) => {
+          const row = `
+          <tr>
+            <td>${index + 1}</td>
+            <td>${article.Title}</td>
+            <td>${formatDate(article.created_at)}</td>
+            <td class="icon-cell">
+              <span onclick="editArticle(${article.Article_ID})">✎</span>
+              <span onclick="deleteArticle(${article.Article_ID})">🗑</span>
+            </td>
+          </tr>
+        `;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      } catch (err) {
+        tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; color: red;">Gagal memuat data</td></tr>';
+        console.error(err);
+      }
+    }
+
+    async function deleteArticle(id) {
+      if (!confirm('Yakin ingin menghapus artikel ini?')) return;
+      try {
+        const res = await fetch(`${apiBase}/${id}`, {
+          method: 'DELETE'
+        });
+        if (res.ok) {
+          alert('Artikel berhasil dihapus');
+          loadArticles();
+        } else {
+          alert('Gagal menghapus artikel');
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    document.getElementById('addArticleForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const data = {
+        Title: document.getElementById('title').value,
+        Content: document.getElementById('content').value,
+        Category_ID: document.getElementById('category_id').value,
+      };
+
+      try {
+        const res = await fetch(apiBase, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (res.ok) {
+          alert('Artikel berhasil ditambahkan');
+          closeModal('addArticleModal');
+          loadArticles();
+        } else {
+          alert('Gagal menambahkan artikel');
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    });
+
+    async function editArticle(id) {
+      try {
+        const res = await fetch(`${apiBase}/${id}`);
+        const json = await res.json();
+        const data = json.data;
+
+        document.getElementById('edit_article_id').value = data.Article_ID;
+        document.getElementById('edit_title').value = data.Title;
+        document.getElementById('edit_content').value = data.Content;
+        document.getElementById('edit_category_id').value = data.Category_ID;
+
+        openModal('editArticleModal');
+      } catch (err) {
+        console.error('Gagal mengambil data artikel', err);
+      }
+    }
+
+    document.getElementById('editArticleForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const id = document.getElementById('edit_article_id').value;
+      const data = {
+        Title: document.getElementById('edit_title').value,
+        Content: document.getElementById('edit_content').value,
+        Category_ID: document.getElementById('edit_category_id').value,
+      };
+
+      try {
+        const res = await fetch(`${apiBase}/${id}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (res.ok) {
+          alert('Artikel berhasil diperbarui');
+          closeModal('editArticleModal');
+          loadArticles();
+        } else {
+          alert('Gagal memperbarui artikel');
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    });
+
+    window.onload = loadArticles;
+  </script>
 </body>
 
 </html>

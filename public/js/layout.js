@@ -91,3 +91,67 @@ function toggleMenu() {
         dropdown.style.display = 'none'; // Sembunyikan elemen
     }
 }
+
+function updateHeader() {
+            const token = localStorage.getItem('token');
+            const $headerRight = $('#header-right');
+
+            if (!token) {
+                // Guest user
+                $headerRight.html('<a class="login-btn" href="/login">Login</a>');
+                return;
+            }
+
+            // Fetch user details from /api/me
+            $.ajax({
+                url: '/api/me',
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + token,
+                    'Accept': 'application/json'
+                },
+                success: function(data) {
+                    const user = data.user;
+                    let headerContent = '';
+                    if (user.role === 'admin') {
+                        headerContent += `<a class="login-btn" href="/manajemen-produk">Manage</a>`;
+                    }
+                    headerContent += `<button class="login-btn" onclick="logout()">Logout</button>`;
+                    $headerRight.html(headerContent);
+                },
+                error: function() {
+                    // Invalid or expired token, treat as guest
+                    localStorage.removeItem('token');
+                    $headerRight.html('<a class="login-btn" href="/login">Login</a>');
+                }
+            });
+        }
+
+        function logout() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = '/login';
+                return;
+            }
+
+            $.ajax({
+                url: '/api/logout',
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Bearer ' + token,
+                    'Accept': 'application/json'
+                },
+                success: function() {
+                    localStorage.removeItem('token');
+                    window.location.href = '/login';
+                },
+                error: function(jqXHR) {
+                    alert(jqXHR.responseJSON?.error || 'Failed to logout. Please try again.');
+                }
+            });
+        }
+
+        // Run on page load
+        $(document).ready(function() {
+            updateHeader();
+        });

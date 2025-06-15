@@ -24,23 +24,10 @@
             <div class="logo">
                 <img src="{{ asset('assets/Logo.png') }}" alt="Sarponesia Coffee">
             </div>
-            <div class="header-right">
-                @guest
-                <a class="login-btn" href="{{ url('/login') }}">Login</a>
-                @endguest
-                @auth
-                @if (Auth::user()->role === 'admin')
-                <a class="login-btn" href="{{ route('manajemen-produk') }}">Manage</a>
-                @else
-                <form action="{{ route('logout') }}" method="post">
-                    @csrf
-                    <button class="login-btn" type="submit">Logout</button>
-                </form>
-                @endif
-                @endauth
+           <div class="header-right" id="header-right">
+                <!-- Content will be dynamically updated by JavaScript -->
             </div>
         </div>
-
         <nav>
             <ul class="nav-links">
                 <li class="{{ Request::is('home') ? 'active' : '' }}">

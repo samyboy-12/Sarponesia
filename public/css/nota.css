@@ -1,0 +1,692 @@
+.orderSummarySection {
+  display: flex;
+  flex-direction: column;
+}
+.orderDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  margin: 77px auto;
+  width: 1199.9478759766px;
+  max-width: 85%;
+}
+@media (max-width: 383px) {
+  .orderDetailsContainer {
+    position: relative;
+    margin: 50px auto;
+  }
+}
+.saveInvoiceMsg {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 0 auto;
+  width: 198.9973907471px;
+  max-width: 85%;
+  font: 500 20px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  background-color: rgb(84, 51, 16);
+  padding: 14px 36px;
+  border-radius: 10px;
+}
+@media (max-width: 991px) {
+  .saveInvoiceMsg {
+    align-items: flex-start;
+    font-size: 18px;
+  }
+}
+@media (max-width: 479px) {
+  .saveInvoiceMsg {
+    font-size: 16px;
+  }
+}
+.orderInfoContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  outline-offset: -1.5px;
+  border-radius: 12px;
+  outline: rgb(25, 15, 5) solid 3px;
+}
+.customerDetailsWrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0;
+  margin: 60px auto 40px;
+  width: 94.42%;
+}
+@media (max-width: 383px) {
+  .customerDetailsWrapper {
+    position: relative;
+    margin: 50px auto 40px;
+  }
+}
+.identityBlock {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 32px;
+  margin: 0 21px 0 0;
+}
+@media (max-width: 767px) {
+  .identityBlock {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+}
+@media (max-width: 575px) {
+  .identityBlock {
+    position: relative;
+    margin: 0 16px 0 0;
+  }
+}
+@media (max-width: 383px) {
+  .identityBlock {
+    margin: 0 8px 0 0;
+  }
+}
+.billingInfoContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0;
+  width: 368px;
+  min-width: 0;
+}
+@media (max-width: 767px) {
+  .billingInfoContainer {
+    position: relative;
+    width: 100%;
+    min-width: unset;
+  }
+}
+.invoiceLabel {
+  font: 700 32px/1.22 Inter, Helvetica, Arial, serif;
+  color: rgb(18, 23, 34);
+}
+@media (max-width: 991px) {
+  .invoiceLabel {
+    align-items: flex-start;
+    font-size: 30px;
+  }
+}
+@media (max-width: 479px) {
+  .invoiceLabel {
+    font-size: 26px;
+  }
+}
+.customerNameContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0;
+  margin: 19px 0 0;
+  width: 287.9817504883px;
+  max-width: 85%;
+}
+.recipientLabel {
+  font: 20px/1.2 Inter, Helvetica, Arial, serif;
+  color: rgb(96, 115, 125);
+}
+@media (max-width: 991px) {
+  .recipientLabel {
+    align-items: flex-start;
+    font-size: 18px;
+  }
+}
+@media (max-width: 479px) {
+  .recipientLabel {
+    font-size: 16px;
+  }
+}
+.recipientName {
+  font: 600 20px/1.2 Inter, Helvetica, Arial, serif;
+  color: rgb(18, 23, 34);
+}
+@media (max-width: 991px) {
+  .recipientName {
+    align-items: flex-start;
+    font-size: 18px;
+  }
+}
+@media (max-width: 479px) {
+  .recipientName {
+    font-size: 16px;
+  }
+}
+.recipientAddress {
+  margin: 15px 0 0;
+  width: 287.9817504883px;
+  max-width: 85%;
+  font: 16px/1.19 Inter, Helvetica, Arial, serif;
+  color: rgb(18, 23, 34);
+}
+.orderDetailsSection {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0;
+  margin: 4px 0;
+  width: 150px;
+  min-width: 0;
+}
+@media (max-width: 767px) {
+  .orderDetailsSection {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    min-width: unset;
+  }
+}
+.orderNumberWrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+}
+.orderNumberLabel {
+  display: flex;
+  justify-content: flex-end;
+  font: 20px/1.2 Inter, Helvetica, Arial, serif;
+  color: rgb(96, 115, 125);
+  text-align: right;
+  letter-spacing: -0.4px;
+}
+@media (max-width: 991px) {
+  .orderNumberLabel {
+    align-items: flex-start;
+    font-size: 18px;
+  }
+}
+@media (max-width: 479px) {
+  .orderNumberLabel {
+    font-size: 16px;
+  }
+}
+.orderNumberValue {
+  display: flex;
+  justify-content: flex-end;
+  font: 700 16px/1.19 Inter, Helvetica, Arial, serif;
+  color: rgb(18, 23, 34);
+  text-align: right;
+}
+.orderDateWrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2px;
+  margin: 28px 0 0 7px;
+}
+.orderDateLabel {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 0 0 40px;
+  font: 16px/1.19 Inter, Helvetica, Arial, serif;
+  color: rgb(96, 115, 125);
+  text-align: right;
+}
+@media (max-width: 991px) {
+  .orderDateLabel {
+    position: relative;
+    margin: 0 0 0 32px;
+  }
+}
+@media (max-width: 575px) {
+  .orderDateLabel {
+    margin: 0 0 0 16px;
+  }
+}
+@media (max-width: 383px) {
+  .orderDateLabel {
+    margin: 0 0 0 8px;
+  }
+}
+.orderDateValue {
+  display: flex;
+  justify-content: flex-end;
+  font: 16px/1.19 Inter, Helvetica, Arial, serif;
+  color: rgb(18, 23, 34);
+  text-align: right;
+}
+.paymentDateWrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2px;
+  margin: 15px 0 0 7px;
+}
+.paymentDateLabel {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 0 0 34px;
+  font: 16px/1.19 Inter, Helvetica, Arial, serif;
+  color: rgb(96, 115, 125);
+  text-align: right;
+  letter-spacing: -0.4px;
+}
+@media (max-width: 991px) {
+  .paymentDateLabel {
+    position: relative;
+    margin: 0 0 0 32px;
+  }
+}
+@media (max-width: 575px) {
+  .paymentDateLabel {
+    margin: 0 0 0 16px;
+  }
+}
+@media (max-width: 383px) {
+  .paymentDateLabel {
+    margin: 0 0 0 8px;
+  }
+}
+.paymentDateValue {
+  display: flex;
+  justify-content: flex-end;
+  font: 16px/1.19 Inter, Helvetica, Arial, serif;
+  color: rgb(18, 23, 34);
+  text-align: right;
+}
+.itemDetailsContainer {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 32px;
+  margin: 73px 0 0;
+}
+@media (max-width: 991px) {
+  .itemDetailsContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+}
+@media (max-width: 383px) {
+  .itemDetailsContainer {
+    position: relative;
+    margin: 50px 0 0;
+  }
+}
+.itemsListWrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 29px;
+  margin: 5px 0 0;
+  width: 362px;
+  min-width: 0;
+}
+@media (max-width: 991px) {
+  .itemsListWrapper {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    min-width: unset;
+  }
+}
+.itemLabel {
+  font: 700 32px/1.22 Inter, Helvetica, Arial, serif;
+  color: rgb(18, 23, 34);
+}
+@media (max-width: 991px) {
+  .itemLabel {
+    align-items: flex-start;
+    font-size: 30px;
+  }
+}
+@media (max-width: 479px) {
+  .itemLabel {
+    font-size: 26px;
+  }
+}
+.itemName1 {
+  font: 24px/1.21 Inter, Helvetica, Arial, serif;
+  color: rgb(0, 0, 0);
+}
+@media (max-width: 991px) {
+  .itemName1 {
+    align-items: flex-start;
+    font-size: 22px;
+  }
+}
+@media (max-width: 479px) {
+  .itemName1 {
+    font-size: 20px;
+  }
+}
+.itemName2 {
+  font: 24px/1.21 Inter, Helvetica, Arial, serif;
+  color: rgb(0, 0, 0);
+}
+@media (max-width: 991px) {
+  .itemName2 {
+    align-items: flex-start;
+    font-size: 22px;
+  }
+}
+@media (max-width: 479px) {
+  .itemName2 {
+    font-size: 20px;
+  }
+}
+.itemPricingDetails {
+  display: flex;
+  flex-direction: column;
+  row-gap: 29px;
+  margin: 0 0 5px;
+  width: 433px;
+  min-width: 0;
+}
+@media (max-width: 991px) {
+  .itemPricingDetails {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    min-width: unset;
+  }
+}
+.pricingHeader {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 32px;
+}
+@media (max-width: 575px) {
+  .pricingHeader {
+    column-gap: 16px;
+  }
+}
+@media (max-width: 383px) {
+  .pricingHeader {
+    column-gap: 8px;
+  }
+}
+.quantityLabel {
+  display: flex;
+  justify-content: flex-end;
+  width: 62px;
+  font: 32px/1.22 Inter, Helvetica, Arial, serif;
+  color: rgb(96, 115, 125);
+  text-align: right;
+}
+@media (max-width: 991px) {
+  .quantityLabel {
+    align-items: flex-start;
+    font-size: 30px;
+  }
+}
+@media (max-width: 479px) {
+  .quantityLabel {
+    font-size: 26px;
+  }
+}
+.priceLabel {
+  display: flex;
+  justify-content: center;
+  width: 92px;
+  font: 32px/1.22 Inter, Helvetica, Arial, serif;
+  color: rgb(96, 115, 125);
+  text-align: center;
+}
+@media (max-width: 991px) {
+  .priceLabel {
+    align-items: flex-start;
+    font-size: 30px;
+  }
+}
+@media (max-width: 479px) {
+  .priceLabel {
+    font-size: 26px;
+  }
+}
+.totalLabel {
+  display: flex;
+  justify-content: center;
+  width: 189px;
+  font: 32px/1.22 Inter, Helvetica, Arial, serif;
+  color: rgb(96, 115, 125);
+  text-align: center;
+}
+@media (max-width: 991px) {
+  .totalLabel {
+    align-items: flex-start;
+    font-size: 30px;
+  }
+}
+@media (max-width: 479px) {
+  .totalLabel {
+    font-size: 26px;
+  }
+}
+.itemDetailsRow1 {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 32px;
+}
+@media (max-width: 575px) {
+  .itemDetailsRow1 {
+    column-gap: 16px;
+  }
+}
+@media (max-width: 383px) {
+  .itemDetailsRow1 {
+    column-gap: 8px;
+  }
+}
+.itemQuantity1 {
+  display: flex;
+  justify-content: center;
+  width: 62px;
+  font: 24px/1.21 Inter, Helvetica, Arial, serif;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+@media (max-width: 991px) {
+  .itemQuantity1 {
+    align-items: flex-start;
+    font-size: 22px;
+  }
+}
+@media (max-width: 479px) {
+  .itemQuantity1 {
+    font-size: 20px;
+  }
+}
+.itemPrice1 {
+  display: flex;
+  justify-content: center;
+  width: 92px;
+  font: 24px/1.21 Inter, Helvetica, Arial, serif;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+@media (max-width: 991px) {
+  .itemPrice1 {
+    align-items: flex-start;
+    font-size: 22px;
+  }
+}
+@media (max-width: 479px) {
+  .itemPrice1 {
+    font-size: 20px;
+  }
+}
+.itemTotal1 {
+  display: flex;
+  justify-content: center;
+  width: 189px;
+  font: 24px/1.21 Inter, Helvetica, Arial, serif;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+@media (max-width: 991px) {
+  .itemTotal1 {
+    align-items: flex-start;
+    font-size: 22px;
+  }
+}
+@media (max-width: 479px) {
+  .itemTotal1 {
+    font-size: 20px;
+  }
+}
+.itemDetailsRow2 {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 32px;
+}
+@media (max-width: 575px) {
+  .itemDetailsRow2 {
+    column-gap: 16px;
+  }
+}
+@media (max-width: 383px) {
+  .itemDetailsRow2 {
+    column-gap: 8px;
+  }
+}
+.itemQuantity2 {
+  display: flex;
+  justify-content: center;
+  width: 62px;
+  font: 24px/1.21 Inter, Helvetica, Arial, serif;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+@media (max-width: 991px) {
+  .itemQuantity2 {
+    align-items: flex-start;
+    font-size: 22px;
+  }
+}
+@media (max-width: 479px) {
+  .itemQuantity2 {
+    font-size: 20px;
+  }
+}
+.itemPrice2 {
+  display: flex;
+  justify-content: center;
+  width: 92px;
+  font: 24px/1.21 Inter, Helvetica, Arial, serif;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+@media (max-width: 991px) {
+  .itemPrice2 {
+    align-items: flex-start;
+    font-size: 22px;
+  }
+}
+@media (max-width: 479px) {
+  .itemPrice2 {
+    font-size: 20px;
+  }
+}
+.itemTotal2 {
+  display: flex;
+  justify-content: center;
+  width: 189px;
+  font: 24px/1.21 Inter, Helvetica, Arial, serif;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+@media (max-width: 991px) {
+  .itemTotal2 {
+    align-items: flex-start;
+    font-size: 22px;
+  }
+}
+@media (max-width: 479px) {
+  .itemTotal2 {
+    font-size: 20px;
+  }
+}
+.totalPaymentValueWrapper {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 32px;
+  margin: 72px 21px 0 0;
+}
+@media (max-width: 991px) {
+  .totalPaymentValueWrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+}
+@media (max-width: 575px) {
+  .totalPaymentValueWrapper {
+    position: relative;
+    margin: 72px 16px 0 0;
+  }
+}
+@media (max-width: 383px) {
+  .totalPaymentValueWrapper {
+    margin: 50px 8px 0 0;
+  }
+}
+.totalPaymentLabel {
+  margin: 5px 0 0;
+  width: 362px;
+  font: 600 32px/1.22 Inter, Helvetica, Arial, serif;
+  color: rgb(0, 0, 0);
+}
+@media (max-width: 991px) {
+  .totalPaymentLabel {
+    position: relative;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+    font-size: 30px;
+  }
+}
+@media (max-width: 479px) {
+  .totalPaymentLabel {
+    font-size: 26px;
+  }
+}
+.totalPaymentValue {
+  margin: 0 0 5px;
+  font: 600 32px/1.22 Inter, Helvetica, Arial, serif;
+  color: rgb(0, 0, 0);
+}
+@media (max-width: 991px) {
+  .totalPaymentValue {
+    position: relative;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+    font-size: 30px;
+  }
+}
+@media (max-width: 479px) {
+  .totalPaymentValue {
+    font-size: 26px;
+  }
+}
+.trackingInfoMsg {
+  display: flex;
+  justify-content: center;
+  margin: 88px auto 0;
+  width: 777.9947509766px;
+  max-width: 85%;
+  font: 500 20px/1.5 Poppins, Helvetica, Arial, serif;
+  color: rgb(207, 0, 0);
+  text-align: center;
+}
+@media (max-width: 991px) {
+  .trackingInfoMsg {
+    align-items: flex-start;
+    font-size: 18px;
+  }
+}
+@media (max-width: 575px) {
+  .trackingInfoMsg {
+    position: relative;
+    margin: 80px auto 0;
+  }
+}
+@media (max-width: 479px) {
+  .trackingInfoMsg {
+    font-size: 16px;
+  }
+}
+@media (max-width: 383px) {
+  .trackingInfoMsg {
+    margin: 50px auto 0;
+  }
+}
+
+/*# sourceMappingURL=nota.css.map */

@@ -19,6 +19,7 @@ class ServiceController
         if (!$service) {
             return BaseResponse::send(404, 'error', 'Layanan tidak ditemukan', null, 'Not Found');
         }
+        
         return BaseResponse::send(200, 'success', 'Layanan ditemukan', $service);
     }
 

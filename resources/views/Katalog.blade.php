@@ -27,27 +27,50 @@
     </section>
   </div>
 
-  <div class="content">
-    <section class="productDisplaySection">
-      <div class="productContainer">
-        <div class="productGrid" style="--src:url(/assets/c7be08698386abf7c057d4c061ec14b5.svg)">
-          <div class="tabs tab-round">
-            <div class="tab">
-              <a href="#contents10">Benih</a><p class="separator">|</p>
-              <a href="#contents11">Pupuk</a><p class="separator">|</p>
-              <a href="#contents12">Alat</a><p class="separator">|</p>
-              <a href="#contents13">Kopi</a>
+  <section class="productSection">
+    <div class="content">
+      <section class="productDisplaySection">
+        <div class="headerWrapper">
+          <h2 class="productHeading">Temukan Produk</h2>
+          <div class="searchBlock">
+            <div class="searchContainer">
+              <label class="searchLabel">cari produk</label>
+              <img class="searchIcon" src="/assets/10e024d110ae3a9dcd6a1befd5e1bd56.svg" alt="alt text" />
             </div>
+          </div>
+          <img class="categoryIcon" src="/assets/62b988033f448bf06b044a5d869ceec8.svg" alt="alt text" />
+        </div>
+        <div class="productContainer">
+          <div class="productGrid" style="--src:url(/assets/c7be08698386abf7c057d4c061ec14b5.svg)">
+            <div class="tabs tab-round">
+              <div class="tab">
+                <a href="#contents10">Benih</a>
+                <p class="separator">|</p>
+                <a href="#contents11">Pupuk</a>
+                <p class="separator">|</p>
+                <a href="#contents12">Alat</a>
+                <p class="separator">|</p>
+                <a href="#contents13">Kopi</a>
+              </div>
 
-            <div class="contents" id="contents10"><div class="productList" id="benih-products"></div></div>
-            <div class="contents" id="contents11"><div class="productList" id="pupuk-products"></div></div>
-            <div class="contents" id="contents12"><div class="productList" id="alat-products"></div></div>
-            <div class="contents" id="contents13"><div class="productList" id="kopi-products"></div></div>
+              <div class="contents" id="contents10">
+                <div class="productList" id="benih-products"></div>
+              </div>
+              <div class="contents" id="contents11">
+                <div class="productList" id="pupuk-products"></div>
+              </div>
+              <div class="contents" id="contents12">
+                <div class="productList" id="alat-products"></div>
+              </div>
+              <div class="contents" id="contents13">
+                <div class="productList" id="kopi-products"></div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-  </div>
+      </section>
+    </div>
+  </section>
 </main>
 
 <section class="affiliateMarketingSection">

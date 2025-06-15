@@ -24,13 +24,13 @@
 
     <section class="productOverviewSection">
       <div class="productContainer">
-        
+
         <div class="productCategories">
           <button class="tabButton active" data-category="Benih">Benih</button>
           <p class="separator">|</p>
           <button class="tabButton" data-category="Pupuk">Pupuk</button>
           <p class="separator">|</p>
-          <button class="tabButton" data-category="Alat">Alat</button>   
+          <button class="tabButton" data-category="Alat">Alat</button>
           <p class="separator">|</p>
           <button class="tabButton" data-category="Kopi">Kopi</button>
         </div>
@@ -51,30 +51,11 @@
     <section class="gardenCareSection">
       <!-- This section covers the garden care services. -->
       <div class="contentColumn">
-        <div class="serviceDescriptionColumn">
-          <p class="serviceTitle">Layanan Perawatan Kebun</p>
-          <p class="serviceDescription">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#x27;s standard dummy text ever since the 1500s,</p>
+        <div id="gardenServicesContainer" class="serviceDetailsColumn">
+          <!-- Akan diisi oleh JS -->
         </div>
-        <div class="serviceDetailsColumn">
-          <div class="serviceBlock">
-            <div class="serviceItem">
-              <div class="colorIndicator"></div>
-              <p class="serviceName">Roastery</p>
-            </div>
-          </div>
-          <div class="careBlock">
-            <div class="careItem">
-              <div class="colorIcon"></div>
-              <p class="careServiceName">Perawatan Kopi</p>
-            </div>
-          </div>
-          <div class="graftingBlock">
-            <div class="graftingItem">
-              <div class="colorTag"></div>
-              <p class="graftingServiceName">Stek Kopi</p>
-            </div>
-          </div>
-        </div>
+
+
         <p class="contactInfo">
           <!-- TODO -->
           Hubungi
@@ -86,32 +67,10 @@
       <!-- This section provides an overview of specialized training services. -->
       <div class="contentWrapper1">
         <p class="servicesTitle">Jasa Pelatihan Khusus</p>
-        <div class="servicesGrid">
-          <!-- Grid layout for displaying specialized training services. -->
-          <div class="trainingCard">
-            <!-- Card element showcasing a specific training service with image and description. -->
-            <img class="trainingImage" src="/assets/b96bf57bc8a48515c61db977c6cdb19f.png" alt="alt text" />
-            <div class="trainingDetails">
-              <!-- Container holding the title and description of a training service. -->
-              <p class="trainingTitle">Logo dan Branding</p>
-              <article class="trainingDesc">Kuasai metode penyeduhan terbaik seperti pour-over, espresso, french press, dan lainnya</article>
-            </div>
-          </div>
-          <div class="trainingCard">
-            <img class="trainingImage" src="/assets/1d9bf308618687e867a00670cd518ea0.png" alt="alt text" />
-            <div class="trainingDetails1">
-              <p class="trainingTitle">Barista dan Roastery</p>
-              <article class="trainingDesc1">Pelajari penggunaan mesin espresso dengan benar, teknik steaming untuk tekstur yang halus, serta seni latte art yang memukau.</article>
-            </div>
-          </div>
-          <div class="trainingCard1">
-            <img class="trainingImage1" src="/assets/b424c22c97bdb022a348f09bcbc25217.png" alt="alt text" />
-            <div class="trainingDetails2">
-              <p class="trainingTitle">Perawatan Kebun dan Pengolahan pasca panen</p>
-              <article class="trainingDesc1">Pelajari pemanggangan biji kopi dari light hingga dark roast untuk membuat karakter unik setiap biji.</article>
-            </div>
-          </div>
+        <div id="trainingServicesContainer" class="servicesGrid">
+          <!-- Akan diisi oleh JS -->
         </div>
+
         <article class="callToAction">
           <!-- TODO -->
           Ikuti Pelatihan

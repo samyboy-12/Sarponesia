@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('Category_ID');
             $table->string('Name');
             $table->text('Description')->nullable();
-            $table->enum('Category_type', ['kopi','benih','pupuk','peralatan','layanan','jasa','article']);
+            $table->enum('Category_type', ['kopi','benih','pupuk','peralatan','layanan','jasa','News','Coffee Technology','Tips and Trick']);
             $table->timestamps();
         });
     }

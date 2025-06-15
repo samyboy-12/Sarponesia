@@ -1,17 +1,3 @@
-<?php
-$produk = [
-  ['nama' => 'Gayo Aceh', 'jenis' => 'Kopi', 'kategori' => 'Arabica', 'harga' => 'Rp120.000', 'stok' => 50, 'gambar' => 'https://via.placeholder.com/50'],
-  ['nama' => 'Temanggung', 'jenis' => 'Kopi', 'kategori' => 'Robusta', 'harga' => 'Rp85.000', 'stok' => 30, 'gambar' => 'https://via.placeholder.com/50'],
-  ['nama' => 'Pupuk Kompos', 'jenis' => 'Pupuk', 'kategori' => '-', 'harga' => 'Rp50.000', 'stok' => 100, 'gambar' => 'https://via.placeholder.com/50'],
-  ['nama' => 'Cangkul', 'jenis' => 'Alat', 'kategori' => '-', 'harga' => 'Rp75.000', 'stok' => 20, 'gambar' => 'https://via.placeholder.com/50'],
-];
-
-$filter = isset($_GET['filter']) ? $_GET['filter'] : 'Semua';
-
-$filteredProduk = array_filter($produk, function ($item) use ($filter) {
-  return $filter === 'Semua' || strtolower($item['jenis']) === strtolower($filter);
-});
-?>
 <!DOCTYPE html>
 <html lang="id">
 
@@ -164,13 +150,13 @@ $filteredProduk = array_filter($produk, function ($item) use ($filter) {
     <h2>SARPONESIA<br><small style="font-weight: 400; font-size: 0.8rem;">INDONESIAN COFFEE</small></h2>
     <nav>
       <ul>
-  <li><a href="{{ route('manajemen-produk') }}">Manajemen Produk</a></li>
-  <li><a href="{{ route('manajemen-layanan') }}">Manajemen Layanan & Jasa</a></li>
-  <li><a href="{{ route('order') }}">Order</a></li>
-  <li><a href="{{ route('manajemen-artikel') }}">Manajemen Artikel</a></li>
-  <li><a href="{{ route('manajemen-kerjasama') }}">Manajemen Kerjasama</a></li>
-  <li><a href="{{ route('home') }}">Keluar</a></li>
-</ul>
+        <li><a href="{{ route('manajemen-produk') }}">Manajemen Produk</a></li>
+        <li><a href="{{ route('manajemen-layanan') }}">Manajemen Layanan & Jasa</a></li>
+        <li><a href="{{ route('order') }}">Order</a></li>
+        <li><a href="{{ route('manajemen-artikel') }}">Manajemen Artikel</a></li>
+        <li><a href="{{ route('manajemen-kerjasama') }}">Manajemen Kerjasama</a></li>
+        <li><a href="{{ route('home') }}">Keluar</a></li>
+      </ul>
 
     </nav>
   </aside>
@@ -184,10 +170,10 @@ $filteredProduk = array_filter($produk, function ($item) use ($filter) {
     </div>
 
     <div class="tabs">
-      <a href="?filter=Semua" class="<?= $filter == 'Semua' ? 'active' : '' ?>">Semua</a>
-      <a href="?filter=Kopi" class="<?= $filter == 'Kopi' ? 'active' : '' ?>">Kopi</a>
-      <a href="?filter=Pupuk" class="<?= $filter == 'Pupuk' ? 'active' : '' ?>">Pupuk</a>
-      <a href="?filter=Alat" class="<?= $filter == 'Alat' ? 'active' : '' ?>">Alat</a>
+      <a href="#" onclick="filterProducts('Semua')">Semua</a>
+      <a href="#" onclick="filterProducts('Kopi')">Kopi</a>
+      <a href="#" onclick="filterProducts('Pupuk')">Pupuk</a>
+      <a href="#" onclick="filterProducts('Alat')">Alat</a>
     </div>
 
     <div class="content">
@@ -202,17 +188,8 @@ $filteredProduk = array_filter($produk, function ($item) use ($filter) {
             <th>Gambar</th>
           </tr>
         </thead>
-        <tbody>
-          <?php foreach ($filteredProduk as $item): ?>
-            <tr>
-              <td><?= $item['nama'] ?></td>
-              <td><?= $item['jenis'] ?></td>
-              <td><?= $item['kategori'] ?></td>
-              <td><?= $item['harga'] ?></td>
-              <td><?= $item['stok'] ?></td>
-              <td><img src="<?= $item['gambar'] ?>" alt="<?= $item['nama'] ?>"></td>
-            </tr>
-          <?php endforeach; ?>
+        <tbody id="produk-body">
+          <!-- Data akan diisi via JavaScript -->
         </tbody>
       </table>
       <div class="actions">
@@ -221,6 +198,63 @@ $filteredProduk = array_filter($produk, function ($item) use ($filter) {
       </div>
     </div>
   </main>
+
+  <script>
+    const kategoriMap = {
+      1: 'Kopi',
+      2: 'Benih',
+      3: 'Pupuk',
+      4: 'Alat'
+    };
+
+    let allProducts = [];
+
+    function loadProducts() {
+      fetch('http://localhost:8000/api/products')
+        .then(response => response.json())
+        .then(result => {
+          allProducts = result.data;
+          displayProducts(allProducts);
+        })
+        .catch(error => console.error('Gagal mengambil data produk:', error));
+    }
+
+    function displayProducts(products) {
+      const tbody = document.getElementById('produk-body');
+      tbody.innerHTML = '';
+
+      products.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+        <td>${item.Name}</td>
+        <td>${kategoriMap[item.Category_ID] || 'Lainnya'}</td>
+        <td>${item.Description}</td>
+        <td>${formatRupiah(item.Price)}</td>
+        <td>${item.Stock}</td>
+        <td><img src="${item.Image_path}" alt="${item.Name}" style="height:50px;"></td>
+      `;
+        tbody.appendChild(row);
+      });
+    }
+
+    function formatRupiah(number) {
+      const num = parseFloat(number);
+      return isNaN(num) ? '-' : `Rp ${num.toLocaleString('id-ID')}`;
+    }
+
+    function filterProducts(category) {
+      if (category === 'Semua') {
+        displayProducts(allProducts);
+      } else {
+        const filtered = allProducts.filter(item => kategoriMap[item.Category_ID] === category);
+        displayProducts(filtered);
+      }
+    }
+
+    window.onload = loadProducts;
+  </script>
+
+
 </body>
 
 </html>
