@@ -342,6 +342,133 @@
             font-size: 1rem;
         }
 
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #6c757d;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: #2d3748;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #495057;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #8b5a3c;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn-cancel {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .btn-cancel:hover {
+            background-color: #5a6268;
+        }
+
+        .btn-submit {
+            background-color: #8b5a3c;
+            color: white;
+        }
+
+        .btn-submit:hover {
+            background-color: #7a4d33;
+        }
+
+        .image-preview {
+            margin-top: 0.5rem;
+            max-width: 100%;
+            max-height: 100px;
+            border-radius: 4px;
+            display: none;
+        }
+
         /* Responsive Design */
         @media (max-width: 1200px) {
             .sidebar {
@@ -383,6 +510,11 @@
             .table-row {
                 grid-template-columns: 1fr;
                 gap: 0.5rem;
+            }
+
+            .modal-content {
+                margin: 1rem;
+                max-width: 100%;
             }
         }
     </style>
@@ -448,8 +580,8 @@
                     <button class="search-btn">🔍</button>
                 </div>
                 <div class="action-buttons">
-                    <button class="btn btn-add">Tambah</button>
-                    <button class="btn btn-delete">Hapus</button>
+                    <button class="btn btn-add" id="add-product-btn">Tambah</button>
+                    <button class="btn btn-delete" id="delete-product-btn">Hapus</button>
                 </div>
             </div>
 
@@ -469,6 +601,61 @@
         </div>
     </div>
 
+    <!-- Modal for Adding/Editing Product -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Tambah Produk Baru</h2>
+                <button class="close-btn" id="close-modal-btn">×</button>
+            </div>
+            <div class="form-group">
+                <label for="product-name">Nama Produk *</label>
+                <input type="text" id="product-name" placeholder="Masukkan nama produk">
+                <div class="error-message" id="error-name">Nama produk wajib diisi</div>
+            </div>
+            <div class="form-group">
+                <label for="product-category">Kategori *</label>
+                <select id="product-category">
+                    <option value="">Pilih kategori</option>
+                    <option value="1">Kopi</option>
+                    <option value="2">Benih</option>
+                    <option value="3">Pupuk</option>
+                    <option value="4">Alat</option>
+                </select>
+                <div class="error-message" id="error-category">Kategori wajib dipilih</div>
+            </div>
+            <div class="form-group">
+                <label for="product-description">Deskripsi *</label>
+                <textarea id="product-description" placeholder="Masukkan deskripsi produk"></textarea>
+                <div class="error-message" id="error-description">Deskripsi wajib diisi</div>
+            </div>
+            <div class="form-group">
+                <label for="product-price">Harga *</label>
+                <input type="number" id="product-price" placeholder="Masukkan harga" min="0">
+                <div class="error-message" id="error-price">Harga wajib diisi dan harus angka positif</div>
+            </div>
+            <div class="form-group">
+                <label for="product-stock">Stok *</label>
+                <input type="number" id="product-stock" placeholder="Masukkan stok" min="0">
+                <div class="error-message" id="error-stock">Stok wajib diisi dan harus angka positif</div>
+            </div>
+            <div class="form-group">
+                <label for="product-image">Gambar Produk</label>
+                <input type="file" id="product-image" accept="image/*">
+                <img id="image-preview" class="image-preview" alt="Pratinjau Gambar">
+                <div class="error-message" id="error-image">Gambar wajib diunggah</div>
+            </div>
+            <div class="form-group">
+                <label for="product-tokped">Link Tokopedia</label>
+                <input type="url" id="product-tokped" placeholder="Masukkan link Tokopedia (opsional)">
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-cancel" id="cancel-modal-btn">Batal</button>
+                <button class="btn btn-submit" id="submit-product-btn">Simpan</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         const kategoriMap = {
             1: 'Kopi',
@@ -480,6 +667,7 @@
         let allProducts = [];
         let selectedProducts = new Set();
         let activeCategory = 'Pupuk';
+        let currentProductId = null; // Track product being edited
 
         function formatRupiah(number) {
             const num = parseFloat(number);
@@ -548,8 +736,8 @@
             // Re-attach edit icon event listeners
             document.querySelectorAll('.edit-icon').forEach(icon => {
                 icon.addEventListener('click', function() {
-                    const productId = this.getAttribute('data-product-id');
-                    alert(`Mengedit produk dengan ID: ${productId}`);
+                    const productId = parseInt(this.getAttribute('data-product-id'));
+                    openEditModal(productId);
                 });
             });
         }
@@ -570,6 +758,223 @@
             displayProducts(filtered);
         }
 
+        // Modal functionality
+        const addProductBtn = document.getElementById('add-product-btn');
+        const productModal = document.getElementById('product-modal');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const cancelModalBtn = document.getElementById('cancel-modal-btn');
+        const submitProductBtn = document.getElementById('submit-product-btn');
+        const modalTitle = document.querySelector('.modal-title');
+
+        function openAddModal() {
+            currentProductId = null;
+            modalTitle.textContent = 'Tambah Produk Baru';
+            submitProductBtn.textContent = 'Simpan';
+            resetForm();
+            document.getElementById('error-image').textContent = 'Gambar wajib diunggah';
+            productModal.classList.add('active');
+        }
+
+        function openEditModal(productId) {
+            const product = allProducts.find(p => p.Product_ID === productId);
+            if (!product) {
+                alert('Produk tidak ditemukan');
+                return;
+            }
+
+            currentProductId = productId;
+            modalTitle.textContent = 'Edit Produk';
+            submitProductBtn.textContent = 'Perbarui';
+            document.getElementById('error-image').textContent = 'Gambar wajib diunggah jika ingin mengganti';
+
+            document.getElementById('product-name').value = product.Name;
+            document.getElementById('product-category').value = product.Category_ID;
+            document.getElementById('product-description').value = product.Description;
+            document.getElementById('product-price').value = product.Price;
+            document.getElementById('product-stock').value = product.Stock;
+            document.getElementById('product-tokped').value = product.Link_tokped || '';
+            
+            const imagePreview = document.getElementById('image-preview');
+            imagePreview.src = product.Image_path;
+            imagePreview.style.display = 'block';
+
+            productModal.classList.add('active');
+        }
+
+        function closeModal() {
+            productModal.classList.remove('active');
+        }
+
+        function resetForm() {
+            document.getElementById('product-name').value = '';
+            document.getElementById('product-category').value = '';
+            document.getElementById('product-description').value = '';
+            document.getElementById('product-price').value = '';
+            document.getElementById('product-stock').value = '';
+            document.getElementById('product-image').value = '';
+            document.getElementById('product-tokped').value = '';
+            const imagePreview = document.getElementById('image-preview');
+            imagePreview.src = '';
+            imagePreview.style.display = 'none';
+            document.querySelectorAll('.error-message').forEach(error => {
+                error.style.display = 'none';
+            });
+        }
+
+        function validateForm(isEditMode) {
+            let isValid = true;
+            const name = document.getElementById('product-name').value.trim();
+            const category = document.getElementById('product-category').value;
+            const description = document.getElementById('product-description').value.trim();
+            const price = parseFloat(document.getElementById('product-price').value);
+            const stock = parseInt(document.getElementById('product-stock').value);
+            const image = document.getElementById('product-image').files[0];
+
+            if (!name) {
+                document.getElementById('error-name').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('error-name').style.display = 'none';
+            }
+
+            if (!category) {
+                document.getElementById('error-category').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('error-category').style.display = 'none';
+            }
+
+            if (!description) {
+                document.getElementById('error-description').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('error-description').style.display = 'none';
+            }
+
+            if (isNaN(price) || price < 0) {
+                document.getElementById('error-price').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('error-price').style.display = 'none';
+            }
+
+            if (isNaN(stock) || stock < 0) {
+                document.getElementById('error-stock').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('error-stock').style.display = 'none';
+            }
+
+            if (!isEditMode && !image) {
+                document.getElementById('error-image').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('error-image').style.display = 'none';
+            }
+
+            return isValid;
+        }
+
+        async function submitProduct() {
+            const isEditMode = currentProductId !== null;
+            if (!validateForm(isEditMode)) return;
+
+            const formData = new FormData();
+            formData.append('Name', document.getElementById('product-name').value.trim());
+            formData.append('Category_ID', document.getElementById('product-category').value);
+            formData.append('Description', document.getElementById('product-description').value.trim());
+            formData.append('Price', document.getElementById('product-price').value);
+            formData.append('Stock', document.getElementById('product-stock').value);
+            const image = document.getElementById('product-image').files[0];
+            if (image) formData.append('Image', image);
+            const tokpedLink = document.getElementById('product-tokped').value.trim();
+            if (tokpedLink) formData.append('Link_tokped', tokpedLink);
+
+            try {
+                const url = isEditMode 
+                    ? `http://localhost:8000/api/products/${currentProductId}`
+                    : 'http://localhost:8000/api/products';
+                const method = isEditMode ? 'PATCH' : 'POST';
+
+                const response = await fetch(url, {
+                    method: method,
+                    body: formData
+                });
+                const result = await response.json();
+                if (result.status === 'success') {
+                    closeModal();
+                    loadProducts();
+                    alert(isEditMode ? 'Produk berhasil diperbarui' : 'Produk berhasil ditambahkan');
+                } else {
+                    alert(`Gagal ${isEditMode ? 'memperbarui' : 'menambahkan'} produk: ${result.message}`);
+                }
+            } catch (error) {
+                console.error(`Gagal ${isEditMode ? 'memperbarui' : 'menambahkan'} produk:`, error);
+                alert(`Gagal ${isEditMode ? 'memperbarui' : 'menambahkan'} produk`);
+            }
+        }
+
+        async function deleteProducts() {
+            if (selectedProducts.size === 0) {
+                alert('Pilih produk yang ingin dihapus');
+                return;
+            }
+
+            if (!confirm(`Hapus ${selectedProducts.size} produk yang dipilih?`)) {
+                return;
+            }
+
+            let successCount = 0;
+            let errorMessages = [];
+
+            for (const productId of selectedProducts) {
+                try {
+                    const response = await fetch(`http://localhost:8000/api/products/${productId}`, {
+                        method: 'DELETE'
+                    });
+                    const result = await response.json();
+                    if (result.status === 'success') {
+                        successCount++;
+                    } else {
+                        errorMessages.push(`Produk ID ${productId}: ${result.message}`);
+                    }
+                } catch (error) {
+                    console.error(`Gagal menghapus produk ID ${productId}:`, error);
+                    errorMessages.push(`Produk ID ${productId}: Gagal menghapus`);
+                }
+            }
+
+            selectedProducts.clear();
+            loadProducts();
+
+            if (successCount === 0) {
+                alert('Gagal menghapus semua produk: ' + errorMessages.join('; '));
+            } else if (errorMessages.length > 0) {
+                alert(`${successCount} produk berhasil dihapus, tetapi ada kegagalan: ` + errorMessages.join('; '));
+            } else {
+                alert(`${successCount} produk berhasil dihapus`);
+            }
+        }
+
+        addProductBtn.addEventListener('click', openAddModal);
+        closeModalBtn.addEventListener('click', closeModal);
+        cancelModalBtn.addEventListener('click', closeModal);
+        submitProductBtn.addEventListener('click', submitProduct);
+        document.getElementById('delete-product-btn').addEventListener('click', deleteProducts);
+
+        // Image preview
+        document.getElementById('product-image').addEventListener('change', function() {
+            const imagePreview = document.getElementById('image-preview');
+            const file = this.files[0];
+            if (file) {
+                imagePreview.src = URL.createObjectURL(file);
+                imagePreview.style.display = 'block';
+            } else {
+                imagePreview.src = '';
+                imagePreview.style.display = 'none';
+            }
+        });
+
         // Tab switching functionality
         document.querySelectorAll('.tab').forEach(tab => {
             tab.addEventListener('click', function() {
@@ -583,27 +988,6 @@
         // Search functionality
         document.querySelector('.search-input').addEventListener('input', function(e) {
             filterProducts(activeCategory);
-        });
-
-        // Button functionality
-        document.querySelector('.btn-add').addEventListener('click', function() {
-            alert('Tambah produk baru');
-        });
-
-        document.querySelector('.btn-delete').addEventListener('click', function() {
-            if (selectedProducts.size > 0) {
-                if (confirm(`Hapus ${selectedProducts.size} produk yang dipilih?`)) {
-                    document.querySelectorAll('.table-row').forEach(row => {
-                        const productId = parseInt(row.getAttribute('data-product-id'));
-                        if (selectedProducts.has(productId)) {
-                            row.remove();
-                        }
-                    });
-                    selectedProducts.clear();
-                }
-            } else {
-                alert('Pilih produk yang ingin dihapus');
-            }
         });
 
         // Initialize
