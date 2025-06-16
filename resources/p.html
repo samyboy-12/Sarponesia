@@ -1,183 +1,580 @@
-<style>
-    .productList {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sarponesia Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.20.15/babel.min.js"></script>
+  <style>
+    /* CSS styles */
+    .dashboard-container {
+      min-height: 100vh;
+      display: flex;
+      background-color: #f3f4f6;
     }
 
-    .item {
-        width: 200px;
+    /* Sidebar */
+    .sidebar {
+      width: 20rem;
+      background: linear-gradient(to bottom, #7c2d12, #9a3412);
+      color: white;
+      padding: 1.5rem;
     }
 
-    .card {
-        background-color: #f3f0e6;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        transition: transform 0.3s ease;
+    .sidebar-header {
+      margin-bottom: 3rem;
     }
 
-    .card:hover {
-        transform: scale(1.05);
+    .sidebar-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
     }
 
-    .cardImage {
-        position: relative;
-        width: 100%;
-        height: 200px;
-        overflow: hidden;
+    .sidebar-subtitle {
+      color: #fef3c7;
+      font-size: 0.875rem;
     }
 
-    .cardImage img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
     }
 
-    .buyButton {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 10px 20px;
-        background-color: #4a2c17;
-        color: white;
-        border-radius: 5px;
-        display: none;
-        font-weight: bold;
+    .sidebar-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.2s;
     }
 
-    .card:hover .buyButton {
-        display: block;
+    .sidebar-item.active {
+      background-color: rgba(180, 83, 9, 0.5);
     }
 
-    .productDetails {
-        padding: 10px;
+    .sidebar-item:hover:not(.active) {
+      background-color: rgba(180, 83, 9, 0.3);
     }
 
-    .productName {
-        font-size: 16px;
-        font-weight: bold;
-        color: #4a2c17;
-        margin: 10px 0;
+    .sidebar-item span {
+      font-size: 0.875rem;
     }
 
-    .ratingWrapper {
-        display: flex;
-        justify-content: center;
-        gap: 2px;
-        margin-bottom: 10px;
+    .sidebar-footer {
+      margin-top: auto;
+      padding-top: 3rem;
     }
 
-    .starIcon {
-        width: 16px;
-        height: 16px;
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      padding: 2rem;
     }
 
-    .priceTag {
-        font-size: 18px;
-        color: #4a2c17;
-        font-weight: bold;
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
     }
-</style>
-<div class="productList">
-    <div class="item">
-        <div class="card">
-            <div class="cardImage">
-                <img src="/assets/1136581dfbcb6d65638b43946419b945.png" alt="Nama Produk">
-                <div class="buyButton">Beli</div>
+
+    .header-title {
+      font-size: 1.875rem;
+      font-weight: bold;
+      color: #1f2937;
+    }
+
+    .user-profile {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .user-avatar {
+      background-color: white;
+      border-radius: 9999px;
+      padding: 0.75rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .user-info {
+      color: #1f2937;
+    }
+
+    .user-name {
+      font-weight: 600;
+    }
+
+    .user-role {
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+
+    /* Content Card */
+    .content-card {
+      background-color: white;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .tab {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .tab.active {
+      background-color: #b45309;
+      color: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .tab:not(.active) {
+      background-color: #f3f4f6;
+      color: #4b5563;
+    }
+
+    .tab:not(.active):hover {
+      background-color: #e5e7eb;
+    }
+
+    /* Search */
+    .search-container {
+      margin-bottom: 1rem;
+      width: 20rem;
+      position: relative;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #9ca3af;
+    }
+
+    .search-input {
+      padding: 0.75rem 1rem 0.75rem 3rem;
+      border: 1px solid #d1d5db;
+      border-radius: 0.5rem;
+      width: 100%;
+      outline: none;
+    }
+
+    .search-input:focus {
+      border-color: #b45309;
+      box-shadow: 0 0 0 2px rgba(180, 83, 9, 0.2);
+    }
+
+    /* Actions */
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .action-button {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      transition: background-color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .add-button {
+      background-color: #b45309;
+      color: white;
+    }
+
+    .add-button:hover {
+      background-color: #92400e;
+    }
+
+    .delete-button {
+      background-color: #ef4444;
+      color: white;
+    }
+
+    .delete-button:hover:not(:disabled) {
+      background-color: #dc2626;
+    }
+
+    .delete-button:disabled {
+      background-color: #fca5a5;
+      cursor: not-allowed;
+    }
+
+    /* Table */
+    .table-container {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    thead tr {
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    th {
+      text-align: left;
+      padding: 1rem;
+      font-weight: 600;
+      color: #4b5563;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid #f3f4f6;
+      transition: background-color 0.2s;
+    }
+
+    tbody tr:hover {
+      background-color: #f9fafb;
+    }
+
+    td {
+      padding: 1rem;
+    }
+
+    .checkbox {
+      border-radius: 0.25rem;
+      border-color: #d1d5db;
+    }
+
+    .checkbox:checked {
+      background-color: #b45309;
+      border-color: #b45309;
+    }
+
+    .product-name {
+      font-weight: 500;
+      color: #1f2937;
+    }
+
+    .product-description,
+    .product-compatible,
+    .product-stock {
+      color: #6b7280;
+    }
+
+    .product-price {
+      font-weight: 600;
+      color: #1f2937;
+    }
+
+    .product-sold {
+      color: #2563eb;
+      font-weight: 600;
+    }
+
+    .edit-button {
+      color: #b45309;
+      transition: color 0.2s;
+    }
+
+    .edit-button:hover {
+      color: #92400e;
+    }
+
+    .empty-state {
+      padding: 2rem;
+      text-align: center;
+      color: #6b7280;
+    }
+
+    /* Status Info */
+    .status-info {
+      margin-top: 1.5rem;
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+
+    .selected-count {
+      margin-left: 1rem;
+      color: #b45309;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    import React, { useState } from 'react';
+    import { createRoot } from 'react-dom';
+    import { Search, Edit, Plus, User, Package, ShoppingCart, FileText, Handshake, LogOut } from 'https://cdn.jsdelivr.net/npm/lucide-react@0.441.0/dist/umd/lucide.min.js';
+
+    const SarponesiaDashboard = () => {
+      const [activeTab, setActiveTab] = useState('Pupuk');
+      const [searchTerm, setSearchTerm] = useState('');
+      const [selectedItems, setSelectedItems] = useState(new Set());
+
+      const products = [
+        {
+          id: 1,
+          nama: 'Roastedbean Robusta',
+          deskripsi: 'Roast level : medium city ...',
+          kompatibel: 'V60, Kopi susu gula aren',
+          harga: 'Rp 130.000',
+          stok: 500,
+          terjual: 1000
+        },
+        {
+          id: 2,
+          nama: 'Roastedbean Robusta',
+          deskripsi: 'Roast level : medium city ...',
+          kompatibel: 'V60, Kopi susu gula aren',
+          harga: 'Rp 10.000',
+          stok: 500,
+          terjual: 1000
+        },
+        {
+          id: 3,
+          nama: 'Roastedbean Robusta',
+          deskripsi: 'Roast level : medium city ...',
+          kompatibel: 'V60, Kopi susu gula aren',
+          harga: 'Rp 130.000',
+          stok: 500,
+          terjual: 1000
+        },
+        {
+          id: 4,
+          nama: 'Roastedbean Robusta',
+          deskripsi: 'Roast level : medium city ...',
+          kompatibel: 'V60, Kopi susu gula aren',
+          harga: 'Rp 130.000',
+          stok: 500,
+          terjual: 1000
+        }
+      ];
+
+      const menuItems = [
+        { icon: Package, label: 'Manajemen Produk', isActive: true },
+        { icon: Handshake, label: 'Manajemen layanan & Jasa' },
+        { icon: ShoppingCart, label: 'Order' },
+        { icon: FileText, label: 'Manajemen Artikel' },
+        { icon: Handshake, label: 'Manajemen Kerjasama' }
+      ];
+
+      const tabs = ['Benih', 'Pupuk', 'Alat', 'Kopi'];
+
+      const handleItemSelect = (id) => {
+        const newSelected = new Set(selectedItems);
+        if (newSelected.has(id)) {
+          newSelected.delete(id);
+        } else {
+          newSelected.add(id);
+        }
+        setSelectedItems(newSelected);
+      };
+
+      const handleSelectAll = (e) => {
+        if (e.target.checked) {
+          setSelectedItems(new Set(products.map(p => p.id)));
+        } else {
+          setSelectedItems(new Set());
+        }
+      };
+
+      const filteredProducts = products.filter(product =>
+        product.nama.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        product.deskripsi.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+
+      return (
+        <div className="dashboard-container">
+          {/* Sidebar */}
+          <div className="sidebar">
+            <div className="sidebar-header">
+              <h1 className="sidebar-title">SARPONESIA</h1>
+              <p className="sidebar-subtitle">INDONESIA COFFEE</p>
             </div>
-            <div class="productDetails">
-                <p class="productName">Nama Produk</p>
-                <div class="ratingWrapper">
-                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
-                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
-                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
-                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
-                    <img class="starIcon" src="/assets/5c6886f8f2599e896d4777377710adb0.svg" alt="Half Star">
+
+            <nav className="sidebar-nav">
+              {menuItems.map((item, index) => (
+                <div
+                  key={index}
+                  className={`sidebar-item ${item.isActive ? 'active' : ''}`}
+                >
+                  <item.icon size={20} />
+                  <span>{item.label}</span>
                 </div>
-                <p class="priceTag">Rp 20,0</p>
+              ))}
+            </nav>
+
+            <div className="sidebar-footer">
+              <div className="sidebar-item">
+                <LogOut size={20} />
+                <span>Keluar</span>
+              </div>
             </div>
-        </div>
-    </div>
-    <div class="item">
-        <div class="card">
-            <div class="cardImage">
-                <img src="/assets/1136581dfbcb6d65638b43946419b945.png" alt="Nama Produk">
-                <div class="buyButton">Beli</div>
-            </div>
-            <div class="productDetails">
-                <p class="productName">Nama Produk</p>
-                <div class="ratingWrapper">
-                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
-                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
-                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
-                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
-                    <img class="starIcon" src="/assets/5c6886f8f2599e896d4777377710adb0.svg" alt="Half Star">
+          </div>
+
+          {/* Main Content */}
+          <div className="main-content">
+            {/* Header */}
+            <div className="header">
+              <h2 className="header-title">Manajemen Produk</h2>
+              <div className="user-profile">
+                <div className="user-avatar">
+                  <User size={24} />
                 </div>
-                <p class="priceTag">Rp 20,0</p>
-            </div>
-        </div>
-    </div>
-    <div class="item">
-        <div class="card">
-            <div class="cardImage">
-                <img src="/assets/1136581dfbcb6d65638b43946419b945.png" alt="Nama Produk">
-                <div class="buyButton">Beli</div>
-            </div>
-            <div class="productDetails">
-                <p class="productName">Nama Produk</p>
-                <div class="ratingWrapper">
-                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
-                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
-                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
-                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
-                    <img class="starIcon" src="/assets/5c6886f8f2599e896d4777377710adb0.svg" alt="Half Star">
+                <div className="user-info">
+                  <p className="user-name">Jacob</p>
+                  <p className="user-role">Admin 2</p>
                 </div>
-                <p class="priceTag">Rp 20,0</p>
+              </div>
             </div>
+
+            {/* Content Card */}
+            <div className="content-card">
+              {/* Tabs */}
+              <div className="tabs">
+                {tabs.map((tab) => (
+                  <button
+                    key={tab}
+                    onClick={() => setActiveTab(tab)}
+                    className={`tab ${activeTab === tab ? 'active' : ''}`}
+                  >
+                    {tab}
+                  </button>
+                ))}
+              </div>
+
+              {/* Search */}
+              <div className="search-container">
+                <Search className="search-icon" size={20} />
+                <input
+                  type="text"
+                  placeholder="cari Produk"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="search-input"
+                />
+              </div>
+
+              {/* Actions */}
+              <div className="actions">
+                <button className="action-button add-button">
+                  <Plus size={20} />
+                  <span>Tambah</span>
+                </button>
+                <button 
+                  className="action-button delete-button"
+                  disabled={selectedItems.size === 0}
+                  onClick={() => {
+                    if (selectedItems.size > 0) {
+                      alert(`Menghapus ${selectedItems.size} item yang dipilih`);
+                      setSelectedItems(new Set());
+                    }
+                  }}
+                >
+                  Hapus ({selectedItems.size})
+                </button>
+              </div>
+
+              {/* Table */}
+              <div className="table-container">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>
+                        <input
+                          type="checkbox"
+                          onChange={handleSelectAll}
+                          checked={selectedItems.size === products.length && products.length > 0}
+                          className="checkbox"
+                        />
+                      </th>
+                      <th>Nama</th>
+                      <th>Deskripsi</th>
+                      <th>Kompatibel</th>
+                      <th>Harga</th>
+                      <th>Stok</th>
+                      <th>Terjual</th>
+                      <th>Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {filteredProducts.length > 0 ? (
+                      filteredProducts.map((product) => (
+                        <tr key={product.id}>
+                          <td>
+                            <input
+                              type="checkbox"
+                              checked={selectedItems.has(product.id)}
+                              onChange={() => handleItemSelect(product.id)}
+                              className="checkbox"
+                            />
+                          </td>
+                          <td>
+                            <div className="product-name">{product.nama}</div>
+                          </td>
+                          <td className="product-description">{product.deskripsi}</td>
+                          <td className="product-compatible">{product.kompatibel}</td>
+                          <td className="product-price">{product.harga}</td>
+                          <td className="product-stock">{product.stok}</td>
+                          <td>
+                            <span className="product-sold">{product.terjual}</span>
+                          </td>
+                          <td>
+                            <button 
+                              className="edit-button"
+                              onClick={() => alert(`Editing product: ${product.nama}`)}
+                            >
+                              <Edit size={18} />
+                            </button>
+                          </td>
+                        </tr>
+                      ))
+                    ) : (
+                      <tr>
+                        <td colSpan="8" className="empty-state">
+                          {searchTerm ? `Tidak ada produk yang ditemukan untuk "${searchTerm}"` : 'Tidak ada produk'}
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Status Info */}
+              <div className="status-info">
+                Menampilkan {filteredProducts.length} dari {products.length} produk
+                {selectedItems.size > 0 && (
+                  <span className="selected-count">
+                    {selectedItems.size} item dipilih
+                  </span>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-    <div class="item">
-        <div class="card">
-            <div class="cardImage">
-                <img src="/assets/1136581dfbcb6d65638b43946419b945.png" alt="Nama Produk">
-                <div class="buyButton">Beli</div>
-            </div>
-            <div class="productDetails">
-                <p class="productName">Nama Produk</p>
-                <div class="ratingWrapper">
-                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
-                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
-                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
-                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
-                    <img class="starIcon" src="/assets/5c6886f8f2599e896d4777377710adb0.svg" alt="Half Star">
-                </div>
-                <p class="priceTag">Rp 20,0</p>
-            </div>
-        </div>
-    </div>
-    <div class="item">
-        <div class="card">
-            <div class="cardImage">
-                <img src="/assets/1136581dfbcb6d65638b43946419b945.png" alt="Nama Produk">
-                <div class="buyButton">Beli</div>
-            </div>
-            <div class="productDetails">
-                <p class="productName">Nama Produk</p>
-                <div class="ratingWrapper">
-                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
-                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
-                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
-                    <img class="starIcon" src="/assets/1f0e7cdf57ecffa33f58c858deafbd9f.svg" alt="Star">
-                    <img class="starIcon" src="/assets/5c6886f8f2599e896d4777377710adb0.svg" alt="Half Star">
-                </div>
-                <p class="priceTag">Rp 20,0</p>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Repeat similar structure for each product item -->
-</div>
+      );
+    };
+
+    const root = createRoot(document.getElementById('root'));
+    root.render(<SarponesiaDashboard />);
+  </script>
+</body>
+</html>
