@@ -5,6 +5,8 @@ namespace App\Http\Controllers\API;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Helper\BaseResponse;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 class ProductController
 {
@@ -27,12 +29,17 @@ class ProductController
         $validated = $request->validate([
             'Name' => 'required|string|max:255',
             'Description' => 'nullable|string',
-            'Price' => 'required|numeric',
-            'Stock' => 'required|integer',
+            'Price' => 'required|numeric|min:0',
+            'Stock' => 'required|integer|min:0',
             'Category_ID' => 'required|exists:categories,Category_ID',
-            'Image_path' => 'nullable|string|max:255',
-            'Link_tokped' => 'nullable|string|max:255',
+            'Image' => 'required|image|mimes:jpg,jpeg,png|max:2048', // Image required for create
+            'Link_tokped' => 'nullable|url|max:255',
         ]);
+
+        if ($request->hasFile('Image')) {
+            $path = $request->file('Image')->store('images', 'public');
+            $validated['Image_path'] = Storage::url($path);
+        }
 
         $product = Product::create($validated);
 
@@ -47,14 +54,26 @@ class ProductController
         }
 
         $validated = $request->validate([
-            'Name' => 'sometimes|string|max:255',
+            'Name' => 'sometimes|required|string|max:255',
             'Description' => 'nullable|string',
-            'Price' => 'sometimes|numeric',
-            'Stock' => 'sometimes|integer',
-            'Category_ID' => 'sometimes|exists:categories,Category_ID',
-            'Image_path' => 'nullable|string|max:255',
-            'Link_tokped' => 'nullable|string|max:255',
+            'Price' => 'sometimes|required|numeric|min:0',
+            'Stock' => 'sometimes|required|integer|min:0',
+            'Category_ID' => 'sometimes|required|exists:categories,Category_ID',
+            'Image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'Link_tokped' => 'nullable|url|max:255',
         ]);
+
+        // Log incoming request for debugging
+        Log::info('Update Request Data:', ['input' => $request->all(), 'files' => $request->hasFile('Image')]);
+        Log::info('Validated Data:', $validated);
+
+        if ($request->hasFile('Image')) {
+            if ($product->Image_path) {
+                Storage::disk('public')->delete(str_replace('/storage/', '', $product->Image_path));
+            }
+            $path = $request->file('Image')->store('images', 'public');
+            $validated['Image_path'] = Storage::url($path);
+        }
 
         $product->update($validated);
 
@@ -66,6 +85,10 @@ class ProductController
         $product = Product::find($id);
         if (!$product) {
             return BaseResponse::send(404, 'error', 'Produk tidak ditemukan', null, 'Not Found');
+        }
+
+        if ($product->Image_path) {
+            Storage::disk('public')->delete(str_replace('/storage/', '', $product->Image_path));
         }
 
         $product->delete();
