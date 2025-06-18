@@ -1,0 +1,400 @@
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      min-height: 100vh;
+    }
+
+   
+
+    /* Product Management */
+    .product-section {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+
+    .product-tabs {
+      display: flex;
+      background-color: #f8f9fa;
+      padding: 0.5rem;
+      gap: 0.25rem;
+    }
+
+    .tab {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      background: transparent;
+      color: #6c757d;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .tab:hover {
+      background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    .tab.active {
+      background-color: #8b5a3c;
+      color: white;
+    }
+
+    .product-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem;
+      border-bottom: 1px solid #e9ecef;
+    }
+
+    .search-container {
+      position: relative;
+      flex: 1;
+      max-width: 400px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      padding-right: 3rem;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: #8b5a3c;
+    }
+
+    .search-btn {
+      position: absolute;
+      right: 0.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      padding: 0.5rem;
+      cursor: pointer;
+      color: #6c757d;
+      font-size: 1.1rem;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-add {
+      background-color: #8b5a3c;
+      color: white;
+    }
+
+    .btn-add:hover {
+      background-color: #7a4d33;
+    }
+
+    .btn-delete {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .btn-delete:hover {
+      background-color: #c82333;
+    }
+
+    /* Product Table */
+    .product-table {
+      width: 100%;
+    }
+
+    .table-header {
+      background-color: #f8f9fa;
+      padding: 1rem 1.5rem;
+      display: grid;
+      grid-template-columns: 80px 200px 150px 250px 120px 100px 100px 100px; /* Adjusted for 'Gambar' and 'Terjual' */
+      gap: 1rem;
+      align-items: center;
+      font-weight: 600;
+      color: #495057;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .table-row {
+      padding: 1.25rem 1.5rem;
+      display: grid;
+      grid-template-columns: 80px 200px 150px 250px 120px 100px 100px 100px; /* Adjusted for 'Gambar' and 'Terjual' */
+      gap: 1rem;
+      align-items: center;
+      border-bottom: 1px solid #e9ecef;
+      transition: background-color 0.2s ease;
+    }
+
+    .table-row:hover {
+      background-color: #f8f9fa;
+    }
+
+    .action-column {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem; /* Space between checkbox and edit icon */
+    }
+
+    .checkbox {
+      width: 18px;
+      height: 18px;
+      border: 2px solid #dee2e6;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .product-name {
+      font-weight: 500;
+      color: #2d3748;
+    }
+
+    .product-category {
+      color: #6c757d;
+      font-size: 0.85rem;
+    }
+
+    .product-description {
+      color: #6c757d;
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+
+    .price {
+      font-weight: 600;
+      color: #2d3748;
+    }
+
+    .stock {
+      color: #6c757d;
+    }
+
+    .sold {
+      color: #6c757d;
+    }
+
+    .product-image {
+      height: 50px;
+      border-radius: 4px;
+    }
+
+    .edit-icon {
+      color: #6c757d;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    .edit-icon:hover {
+      color: #8b5a3c;
+    }
+
+    .empty-state {
+      padding: 2rem;
+      text-align: center;
+      color: #6c757d;
+      font-size: 1rem;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color
+
+: #2d3748;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #6c757d;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      color: #2d3748;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #495057;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #8b5a3c;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .error-message {
+      color: #dc3545;
+      font-size: 0.8rem;
+      margin-top: 0.25rem;
+      display: none;
+    }
+
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .btn-cancel {
+      background-color: #6c757d;
+      color: white;
+    }
+
+    .btn-cancel:hover {
+      background-color: #5a6268;
+    }
+
+    .btn-submit {
+      background-color: #8b5a3c;
+      color: white;
+    }
+
+    .btn-submit:hover {
+      background-color: #7a4d33;
+    }
+
+    .image-preview {
+      margin-top: 0.5rem;
+      max-width: 100%;
+      max-height: 100px;
+      border-radius: 4px;
+      display: none;
+    }
+
+    .btn:disabled {
+      background-color: #a0a0a0;
+      cursor: not-allowed;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+      .sidebar {
+        width: 250px;
+      }
+
+      .table-header,
+      .table-row {
+        grid-template-columns: 70px 180px 130px 200px 100px 80px 100px 80px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        position: fixed;
+        left: -280px;
+        z-index: 1000;
+        transition: left 0.3s ease;
+      }
+
+      .main-content {
+        padding: 1rem;
+      }
+
+      .header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+
+      .product-controls {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+      }
+
+      .table-header,
+      .table-row {
+        grid-template-columns: 1fr;
+      }
+    }

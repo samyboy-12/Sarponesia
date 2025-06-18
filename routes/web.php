@@ -37,13 +37,13 @@ Route::view('/artikel', 'artikel')->name('artikel');
 
 // Blade File Routes
 Route::view('/manajemen-artikel', 'manajemen_artikel')->name('manajemen-artikel');
-Route::view('/registrasi', 'auth.Registrasi')->name('registrasi');
-Route::view('/reset', 'auth.Reset')->name('reset');
-Route::view('/logout', 'logout')->name('logout');
 Route::view('/manajemen-kerjasama', 'manajemen_kerjasama')->name('manajemen-kerjasama');
 Route::view('/manajemen-layanan', 'manajemen_layanan')->name('manajemen-layanan');
 Route::view('/manajemen-produk', 'manajemen_produk')->name('manajemen-produk');
 Route::view('/order', 'order')->name('order');
+Route::view('/registrasi', 'auth.Registrasi')->name('registrasi');
+Route::view('/reset', 'auth.Reset')->name('reset');
+Route::view('/logout', 'logout')->name('logout');
 Route::view('/overviewproduk', 'pembelian.overviewproduk');
 Route::view('/review', 'pembelian.review')->name('pembelian/review');
 Route::view('/cart', 'pembelian.cart');

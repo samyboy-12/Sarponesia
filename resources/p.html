@@ -1,580 +1,512 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sarponesia Dashboard</title>
-  <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.20.15/babel.min.js"></script>
-  <style>
-    /* CSS styles */
-    .dashboard-container {
-      min-height: 100vh;
-      display: flex;
-      background-color: #f3f4f6;
-    }
-
-    /* Sidebar */
-    .sidebar {
-      width: 20rem;
-      background: linear-gradient(to bottom, #7c2d12, #9a3412);
-      color: white;
-      padding: 1.5rem;
-    }
-
-    .sidebar-header {
-      margin-bottom: 3rem;
-    }
-
-    .sidebar-title {
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-    }
-
-    .sidebar-subtitle {
-      color: #fef3c7;
-      font-size: 0.875rem;
-    }
-
-    .sidebar-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .sidebar-item {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.75rem;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
-
-    .sidebar-item.active {
-      background-color: rgba(180, 83, 9, 0.5);
-    }
-
-    .sidebar-item:hover:not(.active) {
-      background-color: rgba(180, 83, 9, 0.3);
-    }
-
-    .sidebar-item span {
-      font-size: 0.875rem;
-    }
-
-    .sidebar-footer {
-      margin-top: auto;
-      padding-top: 3rem;
-    }
-
-    /* Main Content */
-    .main-content {
-      flex: 1;
-      padding: 2rem;
-    }
-
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2rem;
-    }
-
-    .header-title {
-      font-size: 1.875rem;
-      font-weight: bold;
-      color: #1f2937;
-    }
-
-    .user-profile {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .user-avatar {
-      background-color: white;
-      border-radius: 9999px;
-      padding: 0.75rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .user-info {
-      color: #1f2937;
-    }
-
-    .user-name {
-      font-weight: 600;
-    }
-
-    .user-role {
-      font-size: 0.875rem;
-      color: #6b7280;
-    }
-
-    /* Content Card */
-    .content-card {
-      background-color: white;
-      border-radius: 1rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      padding: 2rem;
-    }
-
-    /* Tabs */
-    .tabs {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .tab {
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
-      font-weight: 500;
-      transition: all 0.2s;
-      cursor: pointer;
-    }
-
-    .tab.active {
-      background-color: #b45309;
-      color: white;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .tab:not(.active) {
-      background-color: #f3f4f6;
-      color: #4b5563;
-    }
-
-    .tab:not(.active):hover {
-      background-color: #e5e7eb;
-    }
-
-    /* Search */
-    .search-container {
-      margin-bottom: 1rem;
-      width: 20rem;
-      position: relative;
-    }
-
-    .search-icon {
-      position: absolute;
-      left: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #9ca3af;
-    }
-
-    .search-input {
-      padding: 0.75rem 1rem 0.75rem 3rem;
-      border: 1px solid #d1d5db;
-      border-radius: 0.5rem;
-      width: 100%;
-      outline: none;
-    }
-
-    .search-input:focus {
-      border-color: #b45309;
-      box-shadow: 0 0 0 2px rgba(180, 83, 9, 0.2);
-    }
-
-    /* Actions */
-    .actions {
-      display: flex;
-      justify-content: flex-end;
-      gap: 0.75rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .action-button {
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
-      font-weight: 500;
-      transition: background-color 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .add-button {
-      background-color: #b45309;
-      color: white;
-    }
-
-    .add-button:hover {
-      background-color: #92400e;
-    }
-
-    .delete-button {
-      background-color: #ef4444;
-      color: white;
-    }
-
-    .delete-button:hover:not(:disabled) {
-      background-color: #dc2626;
-    }
-
-    .delete-button:disabled {
-      background-color: #fca5a5;
-      cursor: not-allowed;
-    }
-
-    /* Table */
-    .table-container {
-      overflow-x: auto;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    thead tr {
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    th {
-      text-align: left;
-      padding: 1rem;
-      font-weight: 600;
-      color: #4b5563;
-    }
-
-    tbody tr {
-      border-bottom: 1px solid #f3f4f6;
-      transition: background-color 0.2s;
-    }
-
-    tbody tr:hover {
-      background-color: #f9fafb;
-    }
-
-    td {
-      padding: 1rem;
-    }
-
-    .checkbox {
-      border-radius: 0.25rem;
-      border-color: #d1d5db;
-    }
-
-    .checkbox:checked {
-      background-color: #b45309;
-      border-color: #b45309;
-    }
-
-    .product-name {
-      font-weight: 500;
-      color: #1f2937;
-    }
-
-    .product-description,
-    .product-compatible,
-    .product-stock {
-      color: #6b7280;
-    }
-
-    .product-price {
-      font-weight: 600;
-      color: #1f2937;
-    }
-
-    .product-sold {
-      color: #2563eb;
-      font-weight: 600;
-    }
-
-    .edit-button {
-      color: #b45309;
-      transition: color 0.2s;
-    }
-
-    .edit-button:hover {
-      color: #92400e;
-    }
-
-    .empty-state {
-      padding: 2rem;
-      text-align: center;
-      color: #6b7280;
-    }
-
-    /* Status Info */
-    .status-info {
-      margin-top: 1.5rem;
-      font-size: 0.875rem;
-      color: #6b7280;
-    }
-
-    .selected-count {
-      margin-left: 1rem;
-      color: #b45309;
-      font-weight: 500;
-    }
-  </style>
-</head>
-<body>
-  <div id="root"></div>
-  <script type="text/babel">
-    import React, { useState } from 'react';
-    import { createRoot } from 'react-dom';
-    import { Search, Edit, Plus, User, Package, ShoppingCart, FileText, Handshake, LogOut } from 'https://cdn.jsdelivr.net/npm/lucide-react@0.441.0/dist/umd/lucide.min.js';
-
-    const SarponesiaDashboard = () => {
-      const [activeTab, setActiveTab] = useState('Pupuk');
-      const [searchTerm, setSearchTerm] = useState('');
-      const [selectedItems, setSelectedItems] = useState(new Set());
-
-      const products = [
-        {
-          id: 1,
-          nama: 'Roastedbean Robusta',
-          deskripsi: 'Roast level : medium city ...',
-          kompatibel: 'V60, Kopi susu gula aren',
-          harga: 'Rp 130.000',
-          stok: 500,
-          terjual: 1000
-        },
-        {
-          id: 2,
-          nama: 'Roastedbean Robusta',
-          deskripsi: 'Roast level : medium city ...',
-          kompatibel: 'V60, Kopi susu gula aren',
-          harga: 'Rp 10.000',
-          stok: 500,
-          terjual: 1000
-        },
-        {
-          id: 3,
-          nama: 'Roastedbean Robusta',
-          deskripsi: 'Roast level : medium city ...',
-          kompatibel: 'V60, Kopi susu gula aren',
-          harga: 'Rp 130.000',
-          stok: 500,
-          terjual: 1000
-        },
-        {
-          id: 4,
-          nama: 'Roastedbean Robusta',
-          deskripsi: 'Roast level : medium city ...',
-          kompatibel: 'V60, Kopi susu gula aren',
-          harga: 'Rp 130.000',
-          stok: 500,
-          terjual: 1000
-        }
-      ];
-
-      const menuItems = [
-        { icon: Package, label: 'Manajemen Produk', isActive: true },
-        { icon: Handshake, label: 'Manajemen layanan & Jasa' },
-        { icon: ShoppingCart, label: 'Order' },
-        { icon: FileText, label: 'Manajemen Artikel' },
-        { icon: Handshake, label: 'Manajemen Kerjasama' }
-      ];
-
-      const tabs = ['Benih', 'Pupuk', 'Alat', 'Kopi'];
-
-      const handleItemSelect = (id) => {
-        const newSelected = new Set(selectedItems);
-        if (newSelected.has(id)) {
-          newSelected.delete(id);
-        } else {
-          newSelected.add(id);
-        }
-        setSelectedItems(newSelected);
-      };
-
-      const handleSelectAll = (e) => {
-        if (e.target.checked) {
-          setSelectedItems(new Set(products.map(p => p.id)));
-        } else {
-          setSelectedItems(new Set());
-        }
-      };
-
-      const filteredProducts = products.filter(product =>
-        product.nama.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        product.deskripsi.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-
-      return (
-        <div className="dashboard-container">
-          {/* Sidebar */}
-          <div className="sidebar">
-            <div className="sidebar-header">
-              <h1 className="sidebar-title">SARPONESIA</h1>
-              <p className="sidebar-subtitle">INDONESIA COFFEE</p>
-            </div>
-
-            <nav className="sidebar-nav">
-              {menuItems.map((item, index) => (
-                <div
-                  key={index}
-                  className={`sidebar-item ${item.isActive ? 'active' : ''}`}
-                >
-                  <item.icon size={20} />
-                  <span>{item.label}</span>
-                </div>
-              ))}
-            </nav>
-
-            <div className="sidebar-footer">
-              <div className="sidebar-item">
-                <LogOut size={20} />
-                <span>Keluar</span>
-              </div>
-            </div>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Automation Test Report</title>
+<link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@d6562a79075e061305ccfdb82f01e5e195e2d307/spark/css/spark-style.css" rel="stylesheet" />
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@7cc78ce/spark/js/jsontree.js"></script>
+<style type="text/css"></style></head><body class="spa -report standard">
+  <div class="app">
+    <div class="layout">
+<div class="header navbar">
+<div class="vheader">
+<div class="nav-logo">
+<a href="#">
+<div class="logo" style="background-image: url('https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png')"></div>
+</a>
+</div>
+<ul class="nav-left">
+<li class="search-box">
+<a class="search-toggle" href="#">
+<i class="search-icon fa fa-search"></i>
+<i class="search-icon-close fa fa-close"></i>
+</a>
+</li>
+<li class="search-input"><input id="search-tests" class="form-control" type="text" placeholder="Search..."></li>
+</ul>
+<ul class="nav-right">
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Cucumber Test Results</span></a>
+</li>
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Jun 9, 2025 10:01:23 pm</span></a>
+</li>
+</ul>
+</div>
+</div><div class="side-nav">
+<div class="side-nav-inner">
+<ul class="side-nav-menu">
+<li class="nav-item dropdown" onclick="toggleView('test-view')">
+<a id="nav-test" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
+<a id="nav-dashboard" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bar-chart"></i></span>
+</a>
+</li>
+</ul>
+</div>
+</div>      <div class="vcontainer">
+        <div class="main-content">
+<div class="test-wrapper row view test-view">
+  <div class="test-list">
+    <div class="test-list-tools">
+<ul class="tools pull-left">
+<li><a href="#"><span class="font-size-14">Tests</span></a></li>
+</ul>
+<ul class="tools text-right">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
+<ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<div class="dropdown-divider"></div>
+<a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
+</ul>
+</li>
+</ul>
+</div>    <div class="test-list-wrapper scrollable">
+      <ul class="test-list-item">
+        <li class="test-item"  status="pass" test-id="1"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">User can search for a product</p>
+            <p class="text-sm">
+              <span>22.01.23</span> / <span>00:00:39:079</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
           </div>
-
-          {/* Main Content */}
-          <div className="main-content">
-            {/* Header */}
-            <div className="header">
-              <h2 className="header-title">Manajemen Produk</h2>
-              <div className="user-profile">
-                <div className="user-avatar">
-                  <User size={24} />
-                </div>
-                <div className="user-info">
-                  <p className="user-name">Jacob</p>
-                  <p className="user-role">Admin 2</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Content Card */}
-            <div className="content-card">
-              {/* Tabs */}
-              <div className="tabs">
-                {tabs.map((tab) => (
-                  <button
-                    key={tab}
-                    onClick={() => setActiveTab(tab)}
-                    className={`tab ${activeTab === tab ? 'active' : ''}`}
-                  >
-                    {tab}
-                  </button>
-                ))}
-              </div>
-
-              {/* Search */}
-              <div className="search-container">
-                <Search className="search-icon" size={20} />
-                <input
-                  type="text"
-                  placeholder="cari Produk"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="search-input"
-                />
-              </div>
-
-              {/* Actions */}
-              <div className="actions">
-                <button className="action-button add-button">
-                  <Plus size={20} />
-                  <span>Tambah</span>
-                </button>
-                <button 
-                  className="action-button delete-button"
-                  disabled={selectedItems.size === 0}
-                  onClick={() => {
-                    if (selectedItems.size > 0) {
-                      alert(`Menghapus ${selectedItems.size} item yang dipilih`);
-                      setSelectedItems(new Set());
-                    }
-                  }}
-                >
-                  Hapus ({selectedItems.size})
-                </button>
-              </div>
-
-              {/* Table */}
-              <div className="table-container">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>
-                        <input
-                          type="checkbox"
-                          onChange={handleSelectAll}
-                          checked={selectedItems.size === products.length && products.length > 0}
-                          className="checkbox"
-                        />
-                      </th>
-                      <th>Nama</th>
-                      <th>Deskripsi</th>
-                      <th>Kompatibel</th>
-                      <th>Harga</th>
-                      <th>Stok</th>
-                      <th>Terjual</th>
-                      <th>Aksi</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {filteredProducts.length > 0 ? (
-                      filteredProducts.map((product) => (
-                        <tr key={product.id}>
-                          <td>
-                            <input
-                              type="checkbox"
-                              checked={selectedItems.has(product.id)}
-                              onChange={() => handleItemSelect(product.id)}
-                              className="checkbox"
-                            />
-                          </td>
-                          <td>
-                            <div className="product-name">{product.nama}</div>
-                          </td>
-                          <td className="product-description">{product.deskripsi}</td>
-                          <td className="product-compatible">{product.kompatibel}</td>
-                          <td className="product-price">{product.harga}</td>
-                          <td className="product-stock">{product.stok}</td>
-                          <td>
-                            <span className="product-sold">{product.terjual}</span>
-                          </td>
-                          <td>
-                            <button 
-                              className="edit-button"
-                              onClick={() => alert(`Editing product: ${product.nama}`)}
-                            >
-                              <Edit size={18} />
-                            </button>
-                          </td>
-                        </tr>
-                      ))
-                    ) : (
-                      <tr>
-                        <td colSpan="8" className="empty-state">
-                          {searchTerm ? `Tidak ada produk yang ditemukan untuk "${searchTerm}"` : 'Tidak ada produk'}
-                        </td>
-                      </tr>
-                    )}
-                  </tbody>
-                </table>
-              </div>
-
-              {/* Status Info */}
-              <div className="status-info">
-                Menampilkan {filteredProducts.length} dari {products.length} produk
-                {selectedItems.size > 0 && (
-                  <span className="selected-count">
-                    {selectedItems.size} item dipilih
-                  </span>
-                )}
-              </div>
-            </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">User can search for a product</h5>
+<span class='badge badge-success'>06.09.2025 22.01.23</span>
+<span class='badge badge-danger'>06.09.2025 22.02.03</span>
+<span class='badge badge-default'>00:00:39:079</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>22.01.32</td>
+        <td>
+          Browser launched and maximized.
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>22.01.32</td>
+        <td>
+          Browser launch step executed.
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>22.01.46</td>
+        <td>
+          Navigated to URL: https://automationexercise.com
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>22.01.46</td>
+        <td>
+          Home page is visible.
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>22.02.03</td>
+        <td>
+          Scenario passed: User can search for a product
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>22.02.03</td>
+        <td>
+          Browser closed.
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
           </div>
-        </div>
-      );
-    };
-
-    const root = createRoot(document.getElementById('root'));
-    root.render(<SarponesiaDashboard />);
-  </script>
-</body>
+        </li>
+        <li class="test-item"  status="pass" test-id="2"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">User can subscribe with email successfully</p>
+            <p class="text-sm">
+              <span>22.02.03</span> / <span>00:00:14:531</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">User can subscribe with email successfully</h5>
+<span class='badge badge-success'>06.09.2025 22.02.03</span>
+<span class='badge badge-danger'>06.09.2025 22.02.18</span>
+<span class='badge badge-default'>00:00:14:531</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>22.02.06</td>
+        <td>
+          Browser launched and maximized.
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>22.02.06</td>
+        <td>
+          Browser launch step executed.
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>22.02.17</td>
+        <td>
+          Navigated to URL: https://automationexercise.com
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>22.02.17</td>
+        <td>
+          Home page is visible.
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>22.02.17</td>
+        <td>
+          Scrolled down to footer.
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>22.02.17</td>
+        <td>
+          'SUBSCRIPTION' text is visible.
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>22.02.18</td>
+        <td>
+          Entered email and clicked subscribe: testuser@example.com
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>22.02.18</td>
+        <td>
+          Success message is visible.
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>22.02.18</td>
+        <td>
+          Scenario passed: User can subscribe with email successfully
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>22.02.18</td>
+        <td>
+          Browser closed.
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="3"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Verify user can subscribe via the cart page</p>
+            <p class="text-sm">
+              <span>22.02.18</span> / <span>00:00:30:161</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Verify user can subscribe via the cart page</h5>
+<span class='badge badge-success'>06.09.2025 22.02.18</span>
+<span class='badge badge-danger'>06.09.2025 22.02.48</span>
+<span class='badge badge-default'>00:00:30:161</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=3</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>22.02.20</td>
+        <td>
+          Browser launched and maximized.
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>22.02.20</td>
+        <td>
+          Browser launch step executed.
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>22.02.45</td>
+        <td>
+          Navigated to URL: https://automationexercise.com
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>22.02.45</td>
+        <td>
+          Home page is visible.
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>22.02.47</td>
+        <td>
+          Scrolled down to footer.
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>22.02.47</td>
+        <td>
+          'SUBSCRIPTION' text is visible.
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>22.02.48</td>
+        <td>
+          Entered email and clicked subscribe: test@example.com
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>22.02.48</td>
+        <td>
+          Success message is visible.
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>22.02.48</td>
+        <td>
+          Scenario passed: Verify user can subscribe via the cart page
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>22.02.48</td>
+        <td>
+          Browser closed.
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+<div class="test-content scrollable">
+<div class="test-content-tools">
+<ul><li><a class="back-to-test" href="#"><i class="fa fa-arrow-left"></i></a></li></ul>
+</div>
+<div class="test-content-detail"><div class="detail-body"></div></div>
+</div></div>
+<div class="container-fluid p-4 view dashboard-view">
+<div class="row">
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Started</p>
+<h3>Jun 9, 2025 10:01:23 pm</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Ended</p>
+<h3>Jun 9, 2025 10:02:48 pm</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-pass">Tests Passed</p>
+<h3>3</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-fail">Tests Failed</p>
+<h3>0</h3>
+</div></div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Tests</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='parent-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='100%'>
+<b>3</b> tests passed
+</small>
+</div>
+<div>
+<small data-tooltip='0%'><b>0</b> tests failed,
+<b>0</b> skipped, <b data-tooltip='0%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Log events</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='events-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='38%'><b>10</b> events passed</small></div>
+<div>
+<small data-tooltip='0%'><b>0</b> events failed,
+<b data-tooltip='%'>16</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><div class="col-md-12">
+<div class="card"><div class="card-header"><p>Timeline</p></div>
+<div class="card-body pt-0"><div>
+<canvas id="timeline" height="120"></canvas>
+</div></div>
+</div>
+</div></div>
+<script>
+var timeline = {
+"User can search for a product":39.079,"User can subscribe with email successfully":14.531,"Verify user can subscribe via the cart page":30.161
+};
+</script>
+<div class="row">
+<div class="col-lg-6 col-md-12 sysenv-container">
+<div class="card">
+<div class="card-header"><p>System/Environment</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Value</th></tr></thead>
+<tbody>
+<tr>
+<td>OS</td>
+<td>Windows 11</td>
+</tr>
+<tr>
+<td>Browser</td>
+<td>Chrome</td>
+</tr>
+<tr>
+<td>QA</td>
+<td>Olaf</td>
+</tr>
+<tr>
+<td>Environment</td>
+<td>Staging</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+var statusGroup = {
+parentCount: 5,
+passParent: 3,
+failParent: 0,
+warningParent: 0,
+skipParent: 0,
+childCount: 5,
+passChild: 0,
+failChild: 0,
+warningChild: 0,
+skipChild: 0,
+infoChild: 0,
+grandChildCount: 5,
+passGrandChild: 0,
+failGrandChild: 0,
+warningGrandChild: 0,
+skipGrandChild: 0,
+infoGrandChild: 0,
+eventsCount: 5,
+passEvents: 10,
+failEvents: 0,
+warningEvents: 0,
+skipEvents: 0,
+infoEvents: 16
+};
+</script>        </div>
+      </div>
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@d6562a79075e061305ccfdb82f01e5e195e2d307/spark/js/spark-script.js"></script>
+<script type="text/javascript"></script></body>
 </html>
