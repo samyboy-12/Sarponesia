@@ -1,157 +1,230 @@
-const search = document.querySelector('.search')
-const btn = document.querySelector('.btn')
-const input = document.querySelector('.input')
+const MainApp = (function () {
+    // Cache DOM elements
+    const elements = {
+        search: document.querySelector('.search'),
+        searchBtn: document.querySelector('.btn'),
+        searchInput: document.querySelector('.input'),
+        nav: document.querySelector('nav'),
+        contents: document.querySelectorAll('.content'),
+        menuIcon: document.getElementById('menu-icon'),
+        dropdown: document.querySelector('.dropdown'),
+        headerRight: document.getElementById('header-right'),
+        tabs: document.querySelectorAll('.tab')
+    };
 
-btn.addEventListener('click', () => {
-    search.classList.toggle('active')
-    input.focus()
-})
-
-const nav = document.querySelector('nav');
-window.addEventListener('scroll', fixNav);
-
-function fixNav() {
-    if (window.scrollY > nav.offsetHeight + 100) {
-        nav.classList.add('active');
-    } else {
-        nav.classList.remove('active');
+    // Debounce utility for scroll events
+    function debounce(func, wait) {
+        let timeout;
+        return function (...args) {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(this, args), wait);
+        };
     }
-}
 
-const contents = document.querySelectorAll('.content')
-
-window.addEventListener('scroll', checkContents)
-
-checkContents()
-
-function checkContents() {
-    const triggerBottom = window.innerHeight / 5 * 4
-
-    contents.forEach(content => {
-        const contentTop = content.getBoundingClientRect().top
-
-        if (contentTop < triggerBottom) {
-            content.classList.add('show')
-        } else {
-            content.classList.remove('show')
+    // Initialize search functionality
+    function initSearch() {
+        if (!elements.search || !elements.searchBtn || !elements.searchInput) {
+            console.warn('Search elements not found');
+            return;
         }
-    })
-}
 
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth' // Membuat scroll menjadi halus
-    });
-}
-
-
-
-
-$(function () {
-    $('.tab').each(function () {
-        var $active, $content, $links = $(this).find('a');
-
-        $active = $($links.filter('[href="' + location.hash + '"]')[0] || $links[0]);
-        $active.addClass('active');
-
-        $content = $($active[0].hash);
-
-        $links.not($active).each(function () {
-            $(this.hash).hide();
+        elements.searchBtn.addEventListener('click', () => {
+            elements.search.classList.toggle('active');
+            elements.searchInput.focus();
         });
-
-        $(this).on('click', 'a', function (e) {
-            $active.removeClass('active');
-            $content.hide();
-
-            $active = $(this);
-            $content = $(this.hash);
-
-            $active.addClass('active');
-            $content.show();
-
-            e.preventDefault();
-        });
-    });
-});
-
-
-function toggleMenu() {
-    const menuIcon = document.getElementById('menu-icon');
-    const dropdown = document.querySelector('.dropdown');
-
-    // Toggle the 'menu-open' class for the hamburger icon
-    menuIcon.classList.toggle('menu-open');
-
-    // Toggle the 'active' class for the dropdown
-    if (dropdown.style.display === 'none' || dropdown.style.display === '') {
-        dropdown.style.display = 'block'; // Tampilkan elemen
-    } else {
-        dropdown.style.display = 'none'; // Sembunyikan elemen
     }
-}
 
-function updateHeader() {
-            const token = localStorage.getItem('token');
-            const $headerRight = $('#header-right');
+    // Initialize fixed navigation
+    function initFixedNav() {
+        if (!elements.nav) {
+            console.warn('Navigation element not found');
+            return;
+        }
 
-            if (!token) {
-                // Guest user
-                $headerRight.html('<a class="login-btn" href="/login">Login</a>');
-                return;
+        const fixNav = () => {
+            const threshold = elements.nav.offsetHeight + 100;
+            elements.nav.classList.toggle('active', window.scrollY > threshold);
+        };
+
+        window.addEventListener('scroll', debounce(fixNav, 10));
+    }
+
+    // Initialize content visibility on scroll
+    function initContentVisibility() {
+        if (!elements.contents.length) {
+            console.warn('No content elements found');
+            return;
+        }
+
+        const checkContents = () => {
+            const triggerBottom = window.innerHeight * 0.8; // 80% of viewport height
+
+            elements.contents.forEach(content => {
+                const contentTop = content.getBoundingClientRect().top;
+                content.classList.toggle('show', contentTop < triggerBottom);
+            });
+        };
+
+        window.addEventListener('scroll', debounce(checkContents, 10));
+        checkContents(); // Initial check
+    }
+
+    // Smooth scroll to top
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+    // Initialize tab functionality
+    function initTabs() {
+        if (!elements.tabs.length) {
+            console.warn('No tab elements found');
+            return;
+        }
+
+        elements.tabs.forEach(tab => {
+            const links = tab.querySelectorAll('a');
+            if (!links.length) return;
+
+            let activeLink = links[0];
+            let activeContent = document.querySelector(links[0].hash);
+
+            // Set initial active tab
+            const hashLink = links.find(link => link.hash === location.hash);
+            if (hashLink) {
+                activeLink = hashLink;
+                activeContent = document.querySelector(hashLink.hash);
             }
 
-            // Fetch user details from /api/me
-            $.ajax({
-                url: '/api/me',
-                method: 'GET',
+            activeLink.classList.add('active');
+            if (activeContent) activeContent.style.display = 'block';
+
+            // Hide other contents
+            links.forEach(link => {
+                if (link !== activeLink) {
+                    const content = document.querySelector(link.hash);
+                    if (content) content.style.display = 'none';
+                }
+            });
+
+            // Handle tab clicks
+            tab.addEventListener('click', e => {
+                const link = e.target.closest('a');
+                if (!link) return;
+
+                e.preventDefault();
+                activeLink.classList.remove('active');
+                if (activeContent) activeContent.style.display = 'none';
+
+                activeLink = link;
+                activeContent = document.querySelector(link.hash);
+
+                activeLink.classList.add('active');
+                if (activeContent) activeContent.style.display = 'block';
+            });
+        });
+    }
+
+    // Initialize mobile menu toggle
+    function initMobileMenu() {
+        if (!elements.menuIcon || !elements.dropdown) {
+            console.warn('Menu icon or dropdown not found');
+            return;
+        }
+
+        elements.menuIcon.addEventListener('click', () => {
+            elements.menuIcon.classList.toggle('menu-open');
+            elements.dropdown.style.display = elements.dropdown.style.display === 'block' ? 'none' : 'block';
+        });
+    }
+
+    // Authentication handling
+    function updateHeader() {
+        const token = localStorage.getItem('token');
+        const headerRight = elements.headerRight;
+
+        if (!headerRight) {
+            console.warn('Header right element not found');
+            return;
+        }
+
+        if (!token) {
+            headerRight.innerHTML = '<a class="login-btn" href="/login">Login</a>';
+            return;
+        }
+
+        // Fetch CSRF cookie for Sanctum
+        axios.get('/sanctum/csrf-cookie').then(() => {
+            axios.get('/api/me', {
                 headers: {
-                    'Authorization': 'Bearer ' + token,
+                    'Authorization': `Bearer ${token}`,
                     'Accept': 'application/json'
-                },
-                success: function(data) {
-                    const user = data.user;
+                }
+            }).then(response => {
+                if (response.data.status === 'success') {
+                    const user = response.data.data;
                     let headerContent = '';
                     if (user.role === 'admin') {
                         headerContent += `<a class="login-btn" href="/manajemen-produk">Manage</a>`;
                     }
-                    headerContent += `<button class="login-btn" onclick="logout()">Logout</button>`;
-                    $headerRight.html(headerContent);
-                },
-                error: function() {
-                    // Invalid or expired token, treat as guest
-                    localStorage.removeItem('token');
-                    $headerRight.html('<a class="login-btn" href="/login">Login</a>');
+                    headerContent += `<button class="login-btn" onclick="MainApp.logout()">Logout</button>`;
+                    headerRight.innerHTML = headerContent;
                 }
+            }).catch(error => {
+                console.error('Error fetching user:', error.response);
+                localStorage.removeItem('token');
+                headerRight.innerHTML = '<a class="login-btn" href="/login">Login</a>';
             });
-        }
-
-        function logout() {
-            const token = localStorage.getItem('token');
-            if (!token) {
-                window.location.href = '/login';
-                return;
-            }
-
-            $.ajax({
-                url: '/api/logout',
-                method: 'POST',
-                headers: {
-                    'Authorization': 'Bearer ' + token,
-                    'Accept': 'application/json'
-                },
-                success: function() {
-                    localStorage.removeItem('token');
-                    window.location.href = '/login';
-                },
-                error: function(jqXHR) {
-                    alert(jqXHR.responseJSON?.error || 'Failed to logout. Please try again.');
-                }
-            });
-        }
-
-        // Run on page load
-        $(document).ready(function() {
-            updateHeader();
+        }).catch(error => {
+            console.error('Error fetching CSRF cookie:', error);
         });
+    }
+
+    function logout() {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        window.location.href = '/home';
+        return;
+    }
+
+    axios.get('/sanctum/csrf-cookie').then(() => {
+        axios.post('/api/logout', {}, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Accept': 'application/json'
+            }
+        }).then(() => {
+            localStorage.removeItem('token');
+            window.location.href = '/home'; // ⬅️ UBAH DI SINI
+        }).catch(error => {
+            console.error('Logout error:', error.response);
+            alert(error.response?.data?.message || 'Failed to logout. Please try again.');
+        });
+    }).catch(error => {
+        console.error('Error fetching CSRF cookie:', error);
+        alert('Error initializing logout. Please try again.');
+    });
+}
+
+    // Initialize all features
+    function init() {
+        initSearch();
+        initFixedNav();
+        initContentVisibility();
+        initTabs();
+        initMobileMenu();
+        updateHeader();
+    }
+
+    // Expose public methods
+    return {
+        init,
+        scrollToTop,
+        logout
+    };
+})();
+
+// Run initialization
+document.addEventListener('DOMContentLoaded', MainApp.init);

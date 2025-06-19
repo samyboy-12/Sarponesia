@@ -1,13 +1,20 @@
-<link rel="stylesheet" type="text/css" href="{{ asset('css/LoginPageUser.css') }}" />
-
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sarponesia</title>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/LoginPageUser.css') }}" />
+</head>
 <body class="flex-column">
     <section class="login-page-user welcomeSection">
         <div class="flexRow">
             <div class="flexColumn">
-                <h1 class="heroTitle">Selamat Datang Kembali !</h1>
+                <h1 class="heroTitle">Selamat Datang Kembali!</h1>
                 <h2 class="accountInfoInstruction">Isikan informasi akun anda dengan benar untuk dapat mengakses akun di Sarponesia</h2>
                 <div>
                     <form id="loginForm">
+                        @csrf
                         <input type="email" id="email" name="email" placeholder="Email" required>
                         <input type="password" id="password" name="password" placeholder="Kata Sandi" required>
                         <input type="submit" id="login" name="login" value="Login">
@@ -24,17 +31,18 @@
                     </span>
                 </h2>
             </div>
-            <img class="welcomeImage" src="/assets/c1ae8a2aea691a6114fc609fb781c377.png" alt="alt text" />
+            <img class="welcomeImage" src="{{ asset('assets/c1ae8a2aea691a6114fc609fb781c377.png') }}" alt="Welcome Image" />
         </div>
     </section>
 
     <script>
         document.getElementById('loginForm').addEventListener('submit', async function (event) {
-            event.preventDefault(); // Prevent default form submission
+            event.preventDefault();
 
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             const errorMessageDiv = document.getElementById('errorMessage');
+            const csrfToken = document.querySelector('input[name="_token"]').value;
 
             try {
                 const response = await fetch('/api/login', {
@@ -42,6 +50,7 @@
                     headers: {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json',
+                        'X-CSRF-TOKEN': csrfToken,
                     },
                     body: JSON.stringify({ email, password }),
                 });
@@ -49,20 +58,17 @@
                 const data = await response.json();
 
                 if (response.ok) {
-                    // Store the JWT token (e.g., in localStorage or sessionStorage)
-                    localStorage.setItem('token', data.token);
-                    // Redirect to a dashboard or home page
-                    window.location.href = '/home'; // Adjust the redirect URL as needed
+                    localStorage.setItem('token', data.data.token);
+                    window.location.href = '/home';
                 } else {
-                    // Display error message
-                    errorMessageDiv.textContent = data.error || 'An error occurred. Please try again.';
+                    errorMessageDiv.textContent = data.message || 'An error occurred. Please try again.';
                     errorMessageDiv.style.display = 'block';
                 }
             } catch (error) {
-                // Handle network or other errors
-                errorMessageDiv.textContent = 'An error occurred. Please try again.';
+                errorMessageDiv.textContent = 'Network error. Please try again later.';
                 errorMessageDiv.style.display = 'block';
             }
         });
     </script>
 </body>
+</html>

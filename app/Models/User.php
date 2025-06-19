@@ -6,11 +6,11 @@ use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Tymon\JWTAuth\Contracts\JWTSubject;
+use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable implements CanResetPassword, JWTSubject
+class User extends Authenticatable implements CanResetPassword
 {
-    use HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * Primary key yang digunakan.
@@ -68,22 +68,5 @@ class User extends Authenticatable implements CanResetPassword, JWTSubject
     {
         return $this->role === 'admin';
     }
-
-    /**
-     * Get the identifier that will be stored in the JWT subject claim.
-     */
-    public function getJWTIdentifier()
-    {
-        return $this->getKey(); // Returns User_ID
-    }
-
-    /**
-     * Return a key-value array, containing any custom claims to be added to the JWT.
-     */
-    public function getJWTCustomClaims()
-    {
-        return [
-            'role' => $this->role, // Optionally include role in the JWT payload
-        ];
-    }
 }
+?>
